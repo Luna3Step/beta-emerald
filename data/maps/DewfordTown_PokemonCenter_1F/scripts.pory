@@ -1,0 +1,132 @@
+raw`
+.set LOCALID_NURSE, 1
+
+DewfordTown_PokemonCenter_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, DewfordTown_PokemonCenter_1F_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
+	.byte 0
+
+DewfordTown_PokemonCenter_1F_OnTransition:
+	setrespawn HEAL_LOCATION_DEWFORD_TOWN
+	call Common_EventScript_UpdateBrineyLocation
+	end
+
+DewfordTown_PokemonCenter_1F_EventScript_Nurse::
+	setvar VAR_0x800B, LOCALID_NURSE
+	call Common_EventScript_PkmnCenterNurse
+	waitmessage
+	waitbuttonpress
+	release
+	end
+
+DewfordTown_PokemonCenter_1F_EventScript_PokefanF::
+	msgbox DewfordTown_PokemonCenter_1F_Text_StoneCavern, MSGBOX_NPC
+	end
+
+DewfordTown_PokemonCenter_1F_EventScript_Man::
+	msgbox DewfordTown_PokemonCenter_1F_Text_FaintedMonCanUseHM, MSGBOX_NPC
+	end
+
+DewfordTown_PokemonCenter_1F_Text_StoneCavern:
+	.string "There's a stone cavern at the edge\n"
+	.string "of town.\p"
+	.string "I've heard you can find rare stones\n"
+	.string "there.$"
+
+DewfordTown_PokemonCenter_1F_Text_FaintedMonCanUseHM:
+	.string "Even if a POKéMON faints and can't\n"
+	.string "battle, it can still use a move learned\l"
+	.string "from a HIDDEN MACHINE (HM).$"
+
+`
+
+script DewfordTown_PokemonCenter_1F_EventScript_Starters {
+    lockall
+    faceplayer
+    if(flag(FLAG_BADGE02_GET)){
+        if(flag(FLAG_RECIEVED_GEN2)){
+            lockall
+            msgbox(format("Are the young one's handling themselves well?"))
+            waitmessage
+            releaseall
+        }
+        else{
+            msgbox(format("Mhmm, you look like a good trainer. Would you like to fight?"), MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES){
+                trainerbattle_single(TRAINER_DEWFORD_POKECENTER, GymStarter_Gen2Text_Start, GymStarter_Gen2Text_Finish, GymStarter_Gen2BattleOver)
+            }
+            else{
+                msgbox(format("Come see me if you want to see what a real trainer battle look's like."))
+                waitmessage
+                releaseall
+                end
+            }
+        }
+    }
+    else{
+        lockall
+        msgbox(format("That little lad seem's to have grown up, he used to spend his days surfing and now he's the gym leader of this ol' town."))
+        waitmessage
+        releaseall
+    }
+}
+
+text GymStarter_Gen2Text_Start{
+    format("Good choice, I'll show you the power of this old man!")
+}
+
+text GymStarter_Gen2Text_Finish{
+    format("Marvelous.")
+}
+
+script GymStarter_Gen2BattleOver {
+    lockall
+    msgbox(format("Truly a sight to behold, your pokemon are well trained and yourself well disciplined. Please, take these young ones off my hands, they are in need of good training but I don't have it in me to do it anymore."))
+    givemon(SPECIES_CYNDAQUIL, 15, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("You recieved a Cyndaquil!")
+            setflag(FLAG_RECIEVED_GEN2)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            setflag(FLAG_RECIEVED_GEN2)
+            call(NicknameBoxMon)
+        }
+        else{
+            msgbox("There was no room")
+        }
+    givemon(SPECIES_TOTODILE, 15, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("You recieved a Totodile!")
+            setflag(FLAG_RECIEVED_GEN2)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            setflag(FLAG_RECIEVED_GEN2)
+            call(NicknameBoxMon)
+        }
+        else{
+            msgbox("There was no room")
+        }
+    givemon(SPECIES_CHIKORITA, 15, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("You recieved a Chikorita!")
+            setflag(FLAG_RECIEVED_GEN2)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            setflag(FLAG_RECIEVED_GEN2)
+            call(NicknameBoxMon)
+        }
+        else{
+            msgbox("There was no room")
+        }
+    msgbox(format("I hope you treat them well."))
+    releaseall
+}

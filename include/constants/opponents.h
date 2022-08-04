@@ -852,16 +852,21 @@
 #define TRAINER_MARIELA                     848
 #define TRAINER_ALVARO                      849
 #define TRAINER_EVERETT                     850
-#define TRAINER_RED                         851
-#define TRAINER_LEAF                        852
-#define TRAINER_BRENDAN_PLACEHOLDER         853
-#define TRAINER_MAY_PLACEHOLDER             854
+#define TRAINER_MAUVILLE_POKECENTERF        851
+#define TRAINER_MAUVILLE_POKECENTERM        852
+#define TRAINER_DEWFORD_POKECENTER          853
+#define TRAINER_RUSTBORO_POKECENTER         854
+#define TRAINER_LAVARIDGE_POKECENTER        855
+#define TRAINER_PETALBURG_POKECENTER        856
+#define TRAINER_FORTREE_POKECENTER          857
+#define TRAINER_MOSSDEEP_POKECENTER         858
+#define TRAINER_SOOTOPOLIS_POKECENTER       859
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      855
+#define TRAINERS_COUNT                      860
 #define MAX_TRAINERS_COUNT                  864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

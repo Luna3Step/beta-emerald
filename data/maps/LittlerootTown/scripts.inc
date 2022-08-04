@@ -51,6 +51,7 @@ LittlerootTown_OnTransition:
 	call_if_eq VAR_LITTLEROOT_RIVAL_STATE, 3, LittlerootTown_EventScript_SetRivalLeftForRoute103
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_HideMapNamePopup
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_EventScript_LeftLabAfterDexUpgrade
+	call_if_unset FLAG_RIVAL_BATTLE_LITTLEROOT, LittlerootTown_EventScript_SetupRivalBattle
 	end
 
 LittlerootTown_EventScript_LeftLabAfterDexUpgrade::
@@ -1019,3 +1020,185 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
 
+LittlerootTown_EventScript_NewSign::
+	lockall
+	msgbox LittlerootTown_EventScript_NewSign_Text_0
+	releaseall
+	return
+
+
+LittlerootTown_Trigger_BlockPath::
+	lockall
+	msgbox LittlerootTown_Trigger_BlockPath_Text_0
+	applymovement OBJ_EVENT_ID_PLAYER, StopPlayer
+	waitmovement 0
+	releaseall
+	return
+
+
+LittlerootTown_EventScript_SetupRivalBattle::
+	goto_if_unset FLAG_WATER_STARTER, LittlerootTown_EventScript_SetupRivalBattle_3
+LittlerootTown_EventScript_SetupRivalBattle_2:
+	compare VAR_LITTLEROOT_STATE, 0
+	goto_if_eq LittlerootTown_EventScript_SetupRivalBattle_8
+	return
+
+LittlerootTown_EventScript_SetupRivalBattle_1:
+	setflag FLAG_RIVAL_BATTLE_LITTLEROOT
+	setvar VAR_LITTLEROOT_STATE, 0
+	return
+
+LittlerootTown_EventScript_SetupRivalBattle_3:
+	goto_if_unset FLAG_GRASS_STARTER, LittlerootTown_EventScript_SetupRivalBattle_5
+	goto LittlerootTown_EventScript_SetupRivalBattle_2
+
+LittlerootTown_EventScript_SetupRivalBattle_5:
+	goto_if_unset FLAG_FIRE_STARTER, LittlerootTown_EventScript_SetupRivalBattle_1
+	goto LittlerootTown_EventScript_SetupRivalBattle_2
+
+LittlerootTown_EventScript_SetupRivalBattle_8:
+	clearflag FLAG_RIVAL_BATTLE_LITTLEROOT
+	return
+
+
+LittlerootTown_EventScript_RivalBattle::
+	lockall
+	msgbox LittlerootTown_EventScript_RivalBattle_Text_0
+	setflag FLAG_RIVAL_BATTLE_LITTLEROOT
+	setvar VAR_LITTLEROOT_STATE, 1
+	call LittlerootTown_EventScript_RivalBattleStart
+	return
+
+
+LittlerootTown_EventScript_RivalBattleStart::
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq LittlerootTown_EventScript_RivalBattleStart_1
+	call LittleRoot_EventScript_Brendan
+	return
+
+LittlerootTown_EventScript_RivalBattleStart_1:
+	call LittleRoot_EventScript_May
+	return
+
+
+LittleRoot_EventScript_May::
+	switch VAR_STARTER_MON
+	case 1, LittleRoot_EventScript_May_2
+	case 2, LittleRoot_EventScript_May_3
+	case 0, LittleRoot_EventScript_May_4
+	return
+
+LittleRoot_EventScript_May_2:
+	call LittleRoot_EventScript_MayGrass
+	return
+
+LittleRoot_EventScript_May_3:
+	call LittleRoot_EventScript_MayFire
+	return
+
+LittleRoot_EventScript_May_4:
+	call LittleRoot_EventScript_MayWater
+	return
+
+
+LittleRoot_EventScript_Brendan::
+	switch VAR_STARTER_MON
+	case 1, LittleRoot_EventScript_Brendan_2
+	case 2, LittleRoot_EventScript_Brendan_3
+	case 0, LittleRoot_EventScript_Brendan_4
+	call LittleRoot_EventScript_BrendanGrass
+	return
+
+LittleRoot_EventScript_Brendan_2:
+	call LittleRoot_EventScript_BrendanGrass
+	return
+
+LittleRoot_EventScript_Brendan_3:
+	call LittleRoot_EventScript_BrendanFire
+	return
+
+LittleRoot_EventScript_Brendan_4:
+	call LittleRoot_EventScript_BrendanWater
+	return
+
+
+LittleRoot_EventScript_MayGrass::
+	trainerbattle_single TRAINER_MAY_ROUTE_103_TORCHIC, Rival_Intro, Rival_Outro, RivalBattleOver
+	end
+
+
+LittleRoot_EventScript_MayWater::
+	trainerbattle_single TRAINER_MAY_ROUTE_103_TREECKO, Rival_Intro, Rival_Outro, RivalBattleOver
+	end
+
+
+LittleRoot_EventScript_MayFire::
+	trainerbattle_single TRAINER_MAY_ROUTE_103_MUDKIP, Rival_Intro, Rival_Outro, RivalBattleOver
+	end
+
+
+LittleRoot_EventScript_BrendanGrass::
+	trainerbattle_single TRAINER_BRENDAN_ROUTE_103_TORCHIC, Rival_Intro, Rival_Outro, RivalBattleOver
+	end
+
+
+LittleRoot_EventScript_BrendanWater::
+	trainerbattle_single TRAINER_BRENDAN_ROUTE_103_TREECKO, Rival_Intro, Rival_Outro, RivalBattleOver
+	end
+
+
+LittleRoot_EventScript_BrendanFire::
+	trainerbattle_single TRAINER_BRENDAN_ROUTE_103_MUDKIP, Rival_Intro, Rival_Outro, RivalBattleOver
+	end
+
+
+RivalBattleOver::
+	lockall
+	applymovement 9, RivalLeave
+	waitmovement 0
+	removeobject 9
+	setvar VAR_LITTLEROOT_STATE, 1
+	setflag FLAG_ADVENTURE_STARTED
+	releaseall
+	return
+
+
+RivalLeave:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+RivalBattleStart:
+	walk_up
+	step_end
+
+StopPlayer:
+	walk_down
+	step_end
+
+LittlerootTown_EventScript_NewSign_Text_0:
+	.string "DO NOT ENTER. THIS BUILDING HAS BEEN\n"
+	.string "CONDEMNED$"
+
+LittlerootTown_Trigger_BlockPath_Text_0:
+	.string "You should see Birch first$"
+
+LittlerootTown_EventScript_RivalBattle_Text_0:
+	.string "Hi, I see my dad gave you a pokemon, let\n"
+	.string "me see!$"
+
+Rival_Intro::
+	.string "Great choice!$"
+
+Rival_Outro::
+	.string "We should do this again sometime$"
+
+PostBattle_Rival::
+	.string "I'll win next time$"

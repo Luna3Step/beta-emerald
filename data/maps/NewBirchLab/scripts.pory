@@ -1,0 +1,1081 @@
+mapscripts NewBirchLab_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: NewBirchLab_EventScript_BallDefault
+}
+
+script NewBirchLab_EventScript_Pokeball{
+    lockall
+    showmonpic(SPECIES_EEVEE, 10,3)
+    msgbox(format("You found an Eevee. Do you wish to take it?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_EEVEE, 5, ITEM_PREMIER_BALL)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("You found an Eevee!")
+            removeobject(1)
+            setflag(FLAG_EEVEE_LAB)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("You found an Eevee!")
+            removeobject(1)
+            setflag(FLAG_EEVEE_LAB)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("There was no room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox("You did not take the eevee")
+    }
+    waitmessage
+    releaseall
+    end
+}
+
+script NicknamePartyMon{
+
+    msgbox("Give it a nickname?", MSGBOX_YESNO)
+    hidemonpic
+    if(var(VAR_RESULT) == YES){
+        call(Common_EventScript_GetGiftMonPartySlot)
+        call(Common_EventScript_NameReceivedPartyMon)
+    }
+
+    
+}
+
+script NicknameBoxMon {
+
+    msgbox("Give it a nickname?", MSGBOX_YESNO)
+    hidemonpic
+    if(var(VAR_RESULT) == YES){
+        call(Common_EventScript_NameReceivedBoxMon)
+    }
+    call(Common_EventScript_TransferredToPC)
+    msgbox("Transferred to PC")
+    
+}
+
+
+script NewBirchLab_EventScript_BallDefault{
+    setvar(VAR_STARTER_GEN, 2)
+}
+
+script NewBirchLab_EventScript_Birch{
+    if(!(flag(FLAG_WATER_STARTER) || flag(FLAG_GRASS_STARTER) || flag(FLAG_FIRE_STARTER))){
+        lock
+        faceplayer
+        message("Would you like to see more?")
+        scrollingmultichoice(0, 25, 5, 3, 0)
+        closemessage
+        if (var(VAR_RESULT) == 0){
+            call(StarterFade)
+            setvar(VAR_STARTER_GEN, 0)
+        }
+        elif (var(VAR_RESULT) == 1){
+            call(StarterFade)
+            setvar(VAR_STARTER_GEN, 1)
+        }
+        elif (var(VAR_RESULT) == 2){
+            call(StarterFade)
+            setvar(VAR_STARTER_GEN, 2)
+        }
+        elif (var(VAR_RESULT) == 3){
+            call(StarterFade)
+            setvar(VAR_STARTER_GEN, 3)
+        }
+        elif (var(VAR_RESULT) == 4){
+            call(StarterFade)
+            setvar(VAR_STARTER_GEN, 4)
+        }
+        elif (var(VAR_RESULT) == 5){
+            call(StarterFade)
+            setvar(VAR_STARTER_GEN, 5)
+        }
+        elif (var(VAR_RESULT) == 6){
+            call(StarterFade)
+            setvar(VAR_STARTER_GEN, 6)
+        }
+        elif (var(VAR_RESULT) == 7){
+            call(StarterFade)
+            setvar(VAR_STARTER_GEN, 7)
+        }
+        msgbox("Choose wisely.")
+        waitmessage
+        release
+    }
+    else{
+        msgbox("Take care of your Pokemon", MSGBOX_NPC)
+    }
+    end
+}
+
+script StarterFade{
+    fadescreen(FADE_TO_BLACK)
+    delay(20)
+    fadescreen(FADE_FROM_BLACK)
+    return
+}
+
+script NewBirchLab_EventScript_PokeballOne{
+    lockall
+    if(!(flag(FLAG_WATER_STARTER) || flag(FLAG_GRASS_STARTER) || flag(FLAG_FIRE_STARTER))){
+        if(var(VAR_STARTER_GEN) == 0){
+            call(NewBirchLab_EventScript_Squirtle)
+        }
+        elif(var(VAR_STARTER_GEN) == 1){
+            call(NewBirchLab_EventScript_Totodile)
+        }
+        elif(var(VAR_STARTER_GEN) == 2){
+            call(NewBirchLab_EventScript_Mudkip)
+        }
+        elif(var(VAR_STARTER_GEN) == 3){
+            call(NewBirchLab_EventScript_Piplup)
+        }
+        elif(var(VAR_STARTER_GEN) == 4){
+            call(NewBirchLab_EventScript_Oshawott)
+        }
+        elif(var(VAR_STARTER_GEN) == 5){
+            call(NewBirchLab_EventScript_Froakie)
+        }
+        elif(var(VAR_STARTER_GEN) == 6){
+            call(NewBirchLab_EventScript_Popplio)
+        }
+        elif(var(VAR_STARTER_GEN) == 7){
+            call(NewBirchLab_EventScript_Sobble)
+        }
+    }
+    else{
+        msgbox("Don't Take Another")
+    }
+    setflag(FLAG_SYS_POKEMON_GET)
+    clearflag(FLAG_RIVAL_BATTLE_LITTLEROOT)
+    waitmessage
+    releaseall
+    end
+}
+
+script NewBirchLab_EventScript_PokeballTwo{
+    lockall
+    if(!(flag(FLAG_WATER_STARTER) || flag(FLAG_GRASS_STARTER) || flag(FLAG_FIRE_STARTER))){
+        if(var(VAR_STARTER_GEN) == 0){
+            call(NewBirchLab_EventScript_Bulbasaur)
+        }
+        elif(var(VAR_STARTER_GEN) == 1){
+            call(NewBirchLab_EventScript_Chikorita)
+        }
+        elif(var(VAR_STARTER_GEN) == 2){
+            call(NewBirchLab_EventScript_Treecko)
+        }
+        elif(var(VAR_STARTER_GEN) == 3){
+            call(NewBirchLab_EventScript_Turtwig)
+        }
+        elif(var(VAR_STARTER_GEN) == 4){
+            call(NewBirchLab_EventScript_Snivy)
+        }
+        elif(var(VAR_STARTER_GEN) == 5){
+            call(NewBirchLab_EventScript_Chespin)
+        }
+        elif(var(VAR_STARTER_GEN) == 6){
+            call(NewBirchLab_EventScript_Rowlet)
+        }
+        elif(var(VAR_STARTER_GEN) == 7){
+            call(NewBirchLab_EventScript_Grookey)
+        }
+    }
+    else{
+        msgbox("Don't Take Another")
+    }
+    setflag(FLAG_SYS_POKEMON_GET)
+    clearflag(FLAG_RIVAL_BATTLE_LITTLEROOT)
+    waitmessage
+    releaseall
+    end
+}
+
+script NewBirchLab_EventScript_PokeballThree{
+    lockall
+    if(!(flag(FLAG_WATER_STARTER) || flag(FLAG_GRASS_STARTER) || flag(FLAG_FIRE_STARTER))){
+        if(var(VAR_STARTER_GEN) == 0){
+            call(NewBirchLab_EventScript_Charmander)
+        }
+        elif(var(VAR_STARTER_GEN) == 1){
+            call(NewBirchLab_EventScript_Cyndaquil)
+        }
+        elif(var(VAR_STARTER_GEN) == 2){
+            call(NewBirchLab_EventScript_Torchic)
+        }
+        elif(var(VAR_STARTER_GEN) == 3){
+            call(NewBirchLab_EventScript_Chimchar)
+        }
+        elif(var(VAR_STARTER_GEN) == 4){
+            call(NewBirchLab_EventScript_Tepig)
+        }
+        elif(var(VAR_STARTER_GEN) == 5){
+            call(NewBirchLab_EventScript_Fennekin)
+        }
+        elif(var(VAR_STARTER_GEN) == 6){
+            call(NewBirchLab_EventScript_Litten)
+        }
+        elif(var(VAR_STARTER_GEN) == 7){
+            call(NewBirchLab_EventScript_Scorbunny)
+        }
+    }
+    else{
+        msgbox("Don't Take Another")
+    }
+    setflag(FLAG_SYS_POKEMON_GET)
+    clearflag(FLAG_RIVAL_BATTLE_LITTLEROOT)
+    waitmessage
+    releaseall
+    end
+}
+
+
+script NewBirchLab_EventScript_Mudkip{
+    showmonpic(SPECIES_MUDKIP, 10,3)
+    msgbox("Do you want to choose Mudkip?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_MUDKIP, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Mudkip")
+            removeobject(2)
+            setflag(FLAG_WATER_STARTER)
+            setvar(VAR_STARTER_MON, 2)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Mudkip")
+            removeobject(2)
+            setflag(FLAG_WATER_STARTER)
+            setvar(VAR_STARTER_MON, 2)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+script NewBirchLab_EventScript_Totodile{
+    showmonpic(SPECIES_TOTODILE, 10,3)
+    msgbox("Do you want to choose Totodile?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_TOTODILE, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Totodile")
+            removeobject(2)
+            setflag(FLAG_WATER_STARTER)
+            setvar(VAR_STARTER_MON, 2)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Totodile")
+            removeobject(2)
+            setflag(FLAG_WATER_STARTER)
+            setvar(VAR_STARTER_MON, 2)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+script NewBirchLab_EventScript_Squirtle{
+    showmonpic(SPECIES_SQUIRTLE, 10,3)
+    msgbox("Do you want to choose Squirtle?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_SQUIRTLE, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Squirtle")
+            removeobject(2)
+            setflag(FLAG_WATER_STARTER)
+            setvar(VAR_STARTER_MON, 2)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Squirtle")
+            removeobject(2)
+            setflag(FLAG_WATER_STARTER)
+            setvar(VAR_STARTER_MON, 2)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+script NewBirchLab_EventScript_Piplup{
+    showmonpic(SPECIES_PIPLUP, 10,3)
+    msgbox("Do you want to choose Piplup?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_PIPLUP, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Piplup")
+            removeobject(2)
+            setflag(FLAG_WATER_STARTER)
+            setvar(VAR_STARTER_MON, 2)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Piplup")
+            removeobject(2)
+            setflag(FLAG_WATER_STARTER)
+            setvar(VAR_STARTER_MON, 2)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+script NewBirchLab_EventScript_Oshawott{
+    showmonpic(SPECIES_OSHAWOTT, 10,3)
+    msgbox("Do you want to choose Oshawott?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_OSHAWOTT, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Oshawott")
+            removeobject(2)
+            setflag(FLAG_WATER_STARTER)
+            setvar(VAR_STARTER_MON, 2)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Oshawott")
+            removeobject(2)
+            setflag(FLAG_WATER_STARTER)
+            setvar(VAR_STARTER_MON, 2)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+script NewBirchLab_EventScript_Froakie{
+    showmonpic(SPECIES_FROAKIE, 10,3)
+    msgbox("Do you want to choose Froakie?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_FROAKIE, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Froakie")
+            removeobject(2)
+            setflag(FLAG_WATER_STARTER)
+            setvar(VAR_STARTER_MON, 2)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Froakie")
+            removeobject(2)
+            setflag(FLAG_WATER_STARTER)
+            setvar(VAR_STARTER_MON, 2)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+script NewBirchLab_EventScript_Popplio{
+    showmonpic(SPECIES_POPPLIO, 10,3)
+    msgbox("Do you want to choose Popplio?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_POPPLIO, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Popplio")
+            removeobject(2)
+            setflag(FLAG_WATER_STARTER)
+            setvar(VAR_STARTER_MON, 2)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Popplio")
+            removeobject(2)
+            setflag(FLAG_WATER_STARTER)
+            setvar(VAR_STARTER_MON, 2)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+script NewBirchLab_EventScript_Sobble{
+    showmonpic(SPECIES_SOBBLE, 10,3)
+    msgbox("Do you want to choose Sobble?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_SOBBLE, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Sobble")
+            removeobject(2)
+            setflag(FLAG_WATER_STARTER)
+            setvar(VAR_STARTER_MON, 2)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Sobble")
+            removeobject(2)
+            setflag(FLAG_WATER_STARTER)
+            setvar(VAR_STARTER_MON, 2)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+script NewBirchLab_EventScript_Treecko{
+    showmonpic(SPECIES_TREECKO, 10,3)
+    msgbox("Do you want to choose Treecko?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_TREECKO, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Treecko")
+            removeobject(3)
+            setflag(FLAG_GRASS_STARTER)
+            setvar(VAR_STARTER_MON, 0)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Treecko")
+            removeobject(3)
+            setflag(FLAG_GRASS_STARTER)
+            setvar(VAR_STARTER_MON, 0)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+script NewBirchLab_EventScript_Chikorita{
+    showmonpic(SPECIES_CHIKORITA, 10,3)
+    msgbox("Do you want to choose Chikorita?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_CHIKORITA, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Chikorita")
+            removeobject(3)
+            setflag(FLAG_GRASS_STARTER)
+            setvar(VAR_STARTER_MON, 0)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Chikorita")
+            removeobject(3)
+            setflag(FLAG_GRASS_STARTER)
+            setvar(VAR_STARTER_MON, 0)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+script NewBirchLab_EventScript_Bulbasaur{
+    showmonpic(SPECIES_BULBASAUR, 10,3)
+    msgbox("Do you want to choose Bulbasaur?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_BULBASAUR, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Bulbasaur")
+            removeobject(3)
+            setflag(FLAG_GRASS_STARTER)
+            setvar(VAR_STARTER_MON, 0)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Bulbasaur")
+            removeobject(3)
+            setflag(FLAG_GRASS_STARTER)
+            setvar(VAR_STARTER_MON, 0)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+script NewBirchLab_EventScript_Turtwig{
+    showmonpic(SPECIES_TURTWIG, 10,3)
+    msgbox("Do you want to choose Turtwig?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_TURTWIG, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Turtwig")
+            removeobject(3)
+            setflag(FLAG_GRASS_STARTER)
+            setvar(VAR_STARTER_MON, 0)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Turtwig")
+            removeobject(3)
+            setflag(FLAG_GRASS_STARTER)
+            setvar(VAR_STARTER_MON, 0)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+script NewBirchLab_EventScript_Snivy{
+    showmonpic(SPECIES_SNIVY, 10,3)
+    msgbox("Do you want to choose Snivy?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_SNIVY, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Snivy")
+            removeobject(3)
+            setflag(FLAG_GRASS_STARTER)
+            setvar(VAR_STARTER_MON, 0)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Snivy")
+            removeobject(3)
+            setflag(FLAG_GRASS_STARTER)
+            setvar(VAR_STARTER_MON, 0)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+script NewBirchLab_EventScript_Chespin{
+    showmonpic(SPECIES_CHESPIN, 10,3)
+    msgbox("Do you want to choose Chespin?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_CHESPIN, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Chespin")
+            removeobject(3)
+            setflag(FLAG_GRASS_STARTER)
+            setvar(VAR_STARTER_MON, 0)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Chespin")
+            removeobject(3)
+            setflag(FLAG_GRASS_STARTER)
+            setvar(VAR_STARTER_MON, 0)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+script NewBirchLab_EventScript_Rowlet{
+    showmonpic(SPECIES_ROWLET, 10,3)
+    msgbox("Do you want to choose Rowlet?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_ROWLET, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Rowlet")
+            removeobject(3)
+            setflag(FLAG_GRASS_STARTER)
+            setvar(VAR_STARTER_MON, 0)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Rowlet")
+            removeobject(3)
+            setflag(FLAG_GRASS_STARTER)
+            setvar(VAR_STARTER_MON, 0)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+script NewBirchLab_EventScript_Grookey{
+    showmonpic(SPECIES_GROOKEY, 10,3)
+    msgbox("Do you want to choose Grookey?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_GROOKEY, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Grookey")
+            removeobject(3)
+            setflag(FLAG_GRASS_STARTER)
+            setvar(VAR_STARTER_MON, 0)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Grookey")
+            removeobject(3)
+            setflag(FLAG_GRASS_STARTER)
+            setvar(VAR_STARTER_MON, 0)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+script NewBirchLab_EventScript_Torchic{
+    showmonpic(SPECIES_TORCHIC, 10,3)
+    msgbox("Do you want to choose Torchic?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_TORCHIC, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Torchic")
+            removeobject(4)
+            setflag(FLAG_FIRE_STARTER)
+            setvar(VAR_STARTER_MON, 1)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Torchic")
+            removeobject(4)
+            setflag(FLAG_FIRE_STARTER)
+            setvar(VAR_STARTER_MON, 1)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+script NewBirchLab_EventScript_Cyndaquil{
+    showmonpic(SPECIES_CYNDAQUIL, 10,3)
+    msgbox("Do you want to choose Cyndaquil?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_CYNDAQUIL, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Cyndaquil")
+            removeobject(4)
+            setflag(FLAG_FIRE_STARTER)
+            setvar(VAR_STARTER_MON, 1)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Cyndaquil")
+            removeobject(4)
+            setflag(FLAG_FIRE_STARTER)
+            setvar(VAR_STARTER_MON, 1)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+script NewBirchLab_EventScript_Charmander{
+    showmonpic(SPECIES_CHARMANDER, 10,3)
+    msgbox("Do you want to choose Charmander?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_CHARMANDER, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Charmander")
+            removeobject(4)
+            setflag(FLAG_FIRE_STARTER)
+            setvar(VAR_STARTER_MON, 1)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Charmander")
+            removeobject(4)
+            setflag(FLAG_FIRE_STARTER)
+            setvar(VAR_STARTER_MON, 1)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+script NewBirchLab_EventScript_Chimchar{
+    showmonpic(SPECIES_CHIMCHAR, 10,3)
+    msgbox("Do you want to choose Chimchar?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_CHIMCHAR, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Chimchar")
+            removeobject(4)
+            setflag(FLAG_FIRE_STARTER)
+            setvar(VAR_STARTER_MON, 1)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Chimchar")
+            removeobject(4)
+            setflag(FLAG_FIRE_STARTER)
+            setvar(VAR_STARTER_MON, 1)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+script NewBirchLab_EventScript_Tepig{
+    showmonpic(SPECIES_TEPIG, 10,3)
+    msgbox("Do you want to choose Tepig?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_TEPIG, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Tepig")
+            removeobject(4)
+            setflag(FLAG_FIRE_STARTER)
+            setvar(VAR_STARTER_MON, 1)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Tepig")
+            removeobject(4)
+            setflag(FLAG_FIRE_STARTER)
+            setvar(VAR_STARTER_MON, 1)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+script NewBirchLab_EventScript_Fennekin{
+    showmonpic(SPECIES_FENNEKIN, 10,3)
+    msgbox("Do you want to choose Fennekin?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_FENNEKIN, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Fennekin")
+            removeobject(4)
+            setflag(FLAG_FIRE_STARTER)
+            setvar(VAR_STARTER_MON, 1)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Fennekin")
+            removeobject(4)
+            setflag(FLAG_FIRE_STARTER)
+            setvar(VAR_STARTER_MON, 1)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+script NewBirchLab_EventScript_Litten{
+    showmonpic(SPECIES_LITTEN, 10,3)
+    msgbox("Do you want to choose Litten?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_LITTEN, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Litten")
+            removeobject(4)
+            setflag(FLAG_FIRE_STARTER)
+            setvar(VAR_STARTER_MON, 1)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Litten")
+            removeobject(4)
+            setflag(FLAG_FIRE_STARTER)
+            setvar(VAR_STARTER_MON, 1)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+script NewBirchLab_EventScript_Scorbunny{
+    showmonpic(SPECIES_SCORBUNNY, 10,3)
+    msgbox("Do you want to choose Scorbunny?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_SCORBUNNY, 5, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Scorbunny")
+            removeobject(4)
+            setflag(FLAG_FIRE_STARTER)
+            setvar(VAR_STARTER_MON, 1)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("Recieved Scorbunny")
+            removeobject(4)
+            setflag(FLAG_FIRE_STARTER)
+            setvar(VAR_STARTER_MON, 1)
+            setflag(FLAG_RESCUED_BIRCH)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(NewBirchLab_NotChosen)
+    }
+
+}
+
+text NewBirchLab_NotChosen{
+    "You did not choose the Pokemon"
+}

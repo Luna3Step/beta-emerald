@@ -11913,59 +11913,129 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Everett},
     },
 
-    [TRAINER_RED] =
+    [TRAINER_MAUVILLE_POKECENTERM] =
     {
         .partyFlags = 0,
         .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_RED,
-        .trainerName = _("RED"),
-        .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = 0,
-        .partySize = ARRAY_COUNT(sParty_Red),
-        .party = {.NoItemDefaultMoves = sParty_Red},
-    },
-
-    [TRAINER_LEAF] =
-    {
-        .partyFlags = 0,
-        .trainerClass = TRAINER_CLASS_RIVAL,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_LEAF,
-        .trainerName = _("LEAF"),
-        .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = 0,
-        .partySize = ARRAY_COUNT(sParty_Leaf),
-        .party = {.NoItemDefaultMoves = sParty_Leaf},
-    },
-
-    [TRAINER_BRENDAN_PLACEHOLDER] =
-    {
-        .partyFlags = 0,
-        .trainerClass = TRAINER_CLASS_RS_PROTAG,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_RS_BRENDAN,
-        .trainerName = _("BRENDAN"),
-        .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = 0,
-        .partySize = ARRAY_COUNT(sParty_BrendanLinkPlaceholder),
-        .party = {.NoItemDefaultMoves = sParty_BrendanLinkPlaceholder},
-    },
-
-    [TRAINER_MAY_PLACEHOLDER] =
-    {
-        .partyFlags = 0,
-        .trainerClass = TRAINER_CLASS_RS_PROTAG,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_RS_MAY,
+        .trainerPic = TRAINER_PIC_MAY,
         .trainerName = _("MAY"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = 0,
-        .partySize = ARRAY_COUNT(sParty_MayLinkPlaceholder),
-        .party = {.NoItemDefaultMoves = sParty_MayLinkPlaceholder},
+        .partySize = ARRAY_COUNT(sParty_MauvilleStartersM),
+        .party = {.NoItemDefaultMoves = sParty_MauvilleStartersM},
+    },
+
+    [TRAINER_MAUVILLE_POKECENTERF] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_RIVAL,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_BRENDAN,
+        .trainerName = _("BRENDAN"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .partySize = ARRAY_COUNT(sParty_MauvilleStartersF),
+        .party = {.NoItemDefaultMoves = sParty_MauvilleStartersF},
+    },
+
+    [TRAINER_DEWFORD_POKECENTER] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_GENTLEMAN,
+        .trainerName = _("MORGAN"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .partySize = ARRAY_COUNT(sParty_DewfordStarterTrainer),
+        .party = {.NoItemDefaultMoves = sParty_DewfordStarterTrainer},
+    },
+
+    [TRAINER_RUSTBORO_POKECENTER] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_POKEFAN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .trainerPic = TRAINER_PIC_POKEFAN_F,
+        .trainerName = _("JEANIE"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_RustboroStarterTrainer),
+        .party = {.NoItemDefaultMoves = sParty_RustboroStarterTrainer},
+    },
+
+    [TRAINER_LAVARIDGE_POKECENTER] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_CAMPER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_CAMPER,
+        .trainerName = _("WILLARD"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_LavaridgeStarterTrainer),
+        .party = {.NoItemDefaultMoves = sParty_LavaridgeStarterTrainer},
+    },
+
+    [TRAINER_PETALBURG_POKECENTER] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_LADY,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .trainerPic = TRAINER_PIC_LADY,
+        .trainerName = _("BARBARA"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_PetalburgStarterTrainer),
+        .party = {.NoItemDefaultMoves = sParty_PetalburgStarterTrainer},
+    },
+
+    [TRAINER_FORTREE_POKECENTER] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_BUG_CATCHER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER,
+        .trainerName = _("WINSTON"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_FortreeStarterTrainer),
+        .party = {.NoItemDefaultMoves = sParty_FortreeStarterTrainer},
+    },
+
+    [TRAINER_MOSSDEEP_POKECENTER] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_INTERVIEWER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTERVIEWER,
+        .trainerPic = TRAINER_PIC_INTERVIEWER,
+        .trainerName = _("KIT & KARL"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_MossdeepStarterTrainer),
+        .party = {.NoItemDefaultMoves = sParty_MossdeepStarterTrainer},
+    },
+
+    [TRAINER_SOOTOPOLIS_POKECENTER] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_COLLECTOR,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COLLECTOR,
+        .trainerName = _("CLIFFORD"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_SootopolisStarterTrainer),
+        .party = {.NoItemDefaultMoves = sParty_SootopolisStarterTrainer},
     },
 };

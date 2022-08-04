@@ -4194,3 +4194,12 @@ u8 Script_TryGainNewFanFromCounter(void)
 {
     return TryGainNewFanFromCounter(gSpecialVar_0x8004);
 }
+
+
+void BufferSaveFileSize(void)//buffers save file size data.
+{
+    u32 size = (sizeof(struct SaveBlock1));
+    u32 size2 = (sizeof(struct SaveBlock2));
+    ConvertIntToDecimalStringN(gStringVar1, size, STR_CONV_MODE_LEFT_ALIGN, 6);
+    ConvertIntToDecimalStringN(gStringVar2, size2, STR_CONV_MODE_LEFT_ALIGN, 6);
+}

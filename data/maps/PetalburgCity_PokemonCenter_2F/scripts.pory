@@ -1,0 +1,113 @@
+raw`
+PetalburgCity_PokemonCenter_2F_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, CableClub_OnFrame
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, CableClub_OnWarp
+	map_script MAP_SCRIPT_ON_LOAD, CableClub_OnLoad
+	map_script MAP_SCRIPT_ON_TRANSITION, CableClub_OnTransition
+	.byte 0
+
+@ The below 3 are unused and leftover from RS
+PetalburgCity_PokemonCenter_2F_EventScript_Colosseum::
+	call CableClub_EventScript_Colosseum
+	end
+
+PetalburgCity_PokemonCenter_2F_EventScript_TradeCenter::
+	call CableClub_EventScript_TradeCenter
+	end
+
+PetalburgCity_PokemonCenter_2F_EventScript_RecordCorner::
+	call CableClub_EventScript_RecordCorner
+	end
+
+`
+
+script PetalburgCity_PokemonCenter_1F_EventScript_Starters {
+    lockall
+    faceplayer
+    if(flag(FLAG_BADGE05_GET)){
+        if(flag(FLAG_RECIEVED_GEN5)){
+            lockall
+            msgbox(format("Thank you for taking them off my hand, my grandparents can be a bit overzealous with gifts."))
+            waitmessage
+            releaseall
+        }
+        else{
+            msgbox(format("My grandparents keep sending me gifts, it's getting a bit much now. Would you like to have some?"), MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES){
+                trainerbattle_single(TRAINER_PETALBURG_POKECENTER, GymStarter_Gen5Text_Start, GymStarter_Gen5Text_Finish, GymStarter_Gen5BattleOver)
+            }
+            else{
+                msgbox(format("Sorry to put pressure on you."))
+                waitmessage
+                releaseall
+                end
+            }
+        }
+    }
+    else{
+        lockall
+        msgbox(format("How do I stop this, why do they keep sending them. I doubt even the gym leaders have these many pokemon?"))
+        waitmessage
+        releaseall
+    }
+}
+
+text GymStarter_Gen5Text_Start{
+    format("I'll just make sure that you are a good trainer!")
+}
+
+text GymStarter_Gen5Text_Finish{
+    "!!!!!"
+}
+
+script GymStarter_Gen5BattleOver {
+    lockall
+    msgbox(format("You are such a great trainer, these pokemon will definitely be fine in your hands. Please take care of them"))
+    givemon(SPECIES_OSHAWOTT, 15, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("You recieved a Oshawott!")
+            setflag(FLAG_RECIEVED_GEN5)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            setflag(FLAG_RECIEVED_GEN5)
+            call(NicknameBoxMon)
+        }
+        else{
+            msgbox("There was no room")
+        }
+    givemon(SPECIES_SNIVY, 15, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("You recieved a Snivy!")
+            setflag(FLAG_RECIEVED_GEN5)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            setflag(FLAG_RECIEVED_GEN5)
+            call(NicknameBoxMon)
+        }
+        else{
+            msgbox("There was no room")
+        }
+    givemon(SPECIES_TEPIG, 15, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("You recieved a Tepig!")
+            setflag(FLAG_RECIEVED_GEN5)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            setflag(FLAG_RECIEVED_GEN5)
+            call(NicknameBoxMon)
+        }
+        else{
+            msgbox("There was no room")
+        }
+    msgbox(format("Take care of them!"))
+    releaseall
+}

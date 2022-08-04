@@ -1,0 +1,154 @@
+raw`
+.set LOCALID_NURSE, 1
+
+MauvilleCity_PokemonCenter_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, MauvilleCity_PokemonCenter_1F_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
+	.byte 0
+
+MauvilleCity_PokemonCenter_1F_OnTransition:
+	setrespawn HEAL_LOCATION_MAUVILLE_CITY
+	call Common_EventScript_UpdateBrineyLocation
+	call Common_EventScript_SetupRivalGfxId
+	end
+
+MauvilleCity_PokemonCenter_1F_EventScript_SetMauvilleOldManGfx::
+	special SetMauvilleOldManObjEventGfx
+	end
+
+MauvilleCity_PokemonCenter_1F_EventScript_Nurse::
+	setvar VAR_0x800B, LOCALID_NURSE
+	call Common_EventScript_PkmnCenterNurse
+	waitmessage
+	waitbuttonpress
+	release
+	end
+
+MauvilleCity_PokemonCenter_1F_EventScript_Woman1::
+	msgbox MauvilleCity_PokemonCenter_1F_Text_ManOverThereSaysWeirdThings, MSGBOX_NPC
+	end
+
+MauvilleCity_PokemonCenter_1F_EventScript_Woman2::
+	msgbox MauvilleCity_PokemonCenter_1F_Text_MyDataUpdatedFromRecordCorner, MSGBOX_NPC
+	end
+
+MauvilleCity_PokemonCenter_1F_EventScript_Youngster::
+	msgbox MauvilleCity_PokemonCenter_1F_Text_RecordCornerSoundsFun, MSGBOX_NPC
+	end
+
+MauvilleCity_PokemonCenter_1F_Text_ManOverThereSaysWeirdThings:
+	.string "That man over there, he says weird\n"
+	.string "things!\p"
+	.string "He's funny in a weird way.\n"
+	.string "I doubt I'll forget about him!$"
+
+MauvilleCity_PokemonCenter_1F_Text_MyDataUpdatedFromRecordCorner:
+	.string "When I accessed the RECORD CORNER,\n"
+	.string "the data for what's hot in DEWFORD\l"
+	.string "got updated.\p"
+	.string "Now that bit of data is the same\n"
+	.string "as my friend's!$"
+
+MauvilleCity_PokemonCenter_1F_Text_RecordCornerSoundsFun:
+	.string "A RECORD CORNER opened upstairs in\n"
+	.string "the POKéMON CENTER.\p"
+	.string "I don't know what it's about, but it\n"
+	.string "sounds fun. I'll go check it out!$"
+
+`
+script MauvilleCity_PokemonCenter_1F_EventScript_RivalBattleStart{
+    lockall
+    faceplayer
+    if(flag(FLAG_BADGE03_GET)){
+        if(flag(FLAG_RECIEVED_GEN3)){
+            lockall
+            msgbox(format("My dad really has too many pokemon, I wish he would atleast buy a lot of land to let them roam"))
+            waitmessage
+            releaseall
+        }
+        else{
+            msgbox(format("I see you've beaten Wattson! Let me test how good you are!"))
+            checkplayergender
+            if(var(VAR_RESULT) == MALE){
+		        call(MauvilleCity_PokemonCenter_1F_EventScript_MaleStarters)
+	        }
+	        else{
+		        call(MauvilleCity_PokemonCenter_1F_EventScript_FemaleStarters)
+	        }
+            }
+        }
+    else{
+        lockall
+        msgbox(format("I'm just resting here for now, my pokemon are tired. Need them in their best condition for the gym"))
+        waitmessage
+        releaseall
+    }
+}
+
+script MauvilleCity_PokemonCenter_1F_EventScript_MaleStarters {
+        trainerbattle_single(TRAINER_MAUVILLE_POKECENTERM, GymStarter_Gen3Text_Start, GymStarter_Gen3Text_Finish, GymStarter_Gen3BattleOver)
+ }
+
+script MauvilleCity_PokemonCenter_1F_EventScript_FemaleStarters {
+        trainerbattle_single(TRAINER_MAUVILLE_POKECENTERF, GymStarter_Gen3Text_Start, GymStarter_Gen3Text_Finish, GymStarter_Gen3BattleOver)
+}
+
+text GymStarter_Gen3Text_Start{
+    format("I'll show you how much I've grown!")
+}
+
+text GymStarter_Gen3Text_Finish{
+    format("Has anyone ever told you that you might be a bit too strong?")
+}
+
+script GymStarter_Gen3BattleOver {
+    lockall
+    msgbox(format("Well while I'm here, you should take these lot. There isn't space for them back in the lab and I don't want to sideline them."))
+    givemon(SPECIES_TORCHIC, 15, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("You recieved a Torchic!")
+            setflag(FLAG_RECIEVED_GEN3)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            setflag(FLAG_RECIEVED_GEN3)
+            call(NicknameBoxMon)
+        }
+        else{
+            msgbox("There was no room")
+        }
+    givemon(SPECIES_MUDKIP, 15, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("You recieved a Mudkip!")
+            setflag(FLAG_RECIEVED_GEN3)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            setflag(FLAG_RECIEVED_GEN3)
+            call(NicknameBoxMon)
+        }
+        else{
+            msgbox("There was no room")
+        }
+    givemon(SPECIES_TREECKO, 15, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("You recieved a Treeko!")
+            setflag(FLAG_RECIEVED_GEN3)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            setflag(FLAG_RECIEVED_GEN3)
+            call(NicknameBoxMon)
+        }
+        else{
+            msgbox("There was no room")
+        }
+    msgbox(format("I hope you treat them well."))
+    releaseall
+}

@@ -41,23 +41,23 @@
 #define FLAG_TEMP_1F     (TEMP_FLAGS_START + 0x1F)
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
 
-#define FLAG_UNUSED_0x020    0x20 // Unused Flag
-#define FLAG_UNUSED_0x021    0x21 // Unused Flag
-#define FLAG_UNUSED_0x022    0x22 // Unused Flag
-#define FLAG_UNUSED_0x023    0x23 // Unused Flag
+#define FLAG_EEVEE_LAB       0x20 // Eevee gift in Birch Lab
+#define FLAG_FIRE_STARTER    0x21 // Chose Fire Starter
+#define FLAG_GRASS_STARTER   0x22 // Chose Grass Starter
+#define FLAG_WATER_STARTER   0x23 // Chose Water Starter
 #define FLAG_UNUSED_0x024    0x24 // Unused Flag
-#define FLAG_UNUSED_0x025    0x25 // Unused Flag
-#define FLAG_UNUSED_0x026    0x26 // Unused Flag
-#define FLAG_UNUSED_0x027    0x27 // Unused Flag
-#define FLAG_UNUSED_0x028    0x28 // Unused Flag
-#define FLAG_UNUSED_0x029    0x29 // Unused Flag
-#define FLAG_UNUSED_0x02A    0x2A // Unused Flag
-#define FLAG_UNUSED_0x02B    0x2B // Unused Flag
-#define FLAG_UNUSED_0x02C    0x2C // Unused Flag
-#define FLAG_UNUSED_0x02D    0x2D // Unused Flag
-#define FLAG_UNUSED_0x02E    0x2E // Unused Flag
-#define FLAG_UNUSED_0x02F    0x2F // Unused Flag
-#define FLAG_UNUSED_0x030    0x30 // Unused Flag
+#define FLAG_RIVAL_BATTLE_LITTLEROOT    0x25 // Rival Battle Outside Birch Lab, Littleroot
+#define FLAG_MEW             0x26 // Mew in Mews Recluse
+#define FLAG_BLUE_ORB        0x27 // Blue orb in Mews Recluse
+#define FLAG_RED_ORB         0x28 // Red orb in Mews Recluse
+#define FLAG_RECIEVED_GEN1   0x29 // Recieved Gen 1 Starters
+#define FLAG_RECIEVED_GEN2   0x2A // Recieved Gen 2 Starters
+#define FLAG_RECIEVED_GEN3   0x2B // Recieved Gen 3 Starters
+#define FLAG_RECIEVED_GEN4   0x2C // Recieved Gen 4 Starters
+#define FLAG_RECIEVED_GEN5   0x2D // Recieved Gen 5 Starters
+#define FLAG_RECIEVED_GEN6   0x2E // Recieved Gen 6 Starters
+#define FLAG_RECIEVED_GEN7   0x2F // Recieved Gen 7 Starters
+#define FLAG_RECIEVED_GEN8   0x30 // Recieved Gen 8 Starters
 #define FLAG_UNUSED_0x031    0x31 // Unused Flag
 #define FLAG_UNUSED_0x032    0x32 // Unused Flag
 #define FLAG_UNUSED_0x033    0x33 // Unused Flag

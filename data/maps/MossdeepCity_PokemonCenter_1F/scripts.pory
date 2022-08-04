@@ -1,0 +1,159 @@
+raw`
+.set LOCALID_NURSE, 1
+
+MossdeepCity_PokemonCenter_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, MossdeepCity_PokemonCenter_1F_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
+	.byte 0
+
+MossdeepCity_PokemonCenter_1F_OnTransition:
+	setrespawn HEAL_LOCATION_MOSSDEEP_CITY
+	end
+
+MossdeepCity_PokemonCenter_1F_EventScript_Nurse::
+	setvar VAR_0x800B, LOCALID_NURSE
+	call Common_EventScript_PkmnCenterNurse
+	waitmessage
+	waitbuttonpress
+	release
+	end
+
+MossdeepCity_PokemonCenter_1F_EventScript_Woman::
+	msgbox MossdeepCity_PokemonCenter_1F_Text_GymLeaderDuoFormidable, MSGBOX_NPC
+	end
+
+MossdeepCity_PokemonCenter_1F_EventScript_Girl::
+	msgbox MossdeepCity_PokemonCenter_1F_Text_AbilitiesMightChangeMoves, MSGBOX_NPC
+	end
+
+MossdeepCity_PokemonCenter_1F_Text_GymLeaderDuoFormidable:
+	.string "The GYM LEADERS in this town are\n"
+	.string "a formidable duo.\p"
+	.string "Their combination attacks are, like,\n"
+	.string "excellent and wow!$"
+
+MossdeepCity_PokemonCenter_1F_Text_AbilitiesMightChangeMoves:
+	.string "Depending on the special abilities of\n"
+	.string "POKéMON, some moves might change\l"
+	.string "or not work at all.$"
+
+`
+
+script MossdeepCity_PokemonCenter_1F_EventScript_Starters {
+    lockall
+    faceplayer
+    if(flag(FLAG_BADGE07_GET)){
+        if(flag(FLAG_RECIEVED_GEN7)){
+            lockall
+            msgbox(format("I hope you enjoy our segment on TV!"))
+            waitmessage
+            releaseall
+        }
+        else{
+            msgbox(format("Hi, we are doing a documentary on trainers however we are running low on pokemon footage, mind showing us yours?"), MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES){
+                trainerbattle_double(TRAINER_MOSSDEEP_POKECENTER, GymStarter_Gen7Text_Start, GymStarter_Gen7Text_Finish, GymStarter_Gen7Text_TooFewPokemon, GymStarter_Gen7BattleOver)
+            }
+            else{
+                msgbox(format("Oh that's fine, theres loads of trainers round here, shouldn't be hard to find others."))
+                waitmessage
+                releaseall
+                end
+            }
+        }
+    }
+    else{
+        lockall
+        msgbox(format("Look at this footage, it's terrible. I'm telling you that metapod battles aren't interesting yet you keep recording them."))
+        waitmessage
+        releaseall
+    }
+}
+
+text GymStarter_Gen7Text_Start{
+    format("Might as well make it interesting!")
+}
+
+text GymStarter_Gen7Text_Finish{
+    format("Oh wow, this is top notch stuff. The boss will be pleased with this")
+}
+
+text GymStarter_Gen7Text_TooFewPokemon {
+    format("You might want to get some more pokemon, we don't want to make this look one sided")
+}
+
+script GymStarter_Gen7BattleOver{
+    lockall
+    msgbox(format("Here take them. We found them as we were going around but I'm too busy to look after them"))
+    givemon(SPECIES_POPPLIO, 15, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("You recieved a Popplio!")
+            setflag(FLAG_RECIEVED_GEN7)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            setflag(FLAG_RECIEVED_GEN7)
+            call(NicknameBoxMon)
+        }
+        else{
+            msgbox("There was no room")
+        }
+    givemon(SPECIES_ROWLET, 15, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("You recieved a Rowlet!")
+            setflag(FLAG_RECIEVED_GEN7)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            setflag(FLAG_RECIEVED_GEN7)
+            call(NicknameBoxMon)
+        }
+        else{
+            msgbox("There was no room")
+        }
+    givemon(SPECIES_LITTEN, 15, ITEM_ORAN_BERRY)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("You recieved a Litten!")
+            setflag(FLAG_RECIEVED_GEN7)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            playfanfare(MUS_OBTAIN_ITEM)
+            setflag(FLAG_RECIEVED_GEN7)
+            call(NicknameBoxMon)
+        }
+        else{
+            msgbox("There was no room")
+        }
+    msgbox(format("Those little menaces should serve you well!"))
+    releaseall
+}
+
+script MossdeepCity_PokemonCenter_1F_EventScript_Cameraman{
+    lockall
+    faceplayer
+    if(flag(FLAG_BADGE07_GET)){
+        if(flag(FLAG_RECIEVED_GEN7)){
+            lockall
+            msgbox(format("I hope this footage is good, I need a break from the higher up's nagging me constantly."))
+            waitmessage
+            releaseall
+        }
+        else{
+            msgbox(format("Hey, you look perfect, talk to my colleague over there, she might have a job for you."))
+            waitmessage
+            releaseall
+            }
+    }
+    else{
+        lockall
+        msgbox(format("God I love metapods, their little cute noses and idle stare. I wish I could have one"))
+        waitmessage
+        releaseall
+    }
+}
