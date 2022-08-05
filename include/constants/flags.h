@@ -45,7 +45,7 @@
 #define FLAG_FIRE_STARTER    0x21 // Chose Fire Starter
 #define FLAG_GRASS_STARTER   0x22 // Chose Grass Starter
 #define FLAG_WATER_STARTER   0x23 // Chose Water Starter
-#define FLAG_UNUSED_0x024    0x24 // Unused Flag
+#define FLAG_CLEARSTATUES    0x24 // Clears the statues in Mew's Recluse
 #define FLAG_RIVAL_BATTLE_LITTLEROOT    0x25 // Rival Battle Outside Birch Lab, Littleroot
 #define FLAG_MEW             0x26 // Mew in Mews Recluse
 #define FLAG_BLUE_ORB        0x27 // Blue orb in Mews Recluse
@@ -1407,7 +1407,7 @@
 #define FLAG_SYS_MIX_RECORD                         (SYSTEM_FLAGS + 0x34)
 #define FLAG_SYS_CLOCK_SET                          (SYSTEM_FLAGS + 0x35)
 #define FLAG_SYS_NATIONAL_DEX                       (SYSTEM_FLAGS + 0x36)
-#define FLAG_SYS_CAVE_SHIP                          (SYSTEM_FLAGS + 0x37) // Unused Flag, leftover from R/S debug, presumably used by Emerald's debug too
+#define FLAG_SYS_EXP_SHARE                          (SYSTEM_FLAGS + 0x37) // Gen 6 Exp Share
 #define FLAG_SYS_CAVE_WONDER                        (SYSTEM_FLAGS + 0x38) // Unused Flag, same as above
 #define FLAG_SYS_CAVE_BATTLE                        (SYSTEM_FLAGS + 0x39) // Unused Flag, same as above
 #define FLAG_SYS_SHOAL_TIDE                         (SYSTEM_FLAGS + 0x3A)

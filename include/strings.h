@@ -3072,4 +3072,9 @@ extern const u8 gText_TeleportBattleFrontierArena[];
 extern const u8 gText_TeleportBattleFrontierDome[];
 extern const u8 gText_TeleportBattleFrontierCallback[];
 
+//Gen 6 EXP share
+
+extern const u8 gText_ExpShareOn[];
+extern const u8 gText_ExpShareOff[];
+
 #endif // GUARD_STRINGS_H

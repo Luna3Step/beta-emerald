@@ -1867,3 +1867,7 @@ const u8 gText_TeleportBattleFrontierFactory[] = _(" Battle Factory");
 const u8 gText_TeleportBattleFrontierArena[] = _(" Battle Arena");
 const u8 gText_TeleportBattleFrontierDome[] = _(" Battle Dome");
 const u8 gText_TeleportBattleFrontierCallback[] = _(" Return");
+
+// Exp. Share
+const u8 gText_ExpShareOn[] = _("Turned on the Exp. Share.\pParty will now gain a portion\nof the Experience Points.{PAUSE_UNTIL_PRESS}");
+const u8 gText_ExpShareOff[] = _("Turned off the Exp. Share.\pParty will no longer gain a portion\nof any Experience Points.{PAUSE_UNTIL_PRESS}");

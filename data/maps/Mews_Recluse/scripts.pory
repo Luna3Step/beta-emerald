@@ -1,6 +1,36 @@
 mapscripts Mews_Recluse_MapScripts {
 }
 
+script Mews_Recluse_Statues {
+	lockall
+	specialvar(VAR_RESULT, CheckMewtwoParty)
+	if(var(VAR_RESULT) == TRUE){
+		lockall
+		msgbox(format("Your pokemon start rumbling in their balls"))
+		playfanfare(SE_THUNDER)
+		waitmessage
+		setflag(FLAG_CLEARSTATUES)
+		setvar(VAR_MEWS_RECLUSE_STATE, 1)
+		fadescreen(FADE_TO_BLACK)
+		removeobject(4)
+		removeobject(5)
+		removeobject(6)
+		removeobject(7)
+		removeobject(8)
+		removeobject(3)
+		fadescreen(FADE_FROM_BLACK)
+		releaseall
+	}
+	else{
+		msgbox(format("You see an etching in the statues. 'Although I was furious being made by humans, you were happy being made by me. You accepted the gift of life without hesitation and have taught me what it means to live. You were truly my greatest friends and guides. It is my only shame that I outlived you all.'"))
+		waitmessage
+		applymovement(OBJ_EVENT_ID_PLAYER, WrongPokemon)
+		waitmovement(0)
+		releaseall
+	}
+
+}
+
 script Mews_Recluse_EventScript_Mew {
 	lockall
 	setflag(FLAG_MEW)
@@ -79,4 +109,8 @@ script MewsRecluse_ItemBallBottom {
     waitmessage
     releaseall
     end
+}
+
+movement WrongPokemon {
+	walk_left
 }

@@ -103,6 +103,17 @@ bool8 CheckRelicanthWailord(void)
     return FALSE;
 }
 
+bool8 CheckMewtwoParty(void)
+{
+    if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES2, 0) == SPECIES_CHARIZARD)
+    {
+        CalculatePlayerPartyCount();
+        if (GetMonData(&gPlayerParty[1], MON_DATA_SPECIES2, 0) == SPECIES_BLASTOISE && GetMonData(&gPlayerParty[2], MON_DATA_SPECIES2, 0) == SPECIES_VENUSAUR && GetMonData(&gPlayerParty[3], MON_DATA_SPECIES2, 0) == SPECIES_RHYDON && GetMonData(&gPlayerParty[4], MON_DATA_SPECIES2, 0) == SPECIES_SNORLAX && GetMonData(&gPlayerParty[5], MON_DATA_SPECIES2, 0) == SPECIES_LAPRAS)
+            return TRUE;
+    }
+    return FALSE;
+}
+
 // THEORY: this was caused by block commenting out all of the older R/S braille functions but leaving the call to it itself, which creates the nullsub.
 void ShouldDoBrailleRegirockEffectOld(void)
 {
