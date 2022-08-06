@@ -1875,3 +1875,7 @@ const u8 gText_ExpShareOff[] = _("Turned off the Exp. Share.\pParty will no long
 // Nickname in party
 
 const u8 gText_Nickname[] = _("NICKNAME");
+
+//LGPE Premier balls
+
+const u8 gText_ThrowInPremierBalls[] = _("I'll throw in some Premier Balls, too.{PAUSE_UNTIL_PRESS}");

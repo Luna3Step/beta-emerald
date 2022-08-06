@@ -3078,4 +3078,8 @@ extern const u8 gText_TeleportBattleFrontierCallback[];
 extern const u8 gText_ExpShareOn[];
 extern const u8 gText_ExpShareOff[];
 
+//LGPE Premier Balls
+
+extern const u8 gText_ThrowInPremierBalls[];
+
 #endif // GUARD_STRINGS_H
