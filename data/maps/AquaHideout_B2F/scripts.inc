@@ -160,3 +160,17 @@ AquaHideout_B2F_Text_Grunt8Defeat:
 AquaHideout_B2F_Text_Grunt8PostBattle:
 	.string "I'll have to learn about how I can\n"
 	.string "battle more effectively…$"
+
+AquaHideout_B2F_Blastoisinite::
+	lockall
+	msgbox AquaHideout_B2F_Blastoisinite_Text_0
+	additem ITEM_BLASTOISINITE, 1
+	removeobject 7
+	setflag FLAG_BLASTOISINITE
+	waitmessage
+	releaseall
+	end
+
+
+AquaHideout_B2F_Blastoisinite_Text_0:
+	.string "You found a Blastoisinite!$"

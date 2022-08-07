@@ -51,3 +51,16 @@ MagmaHideout_1F_Text_Grunt2PostBattle:
 	.string "It'd be better if you saved surprises\n"
 	.string "to the end, don't you think?$"
 
+MagmaHideout_1F_Blazikenite::
+	lockall
+	msgbox MagmaHideout_1F_Blazikenite_Text_0
+	additem ITEM_BLAZIKENITE, 1
+	removeobject 2
+	setflag FLAG_BLAZIKENITE
+	waitmessage
+	releaseall
+	end
+
+
+MagmaHideout_1F_Blazikenite_Text_0:
+	.string "You found a Blazikenite!$"

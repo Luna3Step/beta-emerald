@@ -1170,3 +1170,31 @@ Route104_Text_BrendanPostBattle:
 	.string "making POKéMON battle.\p"
 	.string "Like MR. BRINEY, it's important to\n"
 	.string "become friends with your POKéMON.$"
+
+Route104_Slowbronite::
+	lockall
+	msgbox Route104_Slowbronite_Text_0
+	additem ITEM_SLOWBRONITE, 1
+	removeobject 21
+	setflag FLAG_SLOWBRONITE
+	waitmessage
+	releaseall
+	end
+
+
+Route104_Audinite::
+	lockall
+	msgbox Route104_Audinite_Text_0
+	additem ITEM_AUDINITE, 1
+	removeobject 35
+	setflag FLAG_AUDINITE
+	waitmessage
+	releaseall
+	end
+
+
+Route104_Slowbronite_Text_0:
+	.string "You found a Slowbronite!$"
+
+Route104_Audinite_Text_0:
+	.string "You found an Autinite!$"

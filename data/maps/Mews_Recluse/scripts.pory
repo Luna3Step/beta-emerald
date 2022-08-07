@@ -91,10 +91,10 @@ script RanAway {
 
 script MewsRecluse_ItemBallTop {
     lockall
-    msgbox(format("You found a Blue Orb!"))
-    additem(ITEM_BLUE_ORB, 1)
+    msgbox(format("You found a Mewtwonite X!"))
+    additem(ITEM_MEWTWONITE_X, 1)
 	removeobject(2)
-    setflag(FLAG_BLUE_ORB)
+    setflag(FLAG_MEWTWONITE_X)
     waitmessage
     releaseall
     end
@@ -102,10 +102,10 @@ script MewsRecluse_ItemBallTop {
 
 script MewsRecluse_ItemBallBottom {
     lockall
-    msgbox(format("You found a Red Orb!"))
-    additem(ITEM_RED_ORB, 1)
+    msgbox(format("You found a Mewtwonite Y!"))
+    additem(ITEM_MEWTWONITE_Y, 1)
 	removeobject(3)
-    setflag(FLAG_RED_ORB)
+    setflag(FLAG_MEWTWONITE_Y)
     waitmessage
     releaseall
     end

@@ -133,3 +133,16 @@ MtPyre_2F_Text_ZanderPostBattle:
 	.string "anything move…\p"
 	.string "I shouldn't have come here to train…$"
 
+MtPyre_2F_Gengarite::
+	lockall
+	msgbox MtPyre_2F_Gengarite_Text_0
+	additem ITEM_GENGARITE, 1
+	removeobject 9
+	setflag FLAG_GENGARITE
+	waitmessage
+	releaseall
+	end
+
+
+MtPyre_2F_Gengarite_Text_0:
+	.string "You found a Gengarite!$"

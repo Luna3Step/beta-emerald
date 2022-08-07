@@ -113,7 +113,7 @@ MewsRecluse_ItemBallTop::
 	msgbox MewsRecluse_ItemBallTop_Text_0
 	additem ITEM_BLUE_ORB, 1
 	removeobject 2
-	setflag FLAG_BLUE_ORB
+	setflag FLAG_MEWTWONITE_X
 	waitmessage
 	releaseall
 	end
@@ -124,7 +124,7 @@ MewsRecluse_ItemBallBottom::
 	msgbox MewsRecluse_ItemBallBottom_Text_0
 	additem ITEM_RED_ORB, 1
 	removeobject 3
-	setflag FLAG_RED_ORB
+	setflag FLAG_MEWTWONITE_Y
 	waitmessage
 	releaseall
 	end

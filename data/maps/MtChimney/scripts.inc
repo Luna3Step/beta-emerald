@@ -844,3 +844,16 @@ MtChimney_Text_SawyerPostRematch:
 	.string "Actually, it really is hot here.\n"
 	.string "I'm overdressed for these parts.$"
 
+MtChimney_Tyranitarite::
+	lockall
+	msgbox MtChimney_Tyranitarite_Text_0
+	additem ITEM_TYRANITARITE, 1
+	removeobject 31
+	setflag FLAG_TYRANITARITE
+	waitmessage
+	releaseall
+	end
+
+
+MtChimney_Tyranitarite_Text_0:
+	.string "You found a Tyranitarite!$"

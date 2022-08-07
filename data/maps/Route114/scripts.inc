@@ -200,3 +200,16 @@ Route114_Text_FossilManiacsHouseSign:
 Route114_Text_LanettesHouse:
 	.string "LANETTE'S HOUSE$"
 
+Route114_Charizardite_Y::
+	lockall
+	msgbox Route114_Charizardite_Y_Text_0
+	additem ITEM_CHARIZARDITE_Y, 1
+	removeobject 28
+	setflag FLAG_CHARIZARDITE_Y
+	waitmessage
+	releaseall
+	end
+
+
+Route114_Charizardite_Y_Text_0:
+	.string "You found a Charizardite Y!$"

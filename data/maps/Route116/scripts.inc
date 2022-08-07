@@ -471,3 +471,16 @@ Route116_Text_TrainerTipsBagHasPockets:
 	.string "No TRAINER can afford to be without\n"
 	.string "a BAG of their own.$"
 
+Route116_Kangaskhanite::
+	lockall
+	msgbox Route116_Kangaskhanite_Text_0
+	additem ITEM_KANGASKHANITE, 1
+	removeobject 29
+	setflag FLAG_KANGASKHANITE
+	waitmessage
+	releaseall
+	end
+
+
+Route116_Kangaskhanite_Text_0:
+	.string "You found a Kangaskhanite!$"

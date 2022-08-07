@@ -96,12 +96,7 @@ Debug_GiveAllTMsDoneMsg:
 
 @@ Put random utility scripts here.
 DebugMenu_UtilityScript::
-	givemon SPECIES_CHARIZARD, 15, ITEM_ORAN_BERRY
-	givemon SPECIES_BLASTOISE, 15, ITEM_ORAN_BERRY
-	givemon SPECIES_VENUSAUR, 15, ITEM_ORAN_BERRY
-	givemon SPECIES_RHYDON, 15, ITEM_ORAN_BERRY
-	givemon SPECIES_SNORLAX, 15, ITEM_ORAN_BERRY
-	givemon SPECIES_LAPRAS, 15, ITEM_ORAN_BERRY
+	giveitem ITEM_MEGA_RING
     release
     end
 

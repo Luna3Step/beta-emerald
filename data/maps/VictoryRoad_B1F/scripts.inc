@@ -89,3 +89,16 @@ VictoryRoad_B1F_Text_HallePostBattle:
 	.string "Try to enjoy things the rest of\n"
 	.string "the way!$"
 
+VictoryRoad_B1F_Mawilite::
+	lockall
+	msgbox VictoryRoad_B1F_Mawilite_Text_0
+	additem ITEM_MAWILITE, 1
+	removeobject 22
+	setflag FLAG_MAWILITE
+	waitmessage
+	releaseall
+	end
+
+
+VictoryRoad_B1F_Mawilite_Text_0:
+	.string "You found a Mawilite!$"

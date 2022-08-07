@@ -143,3 +143,16 @@ Route115_Text_MeteorFallsSign:
 	.string "METEOR FALLS\n"
 	.string "FALLARBOR TOWN THROUGH HERE$"
 
+Route115_Pinsirite::
+	lockall
+	msgbox Route115_Pinsirite_Text_0
+	additem ITEM_PINSIRITE, 1
+	removeobject 24
+	setflag FLAG_PINSIRITE
+	waitmessage
+	releaseall
+	end
+
+
+Route115_Pinsirite_Text_0:
+	.string "You found a Pinsirite!$"

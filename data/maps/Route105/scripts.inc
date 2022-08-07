@@ -95,3 +95,17 @@ Route104_Text_DadPokenavCall:
 Route104_Text_RegisteredDadInPokenav:
 	.string "Registered DAD NORMAN\n"
 	.string "in the POKéNAV.$"
+
+Route105_Gyaradosite::
+	lockall
+	msgbox Route105_Gyaradosite_Text_0
+	additem ITEM_GYARADOSITE, 1
+	removeobject 9
+	setflag FLAG_GYARADOSITE
+	waitmessage
+	releaseall
+	end
+
+
+Route105_Gyaradosite_Text_0:
+	.string "You found a Gyaradosite!$"

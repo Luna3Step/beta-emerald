@@ -190,3 +190,16 @@ Route121_Text_SafariZoneSign:
 	.string "“Filled with rare POKéMON!”\n"
 	.string "SAFARI ZONE$"
 
+Route121_Sceptilite::
+	lockall
+	msgbox Route121_Sceptilite_Text_0
+	additem ITEM_SCEPTILITE, 1
+	removeobject 30
+	setflag FLAG_SCEPTILITE
+	waitmessage
+	releaseall
+	end
+
+
+Route121_Sceptilite_Text_0:
+	.string "You found a Sceptilite!$"

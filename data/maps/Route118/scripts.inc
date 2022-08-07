@@ -299,3 +299,16 @@ Route118_Text_RouteSign119:
 	.string "ROUTE 118\n"
 	.string "{UP_ARROW} ROUTE 119$"
 
+Route118_Galladite::
+	lockall
+	msgbox Route118_Galladite_Text_0
+	additem ITEM_GALLADITE, 1
+	removeobject 22
+	setflag FLAG_GALLADITE
+	waitmessage
+	releaseall
+	end
+
+
+Route118_Galladite_Text_0:
+	.string "You found a Galladite!$"

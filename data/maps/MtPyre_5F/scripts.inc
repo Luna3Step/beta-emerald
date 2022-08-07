@@ -23,3 +23,16 @@ MtPyre_4F_Text_TashaPostBattle:
 	.string "Stay…\n"
 	.string "Won't you stay with me?$"
 
+MtPyre_5F_Banettite::
+	lockall
+	msgbox MtPyre_5F_Banettite_Text_0
+	additem ITEM_BANETTITE, 1
+	removeobject 3
+	setflag FLAG_BANETTITE
+	waitmessage
+	releaseall
+	end
+
+
+MtPyre_5F_Banettite_Text_0:
+	.string "You found a Banettite!$"

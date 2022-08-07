@@ -36,3 +36,16 @@ DesertUnderpass_Text_FoundRootFossil::
 DesertUnderpass_Text_FoundClawFossil::
 	.string "{PLAYER} found the CLAW FOSSIL.$"
 
+DesertUnderpass_Aggronite::
+	lockall
+	msgbox DesertUnderpass_Aggronite_Text_0
+	additem ITEM_AGGRONITE, 1
+	removeobject 2
+	setflag FLAG_AGGRONITE
+	waitmessage
+	releaseall
+	end
+
+
+DesertUnderpass_Aggronite_Text_0:
+	.string "You found an Aggronite!$"

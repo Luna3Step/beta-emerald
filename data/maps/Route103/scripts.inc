@@ -353,3 +353,16 @@ Route103_Text_RouteSign:
 	.string "ROUTE 103\n"
 	.string "{DOWN_ARROW} OLDALE TOWN$"
 
+Route103_Pidgeotite::
+	lockall
+	msgbox Route103_Pidgeotite_Text_0
+	additem ITEM_PIDGEOTITE, 1
+	removeobject 20
+	setflag FLAG_PIDGEOTITE
+	waitmessage
+	releaseall
+	end
+
+
+Route103_Pidgeotite_Text_0:
+	.string "You found a Pidgeotite!$"

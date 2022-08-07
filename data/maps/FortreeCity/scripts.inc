@@ -154,3 +154,16 @@ FortreeCity_Text_GymSign:
 	.string "“The bird user taking flight into\n"
 	.string "the world.”$"
 
+FortreeCity_Venusaurite::
+	lockall
+	msgbox FortreeCity_Venusaurite_Text_0
+	additem ITEM_VENUSAURITE, 1
+	removeobject 8
+	setflag FLAG_VENUSAURITE
+	waitmessage
+	releaseall
+	end
+
+
+FortreeCity_Venusaurite_Text_0:
+	.string "You found a Venusaurite!$"

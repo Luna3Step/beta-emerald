@@ -562,3 +562,17 @@ Route109_Text_TrainerTipsSign:
 	.string "always have identical stats.\p"
 	.string "POKéMON raised by TRAINERS are said\n"
 	.string "to grow stronger than wild POKéMON.$"
+
+Route109_Swampertite::
+	lockall
+	msgbox Route109_Swampertite_Text_0
+	additem ITEM_SWAMPERTITE, 1
+	removeobject 25
+	setflag FLAG_SWAMPERTITE
+	waitmessage
+	releaseall
+	end
+
+
+Route109_Swampertite_Text_0:
+	.string "You found a Swampertite!$"

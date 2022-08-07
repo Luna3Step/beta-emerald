@@ -57,3 +57,30 @@ MeteorFalls_StevensCave_Text_MyPredictionCameTrue:
 	.string "… … … … … …\p"
 	.string "Fufufu, even I couldn't tell you that.$"
 
+MeteorFalls_StevensCave_Salamencite::
+	lockall
+	msgbox MeteorFalls_StevensCave_Salamencite_Text_0
+	additem ITEM_SALAMENCITE, 1
+	removeobject 2
+	setflag FLAG_SALAMENCITE
+	waitmessage
+	releaseall
+	end
+
+
+MeteorFalls_StevensCave_Metagrossite::
+	lockall
+	msgbox MeteorFalls_StevensCave_Metagrossite_Text_0
+	additem ITEM_METAGROSSITE, 1
+	removeobject 3
+	setflag FLAG_METAGROSSITE
+	waitmessage
+	releaseall
+	end
+
+
+MeteorFalls_StevensCave_Salamencite_Text_0:
+	.string "You found a Salamencite!$"
+
+MeteorFalls_StevensCave_Metagrossite_Text_0:
+	.string "You found a Metagrossite!$"

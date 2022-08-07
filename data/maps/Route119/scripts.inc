@@ -612,3 +612,17 @@ Route119_Text_TrainerTipsDecoration:
 	.string "Pick your favorite items and create\n"
 	.string "your very own SECRET BASE exactly the\l"
 	.string "way you want.$"
+
+Route119_Amphatosite::
+	lockall
+	msgbox Route119_Amphatosite_Text_0
+	additem ITEM_AMPHAROSITE, 1
+	removeobject 44
+	setflag FLAG_AMPHAROSITE
+	waitmessage
+	releaseall
+	end
+
+
+Route119_Amphatosite_Text_0:
+	.string "You found an Ampharosite!$"

@@ -727,3 +727,30 @@ Route111_Text_TrainerHillSign:
 	.string "“Scale the heights, you hot-blooded\n"
 	.string "TRAINERS!”$"
 
+Route111_Heracronite::
+	lockall
+	msgbox Route111_Heracronite_Text_0
+	additem ITEM_HERACRONITE, 1
+	removeobject 47
+	setflag FLAG_HERACRONITE
+	waitmessage
+	releaseall
+	end
+
+
+Route111_Garchompite::
+	lockall
+	msgbox Route111_Garchompite_Text_0
+	additem ITEM_GARCHOMPITE, 1
+	removeobject 48
+	setflag FLAG_GARCHOMPITE
+	waitmessage
+	releaseall
+	end
+
+
+Route111_Heracronite_Text_0:
+	.string "You found a Heracronite!$"
+
+Route111_Garchompite_Text_0:
+	.string "You found a Garchompite!$"

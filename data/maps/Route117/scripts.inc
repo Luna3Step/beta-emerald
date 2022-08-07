@@ -206,3 +206,16 @@ Route117_Text_DayCareSign:
 	.string "POKéMON DAY CARE\n"
 	.string "“Let us raise your POKéMON.”$"
 
+Route117_Lopunnite::
+	lockall
+	msgbox Route117_Lopunnite_Text_0
+	additem ITEM_LOPUNNITE, 1
+	removeobject 25
+	setflag FLAG_LOPUNNITE
+	waitmessage
+	releaseall
+	end
+
+
+Route117_Lopunnite_Text_0:
+	.string "You found a Lopunnite!$"

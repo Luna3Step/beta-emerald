@@ -1724,3 +1724,17 @@ SootopolisCity_Text_DazzledByMentor:
 	.string "WALLACE: I'm sure that you will be\n"
 	.string "dazzled by my mentor's breathtakingly\l"
 	.string "elegant battle style.$"
+
+SootopolisCity_Altarianite::
+	lockall
+	msgbox SootopolisCity_Altarianite_Text_0
+	additem ITEM_ALTARIANITE, 1
+	removeobject 19
+	setflag FLAG_ALTARIANITE
+	waitmessage
+	releaseall
+	end
+
+
+SootopolisCity_Altarianite_Text_0:
+	.string "You found an Altarianite!$"

@@ -266,3 +266,16 @@ JaggedPass_Text_AutumnPostBattle:
 	.string "What is that odd rock protrusion\n"
 	.string "a little up the hill from here?$"
 
+JaggedPass_Medichamite::
+	lockall
+	msgbox JaggedPass_Medichamite_Text_0
+	additem ITEM_MEDICHAMITE, 1
+	removeobject 8
+	setflag FLAG_MEDICHAMITE
+	waitmessage
+	releaseall
+	end
+
+
+JaggedPass_Medichamite_Text_0:
+	.string "You found a Medichamite!$"

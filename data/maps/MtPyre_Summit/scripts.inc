@@ -623,3 +623,16 @@ MtPyre_Summit_Text_HoennTrioTale:
 	.string "Then, its duty done, the green POKéMON\n"
 	.string "flew off into the wild blue yonder…$"
 
+MtPyre_Summit_Sablenite::
+	lockall
+	msgbox MtPyre_Summit_Sablenite_Text_0
+	additem ITEM_SABLENITE, 1
+	removeobject 9
+	setflag FLAG_SABLENITE
+	waitmessage
+	releaseall
+	end
+
+
+MtPyre_Summit_Sablenite_Text_0:
+	.string "You found a Sablenite!$"

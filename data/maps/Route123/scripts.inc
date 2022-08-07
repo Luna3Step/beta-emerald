@@ -196,3 +196,16 @@ Route123_Text_RouteSignMtPyre:
 Route123_Text_BerryMastersHouse:
 	.string "BERRY MASTER'S HOUSE$"
 
+Route123_Gardevoirite::
+	lockall
+	msgbox Route123_Gardevoirite_Text_0
+	additem ITEM_GARDEVOIRITE, 1
+	removeobject 44
+	setflag FLAG_GARDEVOIRITE
+	waitmessage
+	releaseall
+	end
+
+
+Route123_Gardevoirite_Text_0:
+	.string "You found a Gardevoirite!$"

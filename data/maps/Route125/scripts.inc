@@ -81,3 +81,16 @@ Route125_EventScript_Auron::
 	msgbox Route125_Text_AuronPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route123_Sharpedonite::
+	lockall
+	msgbox Route123_Sharpedonite_Text_0
+	additem ITEM_SHARPEDONITE, 1
+	removeobject 13
+	setflag FLAG_SHARPEDONITE
+	waitmessage
+	releaseall
+	end
+
+
+Route123_Sharpedonite_Text_0:
+	.string "You found a Sharpedonite!$"

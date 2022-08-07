@@ -992,3 +992,16 @@ Route110_Text_KeepAnEyeOutForRival:
 	.string "Well, I had better get going.\n"
 	.string "See you again, {PLAYER}{KUN}!$"
 
+Route110_Manectite::
+	lockall
+	msgbox Route110_Manectite_Text_0
+	additem ITEM_MANECTITE, 1
+	removeobject 38
+	setflag FLAG_MANECTITE
+	waitmessage
+	releaseall
+	end
+
+
+Route110_Manectite_Text_0:
+	.string "You found a Manectite!$"

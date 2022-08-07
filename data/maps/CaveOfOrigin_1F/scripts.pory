@@ -1,0 +1,20 @@
+raw`
+CaveOfOrigin_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, CaveOfOrigin_1F_OnTransition
+	.byte 0
+
+CaveOfOrigin_1F_OnTransition:
+	call_if_set FLAG_UNUSED_RS_LEGENDARY_BATTLE_DONE, CaveOfOrigin_EventScript_DisableTriggers
+	end
+`
+
+script CaveOfOrigin_1f_Absolite{
+    lockall
+    msgbox(format("You found an Absolite!"))
+    additem(ITEM_ABSOLITE, 1)
+	removeobject(1)
+    setflag(FLAG_ABSOLITE)
+    waitmessage
+    releaseall
+    end
+}

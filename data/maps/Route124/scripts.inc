@@ -102,3 +102,16 @@ Route124_EventScript_Isabella::
 Route124_Text_HuntersHouse:
 	.string "HUNTER'S HOUSE$"
 
+Route125_Abomasite::
+	lockall
+	msgbox Route125_Abomasite_Text_0
+	additem ITEM_ABOMASITE, 1
+	removeobject 11
+	setflag FLAG_ABOMASITE
+	waitmessage
+	releaseall
+	end
+
+
+Route125_Abomasite_Text_0:
+	.string "You found an Abomasite!$"

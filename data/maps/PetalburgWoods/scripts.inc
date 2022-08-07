@@ -474,3 +474,16 @@ PetalburgWoods_Text_TrainerTipsPP:
 	.string "If a POKéMON runs out of PP, it must be\n"
 	.string "taken to a POKéMON CENTER.$"
 
+PetalburgWoods_Beedrillite::
+	lockall
+	msgbox PetalburgWoods_Beedrillite_Text_0
+	additem ITEM_BEEDRILLITE, 1
+	removeobject 14
+	setflag FLAG_BEEDRILLITE
+	waitmessage
+	releaseall
+	end
+
+
+PetalburgWoods_Beedrillite_Text_0:
+	.string "You found a Beedrillite!$"

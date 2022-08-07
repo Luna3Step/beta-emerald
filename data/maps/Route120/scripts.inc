@@ -430,3 +430,17 @@ Route120_Text_RouteSignFortree:
 Route120_Text_RouteSign121:
 	.string "{RIGHT_ARROW} ROUTE 121\n"
 	.string "{LEFT_ARROW} ROUTE 120$"
+
+Route120_Scizorite::
+	lockall
+	msgbox Route120_Scizorite_Text_0
+	additem ITEM_SCIZORITE, 1
+	removeobject 45
+	setflag FLAG_SCIZORITE
+	waitmessage
+	releaseall
+	end
+
+
+Route120_Scizorite_Text_0:
+	.string "You found a Scizorite!$"

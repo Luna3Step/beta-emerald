@@ -181,3 +181,16 @@ MeteorFalls_1F_2R_Text_JayRematchNotEnoughMons:
 	.string "If you'd care to battle with us, you'll\n"
 	.string "have to come back with more POKéMON.$"
 
+MeteorFalls_1F_2R_Steelixite::
+	lockall
+	msgbox MeteorFalls_1F_2R_Steelixite_Text_0
+	additem ITEM_STEELIXITE, 1
+	removeobject 4
+	setflag FLAG_STEELIXITE
+	waitmessage
+	releaseall
+	end
+
+
+MeteorFalls_1F_2R_Steelixite_Text_0:
+	.string "You found a Steelixite!$"

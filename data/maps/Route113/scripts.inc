@@ -164,3 +164,16 @@ Route113_Text_GlassWorkshopSign:
 	.string "GLASS WORKSHOP\n"
 	.string "“Turning Volcanic Ash into Glass Items”$"
 
+Route113_Charizardite_X::
+	lockall
+	msgbox Route113_Charizardite_X_Text_0
+	additem ITEM_CHARIZARDITE_X, 1
+	removeobject 17
+	setflag FLAG_CHARIZARDITE_X
+	waitmessage
+	releaseall
+	end
+
+
+Route113_Charizardite_X_Text_0:
+	.string "You found a Charizardite X!$"

@@ -31,7 +31,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MewsRecluse_ItemBallTop",
-      "flag": "FLAG_BLUE_ORB"
+      "flag": "FLAG_MEWTWONITE_Y"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -44,7 +44,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MewsRecluse_ItemBallBottom",
-      "flag": "FLAG_RED_ORB"
+      "flag": "FLAG_MEWTWONITE_X"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BIG_CHARIZARD_DOLL",

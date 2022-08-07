@@ -765,3 +765,17 @@ PetalburgCity_Text_ImLookingForTalentedTrainers:
 	.string "I'm roaming the land in search of\n"
 	.string "talented TRAINERS.\p"
 	.string "I'm sorry to have taken your time.$"
+
+PetalburgCity_Alakazite::
+	lockall
+	msgbox PetalburgCity_Alakazite_Text_0
+	additem ITEM_ALAKAZITE, 1
+	removeobject 10
+	setflag FLAG_ALAKAZITE
+	waitmessage
+	releaseall
+	end
+
+
+PetalburgCity_Alakazite_Text_0:
+	.string "You found an Alakazite!$"

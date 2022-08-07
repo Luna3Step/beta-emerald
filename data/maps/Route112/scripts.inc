@@ -143,3 +143,30 @@ Route112_Text_RouteSignLavaridge:
 	.string "ROUTE 112\n"
 	.string "{LEFT_ARROW} LAVARIDGE TOWN$"
 
+Route112_Houndoominite::
+	lockall
+	msgbox Route112_Houndoominite_Text_0
+	additem ITEM_HOUNDOOMINITE, 1
+	removeobject 15
+	setflag FLAG_HOUNDOOMINITE
+	waitmessage
+	releaseall
+	end
+
+
+Route112_Cameruptite::
+	lockall
+	msgbox Route112_Cameruptite_Text_0
+	additem ITEM_CAMERUPTITE, 1
+	removeobject 16
+	setflag FLAG_CAMERUPTITE
+	waitmessage
+	releaseall
+	end
+
+
+Route112_Houndoominite_Text_0:
+	.string "You found a Houndoominite!$"
+
+Route112_Cameruptite_Text_0:
+	.string "You found a Cameruptite!$"
