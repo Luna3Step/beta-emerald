@@ -770,7 +770,7 @@ PetalburgCity_Alakazite::
 	lockall
 	msgbox PetalburgCity_Alakazite_Text_0
 	additem ITEM_ALAKAZITE, 1
-	removeobject 10
+	removeobject 9
 	setflag FLAG_ALAKAZITE
 	waitmessage
 	releaseall

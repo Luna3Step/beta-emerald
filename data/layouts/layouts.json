@@ -4424,12 +4424,22 @@
     {
       "id": "LAYOUT_MEWS_RECLUSE",
       "name": "Mews_Recluse_Layout",
-      "width": 30,
+      "width": 50,
       "height": 30,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Mews_Recluse/border.bin",
       "blockdata_filepath": "data/layouts/Mews_Recluse/map.bin"
+    },
+    {
+      "id": "LAYOUT_MEWS_DUNGEON",
+      "name": "Mews_Dungeon_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Mews_Dungeon/border.bin",
+      "blockdata_filepath": "data/layouts/Mews_Dungeon/map.bin"
     }
   ]
 }

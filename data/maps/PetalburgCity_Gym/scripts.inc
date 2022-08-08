@@ -335,6 +335,7 @@ PetalburgCity_Gym_EventScript_NormanPostBattle::
 	goto_if_unset FLAG_RECEIVED_TM42, PetalburgCity_Gym_EventScript_GiveFacade2
 	goto_if_set FLAG_SYS_GAME_CLEAR, PetalburgCity_Gym_EventScript_NoAmountOfTrainingIsEnough
 	msgbox PetalburgCity_Gym_Text_DadGoingToKeepTraining, MSGBOX_DEFAULT
+    setvar VAR_PETALBURG_GYM_STATE_MEGA, 1
 	release
 	end
 
@@ -391,17 +392,11 @@ PetalburgCity_Gym_EventScript_NormanBattle::
 	call PetalburgCity_Gym_EventScript_UnlockAllDoors
 	special DrawWholeMapView
 	call PetalburgCity_Gym_EventScript_GiveFacade
+    setvar VAR_PETALBURG_GYM_STATE_MEGA, 1
 	delay 30
 	msgbox PetalburgCity_Gym_Text_DadHappyAndSad, MSGBOX_DEFAULT
 	closemessage
-	delay 40
-	playse SE_DOOR
-	delay 10
-	addobject LOCALID_WALLYS_DAD
-	switch VAR_FACING
-	case DIR_NORTH, PetalburgCity_Gym_EventScript_WallysDadArrivesNorth
-	case DIR_WEST, PetalburgCity_Gym_EventScript_WallysDadArrivesWest
-	case DIR_EAST, PetalburgCity_Gym_EventScript_WallysDadArrivesEast
+    release
 	end
 
 PetalburgCity_Gym_EventScript_GiveFacade::
@@ -1593,3 +1588,250 @@ PetalburgCity_Gym_Text_NormanRematchNeedTwoMons:
 	.string "Sorry, but you'll have to come back\n"
 	.string "with at least two POKéMON.$"
 
+PetalburgCity_Gym_Trigger_Mega_0::
+	lockall
+	msgbox PetalburgCity_Gym_Trigger_Mega_0_Text_0
+	waitmessage
+	applymovement 1, PetalburgCity_Movement_Norman_0
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerUp_0
+	waitmovement 0
+	msgbox PetalburgCity_Gym_Trigger_Mega_0_Text_1
+	setflag FLAG_NORMAN_MEGA
+	setvar VAR_PETALBURG_GYM_STATE_MEGA, 2
+	waitmessage
+	releaseall
+	return
+
+
+PetalburgCity_Movement_PlayerUp_0:
+	face_up
+	step_end
+
+PetalburgCity_Movement_Norman_0:
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	face_down
+	step_end
+
+PetalburgCity_Gym_Trigger_Mega_1::
+	lockall
+	msgbox PetalburgCity_Gym_Trigger_Mega_0_Text_0
+	waitmessage
+	applymovement 1, PetalburgCity_Movement_Norman_1
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerUp_1
+	waitmovement 0
+	msgbox PetalburgCity_Gym_Trigger_Mega_0_Text_1
+	setflag FLAG_NORMAN_MEGA
+	setvar VAR_PETALBURG_GYM_STATE_MEGA, 2
+	waitmessage
+	releaseall
+	return
+
+
+PetalburgCity_Movement_PlayerUp_1:
+	face_up
+	step_end
+
+PetalburgCity_Movement_Norman_1:
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+PetalburgCity_Gym_Trigger_Mega_2::
+	lockall
+	msgbox PetalburgCity_Gym_Trigger_Mega_0_Text_0
+	waitmessage
+	applymovement 1, PetalburgCity_Movement_Norman_2
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerUp_2
+	waitmovement 0
+	msgbox PetalburgCity_Gym_Trigger_Mega_0_Text_1
+	setflag FLAG_NORMAN_MEGA
+	setvar VAR_PETALBURG_GYM_STATE_MEGA, 2
+	waitmessage
+	releaseall
+	return
+
+
+PetalburgCity_Movement_PlayerUp_2:
+	face_left
+	step_end
+
+PetalburgCity_Movement_Norman_2:
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	face_right
+	step_end
+
+PetalburgCity_Gym_Trigger_Mega_3::
+	lockall
+	msgbox PetalburgCity_Gym_Trigger_Mega_0_Text_0
+	waitmessage
+	applymovement 1, PetalburgCity_Movement_Norman_3
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerUp_3
+	waitmovement 0
+	msgbox PetalburgCity_Gym_Trigger_Mega_0_Text_1
+	setflag FLAG_NORMAN_MEGA
+	setvar VAR_PETALBURG_GYM_STATE_MEGA, 2
+	waitmessage
+	releaseall
+	return
+
+
+PetalburgCity_Movement_PlayerUp_3:
+	face_left
+	step_end
+
+PetalburgCity_Movement_Norman_3:
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	face_right
+	step_end
+
+PetalburgCity_Gym_Trigger_Mega_4::
+	lockall
+	msgbox PetalburgCity_Gym_Trigger_Mega_0_Text_0
+	waitmessage
+	applymovement 1, PetalburgCity_Movement_Norman_4
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerUp_4
+	waitmovement 0
+	msgbox PetalburgCity_Gym_Trigger_Mega_0_Text_1
+	setflag FLAG_NORMAN_MEGA
+	setvar VAR_PETALBURG_GYM_STATE_MEGA, 2
+	waitmessage
+	releaseall
+	return
+
+
+PetalburgCity_Movement_PlayerUp_4:
+	face_left
+	step_end
+
+PetalburgCity_Movement_Norman_4:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	face_right
+	step_end
+
+PetalburgCity_Gym_Trigger_Mega_5::
+	lockall
+	msgbox PetalburgCity_Gym_Trigger_Mega_0_Text_0
+	waitmessage
+	applymovement 1, PetalburgCity_Movement_Norman_5
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerUp_5
+	waitmovement 0
+	msgbox PetalburgCity_Gym_Trigger_Mega_0_Text_1
+	setflag FLAG_NORMAN_MEGA
+	setvar VAR_PETALBURG_GYM_STATE_MEGA, 2
+	waitmessage
+	releaseall
+	return
+
+
+PetalburgCity_Movement_PlayerUp_5:
+	face_right
+	step_end
+
+PetalburgCity_Movement_Norman_5:
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	face_left
+	step_end
+
+PetalburgCity_Gym_Trigger_Mega_6::
+	lockall
+	msgbox PetalburgCity_Gym_Trigger_Mega_0_Text_0
+	waitmessage
+	applymovement 1, PetalburgCity_Movement_Norman_6
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerUp_6
+	waitmovement 0
+	msgbox PetalburgCity_Gym_Trigger_Mega_0_Text_1
+	setflag FLAG_NORMAN_MEGA
+	setvar VAR_PETALBURG_GYM_STATE_MEGA, 2
+	waitmessage
+	releaseall
+	return
+
+
+PetalburgCity_Movement_PlayerUp_6:
+	face_right
+	step_end
+
+PetalburgCity_Movement_Norman_6:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	face_left
+	step_end
+
+PetalburgCity_Gym_Trigger_Mega_7::
+	lockall
+	msgbox PetalburgCity_Gym_Trigger_Mega_0_Text_0
+	waitmessage
+	applymovement 1, PetalburgCity_Movement_Norman_7
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerUp_7
+	waitmovement 0
+	msgbox PetalburgCity_Gym_Trigger_Mega_0_Text_1
+	setflag FLAG_NORMAN_MEGA
+	setvar VAR_PETALBURG_GYM_STATE_MEGA, 2
+	waitmessage
+	releaseall
+	return
+
+
+PetalburgCity_Movement_PlayerUp_7:
+	face_right
+	step_end
+
+PetalburgCity_Movement_Norman_7:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	face_left
+	step_end
+
+PetalburgCity_Gym_Trigger_Mega_0_Text_0:
+	.string "Wait a second!$"
+
+PetalburgCity_Gym_Trigger_Mega_0_Text_1:
+	.string "I forgot to mention this but your\n"
+	.string "mother would love to celebrate this\l"
+	.string "occasion with you as well, you should\l"
+	.string "give her a visit$"

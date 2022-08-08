@@ -438,3 +438,25 @@ PlayersHouse_1F_Text_WhatColorDidTheySay:
 PlayersHouse_1F_Text_StillUnknownPokemon:
 	.string "MOM: Well, isn't that something!\n"
 	.string "There are still unknown POKéMON.$"
+
+PlayersHouse_1F_Text_Mega_1:
+	.string "Mom: I just heard from your Dad,\n"
+	.string "you truly are your father's\l"
+	.string "child.$"
+
+PlayersHouse_1F_Text_Mega_2:
+	.string "We were going to give this to\n"
+	.string "you together when you first set\l"
+	.string "out on your journey.\p"
+	.string "But then your dad got that job\n"
+	.string "and you set out before he could\l"
+	.string "see you off.\p"
+	.string "So we decided to do it this way\n"
+	.string "round once you had beaten your\l"
+	.string "father in battle.\p"
+	.string "We are both so proud of you\n"
+	.string "and love you so much.\p"
+	.string "You should be on your way then,\n"
+	.string "can't keep you from your journey.\p"
+	.string "Just come see your Dad and I\n"
+	.string "when you get a moment$"

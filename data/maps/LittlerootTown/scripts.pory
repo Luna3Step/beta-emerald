@@ -1025,8 +1025,19 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 
 script LittlerootTown_EventScript_NewSign {
 	lockall
-    msgbox(format("DO NOT ENTER. THIS BUILDING HAS BEEN CONDEMNED "))
+    msgbox(format("Professor Birch Lab"))
     releaseall
+}
+
+script LittlerootTown_EventScript_LockedDoor {
+	lockall
+	msgbox(format("I'm just fixing the door."))
+	waitmessage
+	msgbox(format("If you are {PLAYER}, the professor said to visit his home first."))
+	waitmessage
+	msgbox(format("This will likely take a while anyway"))
+	waitmessage
+	releaseall
 }
 
 script LittlerootTown_Trigger_BlockPath {
@@ -1043,7 +1054,7 @@ script LittlerootTown_EventScript_SetupRivalBattle{
 		setvar(VAR_LITTLEROOT_STATE, 0)
 	}
 	else{
-		if(var(VAR_LITTLEROOT_STATE) == 0){
+		if(var(VAR_LITTLEROOT_STATE) == 2){
 		clearflag(FLAG_RIVAL_BATTLE_LITTLEROOT)
 		}
 	}
@@ -1053,7 +1064,7 @@ script LittlerootTown_EventScript_RivalBattle{
 	lockall
 	msgbox(format("Hi, I see my dad gave you a pokemon, let me see!"))
 	setflag(FLAG_RIVAL_BATTLE_LITTLEROOT)
-	setvar(VAR_LITTLEROOT_STATE, 1)
+	setvar(VAR_LITTLEROOT_STATE, 3)
 	call(LittlerootTown_EventScript_RivalBattleStart)
 }
 
@@ -1136,7 +1147,7 @@ script RivalBattleOver{
 	applymovement(9, RivalLeave)
 	waitmovement(0)
 	removeobject(9)
-	setvar(VAR_LITTLEROOT_STATE, 1) 
+	setvar(VAR_LITTLEROOT_STATE, 4) 
 	setflag(FLAG_ADVENTURE_STARTED)
 	releaseall
 }

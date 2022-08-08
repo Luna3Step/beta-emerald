@@ -1027,6 +1027,18 @@ LittlerootTown_EventScript_NewSign::
 	return
 
 
+LittlerootTown_EventScript_LockedDoor::
+	lockall
+	msgbox LittlerootTown_EventScript_LockedDoor_Text_0
+	waitmessage
+	msgbox LittlerootTown_EventScript_LockedDoor_Text_1
+	waitmessage
+	msgbox LittlerootTown_EventScript_LockedDoor_Text_2
+	waitmessage
+	releaseall
+	return
+
+
 LittlerootTown_Trigger_BlockPath::
 	lockall
 	msgbox LittlerootTown_Trigger_BlockPath_Text_0
@@ -1039,7 +1051,7 @@ LittlerootTown_Trigger_BlockPath::
 LittlerootTown_EventScript_SetupRivalBattle::
 	goto_if_unset FLAG_WATER_STARTER, LittlerootTown_EventScript_SetupRivalBattle_3
 LittlerootTown_EventScript_SetupRivalBattle_2:
-	compare VAR_LITTLEROOT_STATE, 0
+	compare VAR_LITTLEROOT_STATE, 2
 	goto_if_eq LittlerootTown_EventScript_SetupRivalBattle_8
 	return
 
@@ -1065,7 +1077,7 @@ LittlerootTown_EventScript_RivalBattle::
 	lockall
 	msgbox LittlerootTown_EventScript_RivalBattle_Text_0
 	setflag FLAG_RIVAL_BATTLE_LITTLEROOT
-	setvar VAR_LITTLEROOT_STATE, 1
+	setvar VAR_LITTLEROOT_STATE, 3
 	call LittlerootTown_EventScript_RivalBattleStart
 	return
 
@@ -1158,7 +1170,7 @@ RivalBattleOver::
 	applymovement 9, RivalLeave
 	waitmovement 0
 	removeobject 9
-	setvar VAR_LITTLEROOT_STATE, 1
+	setvar VAR_LITTLEROOT_STATE, 4
 	setflag FLAG_ADVENTURE_STARTED
 	releaseall
 	return
@@ -1184,8 +1196,17 @@ StopPlayer:
 	step_end
 
 LittlerootTown_EventScript_NewSign_Text_0:
-	.string "DO NOT ENTER. THIS BUILDING HAS BEEN\n"
-	.string "CONDEMNED$"
+	.string "Professor Birch Lab$"
+
+LittlerootTown_EventScript_LockedDoor_Text_0:
+	.string "I'm just fixing the door.$"
+
+LittlerootTown_EventScript_LockedDoor_Text_1:
+	.string "If you are {PLAYER}, the professor\n"
+	.string "said to visit his home first.$"
+
+LittlerootTown_EventScript_LockedDoor_Text_2:
+	.string "This will likely take a while anyway$"
 
 LittlerootTown_Trigger_BlockPath_Text_0:
 	.string "You should see Birch first$"

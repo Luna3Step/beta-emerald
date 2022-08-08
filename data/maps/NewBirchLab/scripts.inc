@@ -10,7 +10,7 @@ NewBirchLab_EventScript_Pokeball::
 	compare VAR_RESULT, YES
 	goto_if_eq NewBirchLab_EventScript_Pokeball_2
 	hidemonpic
-	msgbox NewBirchLab_EventScript_Pokeball_Text_3
+	msgbox NewBirchLab_EventScript_Pokeball_Text_3, MSGBOX_DEFAULT
 NewBirchLab_EventScript_Pokeball_1:
 	waitmessage
 	releaseall
@@ -23,12 +23,12 @@ NewBirchLab_EventScript_Pokeball_2:
 	compare VAR_RESULT, MON_GIVEN_TO_PC
 	goto_if_eq NewBirchLab_EventScript_Pokeball_6
 	hidemonpic
-	msgbox NewBirchLab_EventScript_Pokeball_Text_2
+	msgbox NewBirchLab_EventScript_Pokeball_Text_2, MSGBOX_DEFAULT
 	goto NewBirchLab_EventScript_Pokeball_1
 
 NewBirchLab_EventScript_Pokeball_5:
 	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Pokeball_Text_1
+	msgbox NewBirchLab_EventScript_Pokeball_Text_1, MSGBOX_DEFAULT
 	removeobject 1
 	setflag FLAG_EEVEE_LAB
 	call NicknamePartyMon
@@ -36,7 +36,7 @@ NewBirchLab_EventScript_Pokeball_5:
 
 NewBirchLab_EventScript_Pokeball_6:
 	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Pokeball_Text_1
+	msgbox NewBirchLab_EventScript_Pokeball_Text_1, MSGBOX_DEFAULT
 	removeobject 1
 	setflag FLAG_EEVEE_LAB
 	call NicknameBoxMon
@@ -63,7 +63,7 @@ NicknameBoxMon::
 	goto_if_eq NicknameBoxMon_2
 NicknameBoxMon_1:
 	call Common_EventScript_TransferredToPC
-	msgbox NicknameBoxMon_Text_0
+	msgbox NicknameBoxMon_Text_0, MSGBOX_DEFAULT
 	return
 
 NicknameBoxMon_2:
@@ -75,6 +75,41 @@ NewBirchLab_EventScript_BallDefault::
 	setvar VAR_STARTER_GEN, 2
 	return
 
+
+Start_StarterChoose_Sequence::
+	lock
+	applymovement OBJ_EVENT_ID_PLAYER, MeetBirch
+	waitmovement 0
+	msgbox BeginAdventureText
+	waitmessage
+	closemessage
+	applymovement 5, ProfMove
+	waitmovement 0
+	setvar VAR_LITTLEROOT_STATE, 1
+	release
+	return
+
+
+Start_StarterChoose_Sequence2::
+	lock
+	applymovement OBJ_EVENT_ID_PLAYER, MeetBirch2
+	waitmovement 0
+	goto Start_StarterChoose_Sequence
+	return
+
+
+StopLeaving::
+	lockall
+	msgbox StopLeaving_Text_0, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, DoNotLeave
+	waitmovement 0
+	releaseall
+	return
+
+
+DoNotLeave:
+	walk_up
+	step_end
 
 NewBirchLab_EventScript_Birch::
 	goto_if_unset FLAG_WATER_STARTER, NewBirchLab_EventScript_Birch_4
@@ -106,7 +141,7 @@ NewBirchLab_EventScript_Birch_2:
 	compare VAR_RESULT, 7
 	goto_if_eq NewBirchLab_EventScript_Birch_17
 NewBirchLab_EventScript_Birch_9:
-	msgbox NewBirchLab_EventScript_Birch_Text_1
+	msgbox NewBirchLab_EventScript_Birch_Text_1, MSGBOX_DEFAULT
 	waitmessage
 	release
 	goto NewBirchLab_EventScript_Birch_1
@@ -169,1179 +204,406 @@ StarterFade::
 
 NewBirchLab_EventScript_PokeballOne::
 	lockall
-	goto_if_unset FLAG_WATER_STARTER, NewBirchLab_EventScript_PokeballOne_4
-NewBirchLab_EventScript_PokeballOne_3:
-	msgbox NewBirchLab_EventScript_PokeballOne_Text_0
+	setvar VAR_TEMP_0, 2
+	goto_if_unset FLAG_SYS_POKEMON_GET, NewBirchLab_EventScript_PokeballOne_2
+	msgbox NewBirchLab_EventScript_PokeballOne_Text_0, MSGBOX_DEFAULT
 NewBirchLab_EventScript_PokeballOne_1:
-	setflag FLAG_SYS_POKEMON_GET
-	clearflag FLAG_RIVAL_BATTLE_LITTLEROOT
 	waitmessage
 	releaseall
 	end
 
 NewBirchLab_EventScript_PokeballOne_2:
 	compare VAR_STARTER_GEN, 0
-	goto_if_eq NewBirchLab_EventScript_PokeballOne_9
+	goto_if_eq NewBirchLab_EventScript_PokeballOne_5
 	compare VAR_STARTER_GEN, 1
-	goto_if_eq NewBirchLab_EventScript_PokeballOne_10
+	goto_if_eq NewBirchLab_EventScript_PokeballOne_6
 	compare VAR_STARTER_GEN, 2
-	goto_if_eq NewBirchLab_EventScript_PokeballOne_11
+	goto_if_eq NewBirchLab_EventScript_PokeballOne_7
 	compare VAR_STARTER_GEN, 3
-	goto_if_eq NewBirchLab_EventScript_PokeballOne_12
+	goto_if_eq NewBirchLab_EventScript_PokeballOne_8
 	compare VAR_STARTER_GEN, 4
-	goto_if_eq NewBirchLab_EventScript_PokeballOne_13
+	goto_if_eq NewBirchLab_EventScript_PokeballOne_9
 	compare VAR_STARTER_GEN, 5
-	goto_if_eq NewBirchLab_EventScript_PokeballOne_14
+	goto_if_eq NewBirchLab_EventScript_PokeballOne_10
 	compare VAR_STARTER_GEN, 6
-	goto_if_eq NewBirchLab_EventScript_PokeballOne_15
+	goto_if_eq NewBirchLab_EventScript_PokeballOne_11
 	compare VAR_STARTER_GEN, 7
-	goto_if_eq NewBirchLab_EventScript_PokeballOne_16
+	goto_if_eq NewBirchLab_EventScript_PokeballOne_12
 	goto NewBirchLab_EventScript_PokeballOne_1
 
-NewBirchLab_EventScript_PokeballOne_4:
-	goto_if_unset FLAG_GRASS_STARTER, NewBirchLab_EventScript_PokeballOne_6
-	goto NewBirchLab_EventScript_PokeballOne_3
+NewBirchLab_EventScript_PokeballOne_5:
+	bufferspeciesname STR_VAR_1, SPECIES_SQUIRTLE
+	setvar VAR_STARTER_CHOICE, SPECIES_SQUIRTLE
+	call NewBirchLab_EventScript_GiveStarter
+	goto NewBirchLab_EventScript_PokeballOne_1
 
 NewBirchLab_EventScript_PokeballOne_6:
-	goto_if_unset FLAG_FIRE_STARTER, NewBirchLab_EventScript_PokeballOne_2
-	goto NewBirchLab_EventScript_PokeballOne_3
+	bufferspeciesname STR_VAR_1, SPECIES_TOTODILE
+	setvar VAR_STARTER_CHOICE, SPECIES_CHIKORITA
+	call NewBirchLab_EventScript_GiveStarter
+	goto NewBirchLab_EventScript_PokeballOne_1
+
+NewBirchLab_EventScript_PokeballOne_7:
+	bufferspeciesname STR_VAR_1, SPECIES_MUDKIP
+	setvar VAR_STARTER_CHOICE, SPECIES_MUDKIP
+	call NewBirchLab_EventScript_GiveStarter
+	goto NewBirchLab_EventScript_PokeballOne_1
+
+NewBirchLab_EventScript_PokeballOne_8:
+	bufferspeciesname STR_VAR_1, SPECIES_PIPLUP
+	setvar VAR_STARTER_CHOICE, SPECIES_PIPLUP
+	call NewBirchLab_EventScript_GiveStarter
+	goto NewBirchLab_EventScript_PokeballOne_1
 
 NewBirchLab_EventScript_PokeballOne_9:
-	call NewBirchLab_EventScript_Squirtle
+	bufferspeciesname STR_VAR_1, SPECIES_OSHAWOTT
+	setvar VAR_STARTER_CHOICE, SPECIES_OSHAWOTT
+	call NewBirchLab_EventScript_GiveStarter
 	goto NewBirchLab_EventScript_PokeballOne_1
 
 NewBirchLab_EventScript_PokeballOne_10:
-	call NewBirchLab_EventScript_Totodile
+	bufferspeciesname STR_VAR_1, SPECIES_FROAKIE
+	setvar VAR_STARTER_CHOICE, SPECIES_FROAKIE
+	call NewBirchLab_EventScript_GiveStarter
 	goto NewBirchLab_EventScript_PokeballOne_1
 
 NewBirchLab_EventScript_PokeballOne_11:
-	call NewBirchLab_EventScript_Mudkip
+	bufferspeciesname STR_VAR_1, SPECIES_POPPLIO
+	setvar VAR_STARTER_CHOICE, SPECIES_POPPLIO
+	call NewBirchLab_EventScript_GiveStarter
 	goto NewBirchLab_EventScript_PokeballOne_1
 
 NewBirchLab_EventScript_PokeballOne_12:
-	call NewBirchLab_EventScript_Piplup
-	goto NewBirchLab_EventScript_PokeballOne_1
-
-NewBirchLab_EventScript_PokeballOne_13:
-	call NewBirchLab_EventScript_Oshawott
-	goto NewBirchLab_EventScript_PokeballOne_1
-
-NewBirchLab_EventScript_PokeballOne_14:
-	call NewBirchLab_EventScript_Froakie
-	goto NewBirchLab_EventScript_PokeballOne_1
-
-NewBirchLab_EventScript_PokeballOne_15:
-	call NewBirchLab_EventScript_Popplio
-	goto NewBirchLab_EventScript_PokeballOne_1
-
-NewBirchLab_EventScript_PokeballOne_16:
-	call NewBirchLab_EventScript_Sobble
+	bufferspeciesname STR_VAR_1, SPECIES_SOBBLE
+	setvar VAR_STARTER_CHOICE, SPECIES_SOBBLE
+	call NewBirchLab_EventScript_GiveStarter
 	goto NewBirchLab_EventScript_PokeballOne_1
 
 
 NewBirchLab_EventScript_PokeballTwo::
 	lockall
-	goto_if_unset FLAG_WATER_STARTER, NewBirchLab_EventScript_PokeballTwo_4
-NewBirchLab_EventScript_PokeballTwo_3:
-	msgbox NewBirchLab_EventScript_PokeballOne_Text_0
+	setvar VAR_TEMP_0, 3
+	goto_if_unset FLAG_SYS_POKEMON_GET, NewBirchLab_EventScript_PokeballTwo_2
+	msgbox NewBirchLab_EventScript_PokeballOne_Text_0, MSGBOX_DEFAULT
 NewBirchLab_EventScript_PokeballTwo_1:
-	setflag FLAG_SYS_POKEMON_GET
-	clearflag FLAG_RIVAL_BATTLE_LITTLEROOT
 	waitmessage
 	releaseall
 	end
 
 NewBirchLab_EventScript_PokeballTwo_2:
 	compare VAR_STARTER_GEN, 0
-	goto_if_eq NewBirchLab_EventScript_PokeballTwo_9
+	goto_if_eq NewBirchLab_EventScript_PokeballTwo_5
 	compare VAR_STARTER_GEN, 1
-	goto_if_eq NewBirchLab_EventScript_PokeballTwo_10
+	goto_if_eq NewBirchLab_EventScript_PokeballTwo_6
 	compare VAR_STARTER_GEN, 2
-	goto_if_eq NewBirchLab_EventScript_PokeballTwo_11
+	goto_if_eq NewBirchLab_EventScript_PokeballTwo_7
 	compare VAR_STARTER_GEN, 3
-	goto_if_eq NewBirchLab_EventScript_PokeballTwo_12
+	goto_if_eq NewBirchLab_EventScript_PokeballTwo_8
 	compare VAR_STARTER_GEN, 4
-	goto_if_eq NewBirchLab_EventScript_PokeballTwo_13
+	goto_if_eq NewBirchLab_EventScript_PokeballTwo_9
 	compare VAR_STARTER_GEN, 5
-	goto_if_eq NewBirchLab_EventScript_PokeballTwo_14
+	goto_if_eq NewBirchLab_EventScript_PokeballTwo_10
 	compare VAR_STARTER_GEN, 6
-	goto_if_eq NewBirchLab_EventScript_PokeballTwo_15
+	goto_if_eq NewBirchLab_EventScript_PokeballTwo_11
 	compare VAR_STARTER_GEN, 7
-	goto_if_eq NewBirchLab_EventScript_PokeballTwo_16
+	goto_if_eq NewBirchLab_EventScript_PokeballTwo_12
 	goto NewBirchLab_EventScript_PokeballTwo_1
 
-NewBirchLab_EventScript_PokeballTwo_4:
-	goto_if_unset FLAG_GRASS_STARTER, NewBirchLab_EventScript_PokeballTwo_6
-	goto NewBirchLab_EventScript_PokeballTwo_3
+NewBirchLab_EventScript_PokeballTwo_5:
+	bufferspeciesname STR_VAR_1, SPECIES_BULBASAUR
+	setvar VAR_STARTER_CHOICE, SPECIES_BULBASAUR
+	call NewBirchLab_EventScript_GiveStarter
+	goto NewBirchLab_EventScript_PokeballTwo_1
 
 NewBirchLab_EventScript_PokeballTwo_6:
-	goto_if_unset FLAG_FIRE_STARTER, NewBirchLab_EventScript_PokeballTwo_2
-	goto NewBirchLab_EventScript_PokeballTwo_3
+	bufferspeciesname STR_VAR_1, SPECIES_CHIKORITA
+	setvar VAR_STARTER_CHOICE, SPECIES_CHIKORITA
+	call NewBirchLab_EventScript_GiveStarter
+	goto NewBirchLab_EventScript_PokeballTwo_1
+
+NewBirchLab_EventScript_PokeballTwo_7:
+	bufferspeciesname STR_VAR_1, SPECIES_TREECKO
+	setvar VAR_STARTER_CHOICE, SPECIES_TREECKO
+	call NewBirchLab_EventScript_GiveStarter
+	goto NewBirchLab_EventScript_PokeballTwo_1
+
+NewBirchLab_EventScript_PokeballTwo_8:
+	bufferspeciesname STR_VAR_1, SPECIES_TURTWIG
+	setvar VAR_STARTER_CHOICE, SPECIES_TURTWIG
+	call NewBirchLab_EventScript_GiveStarter
+	goto NewBirchLab_EventScript_PokeballTwo_1
 
 NewBirchLab_EventScript_PokeballTwo_9:
-	call NewBirchLab_EventScript_Bulbasaur
+	bufferspeciesname STR_VAR_1, SPECIES_SNIVY
+	setvar VAR_STARTER_CHOICE, SPECIES_SNIVY
+	call NewBirchLab_EventScript_GiveStarter
 	goto NewBirchLab_EventScript_PokeballTwo_1
 
 NewBirchLab_EventScript_PokeballTwo_10:
-	call NewBirchLab_EventScript_Chikorita
+	bufferspeciesname STR_VAR_1, SPECIES_CHESPIN
+	setvar VAR_STARTER_CHOICE, SPECIES_CHESPIN
+	call NewBirchLab_EventScript_GiveStarter
 	goto NewBirchLab_EventScript_PokeballTwo_1
 
 NewBirchLab_EventScript_PokeballTwo_11:
-	call NewBirchLab_EventScript_Treecko
+	bufferspeciesname STR_VAR_1, SPECIES_ROWLET
+	setvar VAR_STARTER_CHOICE, SPECIES_ROWLET
+	call NewBirchLab_EventScript_GiveStarter
 	goto NewBirchLab_EventScript_PokeballTwo_1
 
 NewBirchLab_EventScript_PokeballTwo_12:
-	call NewBirchLab_EventScript_Turtwig
-	goto NewBirchLab_EventScript_PokeballTwo_1
-
-NewBirchLab_EventScript_PokeballTwo_13:
-	call NewBirchLab_EventScript_Snivy
-	goto NewBirchLab_EventScript_PokeballTwo_1
-
-NewBirchLab_EventScript_PokeballTwo_14:
-	call NewBirchLab_EventScript_Chespin
-	goto NewBirchLab_EventScript_PokeballTwo_1
-
-NewBirchLab_EventScript_PokeballTwo_15:
-	call NewBirchLab_EventScript_Rowlet
-	goto NewBirchLab_EventScript_PokeballTwo_1
-
-NewBirchLab_EventScript_PokeballTwo_16:
-	call NewBirchLab_EventScript_Grookey
+	bufferspeciesname STR_VAR_1, SPECIES_GROOKEY
+	setvar VAR_STARTER_CHOICE, SPECIES_GROOKEY
+	call NewBirchLab_EventScript_GiveStarter
 	goto NewBirchLab_EventScript_PokeballTwo_1
 
 
 NewBirchLab_EventScript_PokeballThree::
 	lockall
-	goto_if_unset FLAG_WATER_STARTER, NewBirchLab_EventScript_PokeballThree_4
-NewBirchLab_EventScript_PokeballThree_3:
-	msgbox NewBirchLab_EventScript_PokeballOne_Text_0
+	setvar VAR_TEMP_0, 4
+	goto_if_unset FLAG_SYS_POKEMON_GET, NewBirchLab_EventScript_PokeballThree_2
+	msgbox NewBirchLab_EventScript_PokeballOne_Text_0, MSGBOX_DEFAULT
 NewBirchLab_EventScript_PokeballThree_1:
-	setflag FLAG_SYS_POKEMON_GET
-	clearflag FLAG_RIVAL_BATTLE_LITTLEROOT
 	waitmessage
 	releaseall
 	end
 
 NewBirchLab_EventScript_PokeballThree_2:
 	compare VAR_STARTER_GEN, 0
-	goto_if_eq NewBirchLab_EventScript_PokeballThree_9
+	goto_if_eq NewBirchLab_EventScript_PokeballThree_5
 	compare VAR_STARTER_GEN, 1
-	goto_if_eq NewBirchLab_EventScript_PokeballThree_10
+	goto_if_eq NewBirchLab_EventScript_PokeballThree_6
 	compare VAR_STARTER_GEN, 2
-	goto_if_eq NewBirchLab_EventScript_PokeballThree_11
+	goto_if_eq NewBirchLab_EventScript_PokeballThree_7
 	compare VAR_STARTER_GEN, 3
-	goto_if_eq NewBirchLab_EventScript_PokeballThree_12
+	goto_if_eq NewBirchLab_EventScript_PokeballThree_8
 	compare VAR_STARTER_GEN, 4
-	goto_if_eq NewBirchLab_EventScript_PokeballThree_13
+	goto_if_eq NewBirchLab_EventScript_PokeballThree_9
 	compare VAR_STARTER_GEN, 5
-	goto_if_eq NewBirchLab_EventScript_PokeballThree_14
+	goto_if_eq NewBirchLab_EventScript_PokeballThree_10
 	compare VAR_STARTER_GEN, 6
-	goto_if_eq NewBirchLab_EventScript_PokeballThree_15
+	goto_if_eq NewBirchLab_EventScript_PokeballThree_11
 	compare VAR_STARTER_GEN, 7
-	goto_if_eq NewBirchLab_EventScript_PokeballThree_16
+	goto_if_eq NewBirchLab_EventScript_PokeballThree_12
 	goto NewBirchLab_EventScript_PokeballThree_1
 
-NewBirchLab_EventScript_PokeballThree_4:
-	goto_if_unset FLAG_GRASS_STARTER, NewBirchLab_EventScript_PokeballThree_6
-	goto NewBirchLab_EventScript_PokeballThree_3
+NewBirchLab_EventScript_PokeballThree_5:
+	bufferspeciesname STR_VAR_1, SPECIES_CHARMANDER
+	setvar VAR_STARTER_CHOICE, SPECIES_CHARMANDER
+	call NewBirchLab_EventScript_GiveStarter
+	goto NewBirchLab_EventScript_PokeballThree_1
 
 NewBirchLab_EventScript_PokeballThree_6:
-	goto_if_unset FLAG_FIRE_STARTER, NewBirchLab_EventScript_PokeballThree_2
-	goto NewBirchLab_EventScript_PokeballThree_3
+	bufferspeciesname STR_VAR_1, SPECIES_CYNDAQUIL
+	setvar VAR_STARTER_CHOICE, SPECIES_CYNDAQUIL
+	call NewBirchLab_EventScript_GiveStarter
+	goto NewBirchLab_EventScript_PokeballThree_1
+
+NewBirchLab_EventScript_PokeballThree_7:
+	bufferspeciesname STR_VAR_1, SPECIES_TORCHIC
+	setvar VAR_STARTER_CHOICE, SPECIES_TORCHIC
+	call NewBirchLab_EventScript_GiveStarter
+	goto NewBirchLab_EventScript_PokeballThree_1
+
+NewBirchLab_EventScript_PokeballThree_8:
+	bufferspeciesname STR_VAR_1, SPECIES_CHIMCHAR
+	setvar VAR_STARTER_CHOICE, SPECIES_CHIMCHAR
+	call NewBirchLab_EventScript_GiveStarter
+	goto NewBirchLab_EventScript_PokeballThree_1
 
 NewBirchLab_EventScript_PokeballThree_9:
-	call NewBirchLab_EventScript_Charmander
+	bufferspeciesname STR_VAR_1, SPECIES_TEPIG
+	setvar VAR_STARTER_CHOICE, SPECIES_TEPIG
+	call NewBirchLab_EventScript_GiveStarter
 	goto NewBirchLab_EventScript_PokeballThree_1
 
 NewBirchLab_EventScript_PokeballThree_10:
-	call NewBirchLab_EventScript_Cyndaquil
+	bufferspeciesname STR_VAR_1, SPECIES_FENNEKIN
+	setvar VAR_STARTER_CHOICE, SPECIES_FENNEKIN
+	call NewBirchLab_EventScript_GiveStarter
 	goto NewBirchLab_EventScript_PokeballThree_1
 
 NewBirchLab_EventScript_PokeballThree_11:
-	call NewBirchLab_EventScript_Torchic
+	bufferspeciesname STR_VAR_1, SPECIES_LITTEN
+	setvar VAR_STARTER_CHOICE, SPECIES_LITTEN
+	call NewBirchLab_EventScript_GiveStarter
 	goto NewBirchLab_EventScript_PokeballThree_1
 
 NewBirchLab_EventScript_PokeballThree_12:
-	call NewBirchLab_EventScript_Chimchar
-	goto NewBirchLab_EventScript_PokeballThree_1
-
-NewBirchLab_EventScript_PokeballThree_13:
-	call NewBirchLab_EventScript_Tepig
-	goto NewBirchLab_EventScript_PokeballThree_1
-
-NewBirchLab_EventScript_PokeballThree_14:
-	call NewBirchLab_EventScript_Fennekin
-	goto NewBirchLab_EventScript_PokeballThree_1
-
-NewBirchLab_EventScript_PokeballThree_15:
-	call NewBirchLab_EventScript_Litten
-	goto NewBirchLab_EventScript_PokeballThree_1
-
-NewBirchLab_EventScript_PokeballThree_16:
-	call NewBirchLab_EventScript_Scorbunny
+	bufferspeciesname STR_VAR_1, SPECIES_SCORBUNNY
+	setvar VAR_STARTER_CHOICE, SPECIES_SCORBUNNY
+	call NewBirchLab_EventScript_GiveStarter
 	goto NewBirchLab_EventScript_PokeballThree_1
 
 
-NewBirchLab_EventScript_Mudkip::
-	showmonpic SPECIES_MUDKIP, 10, 3
-	msgbox NewBirchLab_EventScript_Mudkip_Text_0, MSGBOX_YESNO
+NewBirchLab_EventScript_GiveStarter::
+	showmonpic VAR_STARTER_CHOICE, 10, 3
+	msgbox NewBirchLab_EventScript_GiveStarter_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Mudkip_1
+	goto_if_eq NewBirchLab_EventScript_GiveStarter_1
 	hidemonpic
 	msgbox NewBirchLab_NotChosen
 	return
 
-NewBirchLab_EventScript_Mudkip_1:
-	givemon SPECIES_MUDKIP, 5, ITEM_ORAN_BERRY
+NewBirchLab_EventScript_GiveStarter_1:
+	setflag FLAG_SYS_POKEMON_GET
+	setvar VAR_LITTLEROOT_STATE, 2
+	givemon VAR_STARTER_CHOICE, 5, ITEM_ORAN_BERRY
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Mudkip_4
+	goto_if_eq NewBirchLab_EventScript_GiveStarter_4
 	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Mudkip_5
+	goto_if_eq NewBirchLab_EventScript_GiveStarter_5
 	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
+	msgbox NewBirchLab_EventScript_GiveStarter_Text_3, MSGBOX_DEFAULT
 	return
 
-NewBirchLab_EventScript_Mudkip_4:
+NewBirchLab_EventScript_GiveStarter_4:
 	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Mudkip_Text_1
-	removeobject 2
+	msgbox NewBirchLab_EventScript_GiveStarter_Text_1, MSGBOX_DEFAULT
+	removeobject VAR_TEMP_0
+	clearflag FLAG_RIVAL_BATTLE_LITTLEROOT
+	call SetBallFlag
+	call NicknamePartyMon
+	return
+
+NewBirchLab_EventScript_GiveStarter_5:
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox NewBirchLab_EventScript_GiveStarter_Text_1, MSGBOX_DEFAULT
+	removeobject VAR_TEMP_0
+	clearflag FLAG_RIVAL_BATTLE_LITTLEROOT
+	call SetBallFlag
+	call NicknameBoxMon
+	msgbox NewBirchLab_EventScript_GiveStarter_Text_2, MSGBOX_DEFAULT
+	return
+
+
+SetBallFlag::
+	compare VAR_TEMP_0, 2
+	goto_if_eq SetBallFlag_2
+	compare VAR_TEMP_0, 3
+	goto_if_eq SetBallFlag_5
+	compare VAR_TEMP_0, 4
+	goto_if_eq SetBallFlag_7
+	return
+
+SetBallFlag_2:
 	setflag FLAG_WATER_STARTER
-	setvar VAR_STARTER_MON, 2
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
 	return
 
-NewBirchLab_EventScript_Mudkip_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Mudkip_Text_1
-	removeobject 2
-	setflag FLAG_WATER_STARTER
-	setvar VAR_STARTER_MON, 2
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
-	return
-
-
-NewBirchLab_EventScript_Totodile::
-	showmonpic SPECIES_TOTODILE, 10, 3
-	msgbox NewBirchLab_EventScript_Totodile_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Totodile_1
-	hidemonpic
-	msgbox NewBirchLab_NotChosen
-	return
-
-NewBirchLab_EventScript_Totodile_1:
-	givemon SPECIES_TOTODILE, 5, ITEM_ORAN_BERRY
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Totodile_4
-	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Totodile_5
-	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
-	return
-
-NewBirchLab_EventScript_Totodile_4:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Totodile_Text_1
-	removeobject 2
-	setflag FLAG_WATER_STARTER
-	setvar VAR_STARTER_MON, 2
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
-	return
-
-NewBirchLab_EventScript_Totodile_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Totodile_Text_1
-	removeobject 2
-	setflag FLAG_WATER_STARTER
-	setvar VAR_STARTER_MON, 2
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
-	return
-
-
-NewBirchLab_EventScript_Squirtle::
-	showmonpic SPECIES_SQUIRTLE, 10, 3
-	msgbox NewBirchLab_EventScript_Squirtle_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Squirtle_1
-	hidemonpic
-	msgbox NewBirchLab_NotChosen
-	return
-
-NewBirchLab_EventScript_Squirtle_1:
-	givemon SPECIES_SQUIRTLE, 5, ITEM_ORAN_BERRY
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Squirtle_4
-	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Squirtle_5
-	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
-	return
-
-NewBirchLab_EventScript_Squirtle_4:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Squirtle_Text_1
-	removeobject 2
-	setflag FLAG_WATER_STARTER
-	setvar VAR_STARTER_MON, 2
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
-	return
-
-NewBirchLab_EventScript_Squirtle_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Squirtle_Text_1
-	removeobject 2
-	setflag FLAG_WATER_STARTER
-	setvar VAR_STARTER_MON, 2
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
-	return
-
-
-NewBirchLab_EventScript_Piplup::
-	showmonpic SPECIES_PIPLUP, 10, 3
-	msgbox NewBirchLab_EventScript_Piplup_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Piplup_1
-	hidemonpic
-	msgbox NewBirchLab_NotChosen
-	return
-
-NewBirchLab_EventScript_Piplup_1:
-	givemon SPECIES_PIPLUP, 5, ITEM_ORAN_BERRY
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Piplup_4
-	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Piplup_5
-	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
-	return
-
-NewBirchLab_EventScript_Piplup_4:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Piplup_Text_1
-	removeobject 2
-	setflag FLAG_WATER_STARTER
-	setvar VAR_STARTER_MON, 2
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
-	return
-
-NewBirchLab_EventScript_Piplup_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Piplup_Text_1
-	removeobject 2
-	setflag FLAG_WATER_STARTER
-	setvar VAR_STARTER_MON, 2
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
-	return
-
-
-NewBirchLab_EventScript_Oshawott::
-	showmonpic SPECIES_OSHAWOTT, 10, 3
-	msgbox NewBirchLab_EventScript_Oshawott_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Oshawott_1
-	hidemonpic
-	msgbox NewBirchLab_NotChosen
-	return
-
-NewBirchLab_EventScript_Oshawott_1:
-	givemon SPECIES_OSHAWOTT, 5, ITEM_ORAN_BERRY
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Oshawott_4
-	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Oshawott_5
-	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
-	return
-
-NewBirchLab_EventScript_Oshawott_4:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Oshawott_Text_1
-	removeobject 2
-	setflag FLAG_WATER_STARTER
-	setvar VAR_STARTER_MON, 2
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
-	return
-
-NewBirchLab_EventScript_Oshawott_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Oshawott_Text_1
-	removeobject 2
-	setflag FLAG_WATER_STARTER
-	setvar VAR_STARTER_MON, 2
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
-	return
-
-
-NewBirchLab_EventScript_Froakie::
-	showmonpic SPECIES_FROAKIE, 10, 3
-	msgbox NewBirchLab_EventScript_Froakie_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Froakie_1
-	hidemonpic
-	msgbox NewBirchLab_NotChosen
-	return
-
-NewBirchLab_EventScript_Froakie_1:
-	givemon SPECIES_FROAKIE, 5, ITEM_ORAN_BERRY
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Froakie_4
-	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Froakie_5
-	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
-	return
-
-NewBirchLab_EventScript_Froakie_4:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Froakie_Text_1
-	removeobject 2
-	setflag FLAG_WATER_STARTER
-	setvar VAR_STARTER_MON, 2
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
-	return
-
-NewBirchLab_EventScript_Froakie_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Froakie_Text_1
-	removeobject 2
-	setflag FLAG_WATER_STARTER
-	setvar VAR_STARTER_MON, 2
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
-	return
-
-
-NewBirchLab_EventScript_Popplio::
-	showmonpic SPECIES_POPPLIO, 10, 3
-	msgbox NewBirchLab_EventScript_Popplio_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Popplio_1
-	hidemonpic
-	msgbox NewBirchLab_NotChosen
-	return
-
-NewBirchLab_EventScript_Popplio_1:
-	givemon SPECIES_POPPLIO, 5, ITEM_ORAN_BERRY
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Popplio_4
-	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Popplio_5
-	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
-	return
-
-NewBirchLab_EventScript_Popplio_4:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Popplio_Text_1
-	removeobject 2
-	setflag FLAG_WATER_STARTER
-	setvar VAR_STARTER_MON, 2
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
-	return
-
-NewBirchLab_EventScript_Popplio_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Popplio_Text_1
-	removeobject 2
-	setflag FLAG_WATER_STARTER
-	setvar VAR_STARTER_MON, 2
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
-	return
-
-
-NewBirchLab_EventScript_Sobble::
-	showmonpic SPECIES_SOBBLE, 10, 3
-	msgbox NewBirchLab_EventScript_Sobble_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Sobble_1
-	hidemonpic
-	msgbox NewBirchLab_NotChosen
-	return
-
-NewBirchLab_EventScript_Sobble_1:
-	givemon SPECIES_SOBBLE, 5, ITEM_ORAN_BERRY
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Sobble_4
-	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Sobble_5
-	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
-	return
-
-NewBirchLab_EventScript_Sobble_4:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Sobble_Text_1
-	removeobject 2
-	setflag FLAG_WATER_STARTER
-	setvar VAR_STARTER_MON, 2
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
-	return
-
-NewBirchLab_EventScript_Sobble_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Sobble_Text_1
-	removeobject 2
-	setflag FLAG_WATER_STARTER
-	setvar VAR_STARTER_MON, 2
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
-	return
-
-
-NewBirchLab_EventScript_Treecko::
-	showmonpic SPECIES_TREECKO, 10, 3
-	msgbox NewBirchLab_EventScript_Treecko_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Treecko_1
-	hidemonpic
-	msgbox NewBirchLab_NotChosen
-	return
-
-NewBirchLab_EventScript_Treecko_1:
-	givemon SPECIES_TREECKO, 5, ITEM_ORAN_BERRY
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Treecko_4
-	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Treecko_5
-	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
-	return
-
-NewBirchLab_EventScript_Treecko_4:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Treecko_Text_1
-	removeobject 3
+SetBallFlag_5:
 	setflag FLAG_GRASS_STARTER
-	setvar VAR_STARTER_MON, 0
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
 	return
 
-NewBirchLab_EventScript_Treecko_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Treecko_Text_1
-	removeobject 3
-	setflag FLAG_GRASS_STARTER
-	setvar VAR_STARTER_MON, 0
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
-	return
-
-
-NewBirchLab_EventScript_Chikorita::
-	showmonpic SPECIES_CHIKORITA, 10, 3
-	msgbox NewBirchLab_EventScript_Chikorita_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Chikorita_1
-	hidemonpic
-	msgbox NewBirchLab_NotChosen
-	return
-
-NewBirchLab_EventScript_Chikorita_1:
-	givemon SPECIES_CHIKORITA, 5, ITEM_ORAN_BERRY
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Chikorita_4
-	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Chikorita_5
-	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
-	return
-
-NewBirchLab_EventScript_Chikorita_4:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Chikorita_Text_1
-	removeobject 3
-	setflag FLAG_GRASS_STARTER
-	setvar VAR_STARTER_MON, 0
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
-	return
-
-NewBirchLab_EventScript_Chikorita_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Chikorita_Text_1
-	removeobject 3
-	setflag FLAG_GRASS_STARTER
-	setvar VAR_STARTER_MON, 0
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
-	return
-
-
-NewBirchLab_EventScript_Bulbasaur::
-	showmonpic SPECIES_BULBASAUR, 10, 3
-	msgbox NewBirchLab_EventScript_Bulbasaur_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Bulbasaur_1
-	hidemonpic
-	msgbox NewBirchLab_NotChosen
-	return
-
-NewBirchLab_EventScript_Bulbasaur_1:
-	givemon SPECIES_BULBASAUR, 5, ITEM_ORAN_BERRY
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Bulbasaur_4
-	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Bulbasaur_5
-	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
-	return
-
-NewBirchLab_EventScript_Bulbasaur_4:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Bulbasaur_Text_1
-	removeobject 3
-	setflag FLAG_GRASS_STARTER
-	setvar VAR_STARTER_MON, 0
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
-	return
-
-NewBirchLab_EventScript_Bulbasaur_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Bulbasaur_Text_1
-	removeobject 3
-	setflag FLAG_GRASS_STARTER
-	setvar VAR_STARTER_MON, 0
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
-	return
-
-
-NewBirchLab_EventScript_Turtwig::
-	showmonpic SPECIES_TURTWIG, 10, 3
-	msgbox NewBirchLab_EventScript_Turtwig_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Turtwig_1
-	hidemonpic
-	msgbox NewBirchLab_NotChosen
-	return
-
-NewBirchLab_EventScript_Turtwig_1:
-	givemon SPECIES_TURTWIG, 5, ITEM_ORAN_BERRY
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Turtwig_4
-	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Turtwig_5
-	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
-	return
-
-NewBirchLab_EventScript_Turtwig_4:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Turtwig_Text_1
-	removeobject 3
-	setflag FLAG_GRASS_STARTER
-	setvar VAR_STARTER_MON, 0
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
-	return
-
-NewBirchLab_EventScript_Turtwig_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Turtwig_Text_1
-	removeobject 3
-	setflag FLAG_GRASS_STARTER
-	setvar VAR_STARTER_MON, 0
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
-	return
-
-
-NewBirchLab_EventScript_Snivy::
-	showmonpic SPECIES_SNIVY, 10, 3
-	msgbox NewBirchLab_EventScript_Snivy_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Snivy_1
-	hidemonpic
-	msgbox NewBirchLab_NotChosen
-	return
-
-NewBirchLab_EventScript_Snivy_1:
-	givemon SPECIES_SNIVY, 5, ITEM_ORAN_BERRY
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Snivy_4
-	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Snivy_5
-	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
-	return
-
-NewBirchLab_EventScript_Snivy_4:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Snivy_Text_1
-	removeobject 3
-	setflag FLAG_GRASS_STARTER
-	setvar VAR_STARTER_MON, 0
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
-	return
-
-NewBirchLab_EventScript_Snivy_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Snivy_Text_1
-	removeobject 3
-	setflag FLAG_GRASS_STARTER
-	setvar VAR_STARTER_MON, 0
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
-	return
-
-
-NewBirchLab_EventScript_Chespin::
-	showmonpic SPECIES_CHESPIN, 10, 3
-	msgbox NewBirchLab_EventScript_Chespin_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Chespin_1
-	hidemonpic
-	msgbox NewBirchLab_NotChosen
-	return
-
-NewBirchLab_EventScript_Chespin_1:
-	givemon SPECIES_CHESPIN, 5, ITEM_ORAN_BERRY
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Chespin_4
-	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Chespin_5
-	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
-	return
-
-NewBirchLab_EventScript_Chespin_4:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Chespin_Text_1
-	removeobject 3
-	setflag FLAG_GRASS_STARTER
-	setvar VAR_STARTER_MON, 0
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
-	return
-
-NewBirchLab_EventScript_Chespin_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Chespin_Text_1
-	removeobject 3
-	setflag FLAG_GRASS_STARTER
-	setvar VAR_STARTER_MON, 0
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
-	return
-
-
-NewBirchLab_EventScript_Rowlet::
-	showmonpic SPECIES_ROWLET, 10, 3
-	msgbox NewBirchLab_EventScript_Rowlet_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Rowlet_1
-	hidemonpic
-	msgbox NewBirchLab_NotChosen
-	return
-
-NewBirchLab_EventScript_Rowlet_1:
-	givemon SPECIES_ROWLET, 5, ITEM_ORAN_BERRY
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Rowlet_4
-	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Rowlet_5
-	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
-	return
-
-NewBirchLab_EventScript_Rowlet_4:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Rowlet_Text_1
-	removeobject 3
-	setflag FLAG_GRASS_STARTER
-	setvar VAR_STARTER_MON, 0
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
-	return
-
-NewBirchLab_EventScript_Rowlet_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Rowlet_Text_1
-	removeobject 3
-	setflag FLAG_GRASS_STARTER
-	setvar VAR_STARTER_MON, 0
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
-	return
-
-
-NewBirchLab_EventScript_Grookey::
-	showmonpic SPECIES_GROOKEY, 10, 3
-	msgbox NewBirchLab_EventScript_Grookey_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Grookey_1
-	hidemonpic
-	msgbox NewBirchLab_NotChosen
-	return
-
-NewBirchLab_EventScript_Grookey_1:
-	givemon SPECIES_GROOKEY, 5, ITEM_ORAN_BERRY
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Grookey_4
-	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Grookey_5
-	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
-	return
-
-NewBirchLab_EventScript_Grookey_4:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Grookey_Text_1
-	removeobject 3
-	setflag FLAG_GRASS_STARTER
-	setvar VAR_STARTER_MON, 0
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
-	return
-
-NewBirchLab_EventScript_Grookey_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Grookey_Text_1
-	removeobject 3
-	setflag FLAG_GRASS_STARTER
-	setvar VAR_STARTER_MON, 0
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
-	return
-
-
-NewBirchLab_EventScript_Torchic::
-	showmonpic SPECIES_TORCHIC, 10, 3
-	msgbox NewBirchLab_EventScript_Torchic_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Torchic_1
-	hidemonpic
-	msgbox NewBirchLab_NotChosen
-	return
-
-NewBirchLab_EventScript_Torchic_1:
-	givemon SPECIES_TORCHIC, 5, ITEM_ORAN_BERRY
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Torchic_4
-	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Torchic_5
-	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
-	return
-
-NewBirchLab_EventScript_Torchic_4:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Torchic_Text_1
-	removeobject 4
+SetBallFlag_7:
 	setflag FLAG_FIRE_STARTER
-	setvar VAR_STARTER_MON, 1
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
 	return
 
-NewBirchLab_EventScript_Torchic_5:
+
+InitiatePokedexSequence::
+	lock
+	msgbox InitiatePokedexSequence_Text_0, MSGBOX_DEFAULT
+	delay 20
+	applymovement OBJ_EVENT_ID_PLAYER, TurnToProf
+	waitmovement 0
+	applymovement 5, NewBirchLab_Movement_Pokedex
+	msgbox InitiatePokedexSequence_Text_1, MSGBOX_DEFAULT
+	delay 20
+	call GivePokedex
+	release
+	return
+
+
+InitiatePokedexSequence_2::
+	lock
+	msgbox InitiatePokedexSequence_Text_0, MSGBOX_DEFAULT
+	delay 20
+	applymovement OBJ_EVENT_ID_PLAYER, TurnToProf
+	waitmovement 0
+	applymovement 5, NewBirchLab_Movement_Pokedex_2
+	waitmovement 0
+	msgbox InitiatePokedexSequence_Text_1, MSGBOX_DEFAULT
+	delay 20
+	call GivePokedex
+	release
+	return
+
+
+GivePokedex::
+	lock
 	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Torchic_Text_1
-	removeobject 4
-	setflag FLAG_FIRE_STARTER
-	setvar VAR_STARTER_MON, 1
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
+	message GivePokedex_Text_0
+	waitfanfare
+	closemessage
+	setflag FLAG_SYS_POKEDEX_GET
+	setflag FLAG_ADVENTURE_STARTED
+	special SetUnlockedPokedexFlags
+	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
+	setvar VAR_CABLE_CLUB_TUTORIAL_STATE, 1
+	setvar VAR_LITTLEROOT_STATE, 4
+	msgbox GivePokedex_Text_1, MSGBOX_DEFAULT
+	giveitem ITEM_POKE_BALL, 5
+	msgbox GivePokedex_Text_2, MSGBOX_DEFAULT
+	waitmessage
+	call UpgradeNationalDex
+	release
 	return
 
 
-NewBirchLab_EventScript_Cyndaquil::
-	showmonpic SPECIES_CYNDAQUIL, 10, 3
-	msgbox NewBirchLab_EventScript_Cyndaquil_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Cyndaquil_1
-	hidemonpic
-	msgbox NewBirchLab_NotChosen
-	return
-
-NewBirchLab_EventScript_Cyndaquil_1:
-	givemon SPECIES_CYNDAQUIL, 5, ITEM_ORAN_BERRY
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Cyndaquil_4
-	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Cyndaquil_5
-	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
-	return
-
-NewBirchLab_EventScript_Cyndaquil_4:
+UpgradeNationalDex::
+	lock
+	msgbox UpgradeNationalDex_Text_0, MSGBOX_DEFAULT
+	waitmessage
 	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Cyndaquil_Text_1
-	removeobject 4
-	setflag FLAG_FIRE_STARTER
-	setvar VAR_STARTER_MON, 1
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
-	return
-
-NewBirchLab_EventScript_Cyndaquil_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Cyndaquil_Text_1
-	removeobject 4
-	setflag FLAG_FIRE_STARTER
-	setvar VAR_STARTER_MON, 1
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
+	message LittlerootTown_ProfessorBirchsLab_Text_PokedexUpgradedToNational
+	waitmessage
+	waitfanfare
+	setflag FLAG_SYS_NATIONAL_DEX
+	special EnableNationalPokedex
+	closemessage
+	release
 	return
 
 
-NewBirchLab_EventScript_Charmander::
-	showmonpic SPECIES_CHARMANDER, 10, 3
-	msgbox NewBirchLab_EventScript_Charmander_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Charmander_1
-	hidemonpic
-	msgbox NewBirchLab_NotChosen
-	return
+MeetBirch:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
 
-NewBirchLab_EventScript_Charmander_1:
-	givemon SPECIES_CHARMANDER, 5, ITEM_ORAN_BERRY
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Charmander_4
-	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Charmander_5
-	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
-	return
+MeetBirch2:
+	walk_left
+	step_end
 
-NewBirchLab_EventScript_Charmander_4:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Charmander_Text_1
-	removeobject 4
-	setflag FLAG_FIRE_STARTER
-	setvar VAR_STARTER_MON, 1
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
-	return
+ProfMove:
+	walk_right
+	walk_right
+	walk_up
+	face_down
+	step_end
 
-NewBirchLab_EventScript_Charmander_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Charmander_Text_1
-	removeobject 4
-	setflag FLAG_FIRE_STARTER
-	setvar VAR_STARTER_MON, 1
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
-	return
+TurnToProf:
+	face_up
+	step_end
 
+NewBirchLab_Movement_Pokedex:
+	walk_down
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
 
-NewBirchLab_EventScript_Chimchar::
-	showmonpic SPECIES_CHIMCHAR, 10, 3
-	msgbox NewBirchLab_EventScript_Chimchar_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Chimchar_1
-	hidemonpic
-	msgbox NewBirchLab_NotChosen
-	return
-
-NewBirchLab_EventScript_Chimchar_1:
-	givemon SPECIES_CHIMCHAR, 5, ITEM_ORAN_BERRY
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Chimchar_4
-	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Chimchar_5
-	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
-	return
-
-NewBirchLab_EventScript_Chimchar_4:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Chimchar_Text_1
-	removeobject 4
-	setflag FLAG_FIRE_STARTER
-	setvar VAR_STARTER_MON, 1
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
-	return
-
-NewBirchLab_EventScript_Chimchar_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Chimchar_Text_1
-	removeobject 4
-	setflag FLAG_FIRE_STARTER
-	setvar VAR_STARTER_MON, 1
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
-	return
-
-
-NewBirchLab_EventScript_Tepig::
-	showmonpic SPECIES_TEPIG, 10, 3
-	msgbox NewBirchLab_EventScript_Tepig_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Tepig_1
-	hidemonpic
-	msgbox NewBirchLab_NotChosen
-	return
-
-NewBirchLab_EventScript_Tepig_1:
-	givemon SPECIES_TEPIG, 5, ITEM_ORAN_BERRY
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Tepig_4
-	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Tepig_5
-	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
-	return
-
-NewBirchLab_EventScript_Tepig_4:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Tepig_Text_1
-	removeobject 4
-	setflag FLAG_FIRE_STARTER
-	setvar VAR_STARTER_MON, 1
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
-	return
-
-NewBirchLab_EventScript_Tepig_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Tepig_Text_1
-	removeobject 4
-	setflag FLAG_FIRE_STARTER
-	setvar VAR_STARTER_MON, 1
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
-	return
-
-
-NewBirchLab_EventScript_Fennekin::
-	showmonpic SPECIES_FENNEKIN, 10, 3
-	msgbox NewBirchLab_EventScript_Fennekin_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Fennekin_1
-	hidemonpic
-	msgbox NewBirchLab_NotChosen
-	return
-
-NewBirchLab_EventScript_Fennekin_1:
-	givemon SPECIES_FENNEKIN, 5, ITEM_ORAN_BERRY
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Fennekin_4
-	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Fennekin_5
-	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
-	return
-
-NewBirchLab_EventScript_Fennekin_4:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Fennekin_Text_1
-	removeobject 4
-	setflag FLAG_FIRE_STARTER
-	setvar VAR_STARTER_MON, 1
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
-	return
-
-NewBirchLab_EventScript_Fennekin_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Fennekin_Text_1
-	removeobject 4
-	setflag FLAG_FIRE_STARTER
-	setvar VAR_STARTER_MON, 1
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
-	return
-
-
-NewBirchLab_EventScript_Litten::
-	showmonpic SPECIES_LITTEN, 10, 3
-	msgbox NewBirchLab_EventScript_Litten_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Litten_1
-	hidemonpic
-	msgbox NewBirchLab_NotChosen
-	return
-
-NewBirchLab_EventScript_Litten_1:
-	givemon SPECIES_LITTEN, 5, ITEM_ORAN_BERRY
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Litten_4
-	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Litten_5
-	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
-	return
-
-NewBirchLab_EventScript_Litten_4:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Litten_Text_1
-	removeobject 4
-	setflag FLAG_FIRE_STARTER
-	setvar VAR_STARTER_MON, 1
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
-	return
-
-NewBirchLab_EventScript_Litten_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Litten_Text_1
-	removeobject 4
-	setflag FLAG_FIRE_STARTER
-	setvar VAR_STARTER_MON, 1
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
-	return
-
-
-NewBirchLab_EventScript_Scorbunny::
-	showmonpic SPECIES_SCORBUNNY, 10, 3
-	msgbox NewBirchLab_EventScript_Scorbunny_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq NewBirchLab_EventScript_Scorbunny_1
-	hidemonpic
-	msgbox NewBirchLab_NotChosen
-	return
-
-NewBirchLab_EventScript_Scorbunny_1:
-	givemon SPECIES_SCORBUNNY, 5, ITEM_ORAN_BERRY
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq NewBirchLab_EventScript_Scorbunny_4
-	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq NewBirchLab_EventScript_Scorbunny_5
-	hidemonpic
-	msgbox NewBirchLab_EventScript_Mudkip_Text_2
-	return
-
-NewBirchLab_EventScript_Scorbunny_4:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Scorbunny_Text_1
-	removeobject 4
-	setflag FLAG_FIRE_STARTER
-	setvar VAR_STARTER_MON, 1
-	setflag FLAG_RESCUED_BIRCH
-	call NicknamePartyMon
-	return
-
-NewBirchLab_EventScript_Scorbunny_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox NewBirchLab_EventScript_Scorbunny_Text_1
-	removeobject 4
-	setflag FLAG_FIRE_STARTER
-	setvar VAR_STARTER_MON, 1
-	setflag FLAG_RESCUED_BIRCH
-	call NicknameBoxMon
-	return
-
+NewBirchLab_Movement_Pokedex_2:
+	walk_down
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
 
 NewBirchLab_EventScript_Pokeball_Text_0:
 	.string "You found an Eevee. Do you wish to take\n"
@@ -1362,6 +624,9 @@ NicknamePartyMon_Text_0:
 NicknameBoxMon_Text_0:
 	.string "Transferred to PC$"
 
+StopLeaving_Text_0:
+	.string "You Need To Choose a Pokemon$"
+
 NewBirchLab_EventScript_Birch_Text_0:
 	.string "Would you like to see more?$"
 
@@ -1374,152 +639,55 @@ NewBirchLab_EventScript_Birch_Text_2:
 NewBirchLab_EventScript_PokeballOne_Text_0:
 	.string "Don't Take Another$"
 
-NewBirchLab_EventScript_Mudkip_Text_0:
-	.string "Do you want to choose Mudkip?$"
+NewBirchLab_EventScript_GiveStarter_Text_0:
+	.string "Do you want to choose {STR_VAR_1}?$"
 
-NewBirchLab_EventScript_Mudkip_Text_1:
-	.string "Recieved Mudkip$"
+NewBirchLab_EventScript_GiveStarter_Text_1:
+	.string "Recieved {STR_VAR_1}$"
 
-NewBirchLab_EventScript_Mudkip_Text_2:
-	.string "No More Room$"
+NewBirchLab_EventScript_GiveStarter_Text_2:
+	.string "Transferred {STR_VAR_1} to PC$"
 
-NewBirchLab_EventScript_Totodile_Text_0:
-	.string "Do you want to choose Totodile?$"
+NewBirchLab_EventScript_GiveStarter_Text_3:
+	.string "No More Room For Pokemon$"
 
-NewBirchLab_EventScript_Totodile_Text_1:
-	.string "Recieved Totodile$"
+InitiatePokedexSequence_Text_0:
+	.string "WAIT A SECOND!!!$"
 
-NewBirchLab_EventScript_Squirtle_Text_0:
-	.string "Do you want to choose Squirtle?$"
+InitiatePokedexSequence_Text_1:
+	.string "This is a gift from me. It will let you\n"
+	.string "record pokemon that you encounter on\l"
+	.string "your journey. Originally these would be\l"
+	.string "used to help research but it's better\l"
+	.string "used to help the user with their\l"
+	.string "journey.$"
 
-NewBirchLab_EventScript_Squirtle_Text_1:
-	.string "Recieved Squirtle$"
+GivePokedex_Text_0:
+	.string "{PLAYER} received the POKéDEX!$"
 
-NewBirchLab_EventScript_Piplup_Text_0:
-	.string "Do you want to choose Piplup?$"
+GivePokedex_Text_1:
+	.string "Also take these with you$"
 
-NewBirchLab_EventScript_Piplup_Text_1:
-	.string "Recieved Piplup$"
+GivePokedex_Text_2:
+	.string "These allow you to catch your own\n"
+	.string "Pokemon$"
 
-NewBirchLab_EventScript_Oshawott_Text_0:
-	.string "Do you want to choose Oshawott?$"
+UpgradeNationalDex_Text_0:
+	.string "Also let me just apply this little tweak.\n"
+	.string "We used to give this upgrade for when\l"
+	.string "you had seen a certain amount of\l"
+	.string "pokemon in Hoenn however it's so cheap\l"
+	.string "and easy to make that I might as well\l"
+	.string "give it you now.$"
 
-NewBirchLab_EventScript_Oshawott_Text_1:
-	.string "Recieved Oshawott$"
-
-NewBirchLab_EventScript_Froakie_Text_0:
-	.string "Do you want to choose Froakie?$"
-
-NewBirchLab_EventScript_Froakie_Text_1:
-	.string "Recieved Froakie$"
-
-NewBirchLab_EventScript_Popplio_Text_0:
-	.string "Do you want to choose Popplio?$"
-
-NewBirchLab_EventScript_Popplio_Text_1:
-	.string "Recieved Popplio$"
-
-NewBirchLab_EventScript_Sobble_Text_0:
-	.string "Do you want to choose Sobble?$"
-
-NewBirchLab_EventScript_Sobble_Text_1:
-	.string "Recieved Sobble$"
-
-NewBirchLab_EventScript_Treecko_Text_0:
-	.string "Do you want to choose Treecko?$"
-
-NewBirchLab_EventScript_Treecko_Text_1:
-	.string "Recieved Treecko$"
-
-NewBirchLab_EventScript_Chikorita_Text_0:
-	.string "Do you want to choose Chikorita?$"
-
-NewBirchLab_EventScript_Chikorita_Text_1:
-	.string "Recieved Chikorita$"
-
-NewBirchLab_EventScript_Bulbasaur_Text_0:
-	.string "Do you want to choose Bulbasaur?$"
-
-NewBirchLab_EventScript_Bulbasaur_Text_1:
-	.string "Recieved Bulbasaur$"
-
-NewBirchLab_EventScript_Turtwig_Text_0:
-	.string "Do you want to choose Turtwig?$"
-
-NewBirchLab_EventScript_Turtwig_Text_1:
-	.string "Recieved Turtwig$"
-
-NewBirchLab_EventScript_Snivy_Text_0:
-	.string "Do you want to choose Snivy?$"
-
-NewBirchLab_EventScript_Snivy_Text_1:
-	.string "Recieved Snivy$"
-
-NewBirchLab_EventScript_Chespin_Text_0:
-	.string "Do you want to choose Chespin?$"
-
-NewBirchLab_EventScript_Chespin_Text_1:
-	.string "Recieved Chespin$"
-
-NewBirchLab_EventScript_Rowlet_Text_0:
-	.string "Do you want to choose Rowlet?$"
-
-NewBirchLab_EventScript_Rowlet_Text_1:
-	.string "Recieved Rowlet$"
-
-NewBirchLab_EventScript_Grookey_Text_0:
-	.string "Do you want to choose Grookey?$"
-
-NewBirchLab_EventScript_Grookey_Text_1:
-	.string "Recieved Grookey$"
-
-NewBirchLab_EventScript_Torchic_Text_0:
-	.string "Do you want to choose Torchic?$"
-
-NewBirchLab_EventScript_Torchic_Text_1:
-	.string "Recieved Torchic$"
-
-NewBirchLab_EventScript_Cyndaquil_Text_0:
-	.string "Do you want to choose Cyndaquil?$"
-
-NewBirchLab_EventScript_Cyndaquil_Text_1:
-	.string "Recieved Cyndaquil$"
-
-NewBirchLab_EventScript_Charmander_Text_0:
-	.string "Do you want to choose Charmander?$"
-
-NewBirchLab_EventScript_Charmander_Text_1:
-	.string "Recieved Charmander$"
-
-NewBirchLab_EventScript_Chimchar_Text_0:
-	.string "Do you want to choose Chimchar?$"
-
-NewBirchLab_EventScript_Chimchar_Text_1:
-	.string "Recieved Chimchar$"
-
-NewBirchLab_EventScript_Tepig_Text_0:
-	.string "Do you want to choose Tepig?$"
-
-NewBirchLab_EventScript_Tepig_Text_1:
-	.string "Recieved Tepig$"
-
-NewBirchLab_EventScript_Fennekin_Text_0:
-	.string "Do you want to choose Fennekin?$"
-
-NewBirchLab_EventScript_Fennekin_Text_1:
-	.string "Recieved Fennekin$"
-
-NewBirchLab_EventScript_Litten_Text_0:
-	.string "Do you want to choose Litten?$"
-
-NewBirchLab_EventScript_Litten_Text_1:
-	.string "Recieved Litten$"
-
-NewBirchLab_EventScript_Scorbunny_Text_0:
-	.string "Do you want to choose Scorbunny?$"
-
-NewBirchLab_EventScript_Scorbunny_Text_1:
-	.string "Recieved Scorbunny$"
+BeginAdventureText::
+	.string "Birch: Hello {PLAYER}, my name is Prof Birch\n"
+	.string "This is my lab.\p"
+	.string "Today is the day that you will be\n"
+	.string "receiving a Pokemon!\p"
+	.string "Now Choose Wisely,\n"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}If you would like to see more options\l"
+	.string "come and talk to me.\n$"
 
 NewBirchLab_NotChosen::
-	.string "You did not choose the Pokemon$"
+	.string "You did not choose {STR_VAR_1}$"

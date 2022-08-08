@@ -12,7 +12,7 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_GYM",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_NORMAN",
@@ -146,8 +146,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
-      "x": 1,
-      "y": 7,
+      "x": 0,
+      "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
@@ -426,7 +426,80 @@
       "dest_warp_id": 33
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_PETALBURG_GYM_STATE_MEGA",
+      "var_value": "1",
+      "script": "PetalburgCity_Gym_Trigger_Mega_1"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_PETALBURG_GYM_STATE_MEGA",
+      "var_value": "1",
+      "script": "PetalburgCity_Gym_Trigger_Mega_2"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_PETALBURG_GYM_STATE_MEGA",
+      "var_value": "1",
+      "script": "PetalburgCity_Gym_Trigger_Mega_3"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_PETALBURG_GYM_STATE_MEGA",
+      "var_value": "1",
+      "script": "PetalburgCity_Gym_Trigger_Mega_4"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_PETALBURG_GYM_STATE_MEGA",
+      "var_value": "1",
+      "script": "PetalburgCity_Gym_Trigger_Mega_0"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_PETALBURG_GYM_STATE_MEGA",
+      "var_value": "1",
+      "script": "PetalburgCity_Gym_Trigger_Mega_5"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_PETALBURG_GYM_STATE_MEGA",
+      "var_value": "1",
+      "script": "PetalburgCity_Gym_Trigger_Mega_6"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_PETALBURG_GYM_STATE_MEGA",
+      "var_value": "1",
+      "script": "PetalburgCity_Gym_Trigger_Mega_7"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

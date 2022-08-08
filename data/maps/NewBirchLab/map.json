@@ -68,8 +68,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PROF_BIRCH",
-      "x": 8,
-      "y": 5,
+      "x": 6,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -97,7 +97,60 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_STATE",
+      "var_value": "1",
+      "script": "StopLeaving"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_STATE",
+      "var_value": "1",
+      "script": "StopLeaving"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_STATE",
+      "var_value": "0",
+      "script": "Start_StarterChoose_Sequence"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_STATE",
+      "var_value": "0",
+      "script": "Start_StarterChoose_Sequence2"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_STATE",
+      "var_value": "2",
+      "script": "InitiatePokedexSequence_2"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_STATE",
+      "var_value": "2",
+      "script": "InitiatePokedexSequence"
+    }
   ],
   "bg_events": [
 

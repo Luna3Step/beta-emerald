@@ -21,35 +21,9 @@
   ],
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 9,
-      "y": 8,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "MewsRecluse_ItemBallTop",
-      "flag": "FLAG_MEWTWONITE_Y"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 10,
-      "y": 27,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "MewsRecluse_ItemBallBottom",
-      "flag": "FLAG_MEWTWONITE_X"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_BIG_CHARIZARD_DOLL",
-      "x": 9,
-      "y": 11,
+      "graphics_id": "OBJ_EVENT_GFX_CHARIZARD_STATUE",
+      "x": 16,
+      "y": 18,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -61,9 +35,9 @@
       "": ""
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_BIG_BLASTOISE_DOLL",
-      "x": 9,
-      "y": 13,
+      "graphics_id": "OBJ_EVENT_GFX_BLASTOISE_STATUE",
+      "x": 18,
+      "y": 18,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -74,9 +48,9 @@
       "flag": "FLAG_CLEARSTATUES"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_BIG_VENUSAUR_DOLL",
-      "x": 9,
-      "y": 15,
+      "graphics_id": "OBJ_EVENT_GFX_VENUSAUR_STATUE",
+      "x": 20,
+      "y": 18,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -88,8 +62,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BIG_RHYDON_DOLL",
-      "x": 9,
-      "y": 17,
+      "x": 22,
+      "y": 18,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -101,8 +75,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BIG_SNORLAX_DOLL",
-      "x": 9,
-      "y": 19,
+      "x": 24,
+      "y": 18,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -114,8 +88,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BIG_LAPRAS_DOLL",
-      "x": 9,
-      "y": 21,
+      "x": 26,
+      "y": 18,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -124,73 +98,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Mews_Recluse_Statues",
       "flag": "FLAG_CLEARSTATUES"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_MEW",
-      "x": 22,
-      "y": 13,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Mews_Recluse_EventScript_Mew",
-      "flag": "FLAG_MEW"
     }
   ],
   "warp_events": [
-
+    {
+      "x": 21,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_MEWS_DUNGEON",
+      "dest_warp_id": 0
+    }
   ],
   "coord_events": [
     {
       "type": "trigger",
-      "x": 7,
-      "y": 20,
-      "elevation": 0,
-      "var": "VAR_MEWS_RECLUSE_STATE",
-      "var_value": "0",
-      "script": "Mews_Recluse_Statues"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 18,
-      "elevation": 0,
-      "var": "VAR_MEWS_RECLUSE_STATE",
-      "var_value": "0",
-      "script": "Mews_Recluse_Statues"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 17,
-      "elevation": 0,
-      "var": "VAR_MEWS_RECLUSE_STATE",
-      "var_value": "0",
-      "script": "Mews_Recluse_Statues"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 14,
-      "elevation": 0,
-      "var": "VAR_MEWS_RECLUSE_STATE",
-      "var_value": "0",
-      "script": "Mews_Recluse_Statues"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 16,
-      "elevation": 0,
-      "var": "VAR_MEWS_RECLUSE_STATE",
-      "var_value": "0",
-      "script": "Mews_Recluse_Statues"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
+      "x": 22,
       "y": 19,
       "elevation": 0,
       "var": "VAR_MEWS_RECLUSE_STATE",
@@ -199,8 +121,8 @@
     },
     {
       "type": "trigger",
-      "x": 7,
-      "y": 11,
+      "x": 20,
+      "y": 19,
       "elevation": 0,
       "var": "VAR_MEWS_RECLUSE_STATE",
       "var_value": "0",
@@ -208,8 +130,98 @@
     },
     {
       "type": "trigger",
-      "x": 7,
-      "y": 15,
+      "x": 19,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_MEWS_RECLUSE_STATE",
+      "var_value": "0",
+      "script": "Mews_Recluse_Statues"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_MEWS_RECLUSE_STATE",
+      "var_value": "0",
+      "script": "Mews_Recluse_Statues"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_MEWS_RECLUSE_STATE",
+      "var_value": "0",
+      "script": "Mews_Recluse_Statues"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_MEWS_RECLUSE_STATE",
+      "var_value": "0",
+      "script": "Mews_Recluse_Statues"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_MEWS_RECLUSE_STATE",
+      "var_value": "0",
+      "script": "Mews_Recluse_Statues"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_MEWS_RECLUSE_STATE",
+      "var_value": "0",
+      "script": "Mews_Recluse_Statues"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_MEWS_RECLUSE_STATE",
+      "var_value": "0",
+      "script": "Mews_Recluse_Statues"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_MEWS_RECLUSE_STATE",
+      "var_value": "0",
+      "script": "Mews_Recluse_Statues"
+    },
+    {
+      "type": "trigger",
+      "x": 25,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_MEWS_RECLUSE_STATE",
+      "var_value": "0",
+      "script": "Mews_Recluse_Statues"
+    },
+    {
+      "type": "trigger",
+      "x": 26,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_MEWS_RECLUSE_STATE",
+      "var_value": "0",
+      "script": "Mews_Recluse_Statues"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 19,
       "elevation": 0,
       "var": "VAR_MEWS_RECLUSE_STATE",
       "var_value": "0",

@@ -1,0 +1,82 @@
+mapscripts Mews_Dungeon_MapScripts {
+}
+
+script Mews_Dungeon_EventScript_Mew {
+	lockall
+	setflag(FLAG_MEW)
+	playmoncry(SPECIES_MEW, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+	setwildbattle(SPECIES_MEW, 5, ITEM_MEWTWONITE_Y)
+	dowildbattle
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	if(var(VAR_RESULT) == B_OUTCOME_CAUGHT){
+		call(MewCaught)
+	}
+	elif(var(VAR_RESULT) == B_OUTCOME_WON){
+		call(MewWon)
+	}
+    elif(var(VAR_RESULT) == B_OUTCOME_LOST){
+		call(RanAway)
+	}
+	elif(var(VAR_RESULT) == B_OUTCOME_RAN){
+		call(RanAway)
+	}
+	elif(var(VAR_RESULT) == B_OUTCOME_PLAYER_TELEPORTED){
+		call(RanAway)
+	}
+	waitmessage
+	releaseall
+}
+ 
+script MewCaught {
+	fadescreen(FADE_TO_BLACK)
+	removeobject(1)
+	fadescreen(FADE_FROM_BLACK)
+	msgbox(format("Mew looks satisified with you"))
+	return
+}
+
+script MewWon {
+    playmoncry(SPECIES_MEW, CRY_MODE_ENCOUNTER)
+	msgbox("Mew!", MSGBOX_AUTOCLOSE)
+	delay(20)
+	fadescreen(FADE_TO_BLACK)
+	removeobject(1)
+	fadescreen(FADE_FROM_BLACK)
+	msgbox(format("Mew flew into the sky, it looked satisfied with you"))
+	return
+}
+ 
+script RanAway {
+	playmoncry(SPECIES_MEW, CRY_MODE_ENCOUNTER)
+	msgbox("Mewwwww....", MSGBOX_AUTOCLOSE)
+	delay(20)
+	fadescreen(FADE_TO_BLACK)
+	removeobject(1)
+	fadescreen(FADE_FROM_BLACK)
+	msgbox(format("Mew flew into the sky, it looked dissapointed in you"))
+	return
+}
+
+script MewsDungeon_Mewtwonite_X {
+    lockall
+    msgbox(format("You found a Mewtwonite X!"))
+    additem(ITEM_MEWTWONITE_X, 1)
+	removeobject(2)
+    setflag(FLAG_MEWTWONITE_X)
+    waitmessage
+    releaseall
+    end
+}
+
+script MewsDungeon_Mewtwonite_Y {
+    lockall
+    msgbox(format("You found a Mewtwonite Y!"))
+    additem(ITEM_MEWTWONITE_Y, 1)
+	removeobject(3)
+    setflag(FLAG_MEWTWONITE_Y)
+    waitmessage
+    releaseall
+    end
+}

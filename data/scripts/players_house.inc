@@ -306,6 +306,7 @@ PlayersHouse_1F_Movement_MomReturnToSeatFemale:
 PlayersHouse_1F_EventScript_Mom::
 	lock
 	faceplayer
+	goto_if_eq VAR_PETALBURG_GYM_STATE_MEGA, 2, PlayersHouse_1F_EventScript_MomMega
 	goto_if_eq VAR_LITTLEROOT_HOUSES_STATE_MAY, 4, PlayersHouse_1F_EventScript_DontPushYourselfTooHard
 	goto_if_eq VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 4, PlayersHouse_1F_EventScript_DontPushYourselfTooHard
 	goto_if_set FLAG_HAS_MATCH_CALL, PlayersHouse_1F_EventScript_TryRegisterMom
@@ -313,6 +314,15 @@ PlayersHouse_1F_EventScript_Mom::
 	goto_if_eq VAR_TEMP_1, 1, PlayersHouse_1F_EventScript_SeeYouHoney
 	goto_if_eq VAR_LITTLEROOT_INTRO_STATE, 7, PlayersHouse_1F_EventScript_DidYouMeetProfBirch
 	msgbox PlayersHouse_1F_Text_IsntItNiceInHere, MSGBOX_DEFAULT
+	release
+	end
+
+PlayersHouse_1F_EventScript_MomMega::
+	msgbox PlayersHouse_1F_Text_Mega_1, MSGBOX_DEFAULT
+	closemessage
+	delay 30
+	giveitem ITEM_MEGA_RING
+	msgbox PlayersHouse_1F_Text_Mega_2, MSGBOX_DEFAULT
 	release
 	end
 

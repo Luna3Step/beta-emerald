@@ -136,6 +136,19 @@
       "trainer_sight_or_berry_tree_id": "1",
       "script": "LittlerootTown_EventScript_RivalBattle",
       "flag": "FLAG_RIVAL_BATTLE_LITTLEROOT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
+      "x": 45,
+      "y": 15,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "LittlerootTown_EventScript_LockedDoor",
+      "flag": "FLAG_VISITED_RIVAL"
     }
   ],
   "warp_events": [

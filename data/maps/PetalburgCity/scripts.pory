@@ -772,7 +772,7 @@ script PetalburgCity_Alakazite {
     lockall
     msgbox(format("You found an Alakazite!"))
     additem(ITEM_ALAKAZITE, 1)
-	removeobject(10)
+	removeobject(9)
     setflag(FLAG_ALAKAZITE)
     waitmessage
     releaseall

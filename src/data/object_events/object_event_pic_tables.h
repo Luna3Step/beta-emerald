@@ -2172,3 +2172,15 @@ static const struct SpriteFrameImage sPicTable_RubySapphireMay[] = {
     overworld_frame(gObjectEventPic_RubySapphireMayNormal, 2, 4, 7),
     overworld_frame(gObjectEventPic_RubySapphireMayNormal, 2, 4, 8),
 };
+
+static const struct SpriteFrameImage sPicTable_BlastoiseStatue[] = {
+    overworld_frame(gObjectEventPic_BlastoiseStatue, 4, 4, 0),
+};
+
+static const struct SpriteFrameImage sPicTable_CharizardStatue[] = {
+    overworld_frame(gObjectEventPic_CharizardStatue, 4, 4, 0),
+};
+
+static const struct SpriteFrameImage sPicTable_VenusaurStatue[] = {
+    overworld_frame(gObjectEventPic_VenusaurStatue, 4, 4, 0),
+};
