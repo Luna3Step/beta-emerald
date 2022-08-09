@@ -379,3 +379,5 @@ const u32 gObjectEventPic_BlastoiseStatue[] = INCBIN_U32("graphics/object_events
 const u16 gObjectEventPal_BlastoiseStatue[] = INCBIN_U16("graphics/object_events/pics/dolls/statue.gbapal");
 const u32 gObjectEventPic_CharizardStatue[] = INCBIN_U32("graphics/object_events/pics/dolls/charizard_statue.4bpp");
 const u32 gObjectEventPic_VenusaurStatue[] = INCBIN_U32("graphics/object_events/pics/dolls/venusaur_statue.4bpp");
+const u32 gObjectEventPic_Pokemon_Species_150[] = INCBIN_U32("graphics/object_events/pics/pokemon/species/150.4bpp");
+const u16 gObjectEventPalette_Pokemon_Species_150[] = INCBIN_U16("graphics/object_events/pics/pokemon/species/150.gbapal");

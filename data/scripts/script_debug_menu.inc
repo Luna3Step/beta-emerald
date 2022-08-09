@@ -96,8 +96,12 @@ Debug_GiveAllTMsDoneMsg:
 
 @@ Put random utility scripts here.
 DebugMenu_UtilityScript::
-	giveitem ITEM_MEGA_RING
-    release
+	givemon SPECIES_CHARIZARD, 5, ITEM_PREMIER_BALL
+	givemon SPECIES_BLASTOISE, 5, ITEM_PREMIER_BALL
+	givemon SPECIES_VENUSAUR, 5, ITEM_PREMIER_BALL
+	givemon SPECIES_RHYDON, 5, ITEM_PREMIER_BALL
+	givemon SPECIES_SNORLAX, 5, ITEM_PREMIER_BALL
+	givemon SPECIES_LAPRAS, 5, ITEM_PREMIER_BALL
     end
 
 @@teleport menu

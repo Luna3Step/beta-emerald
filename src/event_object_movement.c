@@ -437,6 +437,9 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 #define OBJ_EVENT_PAL_STATUE                      0x1124
 
+#define OBJ_EVENT_PAL_TAG_POKEMON_START 0x1800
+#define OBJ_EVENT_PAL_TAG_POKEMON_150 (OBJ_EVENT_PAL_TAG_POKEMON_START  + 150)
+
 #include "data/field_effects/field_effect_object_template_pointers.h"
 #include "data/object_events/object_event_pic_tables.h"
 #include "data/object_events/object_event_anims.h"
@@ -482,6 +485,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_RubySapphireBrendan,   OBJ_EVENT_PAL_TAG_RS_BRENDAN},
     {gObjectEventPal_RubySapphireMay,       OBJ_EVENT_PAL_TAG_RS_MAY},
     {gObjectEventPal_BlastoiseStatue,       OBJ_EVENT_PAL_STATUE},
+    {gObjectEventPalette_Pokemon_Species_150, OBJ_EVENT_PAL_TAG_POKEMON_150},
     {},
 };
 

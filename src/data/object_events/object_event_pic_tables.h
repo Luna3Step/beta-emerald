@@ -2184,3 +2184,15 @@ static const struct SpriteFrameImage sPicTable_CharizardStatue[] = {
 static const struct SpriteFrameImage sPicTable_VenusaurStatue[] = {
     overworld_frame(gObjectEventPic_VenusaurStatue, 4, 4, 0),
 };
+
+const struct SpriteFrameImage gObjectEventPicTable_Pokemon_Species_150[] = {
+    overworld_frame(gObjectEventPic_Pokemon_Species_150, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Pokemon_Species_150, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Pokemon_Species_150, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Pokemon_Species_150, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Pokemon_Species_150, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Pokemon_Species_150, 4, 4, 5),
+    overworld_frame(gObjectEventPic_Pokemon_Species_150, 4, 4, 6),
+    overworld_frame(gObjectEventPic_Pokemon_Species_150, 4, 4, 7),
+    overworld_frame(gObjectEventPic_Pokemon_Species_150, 4, 4, 8),
+};
