@@ -403,6 +403,9 @@
 #define MAP_ALTERING_CAVE                            (106 | (24 << 8))
 #define MAP_METEOR_FALLS_STEVENS_CAVE                (107 | (24 << 8))
 #define MAP_MEWS_DUNGEON                             (108 | (24 << 8))
+#define MAP_SPACE                                    (109 | (24 << 8))
+#define MAP_SPACE_2                                  (110 | (24 << 8))
+#define MAP_SPACE_TEST                               (111 | (24 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (25 << 8))

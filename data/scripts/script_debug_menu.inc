@@ -96,13 +96,10 @@ Debug_GiveAllTMsDoneMsg:
 
 @@ Put random utility scripts here.
 DebugMenu_UtilityScript::
-	givemon SPECIES_CHARIZARD, 5, ITEM_PREMIER_BALL
-	givemon SPECIES_BLASTOISE, 5, ITEM_PREMIER_BALL
-	givemon SPECIES_VENUSAUR, 5, ITEM_PREMIER_BALL
-	givemon SPECIES_RHYDON, 5, ITEM_PREMIER_BALL
-	givemon SPECIES_SNORLAX, 5, ITEM_PREMIER_BALL
-	givemon SPECIES_LAPRAS, 5, ITEM_PREMIER_BALL
-    end
+	lock
+	warp MAP_SPACE, 7, 40
+	release
+	end
 
 @@teleport menu
 DebugMenu_Teleportation::

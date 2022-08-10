@@ -1,0 +1,341 @@
+{
+  "id": "MAP_SPACE_2",
+  "name": "Space_2",
+  "layout": "LAYOUT_SPACE_2",
+  "music": "MUS_NONE",
+  "region_map_section": "MAPSEC_NONE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_DEOXYS",
+      "x": 9,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Space_2_Trigger_DeoxysInitiate",
+      "flag": "FLAG_DEFEATED_DEOXYS"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 7,
+      "y": 40,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 7,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 8,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 9,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 10,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 12,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 5,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 19,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 19,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 0,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 0,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 19,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 19,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 0,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 0,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 0,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 0,
+      "y": 33,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 0,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 0,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 19,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 19,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 0,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 19,
+      "y": 36,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 19,
+      "y": 36,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 0,
+      "y": 40,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 0,
+      "y": 41,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 0,
+      "y": 42,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 0,
+      "y": 44,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 4,
+      "y": 49,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 5,
+      "y": 49,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 11,
+      "y": 49,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 12,
+      "y": 49,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 13,
+      "y": 49,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 15,
+      "y": 49,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 19,
+      "y": 47,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 19,
+      "y": 40,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 19,
+      "y": 41,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 19,
+      "y": 42,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 6,
+      "y": 49,
+      "elevation": 0,
+      "dest_map": "MAP_SPACE",
+      "dest_warp_id": 0
+    }
+  ],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 40,
+      "elevation": 0,
+      "var": "VAR_SPACE_STATE",
+      "var_value": "1",
+      "script": "Space_2_EventScript_RayquazaSave"
+    }
+  ],
+  "bg_events": [
+
+  ]
+}

@@ -1,0 +1,98 @@
+mapscripts Space_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION Space_EventScript_InitailiseOOB
+}
+
+script Space_EventScript_InitailiseOOB {
+	if(var(VAR_SPACE_STATE) == 1){
+		call(Space_Trigger_OutOfBounds)
+	}
+	else{
+		call(Space_Trigger_Warning)
+	}
+}
+
+script Space_Trigger_OutOfBounds {
+    lockall
+    playmoncry(SPECIES_RAYQUAZA, CRY_MODE_ENCOUNTER)
+    msgbox(format("Rayquaza bought you back. Be careful of drifting into space"))
+    waitmessage
+    releaseall
+}
+
+script Space_Trigger_Warning {
+    lockall
+    setvar(VAR_SPACE_STATE, 1)
+    msgbox(format("Please save before continuing."))
+    waitmessage
+    releaseall
+}
+
+script Space_Trigger_Screenshake {
+    lockall
+    delay(30)
+	setvar(VAR_0x8004, 2)  //@ vertical pan
+	setvar(VAR_0x8005, 6)  //@ horizontal pan
+	setvar(VAR_0x8006, 4)  //@ num shakes
+	setvar(VAR_0x8007, 4)  //@ shake delay
+	special(ShakeCamera)
+	waitstate
+	delay(60)
+    releaseall
+}
+
+script Space_Trigger_DeoxysInitiate {
+    lockall
+	setflag(FLAG_DEFEATED_DEOXYS)
+	playmoncry(SPECIES_DEOXYS, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+	call(Space_Trigger_Screenshake)
+	setwildbattle(SPECIES_DEOXYS, 70, ITEM_NONE)
+	special(BattleSetup_StartLegendaryBattle)
+	dowildbattle
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	if(var(VAR_RESULT) == B_OUTCOME_CAUGHT){
+		call(Space_EventScript_DeoxysCaught)
+	}
+	elif(var(VAR_RESULT) == B_OUTCOME_WON){
+		call(Space_EventScript_DeoxysBeaten)
+	}
+    elif(var(VAR_RESULT) == B_OUTCOME_LOST){
+		call(Space_EventScript_PlayerLost)
+	}
+	elif(var(VAR_RESULT) == B_OUTCOME_RAN){
+		call(Space_EventScript_PlayerLost)
+	}
+	elif(var(VAR_RESULT) == B_OUTCOME_PLAYER_TELEPORTED){
+		call(Space_EventScript_PlayerLost)
+	}
+	waitmessage
+	releaseall
+}
+
+script Space_EventScript_DeoxysCaught {
+	fadescreen(FADE_TO_BLACK)
+	removeobject(1)
+	fadescreen(FADE_FROM_BLACK)
+	return
+}
+
+script Space_EventScript_DeoxysBeaten {
+    playmoncry(SPECIES_DEOXYS, CRY_MODE_ENCOUNTER)
+	delay(20)
+	fadescreen(FADE_TO_BLACK)
+	removeobject(1)
+	fadescreen(FADE_FROM_BLACK)
+	msgbox(format("Deoxys retreated into space."))
+	return
+}
+ 
+script Space_EventScript_PlayerLost {
+	playmoncry(SPECIES_DEOXYS, CRY_MODE_ENCOUNTER)
+	delay(20)
+	fadescreen(FADE_TO_BLACK)
+	removeobject(1)
+	fadescreen(FADE_FROM_BLACK)
+	msgbox(format("Deoxys flew back into space"))
+	return
+}

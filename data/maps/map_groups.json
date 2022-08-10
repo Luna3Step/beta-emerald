@@ -433,7 +433,10 @@
     "TerraCave_End",
     "AlteringCave",
     "MeteorFalls_StevensCave",
-    "Mews_Dungeon"
+    "Mews_Dungeon",
+    "Space",
+    "Space_2",
+    "SpaceTest"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

@@ -343,6 +343,7 @@ bool8 MetatileBehavior_IsForcedMovementTile(u8 metatileBehavior)
      || metatileBehavior == MB_CRACKED_FLOOR
      || metatileBehavior == MB_WATERFALL
      || metatileBehavior == MB_ICE
+     || metatileBehavior == MB_UNUSED_49
      || metatileBehavior == MB_SECRET_BASE_JUMP_MAT
      || metatileBehavior == MB_SECRET_BASE_SPIN_MAT)
         return TRUE;
@@ -353,6 +354,14 @@ bool8 MetatileBehavior_IsForcedMovementTile(u8 metatileBehavior)
 bool8 MetatileBehavior_IsIce_2(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_ICE)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsUnused49(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_UNUSED_49)
         return TRUE;
     else
         return FALSE;

@@ -1063,3 +1063,9 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Mews_Recluse/scripts.inc"
 
 	.include "data/maps/Mews_Dungeon/scripts.inc"
+
+	.include "data/maps/Space/scripts.inc"
+
+	.include "data/maps/Space_2/scripts.inc"
+
+	.include "data/maps/SpaceTest/scripts.inc"

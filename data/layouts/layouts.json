@@ -2417,7 +2417,7 @@
       "width": 58,
       "height": 26,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "0",
+      "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/UnusedOutdoorArea/border.bin",
       "blockdata_filepath": "data/layouts/UnusedOutdoorArea/map.bin"
     },
@@ -4440,6 +4440,36 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Mews_Dungeon/border.bin",
       "blockdata_filepath": "data/layouts/Mews_Dungeon/map.bin"
+    },
+    {
+      "id": "LAYOUT_SPACE",
+      "name": "Space_Layout",
+      "width": 20,
+      "height": 50,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MeteorFalls",
+      "border_filepath": "data/layouts/Space/border.bin",
+      "blockdata_filepath": "data/layouts/Space/map.bin"
+    },
+    {
+      "id": "LAYOUT_SPACE_2",
+      "name": "Space_2_Layout",
+      "width": 20,
+      "height": 50,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MeteorFalls",
+      "border_filepath": "data/layouts/Space_2/border.bin",
+      "blockdata_filepath": "data/layouts/Space_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_SPACE_TEST",
+      "name": "SpaceTest_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/SpaceTest/border.bin",
+      "blockdata_filepath": "data/layouts/SpaceTest/map.bin"
     }
   ]
 }
