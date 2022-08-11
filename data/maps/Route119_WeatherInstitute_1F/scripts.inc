@@ -6,6 +6,7 @@ Route119_WeatherInstitute_1F_MapScripts::
 
 Route119_WeatherInstitute_1F_OnTransition:
 	call_if_eq VAR_WEATHER_INSTITUTE_STATE, 0, Route119_WeatherInstitute_1F_EventScript_SetLittleBoyPos
+	call_if_eq VAR_WEATHER_INSTITUTE_STATE, 2, WeatherInstitute_1F_EventScript_DeoxysTransition
 	end
 
 Route119_WeatherInstitute_1F_EventScript_SetLittleBoyPos::
@@ -132,4 +133,9 @@ Route119_WeatherInstitute_1F_Text_WhatWereAquasUpTo:
 Route119_WeatherInstitute_1F_Text_TakeRestInBed:
 	.string "There's a bed…\n"
 	.string "Let's take a rest.$"
+
+WeatherInstitute_1F_EventScript_DeoxysTransition::
+	setflag FLAG_HIDE_WEATHER_INSTITUTE_1F_WORKERS
+	setflag FLAG_HIDE_ROUTE_119_TEAM_AQUA
+	return
 

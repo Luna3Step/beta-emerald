@@ -1,25 +1,18 @@
-raw`
-Space_2_MapScripts::
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, Space_2_EventScript_Messages
-	.byte 0
-`
-
-script Space_2_EventScript_Messages {
-    lockall
-    	if(var(VAR_SPACE_STATE) == 0){
-			call(Space_2_EventScript_Warning)
-    	}
-		else{
-			call(Space_2_EventScript_RayquazaSave)
-		}
-		releaseall
+mapscripts Space_2_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: Space_2_EventScript_Messages
+	MAP_SCRIPT_ON_FRAME_TABLE  [
+		VAR_SPACE_STATE, 1: Space_2_EventScript_RayquazaSave
+	]
 }
 
+script Space_2_EventScript_Messages {
+	setvar(VAR_SPACE_STATE, 1)
+}
 
 script Space_2_EventScript_Warning {
     lockall
     setvar(VAR_SPACE_STATE, 1)
-    msgbox(format("Please save before continuing."))
+    msgbox(format("Please save before continuing."), MSGBOX_DEFAULT)
     waitmessage
     releaseall
 }
@@ -27,7 +20,9 @@ script Space_2_EventScript_Warning {
 script Space_2_EventScript_RayquazaSave {
 	lockall
 	playmoncry(SPECIES_RAYQUAZA, CRY_MODE_ENCOUNTER)
-    msgbox(format("Rayquaza bought you back. Be careful of drifting into space"))
+	delay(30)
+    msgbox(format("Rayquaza brought you here. Be careful of drifting into space"), MSGBOX_DEFAULT)
+	setvar(VAR_SPACE_STATE, 2)
     waitmessage
     releaseall
 }
@@ -79,6 +74,10 @@ script Space_2_EventScript_DeoxysCaught {
 	fadescreen(FADE_TO_BLACK)
 	removeobject(1)
 	fadescreen(FADE_FROM_BLACK)
+	msgbox(format("You have the caught anomoly, Deoxys."))
+	waitmessage
+	warp(MAP_SKY_PILLAR_TOP, 14, 8)
+	setvar(VAR_SKY_PILLAR_STATE, 5)
 	return
 }
 
@@ -89,6 +88,9 @@ script Space_2_EventScript_DeoxysBeaten {
 	removeobject(1)
 	fadescreen(FADE_FROM_BLACK)
 	msgbox(format("Deoxys retreated into space."))
+	waitmessage
+	warp(MAP_SKY_PILLAR_TOP, 14, 8)
+	setvar(VAR_SKY_PILLAR_STATE, 5)
 	return
 }
  
@@ -98,6 +100,6 @@ script Space_2_EventScript_PlayerLost {
 	fadescreen(FADE_TO_BLACK)
 	removeobject(1)
 	fadescreen(FADE_FROM_BLACK)
-	msgbox(format("Deoxys flew back into space"))
+	msgbox(format("Deoxys flew back into space"), MSGBOX_DEFAULT)
 	return
 }

@@ -97,7 +97,8 @@ Debug_GiveAllTMsDoneMsg:
 @@ Put random utility scripts here.
 DebugMenu_UtilityScript::
 	lock
-	warp MAP_SPACE, 7, 40
+	warp MAP_SKY_PILLAR_5F, 3, 2
+	setvar VAR_SKY_PILLAR_STATE, 4
 	release
 	end
 

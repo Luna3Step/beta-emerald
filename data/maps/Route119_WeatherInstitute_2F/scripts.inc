@@ -12,22 +12,26 @@ Route119_WeatherInstitute_2F_MapScripts::
 Route119_WeatherInstitute_2F_OnTransition:
 	call_if_eq VAR_WEATHER_INSTITUTE_STATE, 0, Route119_WeatherInstitute_2F_EventScript_SetScientistPosAquaHere
 	call_if_eq VAR_WEATHER_INSTITUTE_STATE, 1, Route119_WeatherInstitute_2F_EventScript_SetScientistPosAquaGone
+	call_if_eq VAR_WEATHER_INSTITUTE_STATE, 2, Route119_WeatherInstitute_2F_EventScript_DeoxysSetup
 	call_if_set FLAG_SYS_GAME_CLEAR, Route119_WeatherInstitute_2F_EventScript_SetScientistPosGameClear
 	end
 
 Route119_WeatherInstitute_2F_EventScript_SetScientistPosAquaHere::
 	setobjectxyperm LOCALID_SCIENTIST, 1, 6
 	setobjectmovementtype LOCALID_SCIENTIST, MOVEMENT_TYPE_FACE_RIGHT
+    setflag FLAG_WEATHER_INSTITUTE_2F_DEOXYSNPCS
 	return
 
 Route119_WeatherInstitute_2F_EventScript_SetScientistPosAquaGone::
 	setobjectxyperm LOCALID_SCIENTIST, 4, 6
 	setobjectmovementtype LOCALID_SCIENTIST, MOVEMENT_TYPE_FACE_RIGHT
+    setflag FLAG_WEATHER_INSTITUTE_2F_DEOXYSNPCS
 	return
 
 Route119_WeatherInstitute_2F_EventScript_SetScientistPosGameClear::
 	setobjectxyperm LOCALID_SCIENTIST, 2, 2
 	setobjectmovementtype LOCALID_SCIENTIST, MOVEMENT_TYPE_FACE_UP
+    setflag FLAG_WEATHER_INSTITUTE_2F_DEOXYSNPCS
 	return
 
 Route119_WeatherInstitute_2F_EventScript_Grunt5::
@@ -331,3 +335,221 @@ Route119_WeatherInstitute_2F_Text_NoAbnormalWeather:
 	.string "The occasional rainfall is a blessing,\n"
 	.string "really.$"
 
+Route119_WeatherInstitute_2F_EventScript_DeoxysSetup::
+	setflag FLAG_HIDE_WEATHER_INSTITUTE_2F_WORKERS
+	setflag FLAG_HIDE_ROUTE_119_TEAM_AQUA
+	setflag FLAG_HIDE_WEATHER_INSTITUTE_2F_AQUA_GRUNT_M
+	setflag FLAG_WEATHER_INSTITUTE_2F_SCIENTIST
+	clearflag FLAG_WEATHER_INSTITUTE_2F_DEOXYSNPCS
+	return
+
+
+Route119_WeatherInstitute_2F_EventScript_PacingNPC::
+	lockall
+	msgbox Route119_WeatherInstitute_2F_EventScript_PacingNPC_Text_0
+	waitmessage
+	releaseall
+	return
+
+
+Route119_WeatherInstitute_2F_EventScript_TopNPC::
+	lockall
+	msgbox Route119_WeatherInstitute_2F_EventScript_TopNPC_Text_0
+	waitmessage
+	releaseall
+	return
+
+
+Route119_WeatherInstitute_2F_EventScript_ScientistNPC::
+	lockall
+	msgbox Route119_WeatherInstitute_2F_EventScript_ScientistNPC_Text_0
+	waitmessage
+	releaseall
+	return
+
+
+Route119_WeatherInstitute_2F_EventScript_BottomNPC::
+	lockall
+	faceplayer
+	msgbox Route119_WeatherInstitute_2F_EventScript_BottomNPC_Text_0
+	waitmessage
+	releaseall
+	return
+
+
+Route119_WeatherInstitute_2F_EventScript_MiddleNPC::
+	lockall
+	msgbox Route119_WeatherInstitute_2F_EventScript_MiddleNPC_Text_0
+	waitmessage
+	releaseall
+	return
+
+
+Route119_WeatherInstitute_2F_EventScript_StevenNPC::
+	lockall
+	specialvar VAR_RESULT, CheckRayquazaParty
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route119_WeatherInstitute_2F_EventScript_StevenNPC_2
+Route119_WeatherInstitute_2F_EventScript_StevenNPC_1:
+	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_10
+	releaseall
+	return
+
+Route119_WeatherInstitute_2F_EventScript_StevenNPC_2:
+	faceplayer
+	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_0
+	waitmessage
+	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_1
+	applymovement 14, Route119_WeatherInstitute_2F_Movement_Steven
+	delay 15
+	applymovement OBJ_EVENT_ID_PLAYER, Route119_WeatherInstitute_2F_Movement_Player
+	waitmovement 0
+	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_2
+	waitmessage
+	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_3
+	waitmessage
+	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_4
+	waitmessage
+	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_5
+	waitmessage
+	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_6, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Route119_WeatherInstitute_2F_EventScript_StevenNPC_4
+	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_9
+	setvar VAR_WEATHER_INSTITUTE_STATE, 1
+	setvar VAR_SKY_PILLAR_STATE, 4
+	call Route119_WeatherInstitute_1F_EventScript_Normal
+	releaseall
+	goto Route119_WeatherInstitute_2F_EventScript_StevenNPC_1
+
+Route119_WeatherInstitute_2F_EventScript_StevenNPC_4:
+	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_7
+	applymovement OBJ_EVENT_ID_PLAYER, Route119_WeatherInstitute_2F_Movement_PlayerExit
+	delay 15
+	applymovement 14, Route119_WeatherInstitute_2F_Movement_StevenExit
+	removeobject 14
+	setvar VAR_WEATHER_INSTITUTE_STATE, 1
+	setvar VAR_SKY_PILLAR_STATE, 4
+	call Route119_WeatherInstitute_1F_EventScript_Normal
+	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_8, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Route119_WeatherInstitute_2F_EventScript_StevenNPC_7
+	goto Route119_WeatherInstitute_2F_EventScript_StevenNPC_1
+
+Route119_WeatherInstitute_2F_EventScript_StevenNPC_7:
+	warp MAP_SKY_PILLAR_5F, 3, 2
+	releaseall
+	goto Route119_WeatherInstitute_2F_EventScript_StevenNPC_1
+
+
+Route119_WeatherInstitute_1F_EventScript_Normal::
+	clearflag FLAG_HIDE_WEATHER_INSTITUTE_2F_WORKERS
+	setflag FLAG_HIDE_ROUTE_119_TEAM_AQUA
+	setflag FLAG_HIDE_WEATHER_INSTITUTE_2F_AQUA_GRUNT_M
+	clearflag FLAG_WEATHER_INSTITUTE_2F_SCIENTIST
+	setflag FLAG_WEATHER_INSTITUTE_2F_DEOXYSNPCS
+	clearflag FLAG_HIDE_WEATHER_INSTITUTE_1F_WORKERS
+	return
+
+
+Route119_WeatherInstitute_2F_Movement_Steven:
+	walk_up
+	walk_up
+	walk_up
+	face_right
+	step_end
+
+Route119_WeatherInstitute_2F_Movement_Player:
+	walk_left
+	walk_up
+	walk_up
+	step_end
+
+Route119_WeatherInstitute_2F_Movement_PlayerExit:
+	walk_down
+	walk_down
+	step_end
+
+Route119_WeatherInstitute_2F_Movement_StevenExit:
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Route119_WeatherInstitute_2F_EventScript_PacingNPC_Text_0:
+	.string "What could it be? It look's controlled\n"
+	.string "but it can't be$"
+
+Route119_WeatherInstitute_2F_EventScript_TopNPC_Text_0:
+	.string "It kind of look's like a meteor?$"
+
+Route119_WeatherInstitute_2F_EventScript_ScientistNPC_Text_0:
+	.string "It can't be a meteor, do you see it's\n"
+	.string "trajectory?$"
+
+Route119_WeatherInstitute_2F_EventScript_BottomNPC_Text_0:
+	.string "Something weirds popped up on all alert\n"
+	.string "systems, we are currently working on it\l"
+	.string "but it's not looking to be fixed\l"
+	.string "anytime soon$"
+
+Route119_WeatherInstitute_2F_EventScript_MiddleNPC_Text_0:
+	.string "That make's no sense. What could that\n"
+	.string "kind of data?$"
+
+Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_0:
+	.string "I see you have arrived! And with\n"
+	.string "Rayquaza!$"
+
+Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_1:
+	.string "You should come see this$"
+
+Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_2:
+	.string "Look at this. At first glance it looks\n"
+	.string "like a weird anomoly and that's why the\l"
+	.string "scientists are freaking out.$"
+
+Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_3:
+	.string "But if you look at this data, it's pretty\n"
+	.string "much the same.$"
+
+Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_4:
+	.string "This data is from the moment Rayquaza\n"
+	.string "took off to fight the Kyogre and\l"
+	.string "Groudon.$"
+
+Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_5:
+	.string "I think the anomoly is a pokemon and\n"
+	.string "that's why I need Rayquaza, it's one of\l"
+	.string "the only pokemon able to enter the\l"
+	.string "atmosphere.$"
+
+Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_6:
+	.string "What do you say? Think you can offer\n"
+	.string "your help once more?$"
+
+Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_7:
+	.string "Brilliant! Meet me at the top of Sky\n"
+	.string "Pillar where you caught Rayquaza$"
+
+Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_8:
+	.string "Do you wish to fast travel to Sky Pillar\n"
+	.string "5F?$"
+
+Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_9:
+	.string "If you change your mind, meet me at Sky\n"
+	.string "Pillar.$"
+
+Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_10:
+	.string "You are probably going to need\n"
+	.string "Rayquaza for this, please talk to me\l"
+	.string "when you have them.$"

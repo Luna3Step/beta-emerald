@@ -1,25 +1,22 @@
 Space_2_MapScripts::
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, Space_2_EventScript_Messages
+	map_script MAP_SCRIPT_ON_TRANSITION, Space_2_EventScript_Messages
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Space_2_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
-Space_2_EventScript_Messages::
-	lockall
-	compare VAR_SPACE_STATE, 0
-	goto_if_eq Space_2_EventScript_Messages_2
-	call Space_2_EventScript_RayquazaSave
-Space_2_EventScript_Messages_1:
-	releaseall
-	return
+Space_2_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_SPACE_STATE, 1, Space_2_EventScript_RayquazaSave
+	.2byte 0
 
-Space_2_EventScript_Messages_2:
-	call Space_2_EventScript_Warning
-	goto Space_2_EventScript_Messages_1
+
+Space_2_EventScript_Messages::
+	setvar VAR_SPACE_STATE, 1
+	return
 
 
 Space_2_EventScript_Warning::
 	lockall
 	setvar VAR_SPACE_STATE, 1
-	msgbox Space_2_EventScript_Warning_Text_0
+	msgbox Space_2_EventScript_Warning_Text_0, MSGBOX_DEFAULT
 	waitmessage
 	releaseall
 	return
@@ -28,7 +25,9 @@ Space_2_EventScript_Warning::
 Space_2_EventScript_RayquazaSave::
 	lockall
 	playmoncry SPECIES_RAYQUAZA, CRY_MODE_ENCOUNTER
-	msgbox Space_2_EventScript_RayquazaSave_Text_0
+	delay 30
+	msgbox Space_2_EventScript_RayquazaSave_Text_0, MSGBOX_DEFAULT
+	setvar VAR_SPACE_STATE, 2
 	waitmessage
 	releaseall
 	return
@@ -99,6 +98,10 @@ Space_2_EventScript_DeoxysCaught::
 	fadescreen FADE_TO_BLACK
 	removeobject 1
 	fadescreen FADE_FROM_BLACK
+	msgbox Space_2_EventScript_DeoxysCaught_Text_0
+	waitmessage
+	warp MAP_SKY_PILLAR_TOP, 14, 8
+	setvar VAR_SKY_PILLAR_STATE, 5
 	return
 
 
@@ -109,6 +112,9 @@ Space_2_EventScript_DeoxysBeaten::
 	removeobject 1
 	fadescreen FADE_FROM_BLACK
 	msgbox Space_2_EventScript_DeoxysBeaten_Text_0
+	waitmessage
+	warp MAP_SKY_PILLAR_TOP, 14, 8
+	setvar VAR_SKY_PILLAR_STATE, 5
 	return
 
 
@@ -118,7 +124,7 @@ Space_2_EventScript_PlayerLost::
 	fadescreen FADE_TO_BLACK
 	removeobject 1
 	fadescreen FADE_FROM_BLACK
-	msgbox Space_2_EventScript_PlayerLost_Text_0
+	msgbox Space_2_EventScript_PlayerLost_Text_0, MSGBOX_DEFAULT
 	return
 
 
@@ -126,8 +132,11 @@ Space_2_EventScript_Warning_Text_0:
 	.string "Please save before continuing.$"
 
 Space_2_EventScript_RayquazaSave_Text_0:
-	.string "Rayquaza bought you back. Be careful\n"
+	.string "Rayquaza brought you here. Be careful\n"
 	.string "of drifting into space$"
+
+Space_2_EventScript_DeoxysCaught_Text_0:
+	.string "You have the caught anomoly, Deoxys.$"
 
 Space_2_EventScript_DeoxysBeaten_Text_0:
 	.string "Deoxys retreated into space.$"

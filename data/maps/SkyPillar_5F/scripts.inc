@@ -10,3 +10,7 @@ SkyPillar_5F_EventScript_CleanFloor::
 	setmaplayoutindex LAYOUT_SKY_PILLAR_5F_CLEAN
 	return
 
+SkyPillar_5F_Trigger_StevenDeoxys::
+	setflag FLAG_SKY_PILLAR_TOP_STEVENDEOXYS
+	return
+

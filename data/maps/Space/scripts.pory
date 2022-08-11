@@ -1,20 +1,20 @@
 mapscripts Space_MapScripts {
-	MAP_SCRIPT_ON_TRANSITION Space_EventScript_InitailiseOOB
+	MAP_SCRIPT_ON_TRANSITION Space_EventScript_MapTransition
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_SPACE_STATE, 1: Space_Trigger_OutOfBounds
+	]
 }
 
-script Space_EventScript_InitailiseOOB {
-	if(var(VAR_SPACE_STATE) == 1){
-		call(Space_Trigger_OutOfBounds)
-	}
-	else{
-		call(Space_Trigger_Warning)
-	}
+script Space_EventScript_MapTransition {
+	setvar(VAR_SPACE_STATE, 1)
 }
 
 script Space_Trigger_OutOfBounds {
     lockall
     playmoncry(SPECIES_RAYQUAZA, CRY_MODE_ENCOUNTER)
+	delay(30)
     msgbox(format("Rayquaza bought you back. Be careful of drifting into space"))
+	setvar(VAR_SPACE_STATE, 2)
     waitmessage
     releaseall
 }
@@ -74,6 +74,10 @@ script Space_EventScript_DeoxysCaught {
 	fadescreen(FADE_TO_BLACK)
 	removeobject(1)
 	fadescreen(FADE_FROM_BLACK)
+	msgbox(format("You have the caught anomoly, Deoxys."))
+	waitmessage
+	warp(MAP_SKY_PILLAR_TOP, 14, 8)
+	setvar(VAR_SKY_PILLAR_STATE, 5)
 	return
 }
 
@@ -84,6 +88,9 @@ script Space_EventScript_DeoxysBeaten {
 	removeobject(1)
 	fadescreen(FADE_FROM_BLACK)
 	msgbox(format("Deoxys retreated into space."))
+	waitmessage
+	warp(MAP_SKY_PILLAR_TOP, 14, 8)
+	setvar(VAR_SKY_PILLAR_STATE, 5)
 	return
 }
  

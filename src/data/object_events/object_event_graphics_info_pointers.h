@@ -246,8 +246,9 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvilleOldM
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvilleOldMan2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BlastoiseStatue;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CharizardStatue;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_venusaurStatue;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VenusaurStatue;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Pokemon_Species_150;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MewStatue;
 
 
 
@@ -495,6 +496,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_CHARIZARD_STATUE] =         &gObjectEventGraphicsInfo_CharizardStatue,
     [OBJ_EVENT_GFX_VENUSAUR_STATUE] =          &gObjectEventGraphicsInfo_VenusaurStatue,
     [OBJ_EVENT_GFX_POKEMON_150] = 	           &gObjectEventGraphicsInfo_Pokemon_Species_150,
+    [OBJ_EVENT_GFX_MEW_STATUE] =               &gObjectEventGraphicsInfo_MewStatue,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

@@ -114,6 +114,15 @@ bool8 CheckMewtwoParty(void)
     return FALSE;
 }
 
+bool8 CheckRayquazaParty(void)
+{
+    if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES2, 0) == SPECIES_RAYQUAZA || GetMonData(&gPlayerParty[1], MON_DATA_SPECIES2, 0) == SPECIES_RAYQUAZA || GetMonData(&gPlayerParty[2], MON_DATA_SPECIES2, 0) == SPECIES_RAYQUAZA || GetMonData(&gPlayerParty[3], MON_DATA_SPECIES2, 0) == SPECIES_RAYQUAZA || GetMonData(&gPlayerParty[4], MON_DATA_SPECIES2, 0) == SPECIES_RAYQUAZA || GetMonData(&gPlayerParty[5], MON_DATA_SPECIES2, 0) == SPECIES_RAYQUAZA)
+    {
+            return TRUE;
+    }
+    return FALSE;
+}
+
 // THEORY: this was caused by block commenting out all of the older R/S braille functions but leaving the call to it itself, which creates the nullsub.
 void ShouldDoBrailleRegirockEffectOld(void)
 {

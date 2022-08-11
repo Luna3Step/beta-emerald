@@ -1,22 +1,23 @@
 Space_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Space_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
+Space_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_SPACE_STATE, 1, Space_Trigger_OutOfBounds
+	.2byte 0
 
-Space_EventScript_InitailiseOOB::
-	compare VAR_SPACE_STATE, 1
-	goto_if_eq Space_EventScript_InitailiseOOB_1
-	call Space_Trigger_Warning
-	return
 
-Space_EventScript_InitailiseOOB_1:
-	call Space_Trigger_OutOfBounds
+Space_EventScript_MapTransition::
+	setvar VAR_SPACE_STATE, 1
 	return
 
 
 Space_Trigger_OutOfBounds::
 	lockall
 	playmoncry SPECIES_RAYQUAZA, CRY_MODE_ENCOUNTER
+	delay 30
 	msgbox Space_Trigger_OutOfBounds_Text_0
+	setvar VAR_SPACE_STATE, 2
 	waitmessage
 	releaseall
 	return
@@ -96,6 +97,10 @@ Space_EventScript_DeoxysCaught::
 	fadescreen FADE_TO_BLACK
 	removeobject 1
 	fadescreen FADE_FROM_BLACK
+	msgbox Space_EventScript_DeoxysCaught_Text_0
+	waitmessage
+	warp MAP_SKY_PILLAR_TOP, 14, 8
+	setvar VAR_SKY_PILLAR_STATE, 5
 	return
 
 
@@ -106,6 +111,9 @@ Space_EventScript_DeoxysBeaten::
 	removeobject 1
 	fadescreen FADE_FROM_BLACK
 	msgbox Space_EventScript_DeoxysBeaten_Text_0
+	waitmessage
+	warp MAP_SKY_PILLAR_TOP, 14, 8
+	setvar VAR_SKY_PILLAR_STATE, 5
 	return
 
 
@@ -125,6 +133,9 @@ Space_Trigger_OutOfBounds_Text_0:
 
 Space_Trigger_Warning_Text_0:
 	.string "Please save before continuing.$"
+
+Space_EventScript_DeoxysCaught_Text_0:
+	.string "You have the caught anomoly, Deoxys.$"
 
 Space_EventScript_DeoxysBeaten_Text_0:
 	.string "Deoxys retreated into space.$"

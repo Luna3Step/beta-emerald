@@ -17,8 +17,11 @@ SkyPillar_Top_EventScript_TryRemoveRayquaza::
 	return
 
 SkyPillar_Top_OnTransition:
+    call_if_unset FLAG_STEVEN_RAYQUAZA, SkyPillar_Top_EventScript_TransitionSteve
 	call_if_lt VAR_SKY_PILLAR_STATE, 2, SkyPillar_Top_EventScript_SetCleanLayout
 	call_if_ge VAR_SKY_PILLAR_STATE, 2, SkyPillar_Top_EventScript_TryShowRayquaza
+    call_if_eq VAR_SKY_PILLAR_STATE, 4, SkyPillar_Top_EventScript_DeoxysSetup
+    call_if_eq VAR_SKY_PILLAR_STATE, 5, SkyPillar_Top_EventScript_DeoxysFinished
 	end
 
 SkyPillar_Top_EventScript_SetCleanLayout::
@@ -75,6 +78,7 @@ SkyPillar_Top_EventScript_DefeatedRayquaza2::
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject VAR_LAST_TALKED
 	fadescreenswapbuffers FADE_FROM_BLACK
+    goto SkyPillar_Top_EventScript_Steven
 	releaseall
 	end
 
@@ -183,3 +187,176 @@ SkyPillar_Top_Movement_CameraPanDown:
 SkyPillar_Top_Text_RayquazaFlewOff:
 	.string "The awakened RAYQUAZA flew off…$"
 
+SkyPillar_Top_EventScript_TransitionSteve::
+	setflag FLAG_STEVEN_RAYQUAZA
+	return
+
+
+SkyPillar_Top_EventScript_Steven::
+	lockall
+	playse SE_EXIT
+	delay 10
+	addobject 3
+	applymovement 3, SkyPillar_Top_Movement_StevenEnter
+	waitmovement 0
+	msgbox SkyPillar_Top_EventScript_Steven_Text_0
+	waitmessage
+	msgbox SkyPillar_Top_EventScript_Steven_Text_1
+	waitmessage
+	msgbox SkyPillar_Top_EventScript_Steven_Text_2
+	waitmessage
+	applymovement 3, SkyPillar_Top_Movement_StevenExit
+	waitmovement 0
+	playse SE_EXIT
+	removeobject 3
+	setflag FLAG_STEVEN_RAYQUAZA
+	setvar VAR_WEATHER_INSTITUTE_STATE, 2
+	releaseall
+	return
+
+
+SkyPillar_Top_Movement_StevenEnter:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_up
+	step_end
+
+SkyPillar_Top_Movement_StevenExit:
+	walk_down
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	step_end
+
+SkyPillar_Top_EventScript_DeoxysSetup::
+	clearflag FLAG_SKY_PILLAR_TOP_STEVENDEOXYS
+	return
+
+
+SkyPillar_Top_EventScript_StevenDeoxys::
+	lockall
+	faceplayer
+	msgbox SkyPillar_Top_EventScript_StevenDeoxys_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq SkyPillar_Top_EventScript_StevenDeoxys_2
+SkyPillar_Top_EventScript_StevenDeoxys_1:
+	msgbox SkyPillar_Top_EventScript_StevenDeoxys_Text_4
+	releaseall
+	return
+
+SkyPillar_Top_EventScript_StevenDeoxys_2:
+	msgbox SkyPillar_Top_EventScript_StevenDeoxys_Text_1
+	waitmessage
+	fadescreen FADE_TO_BLACK
+	addobject 2
+	delay 20
+	fadescreen FADE_FROM_BLACK
+	msgbox SkyPillar_Top_EventScript_StevenDeoxys_Text_2
+	waitmessage
+	msgbox SkyPillar_Top_EventScript_StevenDeoxys_Text_3
+	waitmessage
+	setflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL
+	warp MAP_SPACE, 7, 40
+	releaseall
+	goto SkyPillar_Top_EventScript_StevenDeoxys_1
+
+
+SkyPillar_Top_EventScript_DeoxysFinished::
+	lockall
+	applymovement 4, SkyPillar_Top_EventScript_Steven_Deoxys_Finished
+	msgbox SkyPillar_Top_EventScript_DeoxysFinished_Text_0
+	waitmessage
+	msgbox SkyPillar_Top_EventScript_DeoxysFinished_Text_1
+	applymovement 4, SkyPillar_Top_EventScript_Steven_Deoxys_FinishedExit
+	waitmovement 0
+	removeobject 4
+	setflag FLAG_SKY_PILLAR_TOP_STEVENDEOXYS
+	setvar VAR_SKY_PILLAR_STATE, 6
+	releaseall
+	return
+
+
+SkyPillar_Top_EventScript_Steven_Deoxys_Finished:
+	face_player
+	step_end
+
+SkyPillar_Top_EventScript_Steven_Deoxys_FinishedExit:
+	walk_down
+	walk_right
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+SkyPillar_Top_EventScript_Steven_Text_0:
+	.string "Wow, I saw the commotion from the\n"
+	.string "entrance but I didn't expect to find\l"
+	.string "you here and for rayquaza to be\l"
+	.string "caught.$"
+
+SkyPillar_Top_EventScript_Steven_Text_1:
+	.string "Good thing as well, finding you was next\n"
+	.string "after seeing if Rayquaza would be up\l"
+	.string "to help out one last time.$"
+
+SkyPillar_Top_EventScript_Steven_Text_2:
+	.string "If you get a moments time, please come\n"
+	.string "to the weather station, they've caught\l"
+	.string "something and it look's like it could be\l"
+	.string "another disaster without quick\l"
+	.string "intervention$"
+
+SkyPillar_Top_EventScript_StevenDeoxys_Text_0:
+	.string "Are you ready? You won't be able to\n"
+	.string "come back until you are either beaten\l"
+	.string "or whatevers causing issues is\l"
+	.string "handled.$"
+
+SkyPillar_Top_EventScript_StevenDeoxys_Text_1:
+	.string "Good. I'll equip you and your pokemon\n"
+	.string "with some atmospheric gear.$"
+
+SkyPillar_Top_EventScript_StevenDeoxys_Text_2:
+	.string "Look's like Rayquaza's also ready.$"
+
+SkyPillar_Top_EventScript_StevenDeoxys_Text_3:
+	.string "Good luck up there.$"
+
+SkyPillar_Top_EventScript_StevenDeoxys_Text_4:
+	.string "Come back to me once you are ready.$"
+
+SkyPillar_Top_EventScript_DeoxysFinished_Text_0:
+	.string "Mhm. I should take that pokemon off of\n"
+	.string "you, it's alien and could posess a\l"
+	.string "threat that cannot be handled by a\l"
+	.string "child.$"
+
+SkyPillar_Top_EventScript_DeoxysFinished_Text_1:
+	.string "But you've shown great capabilities and\n"
+	.string "it would be unfair and unwise of me to\l"
+	.string "wrong you like that. I'll clear things up\l"
+	.string "for the scientists at the weather\l"
+	.string "institute.$"

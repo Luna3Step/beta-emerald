@@ -2196,3 +2196,7 @@ const struct SpriteFrameImage gObjectEventPicTable_Pokemon_Species_150[] = {
     overworld_frame(gObjectEventPic_Pokemon_Species_150, 4, 4, 7),
     overworld_frame(gObjectEventPic_Pokemon_Species_150, 4, 4, 8),
 };
+
+static const struct SpriteFrameImage sPicTable_MewStatue[] = {
+    overworld_frame(gObjectEventPic_MewStatue, 4, 4, 0),
+};

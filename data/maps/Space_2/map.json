@@ -325,15 +325,7 @@
     }
   ],
   "coord_events": [
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 40,
-      "elevation": 0,
-      "var": "VAR_SPACE_STATE",
-      "var_value": "1",
-      "script": "Space_2_EventScript_RayquazaSave"
-    }
+
   ],
   "bg_events": [
 
