@@ -380,6 +380,7 @@ PetalburgCity_Gym_EventScript_NormanBattle::
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox PetalburgCity_Gym_Text_ExplainBalanceBadgeTakeThis, MSGBOX_DEFAULT
+	call PetalburgCity_Gym_Trigger_Surf
 	setflag FLAG_DEFEATED_PETALBURG_GYM
 	setvar VAR_PETALBURG_GYM_STATE, 7
 	setflag FLAG_BADGE05_GET
@@ -1778,6 +1779,26 @@ script PetalburgCity_Gym_Trigger_Mega_7 {
 	setflag(FLAG_NORMAN_MEGA)
     setvar(VAR_PETALBURG_GYM_STATE_MEGA, 2)
     waitmessage
+	releaseall
+}
+
+script PetalburgCity_Gym_Trigger_Surf {
+	giveitem(ITEM_HM03)
+	setflag(FLAG_RECEIVED_HM03)
+	return
+}
+
+script PetalburgCity_Gym_Trigger_SurfDude {
+	lockall
+	if(flag(FLAG_BADGE05_GET)){
+		msgbox(format("Yo, I found this sick move, you should take it. I've already taught it to my whole team."))
+		waitmessage
+		giveitem(ITEM_HM03)
+		setflag(FLAG_RECEIVED_HM03)
+		releaseall
+	}
+	msgbox(format("I really need to find some better moves"))
+	waitmessage
 	releaseall
 }
 

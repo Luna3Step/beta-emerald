@@ -379,6 +379,7 @@ PetalburgCity_Gym_EventScript_NormanBattle::
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox PetalburgCity_Gym_Text_ExplainBalanceBadgeTakeThis, MSGBOX_DEFAULT
+	call PetalburgCity_Gym_Trigger_Surf
 	setflag FLAG_DEFEATED_PETALBURG_GYM
 	setvar VAR_PETALBURG_GYM_STATE, 7
 	setflag FLAG_BADGE05_GET
@@ -1811,6 +1812,30 @@ PetalburgCity_Gym_Trigger_Mega_7::
 	return
 
 
+PetalburgCity_Gym_Trigger_Surf::
+	giveitem ITEM_HM03
+	setflag FLAG_RECEIVED_HM03
+	return
+
+
+PetalburgCity_Gym_Trigger_SurfDude::
+	lockall
+	goto_if_set FLAG_BADGE05_GET, PetalburgCity_Gym_Trigger_SurfDude_2
+PetalburgCity_Gym_Trigger_SurfDude_1:
+	msgbox PetalburgCity_Gym_Trigger_SurfDude_Text_1
+	waitmessage
+	releaseall
+	return
+
+PetalburgCity_Gym_Trigger_SurfDude_2:
+	msgbox PetalburgCity_Gym_Trigger_SurfDude_Text_0
+	waitmessage
+	giveitem ITEM_HM03
+	setflag FLAG_RECEIVED_HM03
+	releaseall
+	goto PetalburgCity_Gym_Trigger_SurfDude_1
+
+
 PetalburgCity_Movement_PlayerUp_7:
 	face_right
 	step_end
@@ -1835,3 +1860,11 @@ PetalburgCity_Gym_Trigger_Mega_0_Text_1:
 	.string "mother would love to celebrate this\l"
 	.string "occasion with you as well, you should\l"
 	.string "give her a visit$"
+
+PetalburgCity_Gym_Trigger_SurfDude_Text_0:
+	.string "Yo, I found this sick move, you should\n"
+	.string "take it. I've already taught it to my\l"
+	.string "whole team.$"
+
+PetalburgCity_Gym_Trigger_SurfDude_Text_1:
+	.string "I really need to find some better moves$"
