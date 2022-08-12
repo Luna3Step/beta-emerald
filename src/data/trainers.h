@@ -12038,4 +12038,18 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_SootopolisStarterTrainer),
         .party = {.TrainerMon = sParty_SootopolisStarterTrainer},
     },
+
+    [TRAINER_WEEB] =
+    {
+        
+        .trainerClass = TRAINER_CLASS_ARIST,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_POKEFAN_M,
+        .trainerName = _("CLIFFORD"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_SootopolisStarterTrainer),
+        .party = {.TrainerMon = sParty_SootopolisStarterTrainer},
+    },
 };
