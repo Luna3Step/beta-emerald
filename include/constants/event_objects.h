@@ -245,9 +245,10 @@
 #define OBJ_EVENT_GFX_VENUSAUR_STATUE            241
 #define OBJ_EVENT_GFX_POKEMON_150                242
 #define OBJ_EVENT_GFX_MEW_STATUE                 243
+#define OBJ_EVENT_GFX_ICE_ROCK                   244
 
-#define NUM_OBJ_EVENT_GFX                        244
-#define NUM_REGULAR_OBJ_EVENT_GFX                244
+#define NUM_OBJ_EVENT_GFX                        245
+#define NUM_REGULAR_OBJ_EVENT_GFX                245
 
 #define species_gfx(species) ((species + (NUM_REGULAR_OBJ_EVENT_GFX - 1)))
 

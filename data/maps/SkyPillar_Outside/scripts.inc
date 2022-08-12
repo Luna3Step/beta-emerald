@@ -7,6 +7,7 @@ SkyPillar_Outside_MapScripts::
 	.byte 0
 
 SkyPillar_Outside_OnTransition:
+    call_if_unset FLAG_DEFEATED_DEOXYS, SkyPillar_Outside_EventScript_HideSteven
 	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 3, SkyPillar_Outside_EventScript_HideMapNamePopup
 	call_if_ge VAR_SOOTOPOLIS_CITY_STATE, 4, SkyPillar_Outside_EventScript_CheckSetAbnormalWeather
 	end
@@ -170,3 +171,59 @@ SkyPillar_Outside_Text_GotToGoBackForSootopolis:
 	.string "I've got to go back.\p"
 	.string "Everything is in your hands now.\n"
 	.string "Don't fail us!$"
+
+SkyPillar_Outside_EventScript_DeoxysFinished::
+	lockall
+	applymovement 2, SkyPillar_Outside_EventScript_Steven_Deoxys_Finished
+	msgbox SkyPillar_Outside_EventScript_DeoxysFinished_Text_0
+	waitmessage
+	msgbox SkyPillar_Outside_EventScript_DeoxysFinished_Text_1
+	waitmessage
+	msgbox SkyPillar_Outside_EventScript_DeoxysFinished_Text_2
+	waitmessage
+	applymovement 2, SkyPillar_Outside_EventScript_Steven_Deoxys_FinishedExit
+	waitmovement 0
+	removeobject 2
+	setflag FLAG_SKY_PILLAR_TOP_STEVENDEOXYS
+	setflag FLAG_SKYPILLAROUTSIDE_STEVE
+	setvar VAR_SKY_PILLAR_STATE, 6
+	releaseall
+	return
+
+
+SkyPillar_Outside_EventScript_Steven_Deoxys_Finished:
+	face_player
+	step_end
+
+SkyPillar_Outside_EventScript_Steven_Deoxys_FinishedExit:
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+SkyPillar_Outside_EventScript_HideSteven::
+	setflag FLAG_SKYPILLAROUTSIDE_STEVE
+	return
+
+
+SkyPillar_Outside_EventScript_DeoxysFinished_Text_0:
+	.string "Amazing work! You truly are an amazing\n"
+	.string "trainer. I look forward to seeing your\l"
+	.string "future.$"
+
+SkyPillar_Outside_EventScript_DeoxysFinished_Text_1:
+	.string "Mhm. Although I should take that\n"
+	.string "pokemon off of you, it's alien and could\l"
+	.string "posess a threat that cannot be\l"
+	.string "handled by a child.$"
+
+SkyPillar_Outside_EventScript_DeoxysFinished_Text_2:
+	.string "But you've shown great capabilities and\n"
+	.string "it would be unfair and unwise of me to\l"
+	.string "wrong you like that. I'll clear things up\l"
+	.string "for the scientists at the weather\l"
+	.string "institute.$"

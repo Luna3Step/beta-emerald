@@ -19,6 +19,7 @@ SkyPillar_Top_EventScript_TryRemoveRayquaza::
 
 SkyPillar_Top_OnTransition:
     call_if_unset FLAG_STEVEN_RAYQUAZA, SkyPillar_Top_EventScript_TransitionSteve
+	call_if_unset FLAG_WEATHER_INSTITUTE_2F_DEOXYSFINISH, SkyPillar_Top_EventScript_HideSteven
 	call_if_lt VAR_SKY_PILLAR_STATE, 2, SkyPillar_Top_EventScript_SetCleanLayout
 	call_if_ge VAR_SKY_PILLAR_STATE, 2, SkyPillar_Top_EventScript_TryShowRayquaza
     call_if_eq VAR_SKY_PILLAR_STATE, 4, SkyPillar_Top_EventScript_DeoxysSetup
@@ -58,6 +59,7 @@ SkyPillar_Top_EventScript_Rayquaza::
 	waitstate
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SkyPillar_Top_EventScript_Steven
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, SkyPillar_Top_EventScript_DefeatedRayquaza
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, SkyPillar_Top_EventScript_RanFromRayquaza
 	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, SkyPillar_Top_EventScript_RanFromRayquaza
@@ -79,7 +81,6 @@ SkyPillar_Top_EventScript_DefeatedRayquaza2::
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject VAR_LAST_TALKED
 	fadescreenswapbuffers FADE_FROM_BLACK
-    goto SkyPillar_Top_EventScript_Steven
 	releaseall
 	end
 
@@ -201,6 +202,7 @@ script SkyPillar_Top_EventScript_Steven {
     addobject(3)
     applymovement(3, SkyPillar_Top_Movement_StevenEnter)
     waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, SkyPillar_Top_EventScript_Player_Face_Down)
     msgbox(format("Wow, I saw the commotion from the entrance but I didn't expect to find you here and for rayquaza to be caught."))
     waitmessage
     msgbox(format("Good thing as well, finding you was next after seeing if Rayquaza would be up to help out one last time."))
@@ -221,11 +223,11 @@ movement SkyPillar_Top_Movement_StevenEnter {
     walk_left * 4
     walk_up * 4
     walk_right * 2
-    walk_up
+    walk_up * 3
 }
 
 movement SkyPillar_Top_Movement_StevenExit {
-    walk_down
+    walk_down * 3
     walk_left * 2
     walk_down * 4
     walk_right *4
@@ -284,3 +286,13 @@ movement SkyPillar_Top_EventScript_Steven_Deoxys_FinishedExit {
     walk_left * 2
     walk_down * 5
 }
+
+movement SkyPillar_Top_EventScript_Player_Face_Down {
+	face_down
+}
+
+
+script SkyPillar_Top_EventScript_HideSteven {
+	setflag(FLAG_SKY_PILLAR_TOP_STEVENDEOXYS)
+}
+

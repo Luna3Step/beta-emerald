@@ -348,7 +348,7 @@ script Route119_WeatherInstitute_2F_EventScript_DeoxysSetup {
 
 script Route119_WeatherInstitute_2F_EventScript_PacingNPC {
     lockall
-    msgbox(format("What could it be? It look's controlled but it can't be"))
+    msgbox(format("What could it be? It look's controlled but it can't be."))
     waitmessage
     releaseall
 }
@@ -370,20 +370,21 @@ script Route119_WeatherInstitute_2F_EventScript_ScientistNPC {
 script Route119_WeatherInstitute_2F_EventScript_BottomNPC {
     lockall
     faceplayer
-    msgbox(format("Something weirds popped up on all alert systems, we are currently working on it but it's not looking to be fixed anytime soon"))
+    msgbox(format("Something weirds popped up on all alert systems, we are currently working on it but it's not looking to be fixed anytime soon."))
     waitmessage
     releaseall
 }
 
 script Route119_WeatherInstitute_2F_EventScript_MiddleNPC {
     lockall
-    msgbox(format("That make's no sense. What could that kind of data?"))
+    msgbox(format("That make's no sense. What could produce that kind of data?"))
     waitmessage
     releaseall
 }
 
 script Route119_WeatherInstitute_2F_EventScript_StevenNPC {
     lockall
+	faceplayer
     specialvar(VAR_RESULT, CheckRayquazaParty)
     if(var(VAR_RESULT) == TRUE){
         faceplayer
@@ -398,19 +399,22 @@ script Route119_WeatherInstitute_2F_EventScript_StevenNPC {
         waitmessage
         msgbox(format("But if you look at this data, it's pretty much the same."))
         waitmessage
-        msgbox(format("This data is from the moment Rayquaza took off to fight the Kyogre and Groudon."))
+        msgbox(format("This data is from the moment Rayquaza took off to fight Kyogre and Groudon."))
         waitmessage
         msgbox(format("I think the anomoly is a pokemon and that's why I need Rayquaza, it's one of the only pokemon able to enter the atmosphere."))
         waitmessage
         msgbox(format("What do you say? Think you can offer your help once more?"), MSGBOX_YESNO)
         if(var(VAR_RESULT) == YES){
             msgbox(format("Brilliant! Meet me at the top of Sky Pillar where you caught Rayquaza"))
+			waitmessage
             applymovement(OBJ_EVENT_ID_PLAYER, Route119_WeatherInstitute_2F_Movement_PlayerExit)
-            delay(15)
+            delay(45)
             applymovement(14, Route119_WeatherInstitute_2F_Movement_StevenExit)
+			waitmovement(0)
             removeobject(14)
             setvar(VAR_WEATHER_INSTITUTE_STATE, 1)
             setvar(VAR_SKY_PILLAR_STATE, 4)
+			setvar(VAR_DEOXYS_STATE, 1)
             call(Route119_WeatherInstitute_1F_EventScript_Normal)
             msgbox(format("Do you wish to fast travel to Sky Pillar 5F?"), MSGBOX_YESNO)
             if(var(VAR_RESULT) == YES){
@@ -422,12 +426,16 @@ script Route119_WeatherInstitute_2F_EventScript_StevenNPC {
             msgbox(format("If you change your mind, meet me at Sky Pillar."))
             setvar(VAR_WEATHER_INSTITUTE_STATE, 1)
             setvar(VAR_SKY_PILLAR_STATE, 4)
+			setvar(VAR_DEOXYS_STATE, 1)
             call(Route119_WeatherInstitute_1F_EventScript_Normal)
             releaseall
         }
     } 
+	else{
     msgbox(format("You are probably going to need Rayquaza for this, please talk to me when you have them."))
     releaseall
+	}
+	releaseall
 }
 
 script Route119_WeatherInstitute_1F_EventScript_Normal {
@@ -436,22 +444,22 @@ script Route119_WeatherInstitute_1F_EventScript_Normal {
     setflag(FLAG_HIDE_WEATHER_INSTITUTE_2F_AQUA_GRUNT_M)
     clearflag(FLAG_WEATHER_INSTITUTE_2F_SCIENTIST)
     setflag(FLAG_WEATHER_INSTITUTE_2F_DEOXYSNPCS)
+	setflag(FLAG_WEATHER_INSTITUTE_2F_DEOXYSFINISH)
     clearflag(FLAG_HIDE_WEATHER_INSTITUTE_1F_WORKERS)
     return
 }
 
 movement Route119_WeatherInstitute_2F_Movement_Steven {
-    walk_up * 3
+    walk_up * 2
     face_right
 }
 
 movement Route119_WeatherInstitute_2F_Movement_Player {
-    walk_left
     walk_up * 2
 }
 
 movement Route119_WeatherInstitute_2F_Movement_PlayerExit {
-    walk_down * 2
+    walk_down * 3
 }
 
 movement Route119_WeatherInstitute_2F_Movement_StevenExit {

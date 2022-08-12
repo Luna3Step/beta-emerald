@@ -387,11 +387,13 @@ Route119_WeatherInstitute_2F_EventScript_MiddleNPC::
 
 Route119_WeatherInstitute_2F_EventScript_StevenNPC::
 	lockall
+	faceplayer
 	specialvar VAR_RESULT, CheckRayquazaParty
 	compare VAR_RESULT, TRUE
 	goto_if_eq Route119_WeatherInstitute_2F_EventScript_StevenNPC_2
-Route119_WeatherInstitute_2F_EventScript_StevenNPC_1:
 	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_10
+	releaseall
+Route119_WeatherInstitute_2F_EventScript_StevenNPC_1:
 	releaseall
 	return
 
@@ -414,29 +416,33 @@ Route119_WeatherInstitute_2F_EventScript_StevenNPC_2:
 	waitmessage
 	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_6, MSGBOX_YESNO
 	compare VAR_RESULT, YES
-	goto_if_eq Route119_WeatherInstitute_2F_EventScript_StevenNPC_4
+	goto_if_eq Route119_WeatherInstitute_2F_EventScript_StevenNPC_5
 	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_9
 	setvar VAR_WEATHER_INSTITUTE_STATE, 1
 	setvar VAR_SKY_PILLAR_STATE, 4
+	setvar VAR_DEOXYS_STATE, 1
 	call Route119_WeatherInstitute_1F_EventScript_Normal
 	releaseall
 	goto Route119_WeatherInstitute_2F_EventScript_StevenNPC_1
 
-Route119_WeatherInstitute_2F_EventScript_StevenNPC_4:
+Route119_WeatherInstitute_2F_EventScript_StevenNPC_5:
 	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_7
+	waitmessage
 	applymovement OBJ_EVENT_ID_PLAYER, Route119_WeatherInstitute_2F_Movement_PlayerExit
-	delay 15
+	delay 45
 	applymovement 14, Route119_WeatherInstitute_2F_Movement_StevenExit
+	waitmovement 0
 	removeobject 14
 	setvar VAR_WEATHER_INSTITUTE_STATE, 1
 	setvar VAR_SKY_PILLAR_STATE, 4
+	setvar VAR_DEOXYS_STATE, 1
 	call Route119_WeatherInstitute_1F_EventScript_Normal
 	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_8, MSGBOX_YESNO
 	compare VAR_RESULT, YES
-	goto_if_eq Route119_WeatherInstitute_2F_EventScript_StevenNPC_7
+	goto_if_eq Route119_WeatherInstitute_2F_EventScript_StevenNPC_8
 	goto Route119_WeatherInstitute_2F_EventScript_StevenNPC_1
 
-Route119_WeatherInstitute_2F_EventScript_StevenNPC_7:
+Route119_WeatherInstitute_2F_EventScript_StevenNPC_8:
 	warp MAP_SKY_PILLAR_5F, 3, 2
 	releaseall
 	goto Route119_WeatherInstitute_2F_EventScript_StevenNPC_1
@@ -448,6 +454,7 @@ Route119_WeatherInstitute_1F_EventScript_Normal::
 	setflag FLAG_HIDE_WEATHER_INSTITUTE_2F_AQUA_GRUNT_M
 	clearflag FLAG_WEATHER_INSTITUTE_2F_SCIENTIST
 	setflag FLAG_WEATHER_INSTITUTE_2F_DEOXYSNPCS
+	setflag FLAG_WEATHER_INSTITUTE_2F_DEOXYSFINISH
 	clearflag FLAG_HIDE_WEATHER_INSTITUTE_1F_WORKERS
 	return
 
@@ -455,17 +462,16 @@ Route119_WeatherInstitute_1F_EventScript_Normal::
 Route119_WeatherInstitute_2F_Movement_Steven:
 	walk_up
 	walk_up
-	walk_up
 	face_right
 	step_end
 
 Route119_WeatherInstitute_2F_Movement_Player:
-	walk_left
 	walk_up
 	walk_up
 	step_end
 
 Route119_WeatherInstitute_2F_Movement_PlayerExit:
+	walk_down
 	walk_down
 	walk_down
 	step_end
@@ -487,7 +493,7 @@ Route119_WeatherInstitute_2F_Movement_StevenExit:
 
 Route119_WeatherInstitute_2F_EventScript_PacingNPC_Text_0:
 	.string "What could it be? It look's controlled\n"
-	.string "but it can't be$"
+	.string "but it can't be.$"
 
 Route119_WeatherInstitute_2F_EventScript_TopNPC_Text_0:
 	.string "It kind of look's like a meteor?$"
@@ -500,11 +506,11 @@ Route119_WeatherInstitute_2F_EventScript_BottomNPC_Text_0:
 	.string "Something weirds popped up on all alert\n"
 	.string "systems, we are currently working on it\l"
 	.string "but it's not looking to be fixed\l"
-	.string "anytime soon$"
+	.string "anytime soon.$"
 
 Route119_WeatherInstitute_2F_EventScript_MiddleNPC_Text_0:
-	.string "That make's no sense. What could that\n"
-	.string "kind of data?$"
+	.string "That make's no sense. What could\n"
+	.string "produce that kind of data?$"
 
 Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_0:
 	.string "I see you have arrived! And with\n"
@@ -524,8 +530,7 @@ Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_3:
 
 Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_4:
 	.string "This data is from the moment Rayquaza\n"
-	.string "took off to fight the Kyogre and\l"
-	.string "Groudon.$"
+	.string "took off to fight Kyogre and Groudon.$"
 
 Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_5:
 	.string "I think the anomoly is a pokemon and\n"

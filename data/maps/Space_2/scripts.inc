@@ -95,13 +95,12 @@ Space_2_Trigger_DeoxysInitiate_6:
 
 
 Space_2_EventScript_DeoxysCaught::
-	fadescreen FADE_TO_BLACK
 	removeobject 1
-	fadescreen FADE_FROM_BLACK
 	msgbox Space_2_EventScript_DeoxysCaught_Text_0
 	waitmessage
-	warp MAP_SKY_PILLAR_TOP, 14, 8
 	setvar VAR_SKY_PILLAR_STATE, 5
+	clearflag FLAG_SKYPILLAROUTSIDE_STEVE
+	warp MAP_SKY_PILLAR_OUTSIDE, 14, 6
 	return
 
 
@@ -113,8 +112,9 @@ Space_2_EventScript_DeoxysBeaten::
 	fadescreen FADE_FROM_BLACK
 	msgbox Space_2_EventScript_DeoxysBeaten_Text_0
 	waitmessage
-	warp MAP_SKY_PILLAR_TOP, 14, 8
 	setvar VAR_SKY_PILLAR_STATE, 5
+	clearflag FLAG_SKYPILLAROUTSIDE_STEVE
+	warp MAP_SKY_PILLAR_OUTSIDE, 14, 6
 	return
 
 
@@ -136,7 +136,7 @@ Space_2_EventScript_RayquazaSave_Text_0:
 	.string "of drifting into space$"
 
 Space_2_EventScript_DeoxysCaught_Text_0:
-	.string "You have the caught anomoly, Deoxys.$"
+	.string "You have caught the anomoly, Deoxys.$"
 
 Space_2_EventScript_DeoxysBeaten_Text_0:
 	.string "Deoxys retreated into space.$"

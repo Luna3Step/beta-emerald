@@ -654,11 +654,11 @@
 #define FLAG_WEATHER_INSTITUTE_2F_SCIENTIST  0x264 // Scientist on 2F of Weather Institute
 #define FLAG_WEATHER_INSTITUTE_2F_DEOXYSNPCS  0x265 // NPCs for Deoxys Event
 #define FLAG_SKY_PILLAR_TOP_STEVENDEOXYS  0x266 // Steven before interacting with Deoxys
-#define FLAG_UNUSED_0x267  0x267 // Unused Flag
-#define FLAG_UNUSED_0x268  0x268 // Unused Flag
-#define FLAG_UNUSED_0x269  0x269 // Unused Flag
-#define FLAG_UNUSED_0x26A  0x26A // Unused Flag
-#define FLAG_UNUSED_0x26B  0x26B // Unused Flag
+#define FLAG_WEATHER_INSTITUTE_2F_DEOXYSFINISH  0x267 // Deoxys event is finished from Weather Institute
+#define FLAG_SKYPILLAROUTSIDE_STEVE  0x268 // Unused Flag
+#define FLAG_SOOT_GYM_1F_FIRST_ROCK  0x269 // Unused Flag
+#define FLAG_SOOT_GYM_1F_SECOND_ROCK  0x26A // Unused Flag
+#define FLAG_SOOT_GYM_1F_THIRD_ROCK  0x26B // Unused Flag
 #define FLAG_UNUSED_0x26C  0x26C // Unused Flag
 #define FLAG_UNUSED_0x26D  0x26D // Unused Flag
 #define FLAG_UNUSED_0x26E  0x26E // Unused Flag

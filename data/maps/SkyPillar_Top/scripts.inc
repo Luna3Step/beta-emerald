@@ -18,6 +18,7 @@ SkyPillar_Top_EventScript_TryRemoveRayquaza::
 
 SkyPillar_Top_OnTransition:
     call_if_unset FLAG_STEVEN_RAYQUAZA, SkyPillar_Top_EventScript_TransitionSteve
+	call_if_unset FLAG_WEATHER_INSTITUTE_2F_DEOXYSFINISH, SkyPillar_Top_EventScript_HideSteven
 	call_if_lt VAR_SKY_PILLAR_STATE, 2, SkyPillar_Top_EventScript_SetCleanLayout
 	call_if_ge VAR_SKY_PILLAR_STATE, 2, SkyPillar_Top_EventScript_TryShowRayquaza
     call_if_eq VAR_SKY_PILLAR_STATE, 4, SkyPillar_Top_EventScript_DeoxysSetup
@@ -57,6 +58,7 @@ SkyPillar_Top_EventScript_Rayquaza::
 	waitstate
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SkyPillar_Top_EventScript_Steven
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, SkyPillar_Top_EventScript_DefeatedRayquaza
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, SkyPillar_Top_EventScript_RanFromRayquaza
 	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, SkyPillar_Top_EventScript_RanFromRayquaza
@@ -78,7 +80,6 @@ SkyPillar_Top_EventScript_DefeatedRayquaza2::
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject VAR_LAST_TALKED
 	fadescreenswapbuffers FADE_FROM_BLACK
-    goto SkyPillar_Top_EventScript_Steven
 	releaseall
 	end
 
@@ -199,6 +200,7 @@ SkyPillar_Top_EventScript_Steven::
 	addobject 3
 	applymovement 3, SkyPillar_Top_Movement_StevenEnter
 	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, SkyPillar_Top_EventScript_Player_Face_Down
 	msgbox SkyPillar_Top_EventScript_Steven_Text_0
 	waitmessage
 	msgbox SkyPillar_Top_EventScript_Steven_Text_1
@@ -228,9 +230,13 @@ SkyPillar_Top_Movement_StevenEnter:
 	walk_right
 	walk_right
 	walk_up
+	walk_up
+	walk_up
 	step_end
 
 SkyPillar_Top_Movement_StevenExit:
+	walk_down
+	walk_down
 	walk_down
 	walk_left
 	walk_left
@@ -310,6 +316,15 @@ SkyPillar_Top_EventScript_Steven_Deoxys_FinishedExit:
 	walk_down
 	walk_down
 	step_end
+
+SkyPillar_Top_EventScript_Player_Face_Down:
+	face_down
+	step_end
+
+SkyPillar_Top_EventScript_HideSteven::
+	setflag FLAG_SKY_PILLAR_TOP_STEVENDEOXYS
+	return
+
 
 SkyPillar_Top_EventScript_Steven_Text_0:
 	.string "Wow, I saw the commotion from the\n"

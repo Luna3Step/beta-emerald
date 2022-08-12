@@ -71,13 +71,12 @@ script Space_Trigger_DeoxysInitiate {
 }
 
 script Space_EventScript_DeoxysCaught {
-	fadescreen(FADE_TO_BLACK)
 	removeobject(1)
-	fadescreen(FADE_FROM_BLACK)
-	msgbox(format("You have the caught anomoly, Deoxys."))
+	msgbox(format("You have caught the anomoly, Deoxys."))
 	waitmessage
-	warp(MAP_SKY_PILLAR_TOP, 14, 8)
 	setvar(VAR_SKY_PILLAR_STATE, 5)
+	clearflag(FLAG_SKYPILLAROUTSIDE_STEVE)
+	warp(MAP_SKY_PILLAR_OUTSIDE, 14, 6)
 	return
 }
 
@@ -89,8 +88,9 @@ script Space_EventScript_DeoxysBeaten {
 	fadescreen(FADE_FROM_BLACK)
 	msgbox(format("Deoxys retreated into space."))
 	waitmessage
-	warp(MAP_SKY_PILLAR_TOP, 14, 8)
 	setvar(VAR_SKY_PILLAR_STATE, 5)
+	clearflag(FLAG_SKYPILLAROUTSIDE_STEVE)
+	warp(MAP_SKY_PILLAR_OUTSIDE, 14, 6)
 	return
 }
  

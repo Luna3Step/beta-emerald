@@ -45,6 +45,8 @@ SootopolisCity_Gym_1F_EventScript_UnlockFirstStairs::
 	delay 40
 	playse SE_ICE_STAIRS
 	call SootopolisCity_Gym_1F_EventScript_CheckSetStairMetatiles
+    removeobject 3
+    setflag FLAG_SOOT_GYM_1F_FIRST_ROCK
 	special DrawWholeMapView
 	end
 
@@ -53,6 +55,8 @@ SootopolisCity_Gym_1F_EventScript_UnlockSecondStairs::
 	delay 40
 	playse SE_ICE_STAIRS
 	call SootopolisCity_Gym_1F_EventScript_CheckSetStairMetatiles
+    removeobject 4
+    setflag FLAG_SOOT_GYM_1F_SECOND_ROCK
 	special DrawWholeMapView
 	end
 
@@ -61,6 +65,8 @@ SootopolisCity_Gym_1F_EventScript_UnlockThirdStairs::
 	delay 40
 	playse SE_ICE_STAIRS
 	call SootopolisCity_Gym_1F_EventScript_CheckSetStairMetatiles
+    removeobject 5
+    setflag FLAG_SOOT_GYM_1F_THIRD_ROCK
 	special DrawWholeMapView
 	end
 
@@ -316,4 +322,7 @@ SootopolisCity_Gym_1F_Text_JuanRematchNeedTwoMons:
 	.string "You have with you but one POKéMON.\p"
 	.string "I wish that you would return with\n"
 	.string "two, perhaps more, POKéMON, please.$"
+
+SootopolisCity_Gym_1F_FirstStairsRock::
+	return
 

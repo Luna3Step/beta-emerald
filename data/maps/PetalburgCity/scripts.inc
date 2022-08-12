@@ -1,7 +1,7 @@
 .set LOCALID_WALLY, 2
 .set LOCALID_BOY, 3
-.set LOCALID_WALLYS_DAD, 10
-.set LOCALID_GYM_BOY, 7
+.set LOCALID_WALLYS_DAD, 5
+.set LOCALID_GYM_BOY, 8
 .set LOCALID_SCOTT, 9
 
 PetalburgCity_MapScripts::
@@ -504,57 +504,57 @@ PetalburgCity_Movement_PlayerWalkToGym3:
 
 PetalburgCity_EventScript_Scott0::
 	lockall
-	addobject 8
+	addobject LOCALID_SCOTT
 	setvar VAR_0x8008, 0
-	setobjectxy 8, 13, 10
+	setobjectxy LOCALID_SCOTT, 13, 10
 	goto PetalburgCity_EventScript_Scott
 	end
 
 PetalburgCity_EventScript_Scott1::
 	lockall
-	addobject 8
+	addobject LOCALID_SCOTT
 	setvar VAR_0x8008, 1
-	setobjectxy 8, 13, 11
+	setobjectxy LOCALID_SCOTT, 13, 11
 	goto PetalburgCity_EventScript_Scott
 	end
 
 PetalburgCity_EventScript_Scott2::
 	lockall
-	addobject 8
+	addobject LOCALID_SCOTT
 	setvar VAR_0x8008, 2
-	setobjectxy 8, 13, 12
+	setobjectxy LOCALID_SCOTT, 13, 12
 	goto PetalburgCity_EventScript_Scott
 	end
 
 PetalburgCity_EventScript_Scott3::
 	lockall
-	addobject 8
+	addobject LOCALID_SCOTT
 	setvar VAR_0x8008, 3
-	setobjectxy 8, 13, 13
+	setobjectxy LOCALID_SCOTT, 13, 13
 	goto PetalburgCity_EventScript_Scott
 	end
 
 PetalburgCity_EventScript_Scott::
-	applymovement 8, PetalburgCity_Movement_ScottStartWalkLeft
+	applymovement LOCALID_SCOTT, PetalburgCity_Movement_ScottStartWalkLeft
 	waitmovement 0
 	playse SE_PIN
-	applymovement 8, Common_Movement_ExclamationMark
+	applymovement LOCALID_SCOTT, Common_Movement_ExclamationMark
 	waitmovement 0
-	applymovement 8, Common_Movement_Delay48
+	applymovement LOCALID_SCOTT, Common_Movement_Delay48
 	waitmovement 0
-	applymovement 8, PetalburgCity_Movement_ScottApproachPlayer
+	applymovement LOCALID_SCOTT, PetalburgCity_Movement_ScottApproachPlayer
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
 	setvar VAR_SCOTT_STATE, 1
 	msgbox PetalburgCity_Text_AreYouATrainer, MSGBOX_DEFAULT
 	closemessage
-	applymovement 8, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_SCOTT, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
 	delay 30
 	msgbox PetalburgCity_Text_WellMaybeNot, MSGBOX_DEFAULT
 	closemessage
-	applymovement 8, Common_Movement_WalkInPlaceFasterLeft
+	applymovement LOCALID_SCOTT, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
 	delay 30
 	msgbox PetalburgCity_Text_ImLookingForTalentedTrainers, MSGBOX_DEFAULT
@@ -564,31 +564,31 @@ PetalburgCity_EventScript_Scott::
 	call_if_eq VAR_0x8008, 2, PetalburgCity_EventScript_ScottExit2
 	call_if_eq VAR_0x8008, 3, PetalburgCity_EventScript_ScottExit3
 	setvar VAR_SCOTT_PETALBURG_ENCOUNTER, 1
-	removeobject 8
+	removeobject LOCALID_SCOTT
 	releaseall
 	end
 
 PetalburgCity_EventScript_ScottExit0::
 	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerWatchScottExit0
-	applymovement 8, PetalburgCity_Movement_ScottExit0
+	applymovement LOCALID_SCOTT, PetalburgCity_Movement_ScottExit0
 	waitmovement 0
 	return
 
 PetalburgCity_EventScript_ScottExit1::
 	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerWatchScottExit1
-	applymovement 8, PetalburgCity_Movement_ScottExit1
+	applymovement LOCALID_SCOTT, PetalburgCity_Movement_ScottExit1
 	waitmovement 0
 	return
 
 PetalburgCity_EventScript_ScottExit2::
 	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerWatchScottExit2
-	applymovement 8, PetalburgCity_Movement_ScottExit2
+	applymovement LOCALID_SCOTT, PetalburgCity_Movement_ScottExit2
 	waitmovement 0
 	return
 
 PetalburgCity_EventScript_ScottExit3::
 	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerWatchScottExit3
-	applymovement 8, PetalburgCity_Movement_ScottExit3
+	applymovement LOCALID_SCOTT, PetalburgCity_Movement_ScottExit3
 	waitmovement 0
 	return
 

@@ -33,15 +33,7 @@
     }
   ],
   "coord_events": [
-    {
-      "type": "trigger",
-      "x": 10,
-      "y": 2,
-      "elevation": 0,
-      "var": "VAR_DEOXYS_STATE",
-      "var_value": "0",
-      "script": "SkyPillar_5F_Trigger_StevenDeoxys"
-    }
+
   ],
   "bg_events": [
 
