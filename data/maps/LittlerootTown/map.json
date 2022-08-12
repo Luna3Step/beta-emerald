@@ -75,7 +75,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_TRUCK",
       "x": 2,
-      "y": 10,
+      "y": 9,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -149,6 +149,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "LittlerootTown_EventScript_LockedDoor",
       "flag": "FLAG_VISITED_RIVAL"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
+      "x": 11,
+      "y": 8,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "FLAG_RIVAL_RUNNING_SHOES"
     }
   ],
   "warp_events": [
@@ -223,18 +236,18 @@
       "x": 10,
       "y": 2,
       "elevation": 3,
-      "var": "VAR_LITTLEROOT_TOWN_STATE",
-      "var_value": "3",
-      "script": "LittlerootTown_EventScript_GiveRunningShoesTrigger0"
+      "var": "VAR_LITTLEROOT_STATE",
+      "var_value": "4",
+      "script": "LittlerootTown_Trigger_RunningShoes"
     },
     {
       "type": "trigger",
       "x": 11,
       "y": 2,
       "elevation": 3,
-      "var": "VAR_LITTLEROOT_TOWN_STATE",
-      "var_value": "3",
-      "script": "LittlerootTown_EventScript_GiveRunningShoesTrigger1"
+      "var": "VAR_LITTLEROOT_STATE",
+      "var_value": "4",
+      "script": "LittlerootTown_Trigger_RunningShoes"
     },
     {
       "type": "trigger",

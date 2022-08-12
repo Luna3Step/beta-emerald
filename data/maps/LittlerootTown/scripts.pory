@@ -42,6 +42,7 @@ LittlerootTown_MapScripts::
 
 LittlerootTown_OnTransition:
 	setflag FLAG_VISITED_LITTLEROOT_TOWN
+	setflag FLAG_RIVAL_RUNNING_SHOES
 	call Common_EventScript_SetupRivalGfxId
 	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_MoveMomToMaysDoor
 	call_if_unset FLAG_RESCUED_BIRCH, LittlerootTown_EventScript_SetTwinPos
@@ -1152,7 +1153,48 @@ script RivalBattleOver{
 	releaseall
 }
 
+script LittlerootTown_Trigger_RunningShoes {
+	lockall
+	addobject(11)
+	applymovement(11, LittlerootTown_Movement_RivalShoes)
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, LittlerootTown_Movement_PlayerShoesFace)
+	waitmovement(0)
+	msgbox(format("I see you are about to set off. You should take these, should make thing's a bit easier on you."))
+	waitmessage
+	setflag(FLAG_SYS_B_DASH)
+	setflag(FLAG_RECEIVED_RUNNING_SHOES)
+	playfanfare(MUS_OBTAIN_ITEM)
+	msgbox(format("You recieved the running shoes! Press B to dash."))
+	waitfanfare
+	waitmessage
+	msgbox(format("Well I'll see you later. I look forward to battling you again."))
+	waitmessage
+	applymovement(OBJ_EVENT_ID_PLAYER, LittlerootTown_Movement_PlayerOutOfWay)
+	waitmovement(0)
+	applymovement(11, LittlerootTown_Movement_RivalShoesExit)
+	waitmovement(0)
+	removeobject(11)
+	setvar(VAR_LITTLEROOT_STATE, 5)
+	releaseall
+}
 
+movement LittlerootTown_Movement_RivalShoes {
+	walk_up * 5
+}
+
+movement LittlerootTown_Movement_PlayerShoesFace {
+	face_down
+}
+
+movement LittlerootTown_Movement_PlayerOutOfWay {
+	walk_right
+	face_left
+}
+
+movement LittlerootTown_Movement_RivalShoesExit {
+	walk_up * 7
+}
 
 text Rival_Intro{
     "Great choice!"

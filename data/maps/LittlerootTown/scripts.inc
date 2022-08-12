@@ -41,6 +41,7 @@ LittlerootTown_MapScripts::
 
 LittlerootTown_OnTransition:
 	setflag FLAG_VISITED_LITTLEROOT_TOWN
+	setflag FLAG_RIVAL_RUNNING_SHOES
 	call Common_EventScript_SetupRivalGfxId
 	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_MoveMomToMaysDoor
 	call_if_unset FLAG_RESCUED_BIRCH, LittlerootTown_EventScript_SetTwinPos
@@ -1176,6 +1177,60 @@ RivalBattleOver::
 	return
 
 
+LittlerootTown_Trigger_RunningShoes::
+	lockall
+	addobject 11
+	applymovement 11, LittlerootTown_Movement_RivalShoes
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_Movement_PlayerShoesFace
+	waitmovement 0
+	msgbox LittlerootTown_Trigger_RunningShoes_Text_0
+	waitmessage
+	setflag FLAG_SYS_B_DASH
+	setflag FLAG_RECEIVED_RUNNING_SHOES
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox LittlerootTown_Trigger_RunningShoes_Text_1
+	waitfanfare
+	waitmessage
+	msgbox LittlerootTown_Trigger_RunningShoes_Text_2
+	waitmessage
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_Movement_PlayerOutOfWay
+	waitmovement 0
+	applymovement 11, LittlerootTown_Movement_RivalShoesExit
+	waitmovement 0
+	removeobject 11
+	setvar VAR_LITTLEROOT_STATE, 5
+	releaseall
+	return
+
+
+LittlerootTown_Movement_RivalShoes:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+LittlerootTown_Movement_PlayerShoesFace:
+	face_down
+	step_end
+
+LittlerootTown_Movement_PlayerOutOfWay:
+	walk_right
+	face_left
+	step_end
+
+LittlerootTown_Movement_RivalShoesExit:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
 RivalLeave:
 	walk_left
 	walk_left
@@ -1214,6 +1269,19 @@ LittlerootTown_Trigger_BlockPath_Text_0:
 LittlerootTown_EventScript_RivalBattle_Text_0:
 	.string "Hi, I see my dad gave you a pokemon, let\n"
 	.string "me see!$"
+
+LittlerootTown_Trigger_RunningShoes_Text_0:
+	.string "I see you are about to set off. You\n"
+	.string "should take these, should make thing's\l"
+	.string "a bit easier on you.$"
+
+LittlerootTown_Trigger_RunningShoes_Text_1:
+	.string "You recieved the running shoes! Press B\n"
+	.string "to dash.$"
+
+LittlerootTown_Trigger_RunningShoes_Text_2:
+	.string "Well I'll see you later. I look forward to\n"
+	.string "battling you again.$"
 
 Rival_Intro::
 	.string "Great choice!$"
