@@ -323,6 +323,7 @@ PlayersHouse_1F_EventScript_MomMega::
 	delay 30
 	giveitem ITEM_MEGA_RING
 	msgbox PlayersHouse_1F_Text_Mega_2, MSGBOX_DEFAULT
+	setvar VAR_PETALBURG_GYM_STATE_MEGA, 3
 	release
 	end
 

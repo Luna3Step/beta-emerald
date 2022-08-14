@@ -12039,17 +12039,30 @@ const struct Trainer gTrainers[] = {
         .party = {.TrainerMon = sParty_SootopolisStarterTrainer},
     },
 
-    [TRAINER_WEEB] =
+    [TRAINER_ADRIAN] =
     {
         
         .trainerClass = TRAINER_CLASS_ARIST,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_POKEFAN_M,
-        .trainerName = _("CLIFFORD"),
+        .trainerName = _("ADRIAN"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .partySize = ARRAY_COUNT(sParty_SootopolisStarterTrainer),
-        .party = {.TrainerMon = sParty_SootopolisStarterTrainer},
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING,
+        .partySize = ARRAY_COUNT(sParty_StaffAdrian),
+        .party = {.TrainerMon = sParty_StaffAdrian},
+    },
+    [TRAINER_LUNA] =
+    {
+        
+        .trainerClass = TRAINER_CLASS_LADY,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .trainerPic = TRAINER_PIC_LEAF,
+        .trainerName = _("LUNA"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING,
+        .partySize = ARRAY_COUNT(sParty_StaffLuna),
+        .party = {.TrainerMon = sParty_StaffLuna},
     },
 };

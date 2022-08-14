@@ -993,3 +993,27 @@ LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall:
 	.string "we meet. I'll be waiting!\p"
 	.string "… … … … … …\n"
 	.string "… … … … … Click!$"
+
+LittleRootTown_ProfessorBirchsLab_EventScript_AdrianBattle::
+	lockall
+	trainerbattle_single TRAINER_ADRIAN, Adrian_Intro, Adrian_Outro, RivalBattleOver
+	end
+
+
+AdrianBattleOver::
+	lockall
+	msgbox AdrianBattleOver_Text_0
+	giveitem ITEM_MASTER_BALL, 1
+	waitmessage
+	releaseall
+	return
+
+
+AdrianBattleOver_Text_0:
+	.string "Here, take this.$"
+
+Adrian_Intro::
+	.string "This is a test$"
+
+Adrian_Outro::
+	.string "This was a good test$"

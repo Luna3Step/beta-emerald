@@ -4470,6 +4470,16 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/SpaceTest/border.bin",
       "blockdata_filepath": "data/layouts/SpaceTest/map.bin"
+    },
+    {
+      "id": "LAYOUT_LITTLEROOT_TOWN_DEVELOPER_GYM",
+      "name": "LittlerootTown_DeveloperGym_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PetalburgGym",
+      "border_filepath": "data/layouts/LittlerootTown_DeveloperGym/border.bin",
+      "blockdata_filepath": "data/layouts/LittlerootTown_DeveloperGym/map.bin"
     }
   ]
 }

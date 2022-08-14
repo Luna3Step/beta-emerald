@@ -111,6 +111,7 @@
 #define BEST_IV_SPREAD_SPECIAL               {31,  0, 31, 31, 31, 31}
 #define BEST_IV_SPREAD_TRICK_ROOM            {31, 31, 31,  0, 31, 31}
 #define BEST_IV_SPREAD_SPECIAL_TRICK_ROOM    {31,  0, 31,  0, 31, 31}
+#define TOXEPEX_IV                           {0,  0, 0,  19, 0, 0}
 
 #define BEST_IV_SPREAD BEST_IV_SPREAD_HIDDEN_POWER_DARK
 
@@ -118,6 +119,16 @@
 #define MAX_EV_SPREAD_SPECIAL             {252,   0, 252, 252, 252, 252}
 #define MAX_EV_SPREAD_TRICK_ROOM          {252, 252, 252,   0, 252, 252}
 #define MAX_EV_SPREAD_SPECIAL_TRICK_ROOM  {252,   0, 252,   0, 252, 252}
+#define MEGA_LUCARIO_EV                   {0,   252, 0,   252, 0, 4}
+#define GARCHOMP_EV                       {252,   0, 0,   252, 0, 0}
+#define GOODRA_EV                         {0,   4, 0,   252, 252, 0}
+#define EXCADRILL_EV                      {0,   44, 0,   240, 0, 224}
+#define TOXAPEX_EV                        {248,   0, 80,   0, 0, 180}
+#define TORTERRA_EV                       {248,   0, 252,   0, 0, 8}
+#define LUGIA_EV                          {252,   0, 160,   96, 0, 0}
+#define GARDEVOIR_EV                      {0,   0, 4,   252, 252, 0}
+#define LEAVANNY_EV                       {0,   252, 4,   252, 0, 0}
+#define SYLVEON_EV                        {252,   0, 148,   0, 92, 16}
 
 #define WORST_IVS                1
 

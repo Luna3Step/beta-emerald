@@ -44,6 +44,7 @@ LittlerootTown_OnTransition:
 	setflag FLAG_VISITED_LITTLEROOT_TOWN
 	setflag FLAG_RIVAL_RUNNING_SHOES
 	call Common_EventScript_SetupRivalGfxId
+	call_if_set FLAG_IS_CHAMPION,  LittlerootTown_EventScript_HideLuna
 	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_MoveMomToMaysDoor
 	call_if_unset FLAG_RESCUED_BIRCH, LittlerootTown_EventScript_SetTwinPos
 	call_if_eq VAR_LITTLEROOT_TOWN_STATE, 3, LittlerootTown_EventScript_SetMomStandingInFrontOfDoorPos
@@ -1177,6 +1178,18 @@ script LittlerootTown_Trigger_RunningShoes {
 	removeobject(11)
 	setvar(VAR_LITTLEROOT_STATE, 5)
 	releaseall
+}
+
+script LittlerootTown_EventScript_Gym {
+	lockall
+	faceplayer
+	msgbox(format("Hi, please come back once you have become the Champion. We will have a little surprise for anyone who makes it this far."))
+	waitmessage
+	releaseall
+}
+
+script LittlerootTown_EventScript_HideLuna {
+	setflag(FLAG_IS_CHAMPION)
 }
 
 movement LittlerootTown_Movement_RivalShoes {

@@ -1069,3 +1069,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Space_2/scripts.inc"
 
 	.include "data/maps/SpaceTest/scripts.inc"
+
+	.include "data/maps/LittlerootTown_DeveloperGym/scripts.inc"

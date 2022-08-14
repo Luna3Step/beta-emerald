@@ -12564,3 +12564,127 @@ static const struct TrainerMon sParty_SootopolisStarterTrainer[] = {
     .species = SPECIES_GROOKEY,
     }
 };
+
+static const struct TrainerMon sParty_StaffAdrian[] = {
+    {
+    .iv = 255,
+    .evs = MEGA_LUCARIO_EV,
+    .lvl = 100,
+    .species = SPECIES_LUCARIO_MEGA,
+    .moves = {MOVE_SWORDS_DANCE, MOVE_METEOR_MASH, MOVE_CLOSE_COMBAT, MOVE_BULLET_PUNCH},
+    .ability = ABILITY_SLOT_1,
+    .nature = NATURE_JOLLY
+    },
+    {
+    .iv = 255,
+    .evs = GARCHOMP_EV,
+    .lvl = 100,
+    .species = SPECIES_GARCHOMP,
+    .heldItem = ITEM_ROCKY_HELMET,
+    .moves = {MOVE_STEALTH_ROCK, MOVE_EARTHQUAKE, MOVE_FIRE_BLAST, MOVE_TOXIC},
+    .ability = ABILITY_HIDDEN,
+    .nature = NATURE_JOLLY
+    },
+    {
+    .iv = 255,
+    .evs = GOODRA_EV,
+    .lvl = 100,
+    .species = SPECIES_GOODRA,
+    .heldItem = ITEM_POISON_BARB,
+    .moves = {MOVE_DRACO_METEOR, MOVE_THUNDERBOLT, MOVE_FIRE_BLAST, MOVE_EARTHQUAKE},
+    .ability = ABILITY_SLOT_1,
+    .nature = NATURE_TIMID
+    },
+    {
+    .iv = 255,
+    .evs = EXCADRILL_EV,
+    .lvl = 100,
+    .species = SPECIES_EXCADRILL,
+    .heldItem = ITEM_LEFTOVERS,
+    .moves = {MOVE_STEALTH_ROCK, MOVE_IRON_HEAD, MOVE_TOXIC, MOVE_EARTHQUAKE},
+    .ability = ABILITY_HIDDEN,
+    .nature = NATURE_TIMID
+    },
+    {
+    .iv = 255,
+    .evs = MEGA_LUCARIO_EV,
+    .lvl = 100,
+    .species = SPECIES_CINDERACE,
+    .heldItem = ITEM_HEAVY_DUTY_BOOTS,
+    .moves = {MOVE_PYRO_BALL, MOVE_U_TURN, MOVE_GUNK_SHOT, MOVE_HIGH_JUMP_KICK},
+    .ability = ABILITY_HIDDEN,
+    .nature = NATURE_JOLLY
+    },
+    {
+    .ivs = TOXEPEX_IV,
+    .evs = MEGA_LUCARIO_EV,
+    .lvl = 100,
+    .species = SPECIES_TOXAPEX,
+    .heldItem = ITEM_SHED_SHELL,
+    .moves = {MOVE_KNOCK_OFF, MOVE_SCALD, MOVE_HAZE, MOVE_RECOVER},
+    .ability = ABILITY_HIDDEN,
+    .nature = NATURE_RELAXED
+    },
+};
+
+static const struct TrainerMon sParty_StaffLuna[] = {
+    {
+    .iv = 255,
+    .evs = TORTERRA_EV,
+    .lvl = 100,
+    .species = SPECIES_TORTERRA,
+    .heldItem = ITEM_LEFTOVERS,
+    .moves = {MOVE_STEALTH_ROCK, MOVE_WOOD_HAMMER, MOVE_EARTHQUAKE, MOVE_SYNTHESIS},
+    .ability = ABILITY_SLOT_1,
+    .nature = NATURE_IMPISH
+    },
+    {
+    .iv = 255,
+    .evs = LUGIA_EV,
+    .lvl = 100,
+    .species = SPECIES_LUGIA,
+    .heldItem = ITEM_LEFTOVERS,
+    .moves = {MOVE_ROOST, MOVE_TOXIC, MOVE_DRAGON_TAIL, MOVE_PSYCHIC},
+    .ability = ABILITY_HIDDEN,
+    .nature = NATURE_BOLD
+    },
+    {
+    .iv = 255,
+    .evs = GARDEVOIR_EV,
+    .lvl = 100,
+    .species = SPECIES_GARDEVOIR,
+    .heldItem = ITEM_CHOICE_SCARF,
+    .moves = {MOVE_MOONBLAST, MOVE_HEALING_WISH, MOVE_PSYSHOCK, MOVE_WILL_O_WISP},
+    .ability = ABILITY_SLOT_1,
+    .nature = NATURE_TIMID
+    },
+    {
+    .iv = 255,
+    .evs = LEAVANNY_EV,
+    .lvl = 100,
+    .species = SPECIES_LEAVANNY,
+    .heldItem = ITEM_FOCUS_SASH,
+    .moves = {MOVE_STICKY_WEB, MOVE_LEAF_BLADE, MOVE_X_SCISSOR, MOVE_KNOCK_OFF},
+    .ability = ABILITY_SLOT_1,
+    .nature = NATURE_JOLLY
+    },
+    {
+    .iv = 255,
+    .evs = LEAVANNY_EV,
+    .lvl = 100,
+    .species = SPECIES_LOPUNNY_MEGA,
+    .moves = {MOVE_FAKE_OUT, MOVE_GIGA_IMPACT, MOVE_HIGH_JUMP_KICK, MOVE_ICE_PUNCH},
+    .ability = ABILITY_SLOT_1,
+    .nature = NATURE_JOLLY
+    },
+    {
+    .iv = 255,
+    .evs = SYLVEON_EV,
+    .lvl = 100,
+    .species = SPECIES_SYLVEON,
+    .heldItem = ITEM_CUSTAP_BERRY,
+    .moves = {MOVE_HYPER_BEAM, MOVE_HYPER_VOICE, MOVE_ENDURE, MOVE_FAKE_TEARS},
+    .ability = ABILITY_HIDDEN,
+    .nature = NATURE_MODEST
+    },
+};
