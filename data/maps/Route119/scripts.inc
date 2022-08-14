@@ -158,6 +158,7 @@ Route119_EventScript_RivalExitScottArrive::
 	addvar VAR_SCOTT_STATE, 1
 	msgbox Route119_Text_ScottWayToGoBeSeeingYou, MSGBOX_DEFAULT
 	closemessage
+	giveitem ITEM_OLD_SEA_MAP, 1
 	call_if_eq VAR_TEMP_1, 1, Route119_EventScript_ScottExit1
 	call_if_eq VAR_TEMP_1, 2, Route119_EventScript_ScottExit2
 	removeobject LOCALID_SCOTT
@@ -549,6 +550,8 @@ Route119_Text_ScottWayToGoBeSeeingYou:
 	.string "I sure seem to run into you often.\n"
 	.string "Are you off to FORTREE GYM next?\p"
 	.string "I expect that you'll do well at the GYM.\n"
+	.string "I'll give you this for giving me a\n"
+	.string "treat for my eyes.\p"
 	.string "Well, I'll be seeing you!$"
 
 

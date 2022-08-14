@@ -105,8 +105,8 @@ LittlerootTown_ProfessorBirchsLab_EventScript_SetObjectPosForJohtoStarters::
 LittlerootTown_ProfessorBirchsLab_OnFrame:
 	map_script_2 VAR_BIRCH_LAB_STATE, 2, LittlerootTown_ProfessorBirchsLab_EventScript_GiveStarterEvent
 	map_script_2 VAR_BIRCH_LAB_STATE, 4, LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedexEvent
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeToNationalDex
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 4, LittlerootTown_ProfessorBirchsLab_EventScript_ChooseJohtoStarter
+	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 7, LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeToNationalDex
+	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 7, LittlerootTown_ProfessorBirchsLab_EventScript_ChooseJohtoStarter
 	.2byte 0
 
 @ The starter is technically given prior to this on Route 101 by special ChooseStarter
@@ -994,26 +994,3 @@ LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall:
 	.string "… … … … … …\n"
 	.string "… … … … … Click!$"
 
-LittleRootTown_ProfessorBirchsLab_EventScript_AdrianBattle::
-	lockall
-	trainerbattle_single TRAINER_ADRIAN, Adrian_Intro, Adrian_Outro, RivalBattleOver
-	end
-
-
-AdrianBattleOver::
-	lockall
-	msgbox AdrianBattleOver_Text_0
-	giveitem ITEM_MASTER_BALL, 1
-	waitmessage
-	releaseall
-	return
-
-
-AdrianBattleOver_Text_0:
-	.string "Here, take this.$"
-
-Adrian_Intro::
-	.string "This is a test$"
-
-Adrian_Outro::
-	.string "This was a good test$"

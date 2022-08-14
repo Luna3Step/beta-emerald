@@ -43,15 +43,16 @@ LittlerootTown_OnTransition:
 	setflag FLAG_VISITED_LITTLEROOT_TOWN
 	setflag FLAG_RIVAL_RUNNING_SHOES
 	call Common_EventScript_SetupRivalGfxId
+	call_if_set FLAG_IS_CHAMPION,  LittlerootTown_EventScript_HideLuna
 	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_MoveMomToMaysDoor
 	call_if_unset FLAG_RESCUED_BIRCH, LittlerootTown_EventScript_SetTwinPos
 	call_if_eq VAR_LITTLEROOT_TOWN_STATE, 3, LittlerootTown_EventScript_SetMomStandingInFrontOfDoorPos
-	call_if_eq VAR_LITTLEROOT_HOUSES_STATE_MAY, 4, LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent
-	call_if_eq VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 4, LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent
+	call_if_eq VAR_LITTLEROOT_HOUSES_STATE_MAY, 7, LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent
+	call_if_eq VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 7, LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent
 	call_if_eq VAR_OLDALE_RIVAL_STATE, 1, LittlerootTown_EventScript_MoveRivalFromOldale
 	call_if_eq VAR_LITTLEROOT_RIVAL_STATE, 3, LittlerootTown_EventScript_SetRivalLeftForRoute103
-	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_HideMapNamePopup
-	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_EventScript_LeftLabAfterDexUpgrade
+	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 7, LittlerootTown_EventScript_HideMapNamePopup
+	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 7, LittlerootTown_EventScript_LeftLabAfterDexUpgrade
 	call_if_unset FLAG_RIVAL_BATTLE_LITTLEROOT, LittlerootTown_EventScript_SetupRivalBattle
 	end
 
@@ -111,7 +112,7 @@ LittlerootTown_EventScript_SetMomInFrontOfDoorFemale::
 LittlerootTown_OnFrame:
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 1, LittlerootTown_EventScript_StepOffTruckMale
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_StepOffTruckFemale
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_BeginDexUpgradeScene
+	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 7, LittlerootTown_EventScript_BeginDexUpgradeScene
 	.2byte 0
 
 LittlerootTown_EventScript_StepOffTruckMale::
@@ -227,7 +228,7 @@ LittlerootTown_EventScript_BeginDexUpgradeScene::
 	end
 
 LittlerootTown_OnWarp:
-	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_SetRivalBirchPosForDexUpgrade
+	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 7, LittlerootTown_EventScript_SetRivalBirchPosForDexUpgrade
 	.2byte 0
 
 LittlerootTown_EventScript_SetRivalBirchPosForDexUpgrade::
@@ -1204,6 +1205,20 @@ LittlerootTown_Trigger_RunningShoes::
 	return
 
 
+LittlerootTown_EventScript_Gym::
+	lockall
+	faceplayer
+	msgbox LittlerootTown_EventScript_Gym_Text_0
+	waitmessage
+	releaseall
+	return
+
+
+LittlerootTown_EventScript_HideLuna::
+	setflag FLAG_LUNA_OUTSIDE
+	return
+
+
 LittlerootTown_Movement_RivalShoes:
 	walk_up
 	walk_up
@@ -1282,6 +1297,12 @@ LittlerootTown_Trigger_RunningShoes_Text_1:
 LittlerootTown_Trigger_RunningShoes_Text_2:
 	.string "Well I'll see you later. I look forward to\n"
 	.string "battling you again.$"
+
+LittlerootTown_EventScript_Gym_Text_0:
+	.string "Hi, please come back once you have\n"
+	.string "become the Champion. We will have a\l"
+	.string "little surprise for anyone who makes it\l"
+	.string "this far.$"
 
 Rival_Intro::
 	.string "Great choice!$"

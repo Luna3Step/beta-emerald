@@ -438,12 +438,12 @@ PlayersHouse_1F_EventScript_GetSSTicketAndSeeLatiTV::
 	call_if_eq VAR_RESULT, FEMALE, PlayersHouse_1F_EventScript_SetUpObjectEventVarsFemale
 	call_if_eq VAR_0x8008, MALE, PlayersHouse_1F_EventScript_PlayerEnterRoomMale
 	call_if_eq VAR_0x8008, FEMALE, PlayersHouse_1F_EventScript_PlayerEnterRoomFemale
-	applymovement VAR_0x8009, Common_Movement_FacePlayer
+	applymovement 5, Common_Movement_FacePlayer
 	waitmovement 0
 	playse SE_PIN
-	applymovement VAR_0x8009, Common_Movement_ExclamationMark
+	applymovement 5, Common_Movement_ExclamationMark
 	waitmovement 0
-	applymovement VAR_0x8009, Common_Movement_Delay48
+	applymovement 5, Common_Movement_Delay48
 	waitmovement 0
 	delay 20
 	call_if_eq VAR_0x8008, MALE, PlayersHouse_1F_EventScript_DadApproachPlayerMale
@@ -460,7 +460,7 @@ PlayersHouse_1F_EventScript_GetSSTicketAndSeeLatiTV::
 	call_if_eq VAR_0x8008, MALE, PlayersHouse_1F_EventScript_DadExitsMale
 	call_if_eq VAR_0x8008, FEMALE, PlayersHouse_1F_EventScript_DadExitsFemale
 	playse SE_DOOR
-	removeobject VAR_0x8009
+	removeobject 5
 	setflag FLAG_RECEIVED_SS_TICKET
 	delay 30
 	call_if_eq VAR_0x8008, MALE, PlayersHouse_1F_EventScript_MomApproachPlayerMale
@@ -514,40 +514,40 @@ PlayersHouse_1F_EventScript_SetUpObjectEventVarsFemale::
 	return
 
 PlayersHouse_1F_EventScript_DadApproachPlayerMale::
-	applymovement VAR_0x8009, PlayersHouse_1F_Movement_DadApproachPlayerMale
+	applymovement 5, PlayersHouse_1F_Movement_DadApproachPlayerMale
 	waitmovement 0
 	return
 
 PlayersHouse_1F_EventScript_DadApproachPlayerFemale::
-	applymovement VAR_0x8009, PlayersHouse_1F_Movement_DadApproachPlayerFemale
+	applymovement 5, PlayersHouse_1F_Movement_DadApproachPlayerFemale
 	waitmovement 0
 	return
 
 PlayersHouse_1F_EventScript_MomApproachDadMale::
 	applymovement VAR_0x800A, PlayersHouse_1F_Movement_MomApproachDadMale
 	waitmovement 0
-	applymovement VAR_0x8009, PlayersHouse_1F_Movement_DadFaceMomMale
+	applymovement 5, PlayersHouse_1F_Movement_DadFaceMomMale
 	waitmovement 0
 	return
 
 PlayersHouse_1F_EventScript_MomApproachDadFemale::
 	applymovement VAR_0x800A, PlayersHouse_1F_Movement_MomApproachDadFemale
 	waitmovement 0
-	applymovement VAR_0x8009, PlayersHouse_1F_Movement_DadFaceMomFemale
+	applymovement 5, PlayersHouse_1F_Movement_DadFaceMomFemale
 	waitmovement 0
 	return
 
 PlayersHouse_1F_EventScript_DadExitsMale::
 	applymovement OBJ_EVENT_ID_PLAYER, PlayersHouse_1F_Movement_MomAndPlayerWatchDadExit
 	applymovement VAR_0x800A, PlayersHouse_1F_Movement_MomAndPlayerWatchDadExit
-	applymovement VAR_0x8009, PlayersHouse_1F_Movement_DadExitsMale
+	applymovement 5, PlayersHouse_1F_Movement_DadExitsMale
 	waitmovement 0
 	return
 
 PlayersHouse_1F_EventScript_DadExitsFemale::
 	applymovement OBJ_EVENT_ID_PLAYER, PlayersHouse_1F_Movement_MomAndPlayerWatchDadExit
 	applymovement VAR_0x800A, PlayersHouse_1F_Movement_MomAndPlayerWatchDadExit
-	applymovement VAR_0x8009, PlayersHouse_1F_Movement_DadExitsFemale
+	applymovement 5, PlayersHouse_1F_Movement_DadExitsFemale
 	waitmovement 0
 	return
 
