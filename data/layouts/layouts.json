@@ -4475,7 +4475,7 @@
       "id": "LAYOUT_LITTLEROOT_TOWN_DEVELOPER_GYM",
       "name": "LittlerootTown_DeveloperGym_Layout",
       "width": 20,
-      "height": 20,
+      "height": 10,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_PetalburgGym",
       "border_filepath": "data/layouts/LittlerootTown_DeveloperGym/border.bin",
