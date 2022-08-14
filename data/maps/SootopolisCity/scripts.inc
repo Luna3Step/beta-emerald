@@ -55,6 +55,7 @@ SootopolisCity_OnTransition:
 	call_if_eq VAR_SKY_PILLAR_STATE, 1, SootopolisCity_EventScript_HideMapNamePopup
 	call SootopolisCity_EventScript_SetWeather
 	call SootopolisCity_EventScript_SetLayout
+	call_if_unset FLAG_SOOTOPOLIS_ARCHIE_MAXIE_LEAVE, SootopolisCity_HideMysticTicket
 	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 1, SootopolisCity_EventScript_SetBattleSpectators
 	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 2, SootopolisCity_EventScript_SetBattleSpectators
 	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 3, SootopolisCity_EventScript_SetBattleSpectators
@@ -1388,6 +1389,8 @@ SootopolisCity_EventScript_MaxieArchieLeave::
 	setflag FLAG_SOOTOPOLIS_ARCHIE_MAXIE_LEAVE
 	clearflag FLAG_HIDE_MT_PYRE_SUMMIT_MAXIE
 	clearflag FLAG_HIDE_MT_PYRE_SUMMIT_ARCHIE
+	clearflag FLAG_MYSTIC_TICKET
+	addobject 20
 	setvar VAR_MT_PYRE_STATE, 2
 	warpsilent MAP_SOOTOPOLIS_CITY, 31, 34
 	waitstate
@@ -1736,5 +1739,25 @@ SootopolisCity_Altarianite::
 	end
 
 
+SootopolisCity_MysticTicket::
+	lockall
+	msgbox SootopolisCity_MysticTicket_Text_0
+	additem ITEM_MYSTIC_TICKET, 1
+	removeobject 20
+	setflag FLAG_MYSTIC_TICKET
+	waitmessage
+	releaseall
+	end
+
+
+SootopolisCity_HideMysticTicket::
+	setflag FLAG_MYSTIC_TICKET
+	return
+
+
 SootopolisCity_Altarianite_Text_0:
 	.string "You found an Altarianite!$"
+
+SootopolisCity_MysticTicket_Text_0:
+	.string "Maxie and Archie left this on the\n"
+	.string "ground, it's a Mystic Ticket!$"

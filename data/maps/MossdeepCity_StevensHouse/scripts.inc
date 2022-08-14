@@ -17,6 +17,8 @@ MossdeepCity_StevensHouse_EventScript_HideStevensNote::
 
 MossdeepCity_StevensHouse_OnTransition:
 	call_if_eq VAR_STEVENS_HOUSE_STATE, 2, MossdeepCity_StevensHouse_EventScript_SetStevenPos
+    call_if_set FLAG_LEGENDARIES_IN_SOOTOPOLIS, MossdeepCity_StevensHouse_EventScript_HideEonTicket
+    call_if_unset FLAG_LEGENDARIES_IN_SOOTOPOLIS, MossdeepCity_StevensHouse_EventScript_ShowEonTicket
 	end
 
 MossdeepCity_StevensHouse_EventScript_SetStevenPos::
@@ -215,3 +217,33 @@ MossdeepCity_StevensHouse_Text_CollectionOfRareRocks:
 	.string "It's a collection of rare rocks and\n"
 	.string "stones assembled by STEVEN.$"
 
+MossdeepCity_StevensHouse_EventScript_EonTicket::
+	lockall
+	msgbox MossdeepCity_StevensHouse_EventScript_EonTicket_Text_0
+	waitmessage
+	msgbox MossdeepCity_StevensHouse_EventScript_EonTicket_Text_1
+	waitmessage
+	giveitem ITEM_EON_TICKET, 1
+	setflag FLAG_EON_TICKET
+	removeobject 4
+	releaseall
+	return
+
+
+MossdeepCity_StevensHouse_EventScript_HideEonTicket::
+	setflag FLAG_EON_TICKET
+	return
+
+
+MossdeepCity_StevensHouse_EventScript_ShowEonTicket::
+	clearflag FLAG_EON_TICKET
+	return
+
+
+MossdeepCity_StevensHouse_EventScript_EonTicket_Text_0:
+	.string "You find a note.$"
+
+MossdeepCity_StevensHouse_EventScript_EonTicket_Text_1:
+	.string "'It's a shame I can't be there to give\n"
+	.string "this to you but this should give you a\l"
+	.string "bit more to your journey'$"

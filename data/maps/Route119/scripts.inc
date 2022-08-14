@@ -157,8 +157,8 @@ Route119_EventScript_RivalExitScottArrive::
 	waitmovement 0
 	addvar VAR_SCOTT_STATE, 1
 	msgbox Route119_Text_ScottWayToGoBeSeeingYou, MSGBOX_DEFAULT
-	closemessage
 	giveitem ITEM_OLD_SEA_MAP, 1
+	closemessage
 	call_if_eq VAR_TEMP_1, 1, Route119_EventScript_ScottExit1
 	call_if_eq VAR_TEMP_1, 2, Route119_EventScript_ScottExit2
 	removeobject LOCALID_SCOTT
