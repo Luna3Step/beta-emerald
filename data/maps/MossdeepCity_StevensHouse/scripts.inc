@@ -17,8 +17,8 @@ MossdeepCity_StevensHouse_EventScript_HideStevensNote::
 
 MossdeepCity_StevensHouse_OnTransition:
 	call_if_eq VAR_STEVENS_HOUSE_STATE, 2, MossdeepCity_StevensHouse_EventScript_SetStevenPos
-    call_if_set FLAG_LEGENDARIES_IN_SOOTOPOLIS, MossdeepCity_StevensHouse_EventScript_HideEonTicket
-    call_if_unset FLAG_LEGENDARIES_IN_SOOTOPOLIS, MossdeepCity_StevensHouse_EventScript_ShowEonTicket
+    call_if_unset FLAG_IS_CHAMPION, MossdeepCity_StevensHouse_EventScript_HideEonTicket
+    call_if_set FLAG_IS_CHAMPION, MossdeepCity_StevensHouse_EventScript_ShowEonTicket
 	end
 
 MossdeepCity_StevensHouse_EventScript_SetStevenPos::
