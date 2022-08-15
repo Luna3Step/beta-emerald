@@ -384,3 +384,4 @@ const u16 gObjectEventPalette_Pokemon_Species_150[] = INCBIN_U16("graphics/objec
 const u32 gObjectEventPic_MewStatue[] = INCBIN_U32("graphics/object_events/pics/dolls/mew_statue.4bpp");
 const u32 gObjectEventPic_IceRock[] = INCBIN_U32("graphics/object_events/pics/misc/ice_rock.4bpp");
 const u16 gObjectEventPalette_Ice_Rock[] = INCBIN_U16("graphics/object_events/pics/misc/ice_rock.gbapal");
+const u16 gObjectEventPalette_Mew_Statue[] = INCBIN_U16("graphics/object_events/pics/dolls/mew_statue.gbapal");

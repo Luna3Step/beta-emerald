@@ -31,6 +31,36 @@ script Mews_Recluse_Statues {
 
 }
 
+script Mews_Recluse_MewStatue {
+	lockall
+	specialvar(VAR_RESULT, CheckMewtwoParty)
+	if(var(VAR_RESULT) == TRUE){
+		lockall
+		msgbox(format("Your pokemon start rumbling in their balls"))
+		playfanfare(SE_THUNDER)
+		waitmessage
+		setflag(FLAG_CLEARSTATUES)
+		setvar(VAR_MEWS_RECLUSE_STATE, 1)
+		fadescreen(FADE_TO_BLACK)
+		removeobject(1)
+		removeobject(2)
+		removeobject(3)
+		removeobject(4)
+		removeobject(5)
+		removeobject(6)
+		fadescreen(FADE_FROM_BLACK)
+		releaseall
+	}
+	else{
+		msgbox(format("You see an etching in the statues. 'You taught me what it mean's to love life, you have lived longer than me and you will longer than I will. I just wish I could see you in the future as friends once again'"))
+		waitmessage
+		applymovement(OBJ_EVENT_ID_PLAYER, WrongPokemon)
+		waitmovement(0)
+		releaseall
+	}
+
+}
+
 
 movement WrongPokemon {
 	walk_down

@@ -216,7 +216,7 @@
       "elevation": 0,
       "var": "VAR_MEWS_RECLUSE_STATE",
       "var_value": "0",
-      "script": "Mews_Recluse_Statues"
+      "script": "Mews_Recluse_MewStatue"
     },
     {
       "type": "trigger",
@@ -225,7 +225,7 @@
       "elevation": 0,
       "var": "VAR_MEWS_RECLUSE_STATE",
       "var_value": "0",
-      "script": "Mews_Recluse_Statues"
+      "script": "Mews_Recluse_MewStatue"
     }
   ],
   "bg_events": [
