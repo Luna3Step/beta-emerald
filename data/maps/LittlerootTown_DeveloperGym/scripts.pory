@@ -17,11 +17,11 @@ script AdrianBattleOver {
 }
 
 text Adrian_Intro {
-    "This is a test"
+    format("I used to be an adventurer like you, then I took an arrow in the knee.")
 }
 
 text Adrian_Outro {
-    "This was a good test"
+    format("I hate Pikachu with passion")
 }
 
 script LittlerootTown_DeveloperGym_EventScript_LunaBattle {

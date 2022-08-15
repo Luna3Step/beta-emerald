@@ -43,10 +43,11 @@ LunaBattleOver_Text_0:
 	.string "a thank you, take this.$"
 
 Adrian_Intro::
-	.string "This is a test$"
+	.string "I used to be an adventurer like you,\n"
+	.string "then I took an arrow in the knee.$"
 
 Adrian_Outro::
-	.string "This was a good test$"
+	.string "I hate Pikachu with passion$"
 
 Luna_Intro::
 	.string "Hi, I'm the developer of this hack, Luna, I hope you enjoyed the game.$"
