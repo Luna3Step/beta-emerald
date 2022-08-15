@@ -819,6 +819,7 @@ static const struct ListMenuItem sSet1[] =
     {sText_GalarStarter, 7},
 };
 
+
 // Table of your multichoice sets.
 struct
 {

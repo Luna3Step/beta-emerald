@@ -437,7 +437,18 @@
     "Mews_Dungeon",
     "Space",
     "Space_2",
-    "SpaceTest"
+    "SpaceTest",
+    "BlisseyFarmEntrance",
+    "BlisseyFarm_10",
+    "BlisseyFarm_20",
+    "BlisseyFarm_30",
+    "BlisseyFarm_40",
+    "BlisseyFarm_50",
+    "BlisseyFarm_60",
+    "BlisseyFarm_70",
+    "BlisseyFarm_80",
+    "BlisseyFarm_90",
+    "BlisseyFarm_100"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

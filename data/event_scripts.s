@@ -1071,3 +1071,25 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/SpaceTest/scripts.inc"
 
 	.include "data/maps/LittlerootTown_DeveloperGym/scripts.inc"
+
+	.include "data/maps/BlisseyFarmEntrance/scripts.inc"
+
+	.include "data/maps/BlisseyFarm_10/scripts.inc"
+
+	.include "data/maps/BlisseyFarm_20/scripts.inc"
+
+	.include "data/maps/BlisseyFarm_30/scripts.inc"
+
+	.include "data/maps/BlisseyFarm_40/scripts.inc"
+
+	.include "data/maps/BlisseyFarm_50/scripts.inc"
+
+	.include "data/maps/BlisseyFarm_60/scripts.inc"
+
+	.include "data/maps/BlisseyFarm_70/scripts.inc"
+
+	.include "data/maps/BlisseyFarm_80/scripts.inc"
+
+	.include "data/maps/BlisseyFarm_90/scripts.inc"
+
+	.include "data/maps/BlisseyFarm_100/scripts.inc"

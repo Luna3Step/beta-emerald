@@ -407,6 +407,17 @@
 #define MAP_SPACE                                    (109 | (24 << 8))
 #define MAP_SPACE_2                                  (110 | (24 << 8))
 #define MAP_SPACE_TEST                               (111 | (24 << 8))
+#define MAP_BLISSEY_FARM_ENTRANCE                    (112 | (24 << 8))
+#define MAP_BLISSEY_FARM_10                          (113 | (24 << 8))
+#define MAP_BLISSEY_FARM_20                          (114 | (24 << 8))
+#define MAP_BLISSEY_FARM_30                          (115 | (24 << 8))
+#define MAP_BLISSEY_FARM_40                          (116 | (24 << 8))
+#define MAP_BLISSEY_FARM_50                          (117 | (24 << 8))
+#define MAP_BLISSEY_FARM_60                          (118 | (24 << 8))
+#define MAP_BLISSEY_FARM_70                          (119 | (24 << 8))
+#define MAP_BLISSEY_FARM_80                          (120 | (24 << 8))
+#define MAP_BLISSEY_FARM_90                          (121 | (24 << 8))
+#define MAP_BLISSEY_FARM_100                         (122 | (24 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (25 << 8))

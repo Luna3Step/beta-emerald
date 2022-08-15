@@ -4480,6 +4480,116 @@
       "secondary_tileset": "gTileset_PetalburgGym",
       "border_filepath": "data/layouts/LittlerootTown_DeveloperGym/border.bin",
       "blockdata_filepath": "data/layouts/LittlerootTown_DeveloperGym/map.bin"
+    },
+    {
+      "id": "LAYOUT_BLISSEY_FARM_ENTRANCE",
+      "name": "BlisseyFarmEntrance_Layout",
+      "width": 20,
+      "height": 50,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/BlisseyFarmEntrance/border.bin",
+      "blockdata_filepath": "data/layouts/BlisseyFarmEntrance/map.bin"
+    },
+    {
+      "id": "LAYOUT_BLISSEY_FARM_10",
+      "name": "BlisseyFarm_10_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/BlisseyFarm_10/border.bin",
+      "blockdata_filepath": "data/layouts/BlisseyFarm_10/map.bin"
+    },
+    {
+      "id": "LAYOUT_BLISSEY_FARM_20",
+      "name": "BlisseyFarm_20_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/BlisseyFarm_20/border.bin",
+      "blockdata_filepath": "data/layouts/BlisseyFarm_20/map.bin"
+    },
+    {
+      "id": "LAYOUT_BLISSEY_FARM_30",
+      "name": "BlisseyFarm_30_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/BlisseyFarm_30/border.bin",
+      "blockdata_filepath": "data/layouts/BlisseyFarm_30/map.bin"
+    },
+    {
+      "id": "LAYOUT_BLISSEY_FARM_40",
+      "name": "BlisseyFarm_40_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/BlisseyFarm_40/border.bin",
+      "blockdata_filepath": "data/layouts/BlisseyFarm_40/map.bin"
+    },
+    {
+      "id": "LAYOUT_BLISSEY_FARM_50",
+      "name": "BlisseyFarm_50_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/BlisseyFarm_50/border.bin",
+      "blockdata_filepath": "data/layouts/BlisseyFarm_50/map.bin"
+    },
+    {
+      "id": "LAYOUT_BLISSEY_FARM_60",
+      "name": "BlisseyFarm_60_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/BlisseyFarm_60/border.bin",
+      "blockdata_filepath": "data/layouts/BlisseyFarm_60/map.bin"
+    },
+    {
+      "id": "LAYOUT_BLISSEY_FARM_70",
+      "name": "BlisseyFarm_70_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/BlisseyFarm_70/border.bin",
+      "blockdata_filepath": "data/layouts/BlisseyFarm_70/map.bin"
+    },
+    {
+      "id": "LAYOUT_BLISSEY_FARM_80",
+      "name": "BlisseyFarm_80_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/BlisseyFarm_80/border.bin",
+      "blockdata_filepath": "data/layouts/BlisseyFarm_80/map.bin"
+    },
+    {
+      "id": "LAYOUT_BLISSEY_FARM_90",
+      "name": "BlisseyFarm_90_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/BlisseyFarm_90/border.bin",
+      "blockdata_filepath": "data/layouts/BlisseyFarm_90/map.bin"
+    },
+    {
+      "id": "LAYOUT_BLISSEY_FARM_100",
+      "name": "BlisseyFarm_100_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/BlisseyFarm_100/border.bin",
+      "blockdata_filepath": "data/layouts/BlisseyFarm_100/map.bin"
     }
   ]
 }

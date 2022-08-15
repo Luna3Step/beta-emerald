@@ -11491,6 +11491,696 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_BLISSEY_FARM_10",
+          "base_label": "gBlisseyFarm_100",
+          "land_mons": {
+            "encounter_rate": 35,
+            "mons": [
+              {
+                "min_level": 10,
+                "max_level": 10,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 10,
+                "max_level": 10,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 10,
+                "max_level": 10,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 10,
+                "max_level": 10,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 10,
+                "max_level": 10,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 10,
+                "max_level": 10,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 10,
+                "max_level": 10,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 10,
+                "max_level": 10,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 10,
+                "max_level": 10,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 10,
+                "max_level": 10,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 10,
+                "max_level": 10,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 10,
+                "max_level": 10,
+                "species": "SPECIES_BLISSEY"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_BLISSEY_FARM_20",
+          "base_label": "gBlisseyFarm_200",
+          "land_mons": {
+            "encounter_rate": 35,
+            "mons": [
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_BLISSEY"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_BLISSEY_FARM_30",
+          "base_label": "gBlisseyFarm_300",
+          "land_mons": {
+            "encounter_rate": 35,
+            "mons": [
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_BLISSEY"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_BLISSEY_FARM_40",
+          "base_label": "gBlisseyFarm_400",
+          "land_mons": {
+            "encounter_rate": 35,
+            "mons": [
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 40,
+                "max_level": 40,
+                "species": "SPECIES_BLISSEY"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_BLISSEY_FARM_50",
+          "base_label": "gBlisseyFarm_500",
+          "land_mons": {
+            "encounter_rate": 35,
+            "mons": [
+              {
+                "min_level": 50,
+                "max_level": 50,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 50,
+                "max_level": 50,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 50,
+                "max_level": 50,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 50,
+                "max_level": 50,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 50,
+                "max_level": 50,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 50,
+                "max_level": 50,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 50,
+                "max_level": 50,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 50,
+                "max_level": 50,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 50,
+                "max_level": 50,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 50,
+                "max_level": 50,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 50,
+                "max_level": 50,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 50,
+                "max_level": 50,
+                "species": "SPECIES_BLISSEY"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_BLISSEY_FARM_60",
+          "base_label": "gBlisseyFarm_600",
+          "land_mons": {
+            "encounter_rate": 35,
+            "mons": [
+              {
+                "min_level": 60,
+                "max_level": 60,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 60,
+                "max_level": 60,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 60,
+                "max_level": 60,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 60,
+                "max_level": 60,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 60,
+                "max_level": 60,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 60,
+                "max_level": 60,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 60,
+                "max_level": 60,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 60,
+                "max_level": 60,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 60,
+                "max_level": 60,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 60,
+                "max_level": 60,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 60,
+                "max_level": 60,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 60,
+                "max_level": 60,
+                "species": "SPECIES_BLISSEY"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_BLISSEY_FARM_70",
+          "base_label": "gBlisseyFarm_700",
+          "land_mons": {
+            "encounter_rate": 35,
+            "mons": [
+              {
+                "min_level": 70,
+                "max_level": 70,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 70,
+                "max_level": 70,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 70,
+                "max_level": 70,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 70,
+                "max_level": 70,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 70,
+                "max_level": 70,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 70,
+                "max_level": 70,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 70,
+                "max_level": 70,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 70,
+                "max_level": 70,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 70,
+                "max_level": 70,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 70,
+                "max_level": 70,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 70,
+                "max_level": 70,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 70,
+                "max_level": 70,
+                "species": "SPECIES_BLISSEY"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_BLISSEY_FARM_80",
+          "base_label": "gBlisseyFarm_800",
+          "land_mons": {
+            "encounter_rate": 35,
+            "mons": [
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_BLISSEY"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_BLISSEY_FARM_90",
+          "base_label": "gBlisseyFarm_900",
+          "land_mons": {
+            "encounter_rate": 35,
+            "mons": [
+              {
+                "min_level": 90,
+                "max_level": 90,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 90,
+                "max_level": 90,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 90,
+                "max_level": 90,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 90,
+                "max_level": 90,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 90,
+                "max_level": 90,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 90,
+                "max_level": 90,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 90,
+                "max_level": 90,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 90,
+                "max_level": 90,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 90,
+                "max_level": 90,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 90,
+                "max_level": 90,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 90,
+                "max_level": 90,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 90,
+                "max_level": 90,
+                "species": "SPECIES_BLISSEY"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_BLISSEY_FARM_100",
+          "base_label": "gBlisseyFarm_1000",
+          "land_mons": {
+            "encounter_rate": 40,
+            "mons": [
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_BLISSEY"
+              }
+            ]
+          }
         }
       ]
     },
