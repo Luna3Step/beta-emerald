@@ -60,8 +60,8 @@ LilycoveCity_DepartmentStore_2F_Pokemart2:
 	.2byte ITEM_GALARICA_WREATH
 	.2byte ITEM_SWEET_APPLE
 	.2byte ITEM_TART_APPLE
+	.2byte ITEM_STRAWBERRY_SWEET
 	.2byte ITEM_RARE_CANDY
-	.2byte ITEM_MASTER_BALL
 	.2byte ITEM_NONE
 	release
 	end
