@@ -662,8 +662,8 @@
 #define FLAG_RIVAL_RUNNING_SHOES  0x26C // Unused Flag
 #define FLAG_LUNA_OUTSIDE  0x26D // Unused Flag
 #define FLAG_EON_TICKET    0x26E // Unused Flag
-#define FLAG_MYSTIC_TICKET  0x26F // Unused Flag
-#define FLAG_UNUSED_0x270  0x270 // Unused Flag
+#define FLAG_MYSTIC_TICKET 0x26F // Unused Flag
+#define FLAG_OLD_SEA_MAP     0x270 // Unused Flag
 #define FLAG_UNUSED_0x271  0x271 // Unused Flag
 #define FLAG_UNUSED_0x272  0x272 // Unused Flag
 #define FLAG_UNUSED_0x273  0x273 // Unused Flag
