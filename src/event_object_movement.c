@@ -434,9 +434,14 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_LUGIA                   0x1121
 #define OBJ_EVENT_PAL_TAG_RS_BRENDAN              0x1122
 #define OBJ_EVENT_PAL_TAG_RS_MAY                  0x1123
-#define OBJ_EVENT_PAL_STATUE                      0x1124
+#define OBJ_EVENT_PAL_BLASTOISE_STATUE            0x1124
 #define OBJ_EVENT_PAL_ICE_ROCK                    0x1125
-#define OBJ_EVENT_PAL_MEW_STATUE                    0x1126
+#define OBJ_EVENT_PAL_MEW_STATUE                  0x1126
+#define OBJ_EVENT_PAL_PIKACHU_STATUE              0x1127
+#define OBJ_EVENT_PAL_CHARIZARD_STATUE            0x1128
+#define OBJ_EVENT_PAL_VENUSAUR_STATUE             0x1129
+#define OBJ_EVENT_PAL_JESSIE                      0x112A
+#define OBJ_EVENT_PAL_JAMES                       0x112B
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
 
@@ -487,10 +492,15 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Lugia,                 OBJ_EVENT_PAL_TAG_LUGIA},
     {gObjectEventPal_RubySapphireBrendan,   OBJ_EVENT_PAL_TAG_RS_BRENDAN},
     {gObjectEventPal_RubySapphireMay,       OBJ_EVENT_PAL_TAG_RS_MAY},
-    {gObjectEventPal_BlastoiseStatue,       OBJ_EVENT_PAL_STATUE},
+    {gObjectEventPal_BlastoiseStatue,       OBJ_EVENT_PAL_BLASTOISE_STATUE},
     {gObjectEventPalette_Pokemon_Species_150, OBJ_EVENT_PAL_TAG_POKEMON_150},
     {gObjectEventPalette_Ice_Rock,          OBJ_EVENT_PAL_ICE_ROCK},
     {gObjectEventPalette_Mew_Statue,        OBJ_EVENT_PAL_MEW_STATUE},
+    {gObjectEventPalette_Pikachu_Statue,    OBJ_EVENT_PAL_PIKACHU_STATUE},
+    {gObjectEventPalette_Charizard_Statue,  OBJ_EVENT_PAL_CHARIZARD_STATUE},
+    {gObjectEventPalette_Venusaur_Statue,   OBJ_EVENT_PAL_VENUSAUR_STATUE},
+    {gObjectEventPalette_Jessie,            OBJ_EVENT_PAL_JESSIE},
+    {gObjectEventPalette_James,             OBJ_EVENT_PAL_JAMES},
     {},
 };
 

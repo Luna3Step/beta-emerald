@@ -246,9 +246,12 @@
 #define OBJ_EVENT_GFX_POKEMON_150                242
 #define OBJ_EVENT_GFX_MEW_STATUE                 243
 #define OBJ_EVENT_GFX_ICE_ROCK                   244
+#define OBJ_EVENT_GFX_PIKACHU_STATUE             245
+#define OBJ_EVENT_GFX_JESSIE                     246
+#define OBJ_EVENT_GFX_JAMES                      247
 
-#define NUM_OBJ_EVENT_GFX                        245
-#define NUM_REGULAR_OBJ_EVENT_GFX                245
+#define NUM_OBJ_EVENT_GFX                        248
+#define NUM_REGULAR_OBJ_EVENT_GFX                248
 
 #define species_gfx(species) ((species + (NUM_REGULAR_OBJ_EVENT_GFX - 1)))
 
