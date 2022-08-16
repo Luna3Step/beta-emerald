@@ -225,6 +225,7 @@ MossdeepCity_StevensHouse_EventScript_EonTicket::
 	waitmessage
 	giveitem ITEM_EON_TICKET, 1
 	setflag FLAG_EON_TICKET
+	setflag FLAG_ENABLE_SHIP_SOUTHERN_ISLAND
 	removeobject 4
 	releaseall
 	return
