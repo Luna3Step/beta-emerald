@@ -12065,4 +12065,17 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_StaffLuna),
         .party = {.TrainerMon = sParty_StaffLuna},
     },
+    [TRAINER_TEAM_ROCKET] =
+    {
+        
+        .trainerClass = TRAINER_CLASS_TEAM_ROCKET,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_JESSIE_JAMES,
+        .trainerName = _("JESS&JAMES"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .partySize = ARRAY_COUNT(sParty_RocketJessieJames),
+        .party = {.TrainerMon = sParty_RocketJessieJames},
+    },
 };

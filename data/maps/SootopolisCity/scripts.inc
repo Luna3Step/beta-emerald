@@ -1745,6 +1745,7 @@ SootopolisCity_MysticTicket::
 	additem ITEM_MYSTIC_TICKET, 1
 	removeobject 20
 	setflag FLAG_MYSTIC_TICKET
+	setflag FLAG_ENABLE_SHIP_NAVEL_ROCK
 	waitmessage
 	releaseall
 	end

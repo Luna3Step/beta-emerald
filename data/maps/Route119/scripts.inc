@@ -159,6 +159,7 @@ Route119_EventScript_RivalExitScottArrive::
 	msgbox Route119_Text_ScottWayToGoBeSeeingYou, MSGBOX_DEFAULT
 	giveitem ITEM_OLD_SEA_MAP, 1
 	setflag FLAG_OLD_SEA_MAP
+	setflag FLAG_ENABLE_SHIP_FARAWAY_ISLAND
 	removeobject 45
 	closemessage
 	call_if_eq VAR_TEMP_1, 1, Route119_EventScript_ScottExit1
@@ -633,6 +634,7 @@ Route119_EventScript_OldSeaMap::
 	lockall
 	msgbox Route119_EventScript_OldSeaMap_Text_0
 	additem ITEM_OLD_SEA_MAP, 1
+	setflag FLAG_ENABLE_SHIP_FARAWAY_ISLAND
 	removeobject 45
 	waitmessage
 	releaseall

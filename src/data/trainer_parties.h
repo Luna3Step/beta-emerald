@@ -12688,3 +12688,34 @@ static const struct TrainerMon sParty_StaffLuna[] = {
     .nature = NATURE_MODEST
     },
 };
+
+static const struct TrainerMon sParty_RocketJessieJames[] = {
+    {
+    .iv = 255,
+    .lvl = 50,
+    .species = SPECIES_WEEZING,
+    .moves = {MOVE_SMOG, MOVE_SMOKESCREEN, MOVE_SLUDGE, MOVE_TACKLE},
+    .ability = ABILITY_SLOT_1
+    },
+    {
+    .iv = 255,
+    .lvl = 50,
+    .species = SPECIES_ARBOK,
+    .moves = {MOVE_POISON_STING, MOVE_WRAP, MOVE_BITE, MOVE_ACID},
+    .ability = ABILITY_SLOT_1
+    },
+    {
+    .iv = 255,
+    .lvl = 50,
+    .species = SPECIES_WOBBUFFET,
+    .moves = {MOVE_COUNTER, MOVE_BIDE, MOVE_MIRROR_COAT, MOVE_DESTINY_BOND},
+    .ability = ABILITY_SLOT_1
+    },
+    {
+    .iv = 255,
+    .lvl = 50,
+    .species = SPECIES_VICTREEBEL,
+    .moves = {MOVE_RAZOR_LEAF, MOVE_SWORDS_DANCE, MOVE_SLEEP_POWDER, MOVE_TAKE_DOWN},
+    .ability = ABILITY_SLOT_1
+    },
+};

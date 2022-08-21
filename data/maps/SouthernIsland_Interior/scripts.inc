@@ -16,6 +16,7 @@ SouthernIsland_Interior_EventScript_TryRemoveLati::
 	return
 
 SouthernIsland_Interior_OnTransition:
+	call_if_unset FLAG_TEAM_ROCKET, SouthernIsland_Interior_EventScript_ClearRocket
 	call_if_eq VAR_ROAMER_POKEMON, 0, SouthernIsland_Interior_EventScript_SetUpLatios
 	call_if_ne VAR_ROAMER_POKEMON, 0, SouthernIsland_Interior_EventScript_SetUpLatias
 	call SouthernIsland_Interior_EventScript_SetUpPlayerGfx
@@ -81,6 +82,7 @@ SouthernIsland_Interior_EventScript_Lati::
 	waitstate
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SouthernIsland_Interior_EventScript_PlayerWon
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, SouthernIsland_Interior_EventScript_LatiDefeated
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, SouthernIsland_Interior_EventScript_RanFromLati
 	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, SouthernIsland_Interior_EventScript_RanFromLati
@@ -145,3 +147,187 @@ SouthernIsland_Interior_Movement_LatiApproach:
 	walk_down
 	walk_down
 	step_end
+
+SouthernIsland_Interior_EventScript_ClearRocket::
+	setflag FLAG_TEAM_ROCKET
+	return
+
+
+SouthernIsland_Interior_EventScript_PlayerWon::
+	lockall
+	setflag FLAG_DEFEATED_LATIAS_OR_LATIOS
+	delay 30
+	addobject 3
+	addobject 4
+	addobject 5
+	applymovement 3, SouthernIsland_Interior_EventScript_RocketWalkUp
+	applymovement 4, SouthernIsland_Interior_EventScript_RocketWalkUp
+	waitmovement 0
+	msgbox SouthernIsland_Interior_EventScript_PlayerWon_Text_0
+	waitmessage
+	msgbox SouthernIsland_Interior_EventScript_PlayerWon_Text_1
+	waitmessage
+	msgbox SouthernIsland_Interior_EventScript_PlayerWon_Text_2
+	waitmessage
+	msgbox SouthernIsland_Interior_EventScript_PlayerWon_Text_3
+	waitmessage
+	msgbox SouthernIsland_Interior_EventScript_PlayerWon_Text_4
+	waitmessage
+	msgbox SouthernIsland_Interior_EventScript_PlayerWon_Text_5
+	waitmessage
+	msgbox SouthernIsland_Interior_EventScript_PlayerWon_Text_6
+	waitmessage
+	msgbox SouthernIsland_Interior_EventScript_PlayerWon_Text_7
+	waitmessage
+	msgbox SouthernIsland_Interior_EventScript_PlayerWon_Text_8
+	waitmessage
+	msgbox SouthernIsland_Interior_EventScript_PlayerWon_Text_9
+	waitmessage
+	applymovement 5, SouthernIsland_Interior_EventScript_MeowthRun
+	msgbox SouthernIsland_Interior_EventScript_PlayerWon_Text_10
+	waitmessage
+	applymovement 3, Common_Movement_QuestionMark
+	applymovement 4, Common_Movement_QuestionMark
+	applymovement 5, Common_Movement_QuestionMark
+	waitmovement 0
+	msgbox SouthernIsland_Interior_EventScript_PlayerWon_Text_11
+	waitmessage
+	msgbox SouthernIsland_Interior_EventScript_PlayerWon_Text_12
+	waitmessage
+	msgbox SouthernIsland_Interior_EventScript_PlayerWon_Text_13
+	waitmessage
+	trainerbattle_double TRAINER_TEAM_ROCKET, SouthernIsland_Interior_Text_RocketOpening, SouthernIsland_Interior_Text_RocketBeaten, SouthernIsland_Interior_Text_RocketNotEnoughPokemon, SouthernIsland_Interior_EventScript_TeamRocketPlayerWin
+	releaseall
+	return
+
+
+SouthernIsland_Interior_EventScript_TeamRocketPlayerWin::
+	lockall
+	msgbox SouthernIsland_Interior_EventScript_TeamRocketPlayerWin_Text_0
+	waitmessage
+	msgbox SouthernIsland_Interior_EventScript_TeamRocketPlayerWin_Text_1
+	delay 50
+	applymovement 3, SouthernIsland_Interior_EventScript_RocketRetreat
+	applymovement 4, SouthernIsland_Interior_EventScript_RocketRetreat
+	waitmovement 0
+	removeobject 3
+	removeobject 4
+	waitmessage
+	applymovement 5, Common_Movement_QuestionMark
+	msgbox SouthernIsland_Interior_EventScript_TeamRocketPlayerWin_Text_2
+	delay 30
+	applymovement 5, SouthernIsland_Interior_EventScript_MeowthRetreat
+	waitmovement 0
+	removeobject 5
+	releaseall
+	return
+
+
+SouthernIsland_Interior_EventScript_RocketWalkUp:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+SouthernIsland_Interior_EventScript_MeowthRun:
+	walk_fast_up
+	walk_fast_up
+	walk_fast_left
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_right
+	face_up
+	step_end
+
+SouthernIsland_Interior_EventScript_RocketRetreat:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+SouthernIsland_Interior_EventScript_MeowthRetreat:
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	step_end
+
+SouthernIsland_Interior_EventScript_PlayerWon_Text_0:
+	.string "??????: Prepare for trouble!$"
+
+SouthernIsland_Interior_EventScript_PlayerWon_Text_1:
+	.string "??????: Make it double!$"
+
+SouthernIsland_Interior_EventScript_PlayerWon_Text_2:
+	.string "??????: To protect the world from\n"
+	.string "devastation!$"
+
+SouthernIsland_Interior_EventScript_PlayerWon_Text_3:
+	.string "??????: To unite all peoples within our\n"
+	.string "nation!$"
+
+SouthernIsland_Interior_EventScript_PlayerWon_Text_4:
+	.string "??????: To denounce the evils of truth\n"
+	.string "and love!$"
+
+SouthernIsland_Interior_EventScript_PlayerWon_Text_5:
+	.string "??????: To extend our reach to the\n"
+	.string "stars above!$"
+
+SouthernIsland_Interior_EventScript_PlayerWon_Text_6:
+	.string "??????: Jessie!$"
+
+SouthernIsland_Interior_EventScript_PlayerWon_Text_7:
+	.string "??????: James!$"
+
+SouthernIsland_Interior_EventScript_PlayerWon_Text_8:
+	.string "Jessie: Team Rocket blasts off at the\n"
+	.string "speed of light!$"
+
+SouthernIsland_Interior_EventScript_PlayerWon_Text_9:
+	.string "James: Surrender now or prepare to\n"
+	.string "fight!$"
+
+SouthernIsland_Interior_EventScript_PlayerWon_Text_10:
+	.string "Meowth: Meowth! That's right!$"
+
+SouthernIsland_Interior_EventScript_PlayerWon_Text_11:
+	.string "James: Jessie, I don't see the rare\n"
+	.string "pokemon that was meant to be here$"
+
+SouthernIsland_Interior_EventScript_PlayerWon_Text_12:
+	.string "Jessie: Yeah, all I see is a twerp$"
+
+SouthernIsland_Interior_EventScript_PlayerWon_Text_13:
+	.string "Meowth: The twerp look's like they have\n"
+	.string "some good pokemon on them?$"
+
+SouthernIsland_Interior_EventScript_TeamRocketPlayerWin_Text_0:
+	.string "James: This doesn't look good!$"
+
+SouthernIsland_Interior_EventScript_TeamRocketPlayerWin_Text_1:
+	.string "Jessie: Let's scram!$"
+
+SouthernIsland_Interior_EventScript_TeamRocketPlayerWin_Text_2:
+	.string "Meowth: Wait, don't leave me behind!$"
+
+SouthernIsland_Interior_Text_RocketOpening::
+	.string "Jessie: Well let's take them!$"
+
+SouthernIsland_Interior_Text_RocketBeaten::
+	.string "James: What are we going to tell the\n"
+	.string "boss?$"
+
+SouthernIsland_Interior_Text_RocketNotEnoughPokemon::
+	.string "Meowth: Hey kid, we aren't mean enough\n"
+	.string "to fight you when you are down a\l"
+	.string "Pokemon.$"
+
+SouthernIsland_Interior_Text_RocketClosing::
+	.string "Meowth: I don't like where this going,\n"
+	.string "Let's scramble!$"
