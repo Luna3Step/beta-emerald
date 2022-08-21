@@ -3051,7 +3051,7 @@ static s16 AI_CheckViability(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
         if (AI_RandLessThan(128))
             IncreaseSleepScore(battlerAtk, battlerDef, move, &score);
         break;
-	case EFFECT_ABSORB:
+    case EFFECT_ABSORB:
         if (AI_DATA->atkHoldEffect == HOLD_EFFECT_BIG_ROOT)
             score++;
         if (effectiveness <= AI_EFFECTIVENESS_x0_5 && AI_RandLessThan(50))
@@ -3400,17 +3400,14 @@ static s16 AI_CheckViability(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
             score += 5;
         break;
     case EFFECT_TRAP:
+        if (HasMoveEffect(battlerDef, EFFECT_RAPID_SPIN))
+            break;
+        //fallthrough
     case EFFECT_MEAN_LOOK:
-        if (HasMoveEffect(battlerDef, EFFECT_RAPID_SPIN)
-          || (B_GHOSTS_ESCAPE >= GEN_6 && IS_BATTLER_OF_TYPE(battlerDef, TYPE_GHOST))
-          || gBattleMons[battlerDef].status2 & STATUS2_WRAPPED)
-        {
+        if (IsBattlerTrapped(battlerDef, TRUE))
             break; // in this case its a bad attacking move
-        }
         else if (ShouldTrap(battlerAtk, battlerDef, move))
-        {
             score += 5;
-        }
         break;
     case EFFECT_MIST:
         if (AI_THINKING_STRUCT->aiFlags & AI_FLAG_SCREENER)
@@ -3454,7 +3451,6 @@ static s16 AI_CheckViability(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
             score++;
         if (AI_DATA->atkAbility == ABILITY_SERENE_GRACE && AI_DATA->defAbility != ABILITY_CONTRARY)
             score++;
-        break;
         if (ShouldLowerSpeed(battlerAtk, battlerDef, AI_DATA->defAbility))
         {
             if (AI_DATA->atkAbility == ABILITY_SERENE_GRACE && AI_DATA->defAbility != ABILITY_CONTRARY)
@@ -3548,7 +3544,7 @@ static s16 AI_CheckViability(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
                     if (gLastMoves[battlerDef] == predictedMove)
                         score += 3;
                     else */if (CanMoveFaintBattler(gLastMoves[battlerDef], battlerDef, battlerAtk, 1))
-                        score += 2;; //Disable move that can kill attacker
+                        score += 2; //Disable move that can kill attacker
                 }
             }
             else if (predictedMove != MOVE_NONE && IS_MOVE_STATUS(predictedMove))
@@ -4291,8 +4287,8 @@ static s16 AI_CheckViability(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
         IncreaseStatUpScore(battlerAtk, battlerDef, STAT_SPDEF, &score);
         break;
     case EFFECT_SHELL_SMASH:
-        if (AI_DATA->atkHoldEffect == HOLD_EFFECT_POWER_HERB)
-            score += 3;
+        if (AI_DATA->atkHoldEffect == HOLD_EFFECT_RESTORE_STATS)
+            score += 1;
         
         IncreaseStatUpScore(battlerAtk, battlerDef, STAT_SPEED, &score);
         IncreaseStatUpScore(battlerAtk, battlerDef, STAT_SPATK, &score);
