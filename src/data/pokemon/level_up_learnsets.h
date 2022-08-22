@@ -1801,7 +1801,7 @@ static const struct LevelUpMove sGengarLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_HYPNOSIS),
     LEVEL_UP_MOVE( 1, MOVE_LICK),
     LEVEL_UP_MOVE( 1, MOVE_SPITE),
-    LEVEL_UP_MOVE( 5, MOVE_SPITE),
+    LEVEL_UP_MOVE( 5, MOVE_SLUDGE_WAVE),
     LEVEL_UP_MOVE( 8, MOVE_MEAN_LOOK),
     LEVEL_UP_MOVE(12, MOVE_CURSE),
     LEVEL_UP_MOVE(15, MOVE_NIGHT_SHADE),
@@ -5563,6 +5563,7 @@ static const struct LevelUpMove sShiftryLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_NASTY_PLOT),
     LEVEL_UP_MOVE(20, MOVE_LEAF_TORNADO),
     LEVEL_UP_MOVE(32, MOVE_HURRICANE),
+    LEVEL_UP_MOVE(38, MOVE_SUCKER_PUNCH),
     LEVEL_UP_MOVE(44, MOVE_LEAF_STORM),
     LEVEL_UP_END
 };
@@ -18170,6 +18171,7 @@ static const struct LevelUpMove sSandslashAlolanLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_DEFENSE_CURL),
     LEVEL_UP_MOVE( 1, MOVE_ICE_BALL),
     LEVEL_UP_MOVE( 1, MOVE_METAL_CLAW),
+    LEVEL_UP_MOVE(26, MOVE_IRON_HEAD),
     LEVEL_UP_END
 };
 

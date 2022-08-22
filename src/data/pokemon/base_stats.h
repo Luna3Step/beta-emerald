@@ -11436,7 +11436,7 @@ const struct BaseStats gBaseStats[] =
     [SPECIES_LUXRAY] =
     {
         .baseHP        = 80,
-        .baseAttack    = 85,
+        .baseAttack    = 95,
         .baseDefense   = 79,
         .baseSpeed     = 120,
         .baseSpAttack  = 95,

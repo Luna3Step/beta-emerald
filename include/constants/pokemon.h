@@ -151,6 +151,22 @@
 #define LINOONE_EV                        {148, 248, 8, 16, 0, 88}
 #define SLAKING_EV                        {68, 232, 0, 108, 0, 100}
 #define KANGHASKAN_MEGA_EV                {52, 180, 36, 232, 0, 8}
+#define HAWLUCHA_EV                       {96, 252, 0, 124, 0, 36}
+#define PELIPPER_EV                       {248, 0, 36, 0, 0, 224}
+#define SKARMORY_EV                       {252, 0, 252, 0, 0, 4}
+#define ALTARIA_MEGA_EV                   {0, 252, 0, 252, 0, 4}
+#define CLAYDOL_EV                        {252, 0, 120, 136, 0, 0}
+#define XATU_EV                           {252, 0, 196, 60, 0, 0}
+#define REUNICLUS_EV                      {252, 0, 212, 44, 0, 0}
+#define ALOMOMOLA_EV                      {40, 0, 252, 0, 0, 216}
+#define WHISCASH_EV                       {4, 252, 0, 252, 0, 0}
+#define KINGDRA_EV                        {4, 0, 0, 252, 252, 0}
+#define SHIFTRY_EV                        {0, 252, 0, 252, 4, 0}
+#define DUSKNOIR_EV                       {212, 252, 0, 44, 0, 0}
+#define AVALUGG_EV                        {240, 248, 0, 0, 0, 20}
+#define WAILORD_EV                        {0, 0, 252, 0, 4, 252}
+#define TENTACRUEL_EV                     {252, 0, 112, 144, 0, 0}
+#define MILOTIC_EV                        {252, 0, 108, 0, 0, 148}
 
 #define WORST_IVS                1
 

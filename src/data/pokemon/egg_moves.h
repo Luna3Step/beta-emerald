@@ -315,7 +315,7 @@ const u16 gEggMoves[] = {
         MOVE_WATER_SPORT,
         MOVE_ICE_BALL,
         MOVE_MUD_SHOT,
-        MOVE_REFRESH,ARIO
+        MOVE_REFRESH,
         MOVE_ENDEAVOR,
         MOVE_ENCORE,
         MOVE_ENDURE,
