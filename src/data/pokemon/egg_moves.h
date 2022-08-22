@@ -315,7 +315,7 @@ const u16 gEggMoves[] = {
         MOVE_WATER_SPORT,
         MOVE_ICE_BALL,
         MOVE_MUD_SHOT,
-        MOVE_REFRESH,
+        MOVE_REFRESH,ARIO
         MOVE_ENDEAVOR,
         MOVE_ENCORE,
         MOVE_ENDURE,
@@ -1755,6 +1755,8 @@ const u16 gEggMoves[] = {
 
     egg_moves(SLAKOTH,
         MOVE_PURSUIT,
+        MOVE_GIGA_IMPACT,
+        MOVE_ICE_PUNCH,
         MOVE_SLASH,
         MOVE_BODY_SLAM,
         MOVE_SNORE,

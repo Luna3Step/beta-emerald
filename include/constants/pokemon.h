@@ -129,6 +129,28 @@
 #define GARDEVOIR_EV                      {0,   0, 4,   252, 252, 0}
 #define LEAVANNY_EV                       {0,   252, 4,   252, 0, 0}
 #define SYLVEON_EV                        {252,   0, 148,   0, 92, 16}
+#define NOSEPASS_EV                       {0, 76, 236, 0, 0, 196}
+#define PROBOPASS_EV                      {172, 0, 0, 84, 252, 0}
+#define LYCANROC_DUSK_EV                  {0, 216, 0, 252, 0, 40}
+#define RHYDON_EV                         {4, 252, 0, 252, 0, 0}
+#define AERODACTYL_MEGA_EV                {248, 252, 20, 32, 0, 0}
+#define STEELIX_EV                        {252, 4, 0, 0, 0, 252}
+#define MACHOKE_EV                        {252, 0, 252, 4, 0, 0}
+#define BRAWLY_LUCARIO_EV                 {0, 240, 0, 240, 0, 28}
+#define HARIYAMA_EV                       {0, 252, 4, 0, 0, 252}
+#define BRELOOM_EV                        {56, 0, 12, 216, 0, 224}
+#define ELECTRODE_EV                      {252, 0, 4, 252, 0, 0}
+#define GALVANTULA_EV                     {0, 0, 0, 252, 252, 4}
+#define MAGNEZONE_EV                      {4, 0, 4, 252, 248, 0}
+#define CAMERUPT_MEGA_EV                  {252, 0, 0, 84, 0, 172}
+#define MAGCARGO_EV                       {248, 0, 8, 0, 0, 252}
+#define COALOSSAL_EV                      {252, 0, 4, 0, 0, 252}
+#define HOUNDOOM_EV                       {0, 0, 12, 252, 244, 0}
+#define DUBWOOL_EV                        {104, 0, 252, 152, 0, 0}
+#define VIGOROTH_EV                       {252, 0, 0, 92, 0, 164}
+#define LINOONE_EV                        {148, 248, 8, 16, 0, 88}
+#define SLAKING_EV                        {68, 232, 0, 108, 0, 100}
+#define KANGHASKAN_MEGA_EV                {52, 180, 36, 232, 0, 8}
 
 #define WORST_IVS                1
 
