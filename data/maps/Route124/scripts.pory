@@ -109,9 +109,15 @@ script Route125_Abomasite {
     lockall
     msgbox(format("You found an Abomasite!"))
     additem(ITEM_ABOMASITE, 1)
-	removeobject(11)
-    setflag(FLAG_ABOMASITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(11)
+		setflag(FLAG_ABOMASITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

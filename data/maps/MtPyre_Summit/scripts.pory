@@ -630,9 +630,15 @@ script MtPyre_Summit_Sablenite{
     lockall
     msgbox(format("You found a Sablenite!"))
     additem(ITEM_SABLENITE, 1)
-	removeobject(9)
-    setflag(FLAG_SABLENITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(9)
+		setflag(FLAG_SABLENITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

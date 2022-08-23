@@ -40,6 +40,13 @@ DesertUnderpass_Aggronite::
 	lockall
 	msgbox DesertUnderpass_Aggronite_Text_0
 	additem ITEM_AGGRONITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq DesertUnderpass_Aggronite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+DesertUnderpass_Aggronite_1:
 	removeobject 2
 	setflag FLAG_AGGRONITE
 	waitmessage

@@ -303,6 +303,13 @@ Route118_Galladite::
 	lockall
 	msgbox Route118_Galladite_Text_0
 	additem ITEM_GALLADITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route118_Galladite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+Route118_Galladite_1:
 	removeobject 22
 	setflag FLAG_GALLADITE
 	waitmessage

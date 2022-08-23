@@ -8,9 +8,15 @@ script GraniteCave_B2F_Aerodactylite{
     lockall
     msgbox(format("You found an Aerodactylite!"))
     additem(ITEM_AERODACTYLITE, 1)
-	removeobject(10)
-    setflag(FLAG_AERODACTYLITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+        removeobject(10)
+        setflag(FLAG_AERODACTYLITE)
+        waitmessage
+        releaseall
+        end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

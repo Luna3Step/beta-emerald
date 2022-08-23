@@ -42,9 +42,15 @@ script DesertUnderpass_Aggronite{
     lockall
     msgbox(format("You found an Aggronite!"))
     additem(ITEM_AGGRONITE, 1)
-	removeobject(2)
-    setflag(FLAG_AGGRONITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(2)
+		setflag(FLAG_AGGRONITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

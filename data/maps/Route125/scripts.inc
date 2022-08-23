@@ -85,6 +85,13 @@ Route123_Sharpedonite::
 	lockall
 	msgbox Route123_Sharpedonite_Text_0
 	additem ITEM_SHARPEDONITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route123_Sharpedonite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+Route123_Sharpedonite_1:
 	removeobject 13
 	setflag FLAG_SHARPEDONITE
 	waitmessage

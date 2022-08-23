@@ -204,6 +204,13 @@ Route114_Charizardite_Y::
 	lockall
 	msgbox Route114_Charizardite_Y_Text_0
 	additem ITEM_CHARIZARDITE_Y, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route114_Charizardite_Y_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+Route114_Charizardite_Y_1:
 	removeobject 28
 	setflag FLAG_CHARIZARDITE_Y
 	waitmessage

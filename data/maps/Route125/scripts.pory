@@ -87,9 +87,15 @@ script Route123_Sharpedonite {
     lockall
     msgbox(format("You found a Sharpedonite!"))
     additem(ITEM_SHARPEDONITE, 1)
-	removeobject(13)
-    setflag(FLAG_SHARPEDONITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(13)
+		setflag(FLAG_SHARPEDONITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

@@ -437,9 +437,15 @@ script Route120_Scizorite {
     lockall
     msgbox(format("You found a Scizorite!"))
     additem(ITEM_SCIZORITE, 1)
-	removeobject(45)
-    setflag(FLAG_SCIZORITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(45)
+		setflag(FLAG_SCIZORITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

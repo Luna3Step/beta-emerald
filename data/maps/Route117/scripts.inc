@@ -210,6 +210,13 @@ Route117_Lopunnite::
 	lockall
 	msgbox Route117_Lopunnite_Text_0
 	additem ITEM_LOPUNNITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route117_Lopunnite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+Route117_Lopunnite_1:
 	removeobject 25
 	setflag FLAG_LOPUNNITE
 	waitmessage

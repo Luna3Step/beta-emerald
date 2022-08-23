@@ -477,9 +477,15 @@ script Route116_Kangaskhanite {
     lockall
     msgbox(format("You found a Kangaskhanite!"))
     additem(ITEM_KANGASKHANITE, 1)
-	removeobject(29)
-    setflag(FLAG_KANGASKHANITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(29)
+		setflag(FLAG_KANGASKHANITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

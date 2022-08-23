@@ -772,9 +772,15 @@ script PetalburgCity_Alakazite {
     lockall
     msgbox(format("You found an Alakazite!"))
     additem(ITEM_ALAKAZITE, 1)
-	removeobject(9)
-    setflag(FLAG_ALAKAZITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(9)
+		setflag(FLAG_ALAKAZITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

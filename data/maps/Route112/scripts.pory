@@ -149,20 +149,32 @@ script Route112_Houndoominite {
     lockall
     msgbox(format("You found a Houndoominite!"))
     additem(ITEM_HOUNDOOMINITE, 1)
-	removeobject(15)
-    setflag(FLAG_HOUNDOOMINITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(15)
+		setflag(FLAG_HOUNDOOMINITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }
 
 script Route112_Cameruptite {
     lockall
     msgbox(format("You found a Cameruptite!"))
     additem(ITEM_CAMERUPTITE, 1)
-	removeobject(16)
-    setflag(FLAG_CAMERUPTITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(16)
+		setflag(FLAG_CAMERUPTITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

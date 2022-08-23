@@ -168,6 +168,13 @@ Route113_Charizardite_X::
 	lockall
 	msgbox Route113_Charizardite_X_Text_0
 	additem ITEM_CHARIZARDITE_X, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route113_Charizardite_X_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+Route113_Charizardite_X_1:
 	removeobject 17
 	setflag FLAG_CHARIZARDITE_X
 	waitmessage

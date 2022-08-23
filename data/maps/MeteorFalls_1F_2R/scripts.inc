@@ -185,6 +185,13 @@ MeteorFalls_1F_2R_Steelixite::
 	lockall
 	msgbox MeteorFalls_1F_2R_Steelixite_Text_0
 	additem ITEM_STEELIXITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq MeteorFalls_1F_2R_Steelixite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+MeteorFalls_1F_2R_Steelixite_1:
 	removeobject 4
 	setflag FLAG_STEELIXITE
 	waitmessage

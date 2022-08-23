@@ -30,9 +30,15 @@ script MtPyre_5F_Banettite{
     lockall
     msgbox(format("You found a Banettite!"))
     additem(ITEM_BANETTITE, 1)
-	removeobject(3)
-    setflag(FLAG_BANETTITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(3)
+		setflag(FLAG_BANETTITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

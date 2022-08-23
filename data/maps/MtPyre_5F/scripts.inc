@@ -27,6 +27,13 @@ MtPyre_5F_Banettite::
 	lockall
 	msgbox MtPyre_5F_Banettite_Text_0
 	additem ITEM_BANETTITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq MtPyre_5F_Banettite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+MtPyre_5F_Banettite_1:
 	removeobject 3
 	setflag FLAG_BANETTITE
 	waitmessage

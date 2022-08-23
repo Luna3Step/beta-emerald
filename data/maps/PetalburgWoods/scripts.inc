@@ -478,6 +478,13 @@ PetalburgWoods_Beedrillite::
 	lockall
 	msgbox PetalburgWoods_Beedrillite_Text_0
 	additem ITEM_BEEDRILLITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq PetalburgWoods_Beedrillite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+PetalburgWoods_Beedrillite_1:
 	removeobject 14
 	setflag FLAG_BEEDRILLITE
 	waitmessage

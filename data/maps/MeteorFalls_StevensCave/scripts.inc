@@ -61,6 +61,13 @@ MeteorFalls_StevensCave_Salamencite::
 	lockall
 	msgbox MeteorFalls_StevensCave_Salamencite_Text_0
 	additem ITEM_SALAMENCITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq MeteorFalls_StevensCave_Salamencite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+MeteorFalls_StevensCave_Salamencite_1:
 	removeobject 2
 	setflag FLAG_SALAMENCITE
 	waitmessage
@@ -72,6 +79,13 @@ MeteorFalls_StevensCave_Metagrossite::
 	lockall
 	msgbox MeteorFalls_StevensCave_Metagrossite_Text_0
 	additem ITEM_METAGROSSITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq MeteorFalls_StevensCave_Metagrossite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+MeteorFalls_StevensCave_Metagrossite_1:
 	removeobject 3
 	setflag FLAG_METAGROSSITE
 	waitmessage

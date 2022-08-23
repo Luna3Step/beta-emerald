@@ -110,6 +110,13 @@ MewsDungeon_Mewtwonite_X::
 	lockall
 	msgbox MewsDungeon_Mewtwonite_X_Text_0
 	additem ITEM_MEWTWONITE_X, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq MewsDungeon_Mewtwonite_X_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+MewsDungeon_Mewtwonite_X_1:
 	removeobject 2
 	setflag FLAG_MEWTWONITE_X
 	waitmessage
@@ -121,6 +128,13 @@ MewsDungeon_Mewtwonite_Y::
 	lockall
 	msgbox MewsDungeon_Mewtwonite_Y_Text_0
 	additem ITEM_MEWTWONITE_Y, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq MewsDungeon_Mewtwonite_Y_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+MewsDungeon_Mewtwonite_Y_1:
 	removeobject 3
 	setflag FLAG_MEWTWONITE_Y
 	waitmessage

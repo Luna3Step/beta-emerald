@@ -206,9 +206,15 @@ script Route114_Charizardite_Y {
     lockall
     msgbox(format("You found a Charizardite Y!"))
     additem(ITEM_CHARIZARDITE_Y, 1)
-	removeobject(28)
-    setflag(FLAG_CHARIZARDITE_Y)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(28)
+		setflag(FLAG_CHARIZARDITE_Y)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

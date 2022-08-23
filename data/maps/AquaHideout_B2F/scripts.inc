@@ -165,6 +165,13 @@ AquaHideout_B2F_Blastoisinite::
 	lockall
 	msgbox AquaHideout_B2F_Blastoisinite_Text_0
 	additem ITEM_BLASTOISINITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq AquaHideout_B2F_Blastoisinite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+AquaHideout_B2F_Blastoisinite_1:
 	removeobject 7
 	setflag FLAG_BLASTOISINITE
 	waitmessage

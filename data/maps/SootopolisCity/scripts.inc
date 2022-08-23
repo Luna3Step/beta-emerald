@@ -1732,6 +1732,13 @@ SootopolisCity_Altarianite::
 	lockall
 	msgbox SootopolisCity_Altarianite_Text_0
 	additem ITEM_ALTARIANITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq SootopolisCity_Altarianite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+SootopolisCity_Altarianite_1:
 	removeobject 19
 	setflag FLAG_ALTARIANITE
 	waitmessage
@@ -1743,6 +1750,13 @@ SootopolisCity_MysticTicket::
 	lockall
 	msgbox SootopolisCity_MysticTicket_Text_0
 	additem ITEM_MYSTIC_TICKET, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq SootopolisCity_MysticTicket_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+SootopolisCity_MysticTicket_1:
 	removeobject 20
 	setflag FLAG_MYSTIC_TICKET
 	setflag FLAG_ENABLE_SHIP_NAVEL_ROCK

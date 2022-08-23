@@ -731,6 +731,13 @@ Route111_Heracronite::
 	lockall
 	msgbox Route111_Heracronite_Text_0
 	additem ITEM_HERACRONITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route111_Heracronite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+Route111_Heracronite_1:
 	removeobject 47
 	setflag FLAG_HERACRONITE
 	waitmessage
@@ -742,6 +749,13 @@ Route111_Garchompite::
 	lockall
 	msgbox Route111_Garchompite_Text_0
 	additem ITEM_GARCHOMPITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route111_Garchompite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+Route111_Garchompite_1:
 	removeobject 48
 	setflag FLAG_GARCHOMPITE
 	waitmessage

@@ -435,6 +435,13 @@ Route120_Scizorite::
 	lockall
 	msgbox Route120_Scizorite_Text_0
 	additem ITEM_SCIZORITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route120_Scizorite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+Route120_Scizorite_1:
 	removeobject 45
 	setflag FLAG_SCIZORITE
 	waitmessage

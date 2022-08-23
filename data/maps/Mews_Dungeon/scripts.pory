@@ -93,20 +93,32 @@ script MewsDungeon_Mewtwonite_X {
     lockall
     msgbox(format("You found a Mewtwonite X!"))
     additem(ITEM_MEWTWONITE_X, 1)
-	removeobject(2)
-    setflag(FLAG_MEWTWONITE_X)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(2)
+		setflag(FLAG_MEWTWONITE_X)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }
 
 script MewsDungeon_Mewtwonite_Y {
     lockall
     msgbox(format("You found a Mewtwonite Y!"))
     additem(ITEM_MEWTWONITE_Y, 1)
-	removeobject(3)
-    setflag(FLAG_MEWTWONITE_Y)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(3)
+		setflag(FLAG_MEWTWONITE_Y)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

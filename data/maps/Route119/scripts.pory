@@ -625,20 +625,32 @@ script Route119_Amphatosite {
     lockall
     msgbox(format("You found an Ampharosite!"))
     additem(ITEM_AMPHAROSITE, 1)
-	removeobject(44)
-    setflag(FLAG_AMPHAROSITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(44)
+		setflag(FLAG_AMPHAROSITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }
 
 script Route119_EventScript_OldSeaMap {
 	lockall
 	msgbox(format("You found an Old Sea Map!"))
 	additem(ITEM_OLD_SEA_MAP, 1)
-	setflag(FLAG_ENABLE_SHIP_FARAWAY_ISLAND)
-	removeobject(45)
-	waitmessage
-	releaseall
-	end
+    if(var(VAR_RESULT) == TRUE){
+		setflag(FLAG_ENABLE_SHIP_FARAWAY_ISLAND)
+		removeobject(45)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

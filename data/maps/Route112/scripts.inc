@@ -147,6 +147,13 @@ Route112_Houndoominite::
 	lockall
 	msgbox Route112_Houndoominite_Text_0
 	additem ITEM_HOUNDOOMINITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route112_Houndoominite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+Route112_Houndoominite_1:
 	removeobject 15
 	setflag FLAG_HOUNDOOMINITE
 	waitmessage
@@ -158,6 +165,13 @@ Route112_Cameruptite::
 	lockall
 	msgbox Route112_Cameruptite_Text_0
 	additem ITEM_CAMERUPTITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route112_Cameruptite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+Route112_Cameruptite_1:
 	removeobject 16
 	setflag FLAG_CAMERUPTITE
 	waitmessage

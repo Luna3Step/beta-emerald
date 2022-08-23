@@ -361,9 +361,15 @@ script Route103_Pidgeotite {
     lockall
     msgbox(format("You found a Pidgeotite!"))
     additem(ITEM_PIDGEOTITE, 1)
-	removeobject(20)
-    setflag(FLAG_PIDGEOTITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(20)
+		setflag(FLAG_PIDGEOTITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

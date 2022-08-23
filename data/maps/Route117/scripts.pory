@@ -212,9 +212,15 @@ script Route117_Lopunnite {
     lockall
     msgbox(format("You found a Lopunnite!"))
     additem(ITEM_LOPUNNITE, 1)
-	removeobject(25)
-    setflag(FLAG_LOPUNNITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(25)
+		setflag(FLAG_LOPUNNITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

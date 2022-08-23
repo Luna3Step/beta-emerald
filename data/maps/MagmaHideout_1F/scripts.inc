@@ -55,6 +55,13 @@ MagmaHideout_1F_Blazikenite::
 	lockall
 	msgbox MagmaHideout_1F_Blazikenite_Text_0
 	additem ITEM_BLAZIKENITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq MagmaHideout_1F_Blazikenite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+MagmaHideout_1F_Blazikenite_1:
 	removeobject 2
 	setflag FLAG_BLAZIKENITE
 	waitmessage

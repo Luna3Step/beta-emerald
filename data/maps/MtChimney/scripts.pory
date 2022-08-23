@@ -851,9 +851,15 @@ script MtChimney_Tyranitarite{
     lockall
     msgbox(format("You found a Tyranitarite!"))
     additem(ITEM_TYRANITARITE, 1)
-	removeobject(31)
-    setflag(FLAG_TYRANITARITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(31)
+		setflag(FLAG_TYRANITARITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

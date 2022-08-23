@@ -273,9 +273,15 @@ script JaggedPass_Medichamite{
     lockall
     msgbox(format("You found a Medichamite!"))
     additem(ITEM_MEDICHAMITE, 1)
-	removeobject(8)
-    setflag(FLAG_MEDICHAMITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(8)
+		setflag(FLAG_MEDICHAMITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

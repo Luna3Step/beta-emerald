@@ -1175,6 +1175,13 @@ Route104_Slowbronite::
 	lockall
 	msgbox Route104_Slowbronite_Text_0
 	additem ITEM_SLOWBRONITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route104_Slowbronite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+Route104_Slowbronite_1:
 	removeobject 21
 	setflag FLAG_SLOWBRONITE
 	waitmessage
@@ -1186,6 +1193,13 @@ Route104_Audinite::
 	lockall
 	msgbox Route104_Audinite_Text_0
 	additem ITEM_AUDINITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route104_Audinite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+Route104_Audinite_1:
 	removeobject 35
 	setflag FLAG_AUDINITE
 	waitmessage

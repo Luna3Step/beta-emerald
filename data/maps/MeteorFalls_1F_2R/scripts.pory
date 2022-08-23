@@ -188,9 +188,15 @@ script MeteorFalls_1F_2R_Steelixite{
     lockall
     msgbox(format("You found a Steelixite!"))
     additem(ITEM_STEELIXITE, 1)
-	removeobject(4)
-    setflag(FLAG_STEELIXITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(4)
+		setflag(FLAG_STEELIXITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

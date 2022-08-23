@@ -475,6 +475,13 @@ Route116_Kangaskhanite::
 	lockall
 	msgbox Route116_Kangaskhanite_Text_0
 	additem ITEM_KANGASKHANITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route116_Kangaskhanite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+Route116_Kangaskhanite_1:
 	removeobject 29
 	setflag FLAG_KANGASKHANITE
 	waitmessage

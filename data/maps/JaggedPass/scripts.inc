@@ -270,6 +270,13 @@ JaggedPass_Medichamite::
 	lockall
 	msgbox JaggedPass_Medichamite_Text_0
 	additem ITEM_MEDICHAMITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq JaggedPass_Medichamite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+JaggedPass_Medichamite_1:
 	removeobject 8
 	setflag FLAG_MEDICHAMITE
 	waitmessage

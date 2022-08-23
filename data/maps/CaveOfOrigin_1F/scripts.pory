@@ -12,9 +12,15 @@ script CaveOfOrigin_1f_Absolite{
     lockall
     msgbox(format("You found an Absolite!"))
     additem(ITEM_ABSOLITE, 1)
-	removeobject(1)
-    setflag(FLAG_ABSOLITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+        removeobject(1)
+        setflag(FLAG_ABSOLITE)
+        waitmessage
+        releaseall
+        end
+    }
+    else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+    }
 }

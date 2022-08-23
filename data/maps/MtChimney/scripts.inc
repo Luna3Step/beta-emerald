@@ -848,6 +848,13 @@ MtChimney_Tyranitarite::
 	lockall
 	msgbox MtChimney_Tyranitarite_Text_0
 	additem ITEM_TYRANITARITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq MtChimney_Tyranitarite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+MtChimney_Tyranitarite_1:
 	removeobject 31
 	setflag FLAG_TYRANITARITE
 	waitmessage

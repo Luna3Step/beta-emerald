@@ -733,20 +733,32 @@ script Route111_Heracronite {
     lockall
     msgbox(format("You found a Heracronite!"))
     additem(ITEM_HERACRONITE, 1)
-	removeobject(47)
-    setflag(FLAG_HERACRONITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(47)
+		setflag(FLAG_HERACRONITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }
 
 script Route111_Garchompite {
     lockall
     msgbox(format("You found a Garchompite!"))
     additem(ITEM_GARCHOMPITE, 1)
-	removeobject(48)
-    setflag(FLAG_GARCHOMPITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(48)
+		setflag(FLAG_GARCHOMPITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

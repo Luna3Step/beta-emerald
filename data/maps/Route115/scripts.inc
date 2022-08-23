@@ -147,6 +147,13 @@ Route115_Pinsirite::
 	lockall
 	msgbox Route115_Pinsirite_Text_0
 	additem ITEM_PINSIRITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route115_Pinsirite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+Route115_Pinsirite_1:
 	removeobject 24
 	setflag FLAG_PINSIRITE
 	waitmessage

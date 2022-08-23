@@ -1177,20 +1177,32 @@ script Route104_Slowbronite {
     lockall
     msgbox(format("You found a Slowbronite!"))
     additem(ITEM_SLOWBRONITE, 1)
-	removeobject(21)
-    setflag(FLAG_SLOWBRONITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(21)
+		setflag(FLAG_SLOWBRONITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }
 
 script Route104_Audinite {
     lockall
     msgbox(format("You found an Autinite!"))
     additem(ITEM_AUDINITE, 1)
-	removeobject(35)
-    setflag(FLAG_AUDINITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(35)
+		setflag(FLAG_AUDINITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

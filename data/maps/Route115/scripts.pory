@@ -150,9 +150,15 @@ script Route115_Pinsirite {
     lockall
     msgbox(format("You found a Pinsirite!"))
     additem(ITEM_PINSIRITE, 1)
-	removeobject(24)
-    setflag(FLAG_PINSIRITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(24)
+		setflag(FLAG_PINSIRITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

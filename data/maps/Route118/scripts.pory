@@ -306,9 +306,15 @@ script Route118_Galladite {
     lockall
     msgbox(format("You found a Galladite!"))
     additem(ITEM_GALLADITE, 1)
-	removeobject(22)
-    setflag(FLAG_GALLADITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(22)
+		setflag(FLAG_GALLADITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

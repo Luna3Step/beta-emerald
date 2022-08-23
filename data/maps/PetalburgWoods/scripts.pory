@@ -481,9 +481,15 @@ script PetalburgWoods_Beedrillite {
     lockall
     msgbox(format("You found a Beedrillite!"))
     additem(ITEM_BEEDRILLITE, 1)
-	removeobject(14)
-    setflag(FLAG_BEEDRILLITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(14)
+		setflag(FLAG_BEEDRILLITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

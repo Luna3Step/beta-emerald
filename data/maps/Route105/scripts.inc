@@ -100,6 +100,13 @@ Route105_Gyaradosite::
 	lockall
 	msgbox Route105_Gyaradosite_Text_0
 	additem ITEM_GYARADOSITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route105_Gyaradosite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+Route105_Gyaradosite_1:
 	removeobject 9
 	setflag FLAG_GYARADOSITE
 	waitmessage

@@ -96,9 +96,15 @@ script VictoryRoad_B1F_Mawilite{
     lockall
     msgbox(format("You found a Mawilite!"))
     additem(ITEM_MAWILITE, 1)
-	removeobject(22)
-    setflag(FLAG_MAWILITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(22)
+		setflag(FLAG_MAWILITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

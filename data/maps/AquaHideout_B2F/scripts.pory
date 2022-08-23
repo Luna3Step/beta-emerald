@@ -166,9 +166,15 @@ script AquaHideout_B2F_Blastoisinite {
     lockall
     msgbox(format("You found a Blastoisinite!"))
     additem(ITEM_BLASTOISINITE, 1)
-	removeobject(7)
-    setflag(FLAG_BLASTOISINITE)
-    waitmessage
-    releaseall
-    end
+	if(var(VAR_RESULT) == TRUE){
+		removeobject(7)
+    	setflag(FLAG_BLASTOISINITE)
+    	waitmessage
+    	releaseall
+    	end
+	}
+	else{
+		call(Common_EventScript_ShowBagIsFull)
+		releaseall
+	}
 }

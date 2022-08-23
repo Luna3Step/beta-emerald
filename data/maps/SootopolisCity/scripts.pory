@@ -1734,23 +1734,35 @@ script SootopolisCity_Altarianite{
     lockall
     msgbox(format("You found an Altarianite!"))
     additem(ITEM_ALTARIANITE, 1)
-	removeobject(19)
-    setflag(FLAG_ALTARIANITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(19)
+		setflag(FLAG_ALTARIANITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }
 
 script SootopolisCity_MysticTicket {
     lockall
     msgbox(format("Maxie and Archie left this on the ground, it's a Mystic Ticket!"))
     additem(ITEM_MYSTIC_TICKET, 1)
-	removeobject(20)
-    setflag(FLAG_MYSTIC_TICKET)
-	setflag(FLAG_ENABLE_SHIP_NAVEL_ROCK)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(20)
+		setflag(FLAG_MYSTIC_TICKET)
+		setflag(FLAG_ENABLE_SHIP_NAVEL_ROCK)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }
 
 script SootopolisCity_HideMysticTicket {

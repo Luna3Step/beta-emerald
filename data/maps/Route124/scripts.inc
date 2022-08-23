@@ -106,6 +106,13 @@ Route125_Abomasite::
 	lockall
 	msgbox Route125_Abomasite_Text_0
 	additem ITEM_ABOMASITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route125_Abomasite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+Route125_Abomasite_1:
 	removeobject 11
 	setflag FLAG_ABOMASITE
 	waitmessage

@@ -203,9 +203,15 @@ script Route123_Gardevoirite {
     lockall
     msgbox(format("You found a Gardevoirite!"))
     additem(ITEM_GARDEVOIRITE, 1)
-	removeobject(44)
-    setflag(FLAG_GARDEVOIRITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(44)
+		setflag(FLAG_GARDEVOIRITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

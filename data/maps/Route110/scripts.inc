@@ -996,6 +996,13 @@ Route110_Manectite::
 	lockall
 	msgbox Route110_Manectite_Text_0
 	additem ITEM_MANECTITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route110_Manectite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+Route110_Manectite_1:
 	removeobject 38
 	setflag FLAG_MANECTITE
 	waitmessage

@@ -627,6 +627,13 @@ MtPyre_Summit_Sablenite::
 	lockall
 	msgbox MtPyre_Summit_Sablenite_Text_0
 	additem ITEM_SABLENITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq MtPyre_Summit_Sablenite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+MtPyre_Summit_Sablenite_1:
 	removeobject 9
 	setflag FLAG_SABLENITE
 	waitmessage

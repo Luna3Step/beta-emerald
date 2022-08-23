@@ -161,9 +161,15 @@ script FortreeCity_Venusaurite {
     lockall
     msgbox(format("You found a Venusaurite!"))
     additem(ITEM_VENUSAURITE, 1)
-	removeobject(8)
-    setflag(FLAG_VENUSAURITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(8)
+		setflag(FLAG_VENUSAURITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

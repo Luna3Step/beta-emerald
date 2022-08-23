@@ -999,9 +999,15 @@ script Route110_Manectite {
     lockall
     msgbox(format("You found a Manectite!"))
     additem(ITEM_MANECTITE, 1)
-	removeobject(38)
-    setflag(FLAG_MANECTITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(38)
+		setflag(FLAG_MANECTITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

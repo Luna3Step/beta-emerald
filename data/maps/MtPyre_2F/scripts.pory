@@ -140,9 +140,15 @@ script MtPyre_2F_Gengarite {
     lockall
     msgbox(format("You found a Gengarite!"))
     additem(ITEM_GENGARITE, 1)
-	removeobject(9)
-    setflag(FLAG_GENGARITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(9)
+		setflag(FLAG_GENGARITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

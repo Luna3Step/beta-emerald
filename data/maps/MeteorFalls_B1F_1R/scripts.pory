@@ -8,9 +8,15 @@ script MeteorFalls_B1F_1R_Lucarionite{
     lockall
     msgbox(format("You found a Lucarionite!"))
     additem(ITEM_LUCARIONITE, 1)
-	removeobject(1)
-    setflag(FLAG_LUCARIONITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+        removeobject(1)
+        setflag(FLAG_LUCARIONITE)
+        waitmessage
+        releaseall
+        end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

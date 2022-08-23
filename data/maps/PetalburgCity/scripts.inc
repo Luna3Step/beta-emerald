@@ -770,6 +770,13 @@ PetalburgCity_Alakazite::
 	lockall
 	msgbox PetalburgCity_Alakazite_Text_0
 	additem ITEM_ALAKAZITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq PetalburgCity_Alakazite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+PetalburgCity_Alakazite_1:
 	removeobject 9
 	setflag FLAG_ALAKAZITE
 	waitmessage

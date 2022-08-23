@@ -623,6 +623,13 @@ Route119_Amphatosite::
 	lockall
 	msgbox Route119_Amphatosite_Text_0
 	additem ITEM_AMPHAROSITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route119_Amphatosite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+Route119_Amphatosite_1:
 	removeobject 44
 	setflag FLAG_AMPHAROSITE
 	waitmessage
@@ -634,6 +641,13 @@ Route119_EventScript_OldSeaMap::
 	lockall
 	msgbox Route119_EventScript_OldSeaMap_Text_0
 	additem ITEM_OLD_SEA_MAP, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route119_EventScript_OldSeaMap_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+Route119_EventScript_OldSeaMap_1:
 	setflag FLAG_ENABLE_SHIP_FARAWAY_ISLAND
 	removeobject 45
 	waitmessage

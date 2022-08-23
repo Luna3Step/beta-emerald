@@ -200,6 +200,13 @@ Route123_Gardevoirite::
 	lockall
 	msgbox Route123_Gardevoirite_Text_0
 	additem ITEM_GARDEVOIRITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route123_Gardevoirite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+Route123_Gardevoirite_1:
 	removeobject 44
 	setflag FLAG_GARDEVOIRITE
 	waitmessage

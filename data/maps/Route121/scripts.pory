@@ -196,9 +196,15 @@ script Route121_Sceptilite {
     lockall
     msgbox(format("You found a Sceptilite!"))
     additem(ITEM_SCEPTILITE, 1)
-	removeobject(30)
-    setflag(FLAG_SCEPTILITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(30)
+		setflag(FLAG_SCEPTILITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

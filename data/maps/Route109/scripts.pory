@@ -568,9 +568,15 @@ script Route109_Swampertite {
     lockall
     msgbox(format("You found a Swampertite!"))
     additem(ITEM_SWAMPERTITE, 1)
-	removeobject(25)
-    setflag(FLAG_SWAMPERTITE)
-    waitmessage
-    releaseall
-    end
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(25)
+		setflag(FLAG_SWAMPERTITE)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
 }

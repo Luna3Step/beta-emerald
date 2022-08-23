@@ -158,6 +158,13 @@ FortreeCity_Venusaurite::
 	lockall
 	msgbox FortreeCity_Venusaurite_Text_0
 	additem ITEM_VENUSAURITE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq FortreeCity_Venusaurite_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+FortreeCity_Venusaurite_1:
 	removeobject 8
 	setflag FLAG_VENUSAURITE
 	waitmessage
