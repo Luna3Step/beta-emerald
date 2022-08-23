@@ -1079,7 +1079,7 @@ LittlerootTown_EventScript_RivalBattle::
 	lockall
 	msgbox LittlerootTown_EventScript_RivalBattle_Text_0
 	setflag FLAG_RIVAL_BATTLE_LITTLEROOT
-	setvar VAR_LITTLEROOT_STATE, 3
+	setvar VAR_LITTLEROOT_STATE, 4
 	call LittlerootTown_EventScript_RivalBattleStart
 	return
 
@@ -1187,13 +1187,19 @@ LittlerootTown_Trigger_RunningShoes::
 	waitmovement 0
 	msgbox LittlerootTown_Trigger_RunningShoes_Text_0
 	waitmessage
+	giveitem ITEM_EXP_SHARE
+	setflag FLAG_RECEIVED_EXP_SHARE
 	setflag FLAG_SYS_B_DASH
 	setflag FLAG_RECEIVED_RUNNING_SHOES
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox LittlerootTown_Trigger_RunningShoes_Text_1
 	waitfanfare
 	waitmessage
+	playfanfare MUS_OBTAIN_ITEM
 	msgbox LittlerootTown_Trigger_RunningShoes_Text_2
+	waitfanfare
+	waitmessage
+	msgbox LittlerootTown_Trigger_RunningShoes_Text_3
 	waitmessage
 	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_Movement_PlayerOutOfWay
 	waitmovement 0
@@ -1291,10 +1297,14 @@ LittlerootTown_Trigger_RunningShoes_Text_0:
 	.string "a bit easier on you.$"
 
 LittlerootTown_Trigger_RunningShoes_Text_1:
+	.string "You recieved the EXP Share! Toggle it in\n"
+	.string "the Key Items menu$"
+
+LittlerootTown_Trigger_RunningShoes_Text_2:
 	.string "You recieved the running shoes! Press B\n"
 	.string "to dash.$"
 
-LittlerootTown_Trigger_RunningShoes_Text_2:
+LittlerootTown_Trigger_RunningShoes_Text_3:
 	.string "Well I'll see you later. I look forward to\n"
 	.string "battling you again.$"
 

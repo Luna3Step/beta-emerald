@@ -60,22 +60,6 @@ MeteorFalls_StevensCave_Text_MyPredictionCameTrue:
 
 `
 
-script MeteorFalls_StevensCave_Salamencite{
-    lockall
-    msgbox(format("You found a Salamencite!"))
-    additem(ITEM_SALAMENCITE, 1)
-    if(var(VAR_RESULT) == TRUE){
-		removeobject(2)
-		setflag(FLAG_SALAMENCITE)
-		waitmessage
-		releaseall
-		end
-	}
-	else{
-        call(Common_EventScript_ShowBagIsFull)
-        releaseall
-	}
-}
 
 script MeteorFalls_StevensCave_Metagrossite{
     lockall

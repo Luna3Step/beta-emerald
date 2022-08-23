@@ -1066,7 +1066,7 @@ script LittlerootTown_EventScript_RivalBattle{
 	lockall
 	msgbox(format("Hi, I see my dad gave you a pokemon, let me see!"))
 	setflag(FLAG_RIVAL_BATTLE_LITTLEROOT)
-	setvar(VAR_LITTLEROOT_STATE, 3)
+	setvar(VAR_LITTLEROOT_STATE, 4)
 	call(LittlerootTown_EventScript_RivalBattleStart)
 }
 
@@ -1163,8 +1163,14 @@ script LittlerootTown_Trigger_RunningShoes {
 	waitmovement(0)
 	msgbox(format("I see you are about to set off. You should take these, should make thing's a bit easier on you."))
 	waitmessage
+	giveitem(ITEM_EXP_SHARE)
+	setflag(FLAG_RECEIVED_EXP_SHARE)
 	setflag(FLAG_SYS_B_DASH)
 	setflag(FLAG_RECEIVED_RUNNING_SHOES)
+	playfanfare(MUS_OBTAIN_ITEM)
+	msgbox(format("You recieved the EXP Share! Toggle it in the Key Items menu"))
+	waitfanfare
+	waitmessage
 	playfanfare(MUS_OBTAIN_ITEM)
 	msgbox(format("You recieved the running shoes! Press B to dash."))
 	waitfanfare
