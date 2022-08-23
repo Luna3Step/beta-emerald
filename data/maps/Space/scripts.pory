@@ -47,9 +47,9 @@ script Space_Trigger_DeoxysInitiate {
 	delay(40)
 	waitmoncry
 	call(Space_Trigger_Screenshake)
-	setwildbattle(SPECIES_DEOXYS, 70, ITEM_NONE)
+	seteventmon(SPECIES_DEOXYS, 70, ITEM_NONE)
 	special(BattleSetup_StartLegendaryBattle)
-	dowildbattle
+	waitstate
 	specialvar(VAR_RESULT, GetBattleOutcome)
 	if(var(VAR_RESULT) == B_OUTCOME_CAUGHT){
 		call(Space_EventScript_DeoxysCaught)
