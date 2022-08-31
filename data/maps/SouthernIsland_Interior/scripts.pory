@@ -197,7 +197,7 @@ script SouthernIsland_Interior_EventScript_PlayerWon {
     waitmessage
     msgbox(format("Meowth: The twerp look's like they have some good pokemon on them?"))
     waitmessage
-    trainerbattle_double(TRAINER_TEAM_ROCKET, SouthernIsland_Interior_Text_RocketOpening, SouthernIsland_Interior_Text_RocketBeaten, SouthernIsland_Interior_Text_RocketNotEnoughPokemon, SouthernIsland_Interior_EventScript_TeamRocketPlayerWin)
+    trainerbattle_double(TRAINER_JESSIE_JAMES, SouthernIsland_Interior_Text_RocketOpening, SouthernIsland_Interior_Text_RocketBeaten, SouthernIsland_Interior_Text_RocketNotEnoughPokemon, SouthernIsland_Interior_EventScript_TeamRocketPlayerWin)
 	releaseall
 }
 

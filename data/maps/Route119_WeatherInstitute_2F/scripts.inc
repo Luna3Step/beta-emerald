@@ -391,7 +391,7 @@ Route119_WeatherInstitute_2F_EventScript_StevenNPC::
 	specialvar VAR_RESULT, CheckRayquazaParty
 	compare VAR_RESULT, TRUE
 	goto_if_eq Route119_WeatherInstitute_2F_EventScript_StevenNPC_2
-	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_10
+	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_8
 	releaseall
 Route119_WeatherInstitute_2F_EventScript_StevenNPC_1:
 	releaseall
@@ -414,37 +414,17 @@ Route119_WeatherInstitute_2F_EventScript_StevenNPC_2:
 	waitmessage
 	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_5
 	waitmessage
-	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_6, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Route119_WeatherInstitute_2F_EventScript_StevenNPC_5
-	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_9
-	setvar VAR_WEATHER_INSTITUTE_STATE, 1
-	setvar VAR_SKY_PILLAR_STATE, 4
-	setvar VAR_DEOXYS_STATE, 1
-	call Route119_WeatherInstitute_1F_EventScript_Normal
-	releaseall
-	goto Route119_WeatherInstitute_2F_EventScript_StevenNPC_1
-
-Route119_WeatherInstitute_2F_EventScript_StevenNPC_5:
+	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_6
+	waitmessage
 	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_7
 	waitmessage
 	applymovement OBJ_EVENT_ID_PLAYER, Route119_WeatherInstitute_2F_Movement_PlayerExit
-	delay 45
+	delay 15
 	applymovement 14, Route119_WeatherInstitute_2F_Movement_StevenExit
 	waitmovement 0
 	removeobject 14
-	setvar VAR_WEATHER_INSTITUTE_STATE, 1
-	setvar VAR_SKY_PILLAR_STATE, 4
-	setvar VAR_DEOXYS_STATE, 1
-	call Route119_WeatherInstitute_1F_EventScript_Normal
-	msgbox Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_8, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Route119_WeatherInstitute_2F_EventScript_StevenNPC_8
-	goto Route119_WeatherInstitute_2F_EventScript_StevenNPC_1
-
-Route119_WeatherInstitute_2F_EventScript_StevenNPC_8:
-	warp MAP_SKY_PILLAR_5F, 3, 2
-	releaseall
+	setflag FLAG_103_SWIMMERM
+	setflag FLAG_103_SWIMMERF
 	goto Route119_WeatherInstitute_2F_EventScript_StevenNPC_1
 
 
@@ -533,28 +513,21 @@ Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_4:
 	.string "took off to fight Kyogre and Groudon.$"
 
 Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_5:
-	.string "I think the anomoly is a pokemon and\n"
-	.string "that's why I need Rayquaza, it's one of\l"
-	.string "the only pokemon able to enter the\l"
-	.string "atmosphere.$"
+	.string "However we noticed some other smaller\n"
+	.string "datapoints that look like they split\l"
+	.string "off from the big one, they generally\l"
+	.string "match previous recordings of meteors.$"
 
 Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_6:
-	.string "What do you say? Think you can offer\n"
-	.string "your help once more?$"
+	.string "There are four that landed in the Hoenn\n"
+	.string "region. We only have one exact location\l"
+	.string "and that's in Route 103.$"
 
 Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_7:
-	.string "Brilliant! Meet me at the top of Sky\n"
-	.string "Pillar where you caught Rayquaza$"
+	.string "If you can offer your assistance, meet\n"
+	.string "me there.$"
 
 Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_8:
-	.string "Do you wish to fast travel to Sky Pillar\n"
-	.string "5F?$"
-
-Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_9:
-	.string "If you change your mind, meet me at Sky\n"
-	.string "Pillar.$"
-
-Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_10:
 	.string "You are probably going to need\n"
 	.string "Rayquaza for this, please talk to me\l"
 	.string "when you have them.$"

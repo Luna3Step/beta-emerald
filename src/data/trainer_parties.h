@@ -13760,3 +13760,27 @@ static const struct TrainerMon sParty_RocketJessieJames[] = {
     .ability = ABILITY_SLOT_1
     },
 };
+
+static const struct TrainerMon sParty_RocketJewel[] = {
+    {
+    .iv = 255,
+    .lvl = 60,
+    .species = SPECIES_RATICATE,
+    .moves = {MOVE_FACADE, MOVE_STOMPING_TANTRUM, MOVE_SUCKER_PUNCH, MOVE_U_TURN},
+    .ability = ABILITY_SLOT_1
+    },
+    {
+    .iv = 255,
+    .lvl = 55,
+    .species = SPECIES_APPLETUN,
+    .moves = {MOVE_DRACO_METEOR, MOVE_DRAGON_PULSE, MOVE_APPLE_ACID, MOVE_GIGA_DRAIN},
+    .ability = ABILITY_SLOT_1
+    },
+    {
+    .iv = 255,
+    .lvl = 60,
+    .species = SPECIES_MUK,
+    .moves = {MOVE_CURSE, MOVE_POISON_JAB, MOVE_REST, MOVE_SLEEP_TALK},
+    .ability = ABILITY_SLOT_1
+    },
+};

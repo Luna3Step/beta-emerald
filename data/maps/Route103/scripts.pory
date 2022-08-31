@@ -373,3 +373,19 @@ script Route103_Pidgeotite {
         releaseall
 	}
 }
+
+script Route103_EventScript_FemaleSwimmerBlock {
+	lockall
+	faceplayer
+	msgbox(format("It's always pretty cool in the water"))
+	waitmessage
+	releaseall
+}
+
+script Route103_EventScript_MaleSwimmerBlock {
+	lockall
+	faceplayer
+	msgbox(format("I'm pretty confident in my swimming capabilities."))
+	waitmessage
+	releaseall
+}

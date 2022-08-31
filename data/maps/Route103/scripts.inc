@@ -371,5 +371,30 @@ Route103_Pidgeotite_1:
 	end
 
 
+Route103_EventScript_FemaleSwimmerBlock::
+	lockall
+	faceplayer
+	msgbox Route103_EventScript_FemaleSwimmerBlock_Text_0
+	waitmessage
+	releaseall
+	return
+
+
+Route103_EventScript_MaleSwimmerBlock::
+	lockall
+	faceplayer
+	msgbox Route103_EventScript_MaleSwimmerBlock_Text_0
+	waitmessage
+	releaseall
+	return
+
+
 Route103_Pidgeotite_Text_0:
 	.string "You found a Pidgeotite!$"
+
+Route103_EventScript_FemaleSwimmerBlock_Text_0:
+	.string "It's always pretty cool in the water$"
+
+Route103_EventScript_MaleSwimmerBlock_Text_0:
+	.string "I'm pretty confident in my swimming\n"
+	.string "capabilities.$"

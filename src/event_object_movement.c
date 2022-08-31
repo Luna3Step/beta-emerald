@@ -442,6 +442,7 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_VENUSAUR_STATUE             0x1129
 #define OBJ_EVENT_PAL_JESSIE                      0x112A
 #define OBJ_EVENT_PAL_JAMES                       0x112B
+#define OBJ_EVENT_PAL_ROCKET                      0x112C
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
 
@@ -501,6 +502,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Venusaur_Statue,   OBJ_EVENT_PAL_VENUSAUR_STATUE},
     {gObjectEventPalette_Jessie,            OBJ_EVENT_PAL_JESSIE},
     {gObjectEventPalette_James,             OBJ_EVENT_PAL_JAMES},
+    {gObjectEventPalette_Rocket,            OBJ_EVENT_PAL_ROCKET},
     {},
 };
 

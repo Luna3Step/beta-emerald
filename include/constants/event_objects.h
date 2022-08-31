@@ -249,9 +249,11 @@
 #define OBJ_EVENT_GFX_PIKACHU_STATUE             245
 #define OBJ_EVENT_GFX_JESSIE                     246
 #define OBJ_EVENT_GFX_JAMES                      247
+#define OBJ_EVENT_GFX_ROCKET_M                   248
+#define OBJ_EVENT_GFX_ROCKET_F                   249
 
-#define NUM_OBJ_EVENT_GFX                        248
-#define NUM_REGULAR_OBJ_EVENT_GFX                248
+#define NUM_OBJ_EVENT_GFX                        250
+#define NUM_REGULAR_OBJ_EVENT_GFX                250
 
 #define species_gfx(species) ((species + (NUM_REGULAR_OBJ_EVENT_GFX - 1)))
 

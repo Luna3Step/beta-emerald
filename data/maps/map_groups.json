@@ -448,7 +448,8 @@
     "BlisseyFarm_70",
     "BlisseyFarm_80",
     "BlisseyFarm_90",
-    "BlisseyFarm_100"
+    "BlisseyFarm_100",
+    "Route103_CrashSite"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

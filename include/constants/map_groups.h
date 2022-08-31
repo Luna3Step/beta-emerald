@@ -418,6 +418,7 @@
 #define MAP_BLISSEY_FARM_80                          (120 | (24 << 8))
 #define MAP_BLISSEY_FARM_90                          (121 | (24 << 8))
 #define MAP_BLISSEY_FARM_100                         (122 | (24 << 8))
+#define MAP_ROUTE103_CRASH_SITE                      (123 | (24 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (25 << 8))

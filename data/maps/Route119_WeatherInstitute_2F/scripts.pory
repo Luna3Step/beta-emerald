@@ -401,35 +401,46 @@ script Route119_WeatherInstitute_2F_EventScript_StevenNPC {
         waitmessage
         msgbox(format("This data is from the moment Rayquaza took off to fight Kyogre and Groudon."))
         waitmessage
-        msgbox(format("I think the anomoly is a pokemon and that's why I need Rayquaza, it's one of the only pokemon able to enter the atmosphere."))
-        waitmessage
-        msgbox(format("What do you say? Think you can offer your help once more?"), MSGBOX_YESNO)
-        if(var(VAR_RESULT) == YES){
-            msgbox(format("Brilliant! Meet me at the top of Sky Pillar where you caught Rayquaza"))
-			waitmessage
-            applymovement(OBJ_EVENT_ID_PLAYER, Route119_WeatherInstitute_2F_Movement_PlayerExit)
-            delay(45)
-            applymovement(14, Route119_WeatherInstitute_2F_Movement_StevenExit)
-			waitmovement(0)
-            removeobject(14)
-            setvar(VAR_WEATHER_INSTITUTE_STATE, 1)
-            setvar(VAR_SKY_PILLAR_STATE, 4)
-			setvar(VAR_DEOXYS_STATE, 1)
-            call(Route119_WeatherInstitute_1F_EventScript_Normal)
-            msgbox(format("Do you wish to fast travel to Sky Pillar 5F?"), MSGBOX_YESNO)
-            if(var(VAR_RESULT) == YES){
-                warp(MAP_SKY_PILLAR_5F, 3, 2)
-                releaseall
-            }
-        }
-        else{
-            msgbox(format("If you change your mind, meet me at Sky Pillar."))
-            setvar(VAR_WEATHER_INSTITUTE_STATE, 1)
-            setvar(VAR_SKY_PILLAR_STATE, 4)
-			setvar(VAR_DEOXYS_STATE, 1)
-            call(Route119_WeatherInstitute_1F_EventScript_Normal)
-            releaseall
-        }
+		msgbox(format("However we noticed some other smaller datapoints that look like they split off from the big one, they generally match previous recordings of meteors."))
+		waitmessage
+		msgbox(format("There are four that landed in the Hoenn region. We only have one exact location and that's in Route 103. "))
+		waitmessage
+		msgbox(format("If you can offer your assistance, meet me there."))
+		waitmessage
+		applymovement(OBJ_EVENT_ID_PLAYER, Route119_WeatherInstitute_2F_Movement_PlayerExit)
+        delay(15)
+        applymovement(14, Route119_WeatherInstitute_2F_Movement_StevenExit)
+		waitmovement(0)
+        removeobject(14)
+		setflag(FLAG_103_SWIMMERM)
+		setflag(FLAG_103_SWIMMERF)
+        // msgbox(format("What do you say? Think you can offer your help once more?"), MSGBOX_YESNO)
+        // if(var(VAR_RESULT) == YES){
+        //     msgbox(format("Brilliant! Meet me at the top of Sky Pillar where you caught Rayquaza"))
+		// 	waitmessage
+        //     applymovement(OBJ_EVENT_ID_PLAYER, Route119_WeatherInstitute_2F_Movement_PlayerExit)
+        //     delay(45)
+        //     applymovement(14, Route119_WeatherInstitute_2F_Movement_StevenExit)
+		// 	waitmovement(0)
+        //     removeobject(14)
+        //     setvar(VAR_WEATHER_INSTITUTE_STATE, 1)
+        //     setvar(VAR_SKY_PILLAR_STATE, 4)
+		// 	setvar(VAR_DEOXYS_STATE, 1)
+        //     call(Route119_WeatherInstitute_1F_EventScript_Normal)
+        //     msgbox(format("Do you wish to fast travel to Sky Pillar 5F?"), MSGBOX_YESNO)
+        //     if(var(VAR_RESULT) == YES){
+        //         warp(MAP_SKY_PILLAR_5F, 3, 2)
+        //         releaseall
+        //     }
+        // }
+        // else{
+        //     msgbox(format("If you change your mind, meet me at Sky Pillar."))
+        //     setvar(VAR_WEATHER_INSTITUTE_STATE, 1)
+        //     setvar(VAR_SKY_PILLAR_STATE, 4)
+		// 	setvar(VAR_DEOXYS_STATE, 1)
+        //     call(Route119_WeatherInstitute_1F_EventScript_Normal)
+        //     releaseall
+        // }
     } 
 	else{
     msgbox(format("You are probably going to need Rayquaza for this, please talk to me when you have them."))

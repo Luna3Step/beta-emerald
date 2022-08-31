@@ -538,3 +538,4 @@ gSpecials::
 	def_special SetTotemBoost
 	def_special CheckMewtwoParty
 	def_special CheckRayquazaParty
+	def_special TryChangeDeoxysForm

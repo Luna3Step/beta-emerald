@@ -1057,6 +1057,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
 	.include "data/scripts/script_debug_menu.inc"
+	.include "data/scripts/change_deoxys_form.inc"
 
 	.include "data/maps/NewBirchLab/scripts.inc"
 
@@ -1093,3 +1094,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/BlisseyFarm_90/scripts.inc"
 
 	.include "data/maps/BlisseyFarm_100/scripts.inc"
+
+	.include "data/maps/Route103_CrashSite/scripts.inc"

@@ -12065,7 +12065,7 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_StaffLuna),
         .party = {.TrainerMon = sParty_StaffLuna},
     },
-    [TRAINER_TEAM_ROCKET] =
+    [TRAINER_JESSIE_JAMES] =
     {
         
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET,
@@ -12077,5 +12077,18 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .partySize = ARRAY_COUNT(sParty_RocketJessieJames),
         .party = {.TrainerMon = sParty_RocketJessieJames},
+    },
+    [TRAINER_JEWEL] =
+    {
+        
+        .trainerClass = TRAINER_CLASS_TEAM_ROCKET,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_ROCKET_F,
+        .trainerName = _("JEWEL"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING,
+        .partySize = ARRAY_COUNT(sParty_RocketJewel),
+        .party = {.TrainerMon = sParty_RocketJewel},
     },
 };

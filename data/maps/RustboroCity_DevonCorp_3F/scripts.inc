@@ -165,7 +165,7 @@ RustboroCity_DevonCorp_3F_EventScript_GiveExpShare::
 	giveitem ITEM_SALAMENCITE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_SALAMENCITE
-	msgbox RustboroCity_DevonCorp_3F_Text_ExplainExpShare, MSGBOX_DEFAULT
+	msgbox RustboroCity_DevonCorp_3F_Text_Salamancite, MSGBOX_DEFAULT
 	closemessage
 	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
@@ -306,3 +306,7 @@ RustboroCity_DevonCorp_3F_Text_RareRocksDisplay:
 	.string "It's a collection of rare rocks and\n"
 	.string "stones assembled by the PRESIDENT.$"
 
+RustboroCity_DevonCorp_3F_Text_Salamancite::
+	.string "Here take this, it won't be of much use\n"
+	.string "to you right now but I'm sure you will\l"
+	.string "appreciate it down the line$"

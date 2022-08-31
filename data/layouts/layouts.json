@@ -3024,8 +3024,8 @@
     {
       "id": "LAYOUT_MT_PYRE_SUMMIT",
       "name": "MtPyre_Summit_Layout",
-      "width": 50,
-      "height": 37,
+      "width": 80,
+      "height": 47,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/MtPyre_Summit/border.bin",
@@ -4590,6 +4590,16 @@
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/BlisseyFarm_100/border.bin",
       "blockdata_filepath": "data/layouts/BlisseyFarm_100/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE103_CRASH_SITE",
+      "name": "Route103_CrashSite_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Route103_CrashSite/border.bin",
+      "blockdata_filepath": "data/layouts/Route103_CrashSite/map.bin"
     }
   ]
 }

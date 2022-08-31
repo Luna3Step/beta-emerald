@@ -641,5 +641,31 @@ MtPyre_Summit_Sablenite_1:
 	end
 
 
+MtPyre_Summit_EventScript_GruntJewel::
+	lockall
+	msgbox MtPyre_Summit_EventScript_GruntJewel_Text_0
+	waitmessage
+	msgbox MtPyre_Summit_EventScript_GruntJewel_Text_1
+	waitmessage
+	trainerbattle_single TRAINER_JEWEL, MtPyre_Summit_Text_JewelIntro, MtPyre_Summit_Text_JewelOutro
+	setflag FLAG_PYRE_JEWEL
+	releaseall
+	return
+
+
 MtPyre_Summit_Sablenite_Text_0:
 	.string "You found a Sablenite!$"
+
+MtPyre_Summit_EventScript_GruntJewel_Text_0:
+	.string "You won't get this rock!$"
+
+MtPyre_Summit_EventScript_GruntJewel_Text_1:
+	.string "It is the rightful property of Team\n"
+	.string "Rocket!$"
+
+MtPyre_Summit_Text_JewelIntro::
+	.string "I'll show you how we deal with types like\n"
+	.string "you!$"
+
+MtPyre_Summit_Text_JewelOutro::
+	.string "I can't believe this.$"

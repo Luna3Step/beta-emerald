@@ -1,0 +1,50 @@
+script Route103_CrashSite_MapScripts {
+    
+}
+
+script Route103_CrashSite_EventScript_Steven {
+    lockall
+    faceplayer
+    msgbox(format("I see you've arrived {PLAYER}."))
+    waitmessage
+    msgbox(format("I got here just a moment ago, this meteor is very fascinating."))
+    waitmessage
+    msgbox(format("Even though it had a rough entry through the atmosphere, it's still in one piece and look around, this barely constitutes a crash site."))
+    waitmessage
+    msgbox(format("It's easy to say that this is an unusual meteor. "))
+    waitmessage
+    applymovement(1, Common_Movement_QuestionMark)
+    waitmovement(0)
+    msgbox(format("Let me just take this."))
+    applymovement(1, Route103_CrashSite_Movement_StevenPhoneCall)
+    waitmovement(0)
+    msgbox(format("Hi dad, to what do I owe the pleasure?"))
+    waitmessage
+    msgbox(format("..."))
+    waitmessage
+    msgbox(format("Mt. Pyre you say?"))
+    waitmessage
+    msgbox(format("..."))
+    waitmessage
+    msgbox(format("Okay, I'll send someone there."))
+    waitmessage
+    faceplayer
+    msgbox(format("They've found the other meteor, according to the data, this one was incredibly fast but has left next to nothing for a crash site so it's harder to find."))
+    waitmessage
+    msgbox(format("You should head upto Mt.Pyre, it's somewhere along the east side of it."))
+    waitmessage
+    msgbox(format("My dad will meet you there, he couldn't hold himself back when stones were mentioned."))
+    waitmessage
+    releaseall
+}
+
+script Route103_CrashSite_EventScript_Meteor {
+    lockall
+    msgbox(format("It's just a standard Meteor."))
+    waitmessage
+    releaseall
+}
+
+movement Route103_CrashSite_Movement_StevenPhoneCall {
+    face_away_player
+}
