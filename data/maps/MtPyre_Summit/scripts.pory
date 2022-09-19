@@ -15,6 +15,7 @@ MtPyre_Summit_OnTransition:
 	call_if_eq VAR_MT_PYRE_STATE, 2, MtPyre_Summit_EventScript_SetArchieMaxiePositions
 	call_if_eq VAR_PYRE_DEOXYS, 0, MtPyre_Summit_EventScript_RemoveEvent
 	call_if_eq VAR_PYRE_DEOXYS, 1, MtPyre_Summit_EventScript_AddEvent
+	call_if_eq VAR_PYRE_DEOXYS, 2, MtPyre_Summit_EventScript_BeatenRocket
 	end
 
 MtPyre_Summit_EventScript_SetArchieMaxiePositions::
@@ -732,6 +733,13 @@ script MtPyre_Summit_EventScript_ClearRocket {
 	releaseall
 }
 
+script MtPyre_Summit_EventScript_BeatenRocket {
+	setflag(11)
+	setflag(12)
+	setflag(13)
+	setflag(14)
+}
+
 script MtPyre_Summit_EventScript_Stone {
 	lockall
 	faceplayer
@@ -776,6 +784,7 @@ script MtPyre_Summit_EventScript_Scientist {
 		waitmessage
 		// fadescreen(FADE_TO_BLACK)
 		applymovement(16, Movement_ScientistTakePositionPlease)
+		setvar(VAR_PYRE_DEOXYS, 2)
 		// setflag(FLAG_SUMMIT_SCIENTIST_HIDING)
 		// removeobject(16)
 		// addobject(17)
