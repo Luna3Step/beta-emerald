@@ -12,6 +12,8 @@ MtPyre_Summit_MapScripts::
 
 MtPyre_Summit_OnTransition:
 	call_if_eq VAR_MT_PYRE_STATE, 2, MtPyre_Summit_EventScript_SetArchieMaxiePositions
+	call_if_eq VAR_PYRE_DEOXYS, 0, MtPyre_Summit_EventScript_RemoveEvent
+	call_if_eq VAR_PYRE_DEOXYS, 1, MtPyre_Summit_EventScript_AddEvent
 	end
 
 MtPyre_Summit_EventScript_SetArchieMaxiePositions::
@@ -641,6 +643,44 @@ MtPyre_Summit_Sablenite_1:
 	end
 
 
+MtPyre_Summit_EventScript_RemoveEvent::
+	removeobject 10
+	setflag FLAG_PYRE_METEOR
+	removeobject 11
+	setflag FLAG_PYRE_JEWEL
+	removeobject 12
+	setflag FLAG_PYRE_BILL
+	removeobject 13
+	setflag FLAG_PYRE_LIL
+	removeobject 14
+	setflag FLAG_PYRE_TERRELL
+	removeobject 15
+	setflag FLAG_PYRE_STONE
+	removeobject 16
+	setflag FLAG_SUMMIT_SCIENTIST_HIDING
+	setflag FLAG_SUMMIT_SCIENTIST_METEOR
+	removeobject 17
+	return
+
+
+MtPyre_Summit_EventScript_AddEvent::
+	clearflag FLAG_PYRE_METEOR
+	clearflag FLAG_PYRE_JEWEL
+	clearflag FLAG_PYRE_BILL
+	clearflag FLAG_PYRE_LIL
+	clearflag FLAG_PYRE_TERRELL
+	clearflag FLAG_PYRE_STONE
+	clearflag FLAG_SUMMIT_SCIENTIST_HIDING
+	setflag FLAG_SUMMIT_SCIENTIST_METEOR
+	removeobject 17
+	return
+
+
+MtPyre_Summit_EventScript_FuckYouScientist::
+	removeobject 17
+	return
+
+
 MtPyre_Summit_EventScript_GruntJewel::
 	lockall
 	msgbox MtPyre_Summit_EventScript_GruntJewel_Text_0
@@ -648,10 +688,123 @@ MtPyre_Summit_EventScript_GruntJewel::
 	msgbox MtPyre_Summit_EventScript_GruntJewel_Text_1
 	waitmessage
 	trainerbattle_single TRAINER_JEWEL, MtPyre_Summit_Text_JewelIntro, MtPyre_Summit_Text_JewelOutro
-	setflag FLAG_PYRE_JEWEL
 	releaseall
 	return
 
+
+MtPyre_Summit_EventScript_GruntBill::
+	lockall
+	msgbox MtPyre_Summit_EventScript_GruntBill_Text_0
+	waitmessage
+	trainerbattle_single TRAINER_ROCKET_BILL, MtPyre_Summit_Text_BillIntro, MtPyre_Summit_Text_BillOutro, MtPyre_Summit_EventScript_FuckYouScientist
+	releaseall
+	return
+
+
+MtPyre_Summit_EventScript_GruntLil::
+	lockall
+	msgbox MtPyre_Summit_EventScript_GruntLil_Text_0
+	waitmessage
+	trainerbattle_single TRAINER_ROCKET_LIL, MtPyre_Summit_Text_LilIntro, MtPyre_Summit_Text_LilOutro
+	releaseall
+	return
+
+
+MtPyre_Summit_EventScript_GruntTerrell::
+	lockall
+	trainerbattle_single TRAINER_ROCKET_TERREL, MtPyre_Summit_Text_TerrellIntro, MtPyre_Summit_Text_TerrellOutro, MtPyre_Summit_EventScript_ClearRocket
+	releaseall
+	return
+
+
+MtPyre_Summit_EventScript_ClearRocket::
+	msgbox MtPyre_Summit_EventScript_ClearRocket_Text_0
+	waitmessage
+	fadescreen FADE_TO_BLACK
+	removeobject 11
+	removeobject 12
+	removeobject 13
+	removeobject 14
+	goto_if_set FLAG_PYRE_FOUND_SCIENTIST, MtPyre_Summit_EventScript_ClearRocket_2
+MtPyre_Summit_EventScript_ClearRocket_1:
+	delay 30
+	fadescreen FADE_FROM_BLACK
+	releaseall
+	return
+
+MtPyre_Summit_EventScript_ClearRocket_2:
+	setflag FLAG_SUMMIT_SCIENTIST_HIDING
+	removeobject 16
+	clearflag FLAG_SUMMIT_SCIENTIST_METEOR
+	addobject 17
+	goto MtPyre_Summit_EventScript_ClearRocket_1
+
+
+MtPyre_Summit_EventScript_Stone::
+	lockall
+	faceplayer
+	setflag FLAG_RESCUED_STONE
+	msgbox MtPyre_Summit_EventScript_Stone_Text_0
+	waitmessage
+	msgbox MtPyre_Summit_EventScript_Stone_Text_1
+	waitmessage
+	msgbox MtPyre_Summit_EventScript_Stone_Text_2
+	waitmessage
+	msgbox MtPyre_Summit_EventScript_Stone_Text_3
+	waitmessage
+	msgbox MtPyre_Summit_EventScript_Stone_Text_4
+	return
+
+
+MtPyre_Summit_EventScript_Scientist::
+	lockall
+	faceplayer
+	goto_if_set FLAG_RESCUED_STONE, MtPyre_Summit_EventScript_Scientist_1
+	setflag FLAG_PYRE_FOUND_SCIENTIST
+	msgbox MtPyre_Summit_EventScript_Scientist_Text_2
+	waitmessage
+	msgbox MtPyre_Summit_EventScript_Scientist_Text_3
+	waitmessage
+	releaseall
+	return
+
+MtPyre_Summit_EventScript_Scientist_1:
+	setflag FLAG_PYRE_FOUND_SCIENTIST
+	msgbox MtPyre_Summit_EventScript_Scientist_Text_0
+	waitmessage
+	msgbox MtPyre_Summit_EventScript_Scientist_Text_1
+	waitmessage
+	applymovement 16, Movement_ScientistTakePositionPlease
+	releaseall
+	return
+
+
+MtPyre_Summit_EventScript_ScientistMeteor::
+	lockall
+	faceplayer
+	msgbox MtPyre_Summit_EventScript_ScientistMeteor_Text_0
+	waitmessage
+	msgbox MtPyre_Summit_EventScript_ScientistMeteor_Text_1
+	waitmessage
+	msgbox MtPyre_Summit_EventScript_ScientistMeteor_Text_2
+	waitmessage
+	applymovement 17, Common_Movement_QuestionMark
+	waitmovement 0
+	msgbox MtPyre_Summit_EventScript_ScientistMeteor_Text_3
+	waitmessage
+	msgbox MtPyre_Summit_EventScript_ScientistMeteor_Text_4
+	waitmessage
+	msgbox MtPyre_Summit_EventScript_ScientistMeteor_Text_5
+	waitmessage
+	releaseall
+	return
+
+
+Movement_ScientistTakePositionPlease:
+	walk_down
+	walk_down
+	walk_down
+	step_end
 
 MtPyre_Summit_Sablenite_Text_0:
 	.string "You found a Sablenite!$"
@@ -662,6 +815,115 @@ MtPyre_Summit_EventScript_GruntJewel_Text_0:
 MtPyre_Summit_EventScript_GruntJewel_Text_1:
 	.string "It is the rightful property of Team\n"
 	.string "Rocket!$"
+
+MtPyre_Summit_EventScript_GruntBill_Text_0:
+	.string "Team Rocket is investigating here.$"
+
+MtPyre_Summit_EventScript_GruntLil_Text_0:
+	.string "Huh? Is that a person I see?$"
+
+MtPyre_Summit_EventScript_ClearRocket_Text_0:
+	.string "Boss won't be happy to hear this.$"
+
+MtPyre_Summit_EventScript_Stone_Text_0:
+	.string "Mr. Stone: Thank goodness you cleared\n"
+	.string "out those ruffians, they were trying\l"
+	.string "to steal this meteor here.$"
+
+MtPyre_Summit_EventScript_Stone_Text_1:
+	.string "The second I heard that some strange\n"
+	.string "meteors had landed in Hoenn, I just\l"
+	.string "couldn't resist coming out to see them\l"
+	.string "myself.$"
+
+MtPyre_Summit_EventScript_Stone_Text_2:
+	.string "But when I arrived, these brutes calling\n"
+	.string "themselves 'Team Rocket' were here and\l"
+	.string "they quickly took control of the site.$"
+
+MtPyre_Summit_EventScript_Stone_Text_3:
+	.string "Thankfully you cleared them out pretty\n"
+	.string "quickly, I just hope that's the last we\l"
+	.string "will hear of them for the foreseeable\l"
+	.string "future$"
+
+MtPyre_Summit_EventScript_Stone_Text_4:
+	.string "Talk to the scientist next to me for\n"
+	.string "some more details on the meteor.$"
+
+MtPyre_Summit_EventScript_Scientist_Text_0:
+	.string "Oh thank goodness Mr.Stone is safe,\n"
+	.string "when I saw those Team Rocket people, I\l"
+	.string "ran as soon as I could.$"
+
+MtPyre_Summit_EventScript_Scientist_Text_1:
+	.string "I just hope Mr.Stone doesn't mind that\n"
+	.string "I ran off without helping him.$"
+
+MtPyre_Summit_EventScript_Scientist_Text_2:
+	.string "Oh thank goodness you are here, those\n"
+	.string "Team Rocket fellows have taken over\l"
+	.string "the whole area, it's a disaster, they\l"
+	.string "have even got Mr. Stone.$"
+
+MtPyre_Summit_EventScript_Scientist_Text_3:
+	.string "I refuse to move from this spot until\n"
+	.string "those brute's are gone, no way am I\l"
+	.string "being kidnapped today.$"
+
+MtPyre_Summit_EventScript_ScientistMeteor_Text_0:
+	.string "Thank you for saving us, those team\n"
+	.string "rocket thugs were terrifying.$"
+
+MtPyre_Summit_EventScript_ScientistMeteor_Text_1:
+	.string "This meteor is very interesting.\n"
+	.string "Comparing the data from Steven, they\l"
+	.string "seem to have been a part of the same\l"
+	.string "meteor at some point. It's also\l"
+	.string "emitting a wave of some sort but my\l"
+	.string "tool's aren't giving me much on it.$"
+
+MtPyre_Summit_EventScript_ScientistMeteor_Text_2:
+	.string "I hope to get a better look with the lab\n"
+	.string "tech once it's transported back.$"
+
+MtPyre_Summit_EventScript_ScientistMeteor_Text_3:
+	.string "...$"
+
+MtPyre_Summit_EventScript_ScientistMeteor_Text_4:
+	.string "I just got some more information from\n"
+	.string "the Weather Institute. With the data\l"
+	.string "from these two meteors, they are able\l"
+	.string "to roughly calculate the trajectory of\l"
+	.string "the other meteors.$"
+
+MtPyre_Summit_EventScript_ScientistMeteor_Text_5:
+	.string "They say to check inbetween\n"
+	.string "Verdanturf town and Rustboro city.\l"
+	.string "They'll double check the math's on the\l"
+	.string "final meteor and then send you the\l"
+	.string "location for it.$"
+
+MtPyre_Summit_Text_BillIntro::
+	.string "You'll be sorry for interrupting!$"
+
+MtPyre_Summit_Text_BillOutro::
+	.string "Oh, what will the boss say.$"
+
+MtPyre_Summit_Text_TerrellIntro::
+	.string "Boss wants this old man, best be on your\n"
+	.string "way if you don't wish to be losing those\l"
+	.string "pokemon of yours!$"
+
+MtPyre_Summit_Text_TerrellOutro::
+	.string "This isn't good.$"
+
+MtPyre_Summit_Text_LilIntro::
+	.string "What is the guard doing?!$"
+
+MtPyre_Summit_Text_LilOutro::
+	.string "How did you beat me? This shouldn't be\n"
+	.string "possible$"
 
 MtPyre_Summit_Text_JewelIntro::
 	.string "I'll show you how we deal with types like\n"

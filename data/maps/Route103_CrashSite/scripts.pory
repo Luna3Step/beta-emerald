@@ -34,6 +34,8 @@ script Route103_CrashSite_EventScript_Steven {
     msgbox(format("You should head upto Mt.Pyre, it's somewhere along the east side of it."))
     waitmessage
     msgbox(format("My dad will meet you there, he couldn't hold himself back when stones were mentioned."))
+    setflag(FLAG_103_TALKED_STEVEN)
+    setvar(VAR_PYRE_DEOXYS, 1)
     waitmessage
     releaseall
 }

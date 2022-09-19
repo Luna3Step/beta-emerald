@@ -34,6 +34,8 @@ Route103_CrashSite_EventScript_Steven::
 	msgbox Route103_CrashSite_EventScript_Steven_Text_10
 	waitmessage
 	msgbox Route103_CrashSite_EventScript_Steven_Text_11
+	setflag FLAG_103_TALKED_STEVEN
+	setvar VAR_PYRE_DEOXYS, 1
 	waitmessage
 	releaseall
 	return

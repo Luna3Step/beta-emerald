@@ -13,6 +13,8 @@ MtPyre_Summit_MapScripts::
 
 MtPyre_Summit_OnTransition:
 	call_if_eq VAR_MT_PYRE_STATE, 2, MtPyre_Summit_EventScript_SetArchieMaxiePositions
+	call_if_eq VAR_PYRE_DEOXYS, 0, MtPyre_Summit_EventScript_RemoveEvent
+	call_if_eq VAR_PYRE_DEOXYS, 1, MtPyre_Summit_EventScript_AddEvent
 	end
 
 MtPyre_Summit_EventScript_SetArchieMaxiePositions::
@@ -643,6 +645,42 @@ script MtPyre_Summit_Sablenite{
 	}
 }
 
+script MtPyre_Summit_EventScript_RemoveEvent {
+	removeobject(10)
+	setflag(FLAG_PYRE_METEOR)
+	removeobject(11)
+	setflag(FLAG_PYRE_JEWEL)
+	removeobject(12)
+	setflag(FLAG_PYRE_BILL)
+	removeobject(13)
+	setflag(FLAG_PYRE_LIL)
+	removeobject(14)
+	setflag(FLAG_PYRE_TERRELL)
+	removeobject(15)
+	setflag(FLAG_PYRE_STONE)
+	removeobject(16)
+	setflag(FLAG_SUMMIT_SCIENTIST_HIDING)
+	setflag(FLAG_SUMMIT_SCIENTIST_METEOR)
+	removeobject(17)
+}
+
+script MtPyre_Summit_EventScript_AddEvent {
+	clearflag(FLAG_PYRE_METEOR)
+	clearflag(FLAG_PYRE_JEWEL)
+	clearflag(FLAG_PYRE_BILL)
+	clearflag(FLAG_PYRE_LIL)
+	clearflag(FLAG_PYRE_TERRELL)
+	clearflag(FLAG_PYRE_STONE)
+	clearflag(FLAG_SUMMIT_SCIENTIST_HIDING)
+	setflag(FLAG_SUMMIT_SCIENTIST_METEOR)
+	removeobject(17)
+}
+
+script MtPyre_Summit_EventScript_FuckYouScientist {
+	removeobject(17)
+}
+
+
 script MtPyre_Summit_EventScript_GruntJewel{
 	lockall
 	msgbox(format("You won't get this rock!"))
@@ -650,8 +688,157 @@ script MtPyre_Summit_EventScript_GruntJewel{
 	msgbox(format("It is the rightful property of Team Rocket!"))
 	waitmessage
 	trainerbattle_single(TRAINER_JEWEL, MtPyre_Summit_Text_JewelIntro, MtPyre_Summit_Text_JewelOutro)
-	setflag(FLAG_PYRE_JEWEL)
 	releaseall
+}
+
+script MtPyre_Summit_EventScript_GruntBill{
+	lockall
+	msgbox(format("Team Rocket is investigating here."))
+	waitmessage
+	trainerbattle_single(TRAINER_ROCKET_BILL, MtPyre_Summit_Text_BillIntro, MtPyre_Summit_Text_BillOutro)
+	releaseall
+}
+
+script MtPyre_Summit_EventScript_GruntLil{
+	lockall
+	msgbox(format("Huh? Is that a person I see?"))
+	waitmessage
+	trainerbattle_single(TRAINER_ROCKET_LIL, MtPyre_Summit_Text_LilIntro, MtPyre_Summit_Text_LilOutro)
+	releaseall
+}
+
+script MtPyre_Summit_EventScript_GruntTerrell{
+	lockall
+	trainerbattle_single(TRAINER_ROCKET_TERREL, MtPyre_Summit_Text_TerrellIntro, MtPyre_Summit_Text_TerrellOutro, MtPyre_Summit_EventScript_ClearRocket)
+	releaseall
+}
+
+script MtPyre_Summit_EventScript_ClearRocket {
+	msgbox(format("Boss won't be happy to hear this."))
+	waitmessage
+	fadescreen(FADE_TO_BLACK)
+	removeobject(11)
+	removeobject(12)
+	removeobject(13)
+	removeobject(14)
+	if(flag(FLAG_PYRE_FOUND_SCIENTIST)){
+		setflag(FLAG_SUMMIT_SCIENTIST_HIDING)
+		removeobject(16)
+		clearflag(FLAG_SUMMIT_SCIENTIST_METEOR)
+		addobject(17)
+	}
+	delay(30)
+	fadescreen(FADE_FROM_BLACK)
+	releaseall
+}
+
+script MtPyre_Summit_EventScript_Stone {
+	lockall
+	faceplayer
+	setflag(FLAG_RESCUED_STONE)
+	msgbox(format("Mr. Stone: Thank goodness you cleared out those ruffians, they were trying to steal this meteor here."))
+	waitmessage
+	msgbox(format("The second I heard that some strange meteors had landed in Hoenn, I just couldn't resist coming out to see them myself."))
+	waitmessage
+	msgbox(format("But when I arrived, these brutes calling themselves 'Team Rocket' were here and they quickly took control of the site."))
+	waitmessage
+	msgbox(format("Thankfully you cleared them out pretty quickly, I just hope that's the last we will hear of them for the foreseeable future"))
+	waitmessage
+	msgbox(format("Talk to the scientist next to me for some more details on the meteor."))
+	waitmessage
+	releaseall
+	// if(flag(FLAG_PYRE_FOUND_SCIENTIST)){
+	// 	msgbox(format("I see you have already found the scientist I bought with me, talk to him to learn about the meteor, I'll just be over here admiring it's beauty."))
+	// 	waitmessage
+	// 	fadescreen(FADE_TO_BLACK)
+	// 	setflag(FLAG_SUMMIT_SCIENTIST_HIDING)
+	// 	removeobject(16)
+	// 	addobject(17)
+	// 	delay(30)
+	// 	fadescreen(FADE_FROM_BLACK)
+	// 	releaseall
+	// }
+	// else{
+	// 	msgbox(format("I bought my own scientist with me yet he seem's to have scampered off, he should be able to inform you more about the meteor if you can find him."))
+	// 	waitmessage
+	// 	releaseall
+	// }
+}
+
+script MtPyre_Summit_EventScript_Scientist {
+	lockall
+	faceplayer
+	if(flag(FLAG_RESCUED_STONE)){
+		setflag(FLAG_PYRE_FOUND_SCIENTIST)
+		msgbox(format("Oh thank goodness Mr.Stone is safe, when I saw those Team Rocket people, I ran as soon as I could."))
+		waitmessage
+		msgbox(format("I just hope Mr.Stone doesn't mind that I ran off without helping him."))
+		waitmessage
+		// fadescreen(FADE_TO_BLACK)
+		applymovement(16, Movement_ScientistTakePositionPlease)
+		// setflag(FLAG_SUMMIT_SCIENTIST_HIDING)
+		// removeobject(16)
+		// addobject(17)
+		// delay(30)
+		// fadescreen(FADE_FROM_BLACK)
+		releaseall
+	}
+	else{
+		setflag(FLAG_PYRE_FOUND_SCIENTIST)
+		msgbox(format("Oh thank goodness you are here, those Team Rocket fellows have taken over the whole area, it's a disaster, they have even got Mr. Stone."))
+		waitmessage
+		msgbox(format("I refuse to move from this spot until those brute's are gone, no way am I being kidnapped today."))
+		waitmessage
+		releaseall
+	}
+}
+
+script MtPyre_Summit_EventScript_ScientistMeteor {
+	lockall
+	faceplayer
+	msgbox(format("Thank you for saving us, those team rocket thugs were terrifying."))
+	waitmessage
+	msgbox(format("This meteor is very interesting. Comparing the data from Steven, they seem to have been a part of the same meteor at some point. It's also emitting a wave of some sort but my tool's aren't giving me much on it."))
+	waitmessage
+	msgbox(format("I hope to get a better look with the lab tech once it's transported back."))
+	waitmessage
+	applymovement(17, Common_Movement_QuestionMark)
+    waitmovement(0)
+	msgbox(format("..."))
+	waitmessage
+	msgbox(format("I just got some more information from the Weather Institute. With the data from these two meteors, they are able to roughly calculate the trajectory of the other meteors."))
+	waitmessage
+	msgbox(format("They say to check inbetween Verdanturf town and Rustboro city. They'll double check the math's on the final meteor and then send you the location for it."))
+	waitmessage
+	releaseall
+}
+
+movement Movement_ScientistTakePositionPlease {
+	walk_down * 3
+}
+
+text MtPyre_Summit_Text_BillIntro {
+	format("You'll be sorry for interrupting!")
+}
+
+text MtPyre_Summit_Text_BillOutro {
+	format("Oh, what will the boss say.")
+}
+
+text MtPyre_Summit_Text_TerrellIntro {
+	format("Boss wants this old man, best be on your way if you don't wish to be losing those pokemon of yours!")
+}
+
+text MtPyre_Summit_Text_TerrellOutro {
+	format("This isn't good.")
+}
+
+text MtPyre_Summit_Text_LilIntro {
+	format("What is the guard doing?!")
+}
+
+text MtPyre_Summit_Text_LilOutro {
+	format("How did you beat me? This shouldn't be possible")
 }
 
 text MtPyre_Summit_Text_JewelIntro {
