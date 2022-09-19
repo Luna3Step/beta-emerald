@@ -1096,3 +1096,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/BlisseyFarm_100/scripts.inc"
 
 	.include "data/maps/Route103_CrashSite/scripts.inc"
+
+	.include "data/maps/RusturfUpperCavern/scripts.inc"

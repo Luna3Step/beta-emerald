@@ -14,6 +14,7 @@ MtPyre_Summit_OnTransition:
 	call_if_eq VAR_MT_PYRE_STATE, 2, MtPyre_Summit_EventScript_SetArchieMaxiePositions
 	call_if_eq VAR_PYRE_DEOXYS, 0, MtPyre_Summit_EventScript_RemoveEvent
 	call_if_eq VAR_PYRE_DEOXYS, 1, MtPyre_Summit_EventScript_AddEvent
+	call_if_eq VAR_PYRE_DEOXYS, 2, MtPyre_Summit_EventScript_BeatenRocket
 	end
 
 MtPyre_Summit_EventScript_SetArchieMaxiePositions::
@@ -696,7 +697,7 @@ MtPyre_Summit_EventScript_GruntBill::
 	lockall
 	msgbox MtPyre_Summit_EventScript_GruntBill_Text_0
 	waitmessage
-	trainerbattle_single TRAINER_ROCKET_BILL, MtPyre_Summit_Text_BillIntro, MtPyre_Summit_Text_BillOutro, MtPyre_Summit_EventScript_FuckYouScientist
+	trainerbattle_single TRAINER_ROCKET_BILL, MtPyre_Summit_Text_BillIntro, MtPyre_Summit_Text_BillOutro
 	releaseall
 	return
 
@@ -740,6 +741,14 @@ MtPyre_Summit_EventScript_ClearRocket_2:
 	goto MtPyre_Summit_EventScript_ClearRocket_1
 
 
+MtPyre_Summit_EventScript_BeatenRocket::
+	setflag 11
+	setflag 12
+	setflag 13
+	setflag 14
+	return
+
+
 MtPyre_Summit_EventScript_Stone::
 	lockall
 	faceplayer
@@ -753,6 +762,8 @@ MtPyre_Summit_EventScript_Stone::
 	msgbox MtPyre_Summit_EventScript_Stone_Text_3
 	waitmessage
 	msgbox MtPyre_Summit_EventScript_Stone_Text_4
+	waitmessage
+	releaseall
 	return
 
 
@@ -775,6 +786,7 @@ MtPyre_Summit_EventScript_Scientist_1:
 	msgbox MtPyre_Summit_EventScript_Scientist_Text_1
 	waitmessage
 	applymovement 16, Movement_ScientistTakePositionPlease
+	setvar VAR_PYRE_DEOXYS, 2
 	releaseall
 	return
 

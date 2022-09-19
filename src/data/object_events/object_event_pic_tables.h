@@ -2256,3 +2256,7 @@ static const struct SpriteFrameImage sPicTable_Rocket_F[] = {
     overworld_frame(gObjectEventPic_Rocket_F, 2, 4, 7),
     overworld_frame(gObjectEventPic_Rocket_F, 2, 4, 8),
 };
+
+static const struct SpriteFrameImage sPicTable_Rocket_Balloon[] = {
+    overworld_frame(gObjectEventPic_Rocket_Balloon, 8, 8, 0),
+};

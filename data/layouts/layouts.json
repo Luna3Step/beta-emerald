@@ -4600,6 +4600,16 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Route103_CrashSite/border.bin",
       "blockdata_filepath": "data/layouts/Route103_CrashSite/map.bin"
+    },
+    {
+      "id": "LAYOUT_RUSTURF_UPPER_CAVERN",
+      "name": "RusturfUpperCavern_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_RusturfTunnel",
+      "border_filepath": "data/layouts/RusturfUpperCavern/border.bin",
+      "blockdata_filepath": "data/layouts/RusturfUpperCavern/map.bin"
     }
   ]
 }
