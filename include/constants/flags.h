@@ -680,9 +680,9 @@
 #define FLAG_PYRE_TERRELL  0x27E // Unused Flag
 #define FLAG_PYRE_METEOR  0x27F // Unused Flag
 #define FLAG_PYRE_STONE  0x280 // Unused Flag
-#define FLAG_UNUSED_0x281  0x281 // Unused Flag
-#define FLAG_UNUSED_0x282  0x282 // Unused Flag
-#define FLAG_UNUSED_0x283  0x283 // Unused Flag
+#define FLAG_RUSTURF_METEOR  0x281 // Unused Flag
+#define FLAG_RUSTURF_ROCKET  0x282 // Unused Flag
+#define FLAG_ROCKET_BALLOON  0x283 // Unused Flag
 #define FLAG_UNUSED_0x284  0x284 // Unused Flag
 #define FLAG_UNUSED_0x285  0x285 // Unused Flag
 #define FLAG_UNUSED_0x286  0x286 // Unused Flag

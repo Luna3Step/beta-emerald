@@ -1,3 +1,172 @@
-script RusturfUpperCavern_MapScripts {
-    
+raw`
+
+RusturfUpperCavern_MapScripts::
+    map_script MAP_SCRIPT_ON_TRANSITION, RusturfUpperCavern_OnTransition
+    .byte 0
+
+RusturfUpperCavern_OnTransition:
+    call_if_eq VAR_RUSTURF_DEOXYS, 0, RusturfUpperCavern_EventScript_RemoveMeteor
+    call_if_eq VAR_RUSTURF_DEOXYS, 1, RusturfUpperCavern_EventScript_AddMeteor
+    end
+`
+
+script RusturfUpperCavern_EventScript_RemoveMeteor {
+    setflag(FLAG_RUSTURF_METEOR)
+    setflag(FLAG_RUSTURF_ROCKET)
+    setflag(FLAG_ROCKET_BALLOON)
+}
+
+script RusturfUpperCavern_EventScript_AddMeteor {
+    clearflag(FLAG_RUSTURF_METEOR)
+    setflag(FLAG_RUSTURF_ROCKET)
+    setflag(FLAG_ROCKET_BALLOON)
+}
+
+script RusturfUpperCavern_EventScript_Meteor {
+    lockall
+    msgbox(format("It just look's like a normal meteor as far as you are concerned."))
+    waitmessage
+    msgbox(format("Do you wish to take it with you?"), MSGBOX_YESNO)
+    delay(50)
+    call(RusturfUpperCavern_EventScript_Screenshake)
+    addobject(2)
+    applymovement(2, RusturfUpperCavern_Movement_RocketBalloon)
+    waitmovement(0)
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, RusturfUpperCavern_Movement_CameraUp)
+    waitmovement(0)
+    msgbox(format("??????: Prepare for trouble!"))
+    waitmessage
+    msgbox(format("??????: Make it double!"))
+    waitmessage
+    msgbox(format("??????: To protect the world from devastation!"))
+    waitmessage
+    msgbox(format("??????: To unite all peoples within our nation!"))
+    waitmessage
+    msgbox(format("??????: To denounce the evils of truth and love!"))
+    waitmessage
+    msgbox(format("??????: To extend our reach to the stars above!"))
+    waitmessage
+    addobject(3)
+    applymovement(3, RusturfUpperCavern_Movement_RocketTwats)
+    msgbox(format("??????: Jessie!"))
+    waitmovement(0)
+    waitmessage
+    addobject(4)
+    applymovement(4, RusturfUpperCavern_Movement_RocketTwats)
+    msgbox(format("??????: James!"))
+    waitmovement(0)
+    waitmessage
+    msgbox(format("Jessie: Team Rocket blasts off at the speed of light!"))
+    waitmessage
+    msgbox(format("James: Surrender now or prepare to fight!"))
+    waitmessage
+    addobject(5)
+    applymovement(5, RusturfUpperCavern_Movement_RocketTwats)
+    msgbox(format("Meowth: Meowth! That's right!"))
+    waitmessage
+    waitmovement(0)
+    applymovement(3, RusturfUpperCavern_Movement_JessieHuddle)
+    applymovement(4, RusturfUpperCavern_Movement_JamesHuddle)
+    waitmovement(0)
+    msgbox(format("James: I guess this is the meteor the boss was talking about."))
+    waitmessage
+    msgbox(format("Jessie: Yes, the gadget thing that we were given is saying so."))
+    waitmessage
+    msgbox(format("Meowth: So what are we waiting for! Let's nab it and scramble before anyone see's us."))
+    waitmessage
+    msgbox(format("James: Like that person over there?"))
+    waitmessage
+    msgbox(format("Meowth: Like who?"))
+    applymovement(3, Common_Movement_QuestionMark)
+    applymovement(4, Common_Movement_QuestionMark)
+    applymovement(5, Common_Movement_QuestionMark)
+    waitmovement(0)
+    applymovement(3, RusturfUpperCavern_Movement_FacePlayer)
+    applymovement(4, RusturfUpperCavern_Movement_FacePlayer)
+    msgbox(format("Jessie: Meowth! You said no one would be here!"))
+    waitmessage
+    msgbox(format("Meowth: Yeah and thing's change, get over it."))
+    waitmessage
+    msgbox(format("Jessie: Oh why do I bother."))
+    waitmessage
+    msgbox(format("Meowth: See you later twerp, you didn't see us and you definitely won't find us at the Rocket Base with this Meteor located at Lilycove city."))
+    waitmessage
+    msgbox(format("James: Meowth you fool, why would you say that?"))
+    waitmessage
+    msgbox(format("Meowth: Gotta keep tradition in screwing up ya'know!"))
+    waitmessage
+    msgbox(format("James: Oh that make's sense."))
+    waitmessage
+    msgbox(format("Jessie: NO THAT DOESN'T, GET IN THE BALLOON."))
+    waitmessage
+    fadescreen(FADE_TO_BLACK)
+    removeobject(1)
+    delay(15)
+    fadescreen(FADE_FROM_BLACK)
+    applymovement(3, RusturfUpperCavern_Movement_RocketRetreat)
+    applymovement(4, RusturfUpperCavern_Movement_RocketRetreat)
+    applymovement(5, RusturfUpperCavern_Movement_RocketRetreat)
+    waitmovement(0)
+    removeobject(3)
+    removeobject(4)
+    removeobject(5)
+    delay(30)
+    call(RusturfUpperCavern_EventScript_Screenshake)
+    applymovement(2, RusturfUpperCavern_Movement_RocketBalloonEscape)
+    waitmovement(0)
+    removeobject(2)
+    applymovement(OBJ_EVENT_ID_CAMERA, RusturfUpperCavern_Movement_CameraDown)
+    waitmovement(0)
+    special(RemoveCameraObject)
+    setvar(VAR_RUSTURF_DEOXYS, 0)
+    releaseall
+}
+
+script RusturfUpperCavern_EventScript_Screenshake {
+    delay(30)
+	setvar(VAR_0x8004, 2)  //@ vertical pan
+	setvar(VAR_0x8005, 6)  //@ horizontal pan
+	setvar(VAR_0x8006, 8)  //@ num shakes
+	setvar(VAR_0x8007, 4)  //@ shake delay
+	special(ShakeCamera)
+	waitstate
+	delay(60)
+    return
+}
+
+movement RusturfUpperCavern_Movement_RocketBalloon {
+    walk_down * 4
+}
+
+movement RusturfUpperCavern_Movement_RocketTwats {
+    walk_fast_down * 2
+}
+
+movement RusturfUpperCavern_Movement_JessieHuddle {
+    face_right
+}
+
+movement RusturfUpperCavern_Movement_JamesHuddle {
+    face_left
+}
+
+movement RusturfUpperCavern_Movement_FacePlayer {
+    face_down
+}
+
+movement RusturfUpperCavern_Movement_RocketRetreat {
+    walk_fast_up * 3
+}
+
+movement RusturfUpperCavern_Movement_RocketBalloonEscape {
+    walk_up * 7
+}
+
+movement RusturfUpperCavern_Movement_CameraUp {
+   walk_up * 2 
+}
+
+movement RusturfUpperCavern_Movement_CameraDown {
+   walk_down * 2 
 }

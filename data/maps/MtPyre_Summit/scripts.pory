@@ -819,6 +819,7 @@ script MtPyre_Summit_EventScript_ScientistMeteor {
 	waitmessage
 	msgbox(format("They say to check inbetween Verdanturf town and Rustboro city. They'll double check the math's on the final meteor and then send you the location for it."))
 	waitmessage
+	setvar(VAR_RUSTURF_DEOXYS, 1)
 	releaseall
 }
 

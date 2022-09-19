@@ -808,6 +808,7 @@ MtPyre_Summit_EventScript_ScientistMeteor::
 	waitmessage
 	msgbox MtPyre_Summit_EventScript_ScientistMeteor_Text_5
 	waitmessage
+	setvar VAR_RUSTURF_DEOXYS, 1
 	releaseall
 	return
 

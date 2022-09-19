@@ -267,7 +267,7 @@
 #define VAR_PETALBURG_GYM_STATE_MEGA         0x40F8 // Mega ring
 #define VAR_STARTER_CHOICE                   0x40F9 // Which starter you chose
 #define VAR_SPACE_STATE                      0x40FA // Space State
-#define VAR_UNUSED_0x40FB                    0x40FB // Unused Var
+#define VAR_RUSTURF_DEOXYS                    0x40FB // Unused Var
 #define VAR_UNUSED_0x40FC                    0x40FC // Unused Var
 #define VAR_UNUSED_0x40FD                    0x40FD // Unused Var
 #define VAR_UNUSED_0x40FE                    0x40FE // Unused Var
