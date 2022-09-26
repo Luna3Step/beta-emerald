@@ -5,19 +5,18 @@ RusturfUpperCavern_MapScripts::
 RusturfUpperCavern_OnTransition:
     call_if_eq VAR_RUSTURF_DEOXYS, 0, RusturfUpperCavern_EventScript_RemoveMeteor
     call_if_eq VAR_RUSTURF_DEOXYS, 1, RusturfUpperCavern_EventScript_AddMeteor
+    call_if_eq VAR_RUSTURF_DEOXYS, 2, RusturfUpperCavern_EventScript_RemoveMeteor
     end
 
 RusturfUpperCavern_EventScript_RemoveMeteor::
 	setflag FLAG_RUSTURF_METEOR
 	setflag FLAG_RUSTURF_ROCKET
-	setflag FLAG_ROCKET_BALLOON
 	return
 
 
 RusturfUpperCavern_EventScript_AddMeteor::
 	clearflag FLAG_RUSTURF_METEOR
 	setflag FLAG_RUSTURF_ROCKET
-	setflag FLAG_ROCKET_BALLOON
 	return
 
 
@@ -28,8 +27,7 @@ RusturfUpperCavern_EventScript_Meteor::
 	msgbox RusturfUpperCavern_EventScript_Meteor_Text_1, MSGBOX_YESNO
 	delay 50
 	call RusturfUpperCavern_EventScript_Screenshake
-	addobject 2
-	applymovement 2, RusturfUpperCavern_Movement_RocketBalloon
+	applymovement 6, RusturfUpperCavern_Movement_RocketBalloon
 	waitmovement 0
 	special SpawnCameraObject
 	applymovement OBJ_EVENT_ID_CAMERA, RusturfUpperCavern_Movement_CameraUp
@@ -112,13 +110,13 @@ RusturfUpperCavern_EventScript_Meteor::
 	removeobject 5
 	delay 30
 	call RusturfUpperCavern_EventScript_Screenshake
-	applymovement 2, RusturfUpperCavern_Movement_RocketBalloonEscape
+	applymovement 6, RusturfUpperCavern_Movement_RocketBalloonEscape
 	waitmovement 0
-	removeobject 2
+	removeobject 6
 	applymovement OBJ_EVENT_ID_CAMERA, RusturfUpperCavern_Movement_CameraDown
 	waitmovement 0
 	special RemoveCameraObject
-	setvar VAR_RUSTURF_DEOXYS, 0
+	setvar VAR_RUSTURF_DEOXYS, 2
 	releaseall
 	return
 
@@ -136,7 +134,6 @@ RusturfUpperCavern_EventScript_Screenshake::
 
 
 RusturfUpperCavern_Movement_RocketBalloon:
-	walk_down
 	walk_down
 	walk_down
 	walk_down
@@ -166,6 +163,7 @@ RusturfUpperCavern_Movement_RocketRetreat:
 	step_end
 
 RusturfUpperCavern_Movement_RocketBalloonEscape:
+	walk_up
 	walk_up
 	walk_up
 	walk_up

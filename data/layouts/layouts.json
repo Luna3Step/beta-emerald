@@ -4636,7 +4636,7 @@
       "name": "LilycoveCity_Rocket_B3F_Layout",
       "width": 30,
       "height": 40,
-      "primary_tileset": "gTileset_Building",
+      "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/LilycoveCity_Rocket_B3F/border.bin",
       "blockdata_filepath": "data/layouts/LilycoveCity_Rocket_B3F/map.bin"

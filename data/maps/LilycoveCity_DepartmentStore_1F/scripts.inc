@@ -1,7 +1,13 @@
 .set LOCALID_LOTTERY_CLERK, 2
 
 LilycoveCity_DepartmentStore_1F_MapScripts::
+    map_script MAP_SCRIPT_ON_TRANSITION, LilycoveCity_DepartmentStore_1F_OnTransition
 	.byte 0
+
+LilycoveCity_DepartmentStore_1F_OnTransition:
+    call_if_lt VAR_RUSTURF_DEOXYS, 2, LilycoveCity_DepartmentStore_1F_EventScript_LadyLocationBlock
+    call_if_gt VAR_RUSTURF_DEOXYS, 1, LilycoveCity_DepartmentStore_1F_EventScript_LadyLocationUnblock
+    end
 
 LilycoveCity_DepartmentStore_1F_EventScript_Greeter::
 	msgbox LilycoveCity_DepartmentStore_1F_Text_WelcomeToDeptStore, MSGBOX_NPC
@@ -183,3 +189,44 @@ LilycoveCity_DepartmentStore_1F_Text_SpreadWordAboutWirelessComm:
 	.string "I want to spread the word about how\n"
 	.string "fun Wireless Communication can be.$"
 
+LilycoveCity_DepartmentStore_1F_EventScript_LadyRocket::
+	lockall
+	faceplayer
+	compare VAR_RUSTURF_DEOXYS, 2
+	goto_if_eq LilycoveCity_DepartmentStore_1F_EventScript_LadyRocket_2
+	msgbox LilycoveCity_DepartmentStore_1F_EventScript_LadyRocket_Text_1
+LilycoveCity_DepartmentStore_1F_EventScript_LadyRocket_1:
+	waitmessage
+	releaseall
+	return
+
+LilycoveCity_DepartmentStore_1F_EventScript_LadyRocket_2:
+	msgbox LilycoveCity_DepartmentStore_1F_EventScript_LadyRocket_Text_0
+	goto LilycoveCity_DepartmentStore_1F_EventScript_LadyRocket_1
+
+
+LilycoveCity_DepartmentStore_1F_EventScript_LadyLocationUnblock::
+	setflag FLAG_ROCKET_LADY_BLOCK
+	clearflag FLAG_ROCKET_LADY_UNBLOCK
+	return
+
+
+LilycoveCity_DepartmentStore_1F_EventScript_LadyLocationBlock::
+	clearflag FLAG_ROCKET_LADY_BLOCK
+	setflag FLAG_ROCKET_LADY_UNBLOCK
+	return
+
+
+LilycoveCity_DepartmentStore_1F_EventScript_LadyRocket_Text_0:
+	.string "I don't know what those three fools\n"
+	.string "were doing but they came rushing in\l"
+	.string "grinning about something stupid.\l"
+	.string "Hopefully it's something good\l"
+	.string "otherwise the boss is not gonna be\l"
+	.string "happy.$"
+
+LilycoveCity_DepartmentStore_1F_EventScript_LadyRocket_Text_1:
+	.string "Stairs? Behind me? I have no idea what\n"
+	.string "you are talking about, please be on\l"
+	.string "your way or I will have to call for\l"
+	.string "security.$"
