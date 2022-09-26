@@ -1,0 +1,55 @@
+{
+  "id": "MAP_LILYCOVE_CITY_ROCKET_B2F",
+  "name": "LilycoveCity_Rocket_B2F",
+  "layout": "LAYOUT_LILYCOVE_CITY_ROCKET_B2F",
+  "music": "MUS_RG_ROCKET_HIDEOUT",
+  "region_map_section": "MAPSEC_LILYCOVE_CITY",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 29,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_LILYCOVE_CITY_ROCKET_B1F",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 9,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_LILYCOVE_CITY_ROCKET_B1F",
+      "dest_warp_id": 4
+    },
+    {
+      "x": 27,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_LILYCOVE_CITY_ROCKET_B1F",
+      "dest_warp_id": 3
+    },
+    {
+      "x": 0,
+      "y": 27,
+      "elevation": 0,
+      "dest_map": "MAP_LILYCOVE_CITY_ROCKET_B3F",
+      "dest_warp_id": 4
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

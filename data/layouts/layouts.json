@@ -2564,8 +2564,8 @@
     {
       "id": "LAYOUT_LILYCOVE_CITY_DEPARTMENT_STORE_1F",
       "name": "LilycoveCity_DepartmentStore_1F_Layout",
-      "width": 18,
-      "height": 8,
+      "width": 24,
+      "height": 14,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_Shop",
       "border_filepath": "data/layouts/LilycoveCity_DepartmentStore_1F/border.bin",
@@ -4604,12 +4604,52 @@
     {
       "id": "LAYOUT_RUSTURF_UPPER_CAVERN",
       "name": "RusturfUpperCavern_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 30,
+      "height": 30,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_RusturfTunnel",
       "border_filepath": "data/layouts/RusturfUpperCavern/border.bin",
       "blockdata_filepath": "data/layouts/RusturfUpperCavern/map.bin"
+    },
+    {
+      "id": "LAYOUT_LILYCOVE_CITY_ROCKET_B1F",
+      "name": "LilycoveCity_Rocket_B1F_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/LilycoveCity_Rocket_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/LilycoveCity_Rocket_B1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_LILYCOVE_CITY_ROCKET_B2F",
+      "name": "LilycoveCity_Rocket_B2F_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/LilycoveCity_Rocket_B2F/border.bin",
+      "blockdata_filepath": "data/layouts/LilycoveCity_Rocket_B2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_LILYCOVE_CITY_ROCKET_B3F",
+      "name": "LilycoveCity_Rocket_B3F_Layout",
+      "width": 30,
+      "height": 40,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/LilycoveCity_Rocket_B3F/border.bin",
+      "blockdata_filepath": "data/layouts/LilycoveCity_Rocket_B3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_LILYCOVE_CITY_ROCKET_B4F",
+      "name": "LilycoveCity_Rocket_B4F_Layout",
+      "width": 20,
+      "height": 45,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/LilycoveCity_Rocket_B4F/border.bin",
+      "blockdata_filepath": "data/layouts/LilycoveCity_Rocket_B4F/map.bin"
     }
   ]
 }

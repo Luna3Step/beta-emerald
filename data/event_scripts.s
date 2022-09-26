@@ -1098,3 +1098,11 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Route103_CrashSite/scripts.inc"
 
 	.include "data/maps/RusturfUpperCavern/scripts.inc"
+
+	.include "data/maps/LilycoveCity_Rocket_B1F/scripts.inc"
+
+	.include "data/maps/LilycoveCity_Rocket_B2F/scripts.inc"
+
+	.include "data/maps/LilycoveCity_Rocket_B3F/scripts.inc"
+
+	.include "data/maps/LilycoveCity_Rocket_B4F/scripts.inc"
