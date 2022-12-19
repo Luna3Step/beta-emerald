@@ -1,0 +1,97 @@
+mapscripts LilycoveCity_Rocket_B4F_MapScripts {
+}
+
+script LilycoveCity_Rocket_B4F_Nolan {
+    trainerbattle_single(TRAINER_NOLAN, LilycoveCity_Rocket_B4F_Nolan_Intro, LilycoveCity_Rocket_B4F_Nolan_Outro)
+    end
+}
+
+text LilycoveCity_Rocket_B4F_Nolan_Intro {
+    format("You've done well to make it this far down.")
+}
+
+text LilycoveCity_Rocket_B4F_Nolan_Outro {
+    format("I wonder how far you will go.")
+}
+
+script LilycoveCity_Rocket_B4F_Eugenia {
+    trainerbattle_single(TRAINER_EUGENIA, LilycoveCity_Rocket_B4F_Eugenia_Intro, LilycoveCity_Rocket_B4F_Eugenia_Outro)
+    end
+}
+
+text LilycoveCity_Rocket_B4F_Eugenia_Intro {
+    format("Are those lousy louts slacking on the job?")
+}
+
+text LilycoveCity_Rocket_B4F_Eugenia_Outro {
+    format("Those bloody idiots couldn't even weaken you up enough?!??")
+}
+
+script LilycoveCity_Rocket_B4F_Claude {
+    trainerbattle_single(TRAINER_CLAUDE, LilycoveCity_Rocket_B4F_Claude_Intro, LilycoveCity_Rocket_B4F_Claude_Outro)
+    end
+}
+
+text LilycoveCity_Rocket_B4F_Claude_Intro {
+    format("Guess I'm the last one.")
+}
+
+text LilycoveCity_Rocket_B4F_Claude_Outro {
+    format("If the boss asks, it was Nolan who was posted here.")
+}
+
+script LilycoveCity_Rocket_B4F_Ray {
+    trainerbattle_single(TRAINER_RAY, LilycoveCity_Rocket_B4F_Ray_Intro, LilycoveCity_Rocket_B4F_Ray_Outro)
+    end
+}
+
+text LilycoveCity_Rocket_B4F_Ray_Intro {
+    format("Well what do we have here? A little rat I'd say.")
+}
+
+text LilycoveCity_Rocket_B4F_Ray_Outro {
+    format("Mhm. Should have held my tongue there.")
+}
+
+script LilycoveCity_Rocket_B4F_Glenna {
+    trainerbattle_single(TRAINER_GLENNA, LilycoveCity_Rocket_B4F_Glenna_Intro, LilycoveCity_Rocket_B4F_Glenna_Outro)
+    end
+}
+
+text LilycoveCity_Rocket_B4F_Glenna_Intro {
+    format("Hey, if you have bad pokemon, I'd just give them up now.")
+}
+
+text LilycoveCity_Rocket_B4F_Glenna_Outro {
+    format("If I see you again, you are dead meat.")
+}
+
+script LilycoveCity_Rocket_B4F_Tricia {
+    trainerbattle_single(TRAINER_TRICIA, LilycoveCity_Rocket_B4F_Tricia_Intro, LilycoveCity_Rocket_B4F_Tricia_Outro)
+    end
+}
+
+text LilycoveCity_Rocket_B4F_Tricia_Intro {
+    format("Why do you rat's have to show?")
+}
+
+text LilycoveCity_Rocket_B4F_Tricia_Outro {
+    format("Well, what are you waiting for? Scuttle on.")
+}
+
+script LilycoveCity_Rocket_B4F_PP_MAX {
+    lockall
+    msgbox(format("You found a PP Max!"))
+    additem(ITEM_PP_MAX, 1)
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(8)
+		setflag(FLAG_B4F_PPMAX)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
+}

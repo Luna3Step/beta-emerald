@@ -22,10 +22,10 @@
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_RUN_SCRIPT",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
       "script": "LilycoveCity_Rocket_B1F_Janet",
-      "flag": "FLAG_ROCKET_JANET"
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
@@ -35,10 +35,10 @@
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_RUN_SCRIPT",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
       "script": "LilycoveCity_Rocket_B1F_Chas",
-      "flag": "FLAG_ROCKET_CHAS"
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_F",
@@ -48,23 +48,23 @@
       "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_RUN_SCRIPT",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
       "script": "LilycoveCity_Rocket_B1F_Kelli",
-      "flag": "FLAG_ROCKET_KELLI"
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_F",
       "x": 4,
       "y": 2,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_RUN_SCRIPT",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "LilycoveCity_Rocket_B1F_Verna",
-      "flag": "FLAG_ROCKET_VERNA"
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
@@ -74,10 +74,10 @@
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_RUN_SCRIPT",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "LilycoveCity_Rocket_B1F_Danial",
-      "flag": "FLAG_ROCKET_DANIAL"
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_F",
@@ -87,10 +87,36 @@
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_RUN_SCRIPT",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
       "script": "LilycoveCity_Rocket_B1F_Lora",
-      "flag": "FLAG_ROCKET_LORA"
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 28,
+      "y": 7,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "LilycoveCity_Rocket_B1F_Assault_Vest",
+      "flag": "FLAG_B1F_ASSAULT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 1,
+      "y": 18,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "LilycoveCity_Rocket_B1F_Rocky_Helmet",
+      "flag": "FLAG_B1F_ROCKY"
     }
   ],
   "warp_events": [

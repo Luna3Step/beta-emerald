@@ -1,0 +1,84 @@
+mapscripts LilycoveCity_Rocket_B2F_MapScripts {
+}
+
+script LilycoveCity_Rocket_B2F_Booker {
+    trainerbattle_single(TRAINER_BOOKER, LilycoveCity_Rocket_B2F_Booker_Intro, LilycoveCity_Rocket_B2F_Booker_Outro)
+    end
+}
+
+text LilycoveCity_Rocket_B2F_Booker_Intro {
+    format("Great. My shift was just about to finish up as well.")
+}
+
+text LilycoveCity_Rocket_B2F_Booker_Outro {
+    format("Hope I can clock out before I get the blame for this.")
+}
+
+script LilycoveCity_Rocket_B2F_Lucien {
+    trainerbattle_single(TRAINER_LUCIEN, LilycoveCity_Rocket_B2F_Lucien_Intro, LilycoveCity_Rocket_B2F_Lucien_Outro)
+    end
+}
+
+text LilycoveCity_Rocket_B2F_Lucien_Intro {
+    format("You shouldn't be so loud if you're attacking a base otherwise it's easy for people to wait in anticipation for you.")
+}
+
+text LilycoveCity_Rocket_B2F_Lucien_Outro {
+    format("Maybe I should get stronger pokemon before trying sneak attacks.")
+}
+
+script LilycoveCity_Rocket_B2F_Kasey {
+    trainerbattle_single(TRAINER_KASEY, LilycoveCity_Rocket_B2F_Kasey_Intro, LilycoveCity_Rocket_B2F_Kasey_Outro)
+    end
+}
+
+text LilycoveCity_Rocket_B2F_Kasey_Intro {
+    format("Hey, you can't go ahead. This is like, our secret base.")
+}
+
+text LilycoveCity_Rocket_B2F_Kasey_Outro {
+    format("Can you like, please go home?")
+}
+
+script LilycoveCity_Rocket_B2F_Rene {
+    trainerbattle_single(TRAINER_RENE, LilycoveCity_Rocket_B2F_Rene_Intro, LilycoveCity_Rocket_B2F_Rene_Outro)
+    end
+}
+
+text LilycoveCity_Rocket_B2F_Rene_Intro {
+    format("What terrible timing, this book just got to the good part.")
+}
+
+text LilycoveCity_Rocket_B2F_Rene_Outro {
+    format("Well now I can atleast read in peace.")
+}
+
+script LilycoveCity_Rocket_B2F_Alicia {
+    trainerbattle_single(TRAINER_ALICIA, LilycoveCity_Rocket_B2F_Alicia_Intro, LilycoveCity_Rocket_B2F_Alicia_Outro)
+    end
+}
+
+text LilycoveCity_Rocket_B2F_Alicia_Intro {
+    format("What terrible timing, this book just got to the good part.")
+}
+
+text LilycoveCity_Rocket_B2F_Alicia_Outro {
+    format("Well now I can atleast read in peace.")
+}
+
+script LilycoveCity_Rocket_B2F_Leftovers {
+    lockall
+    msgbox(format("You found some Leftovers!"))
+    additem(ITEM_LEFTOVERS, 1)
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(6)
+		setflag(FLAG_B2F_LEFTOVERS)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
+}

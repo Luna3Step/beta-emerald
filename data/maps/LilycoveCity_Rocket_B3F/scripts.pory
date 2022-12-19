@@ -1,0 +1,131 @@
+mapscripts LilycoveCity_Rocket_B3F_MapScripts {
+}
+
+script LilycoveCity_Rocket_B3F_Mona {
+    trainerbattle_single(TRAINER_MONA, LilycoveCity_Rocket_B3F_Mona_Intro, LilycoveCity_Rocket_B3F_Mona_Outro)
+    end
+}
+
+text LilycoveCity_Rocket_B3F_Mona_Intro {
+    format("Is this going to take long?")
+}
+
+text LilycoveCity_Rocket_B3F_Mona_Outro {
+    format("My team really isn't built around endurance.")
+}
+
+script LilycoveCity_Rocket_B3F_Brant {
+    trainerbattle_single(TRAINER_BRANT, LilycoveCity_Rocket_B3F_Brant_Intro, LilycoveCity_Rocket_B3F_Brant_Outro)
+    end
+}
+
+text LilycoveCity_Rocket_B3F_Brant_Intro {
+    format("Ah, someone to shake up this boring day!")
+}
+
+text LilycoveCity_Rocket_B3F_Brant_Outro {
+    format("Amazing! Your team is amazing!")
+}
+
+script LilycoveCity_Rocket_B3F_Lee {
+    trainerbattle_single(TRAINER_LEE, LilycoveCity_Rocket_B3F_Lee_Intro, LilycoveCity_Rocket_B3F_Lee_Outro)
+    end
+}
+
+text LilycoveCity_Rocket_B3F_Lee_Intro {
+    format("I simply must have your team.")
+}
+
+text LilycoveCity_Rocket_B3F_Lee_Outro {
+    format("Maybe next time.")
+}
+
+script LilycoveCity_Rocket_B3F_Luann {
+    trainerbattle_single(TRAINER_LUANN, LilycoveCity_Rocket_B3F_Luann_Intro, LilycoveCity_Rocket_B3F_Luann_Outro)
+    end
+}
+
+text LilycoveCity_Rocket_B3F_Luann_Intro {
+    format("Hey, you don't look like you should be here.")
+}
+
+text LilycoveCity_Rocket_B3F_Luann_Outro {
+    format("Can't wait to see the boss get his hands on you.")
+}
+
+script LilycoveCity_Rocket_B3F_Jerome {
+    trainerbattle_single(TRAINER_JEROME, LilycoveCity_Rocket_B3F_Jerome_Intro, LilycoveCity_Rocket_B3F_Jerome_Outro)
+    end
+}
+
+text LilycoveCity_Rocket_B3F_Jerome_Intro {
+    format("Nothing to see back here.")
+}
+
+text LilycoveCity_Rocket_B3F_Jerome_Outro {
+    format("Go on, waste your time.")
+}
+
+script LilycoveCity_Rocket_B3F_Marylou {
+    trainerbattle_single(TRAINER_MARYLOU, LilycoveCity_Rocket_B3F_Marylou_Intro, LilycoveCity_Rocket_B3F_Marylou_Outro)
+    end
+}
+
+text LilycoveCity_Rocket_B3F_Marylou_Intro {
+    format("Hey, make sure you put a good fight. Don't need to be losing to wimps.")
+}
+
+text LilycoveCity_Rocket_B3F_Marylou_Outro {
+    format("Good job I guess. Should save my arse in the next round of redundancies atleast.")
+}
+
+script LilycoveCity_Rocket_B3F_Elixir {
+    lockall
+    msgbox(format("You found an Elixir!"))
+    additem(ITEM_ELIXIR, 1)
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(7)
+		setflag(FLAG_B3F_ELIXIR)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
+}
+
+script LilycoveCity_Rocket_B3F_Max_Ether {
+    lockall
+    msgbox(format("You found a Max Ether!"))
+    additem(ITEM_MAX_ETHER, 1)
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(8)
+		setflag(FLAG_B3F_MAX_ELIXIR)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
+}
+
+script LilycoveCity_Rocket_B3F_Life_Orb {
+    lockall
+    msgbox(format("You found a Life Orb!"))
+    additem(ITEM_LIFE_ORB, 1)
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(9)
+		setflag(FLAG_B3F_LIFE_ORB)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
+}

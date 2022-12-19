@@ -1170,20 +1170,20 @@
 #define FLAG_ITEM_NEW_MAUVILLE_FULL_HEAL                            0x462
 #define FLAG_ITEM_NEW_MAUVILLE_PARALYZE_HEAL                        0x463
 #define FLAG_ITEM_AQUA_HIDEOUT_B1F_MASTER_BALL                      0x464
-#define FLAG_ROCKET_JANET                 0x465 // Unused Flag, leftover from the Ruby Magma hideout
-#define FLAG_ROCKET_CHAS                 0x466 // Unused Flag, leftover from the Ruby Magma hideout
-#define FLAG_ROCKET_KELLI                   0x467 // Unused Flag, leftover from the Ruby Magma hideout
-#define FLAG_ROCKET_VERNA                                          0x468 // Unused Flag
+#define FLAG_B4F_PPMAX                 0x465 // Unused Flag, leftover from the Ruby Magma hideout
+#define FLAG_B3F_ELIXIR                 0x466 // Unused Flag, leftover from the Ruby Magma hideout
+#define FLAG_B3F_MAX_ELIXIR                   0x467 // Unused Flag, leftover from the Ruby Magma hideout
+#define FLAG_B3F_LIFE_ORB                                          0x468 // Unused Flag
 #define FLAG_ITEM_MT_PYRE_2F_ULTRA_BALL                             0x469
 #define FLAG_ITEM_MT_PYRE_4F_SEA_INCENSE                            0x46A
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_WEST_MAX_REVIVE                 0x46B
 #define FLAG_ITEM_AQUA_HIDEOUT_B1F_NUGGET                           0x46C
-#define FLAG_ROCKET_DANIAL                       0x46D // Unused Flag, leftover from R/S. HM08 is given to the player directly in Emerald
+#define FLAG_B1F_ASSAULT                       0x46D // Unused Flag, leftover from R/S. HM08 is given to the player directly in Emerald
 #define FLAG_ITEM_ROUTE_119_NUGGET                                  0x46E
 #define FLAG_ITEM_ROUTE_104_POTION                                  0x46F
-#define FLAG_ROCKET_LORA                                           0x470 // Unused Flag
+#define FLAG_B2F_LEFTOVERS                                           0x470 // Unused Flag
 #define FLAG_ITEM_ROUTE_103_PP_UP                                   0x471
-#define FLAG_UNUSED_0x472                                           0x472 // Unused Flag
+#define FLAG_B1F_ROCKY                                           0x472 // Unused Flag
 #define FLAG_ITEM_ROUTE_108_STAR_PIECE                              0x473
 #define FLAG_ITEM_ROUTE_109_POTION                                  0x474
 #define FLAG_ITEM_ROUTE_110_ELIXIR                                  0x475

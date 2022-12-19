@@ -78,3 +78,37 @@ text LilycoveCity_Rocket_B1F_Lora_Intro {
 text LilycoveCity_Rocket_B1F_Lora_Outro {
     format("Go on, take my money already.")
 }
+
+script LilycoveCity_Rocket_B1F_Assault_Vest {
+    lockall
+    msgbox(format("You found an Assault Vest!"))
+    additem(ITEM_ASSAULT_VEST, 1)
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(7)
+		setflag(FLAG_B1F_ASSAULT)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
+}
+
+script LilycoveCity_Rocket_B1F_Rocky_Helmet {
+    lockall
+    msgbox(format("You found a Rocky Helmet!"))
+    additem(ITEM_ROCKY_HELMET, 1)
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(8)
+		setflag(FLAG_B1F_ROCKY)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
+}
