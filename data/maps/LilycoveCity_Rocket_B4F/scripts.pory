@@ -95,3 +95,68 @@ script LilycoveCity_Rocket_B4F_PP_MAX {
         releaseall
 	}
 }
+
+
+script LilycoveCity_Rocket_B4F_Giovanni {
+    lockall
+    faceplayer
+    msgbox(format("I guess you're our uninvited guest?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        msgbox(format("How naive of you to answer my question like that."))
+    }    
+    if(var(VAR_RESULT) == NO){
+        msgbox(format("A liar as well."))
+    }
+    trainerbattle_single(TRAINER_GIOVANNI, LilycoveCity_Rocket_B4F_Giovanni_Intro, LilycoveCity_Rocket_B4F_Giovanni_Outro, LilycoveCity_Rocket_B4F_Giovanni_Beaten)
+}
+
+script LilycoveCity_Rocket_B4F_Giovanni_Beaten {
+    lockall
+    applymovement(7 ,LilycoveCity_Rocket_B4F_Giovanni_Movement)
+    waitmovement(0)
+    msgbox(format("What is it with children and ruining my plans?"))
+    waitmessage
+    msgbox(format("Kanto, Johto and now even Hoenn."))
+    waitmessage
+    faceplayer
+    msgbox(format("Well I assume you are here for these meteor?"))
+    waitmessage
+    msgbox(format("Wipe that confused look from your face."))
+    waitmessage
+    msgbox(format("I heard of a young child obstructing our operatios at Mt.Pyre."))
+    waitmessage
+    msgbox(format("There cannot be that many young children that can interfere with my Team Rocket."))
+    waitmessage
+    msgbox(format("So I can assume it was you."))
+    waitmessage
+    msgbox(format("You can take the meteor, the scientists found nothing of worth with them and the blackmarket isn't crazy for meteors like it used to be."))
+    waitmessage
+    msgbox(format("It's more effort to keep them than to throw them out."))
+    waitmessage
+    msgbox(format("Just be warned that the next time we cross paths, I will make sure you face the true wrath of Team Rocket."))
+    waitmessage
+    releaseall
+}
+
+text LilycoveCity_Rocket_B4F_Giovanni_Intro {
+    format("I'm impressed you have made it this far.")
+}
+
+text LilycoveCity_Rocket_B4F_Giovanni_Outro {
+    format("How nostalgic. I will step aside this time.")
+}
+
+movement LilycoveCity_Rocket_B4F_Giovanni_Movement {
+    face_away_player
+}
+
+script LilycoveCity_Rocket_B4F_Meteor {
+    lockall
+    fadescreen(FADE_TO_BLACK)
+	removeobject(9)
+	fadescreen(FADE_FROM_BLACK)
+    setflag(FLAG_ROCKET_METEOR)
+    msgbox(format("You took the Meteor!"))
+    waitmessage
+    releaseall
+}

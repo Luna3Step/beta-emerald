@@ -167,6 +167,9 @@
 #define WAILORD_EV                        {0, 0, 252, 0, 4, 252}
 #define TENTACRUEL_EV                     {252, 0, 112, 144, 0, 0}
 #define MILOTIC_EV                        {252, 0, 108, 0, 0, 148}
+#define NIDOQUEEN_EV                      {0, 0, 0, 252, 232, 24}
+#define RHYPERIOR_EV                      {252, 76, 88, 0, 0, 92}
+#define MEGA_MEWTWO_Y_EV                  {0, 0, 40, 252, 216, 0}
 
 #define WORST_IVS                1
 

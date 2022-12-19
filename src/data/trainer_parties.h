@@ -3174,25 +3174,66 @@ static const struct TrainerMon sParty_Walter4[] = {
     }
 };
 
-static const struct TrainerMon sParty_Walter5[] = {
+static const struct TrainerMon sParty_Giovanni[] = {
     {
-    .iv = 40,
-    .lvl = 41,
-    .species = SPECIES_LINOONE,
-    .moves = {MOVE_HEADBUTT, MOVE_SAND_ATTACK, MOVE_ODOR_SLEUTH, MOVE_FURY_SWIPES}
+    .iv = 255,
+    .evs = NIDOQUEEN_EV,
+    .lvl = 82,
+    .species = SPECIES_NIDOQUEEN,
+    .heldItem = ITEM_LIFE_ORB,
+    .moves = {MOVE_STEALTH_ROCK, MOVE_EARTH_POWER, MOVE_SLUDGE_WAVE, MOVE_ICE_BEAM},
+    .ability = ABILITY_HIDDEN,
+    .nature = NATURE_TIMID
     },
     {
-    .iv = 40,
-    .lvl = 41,
-    .species = SPECIES_GOLDUCK,
-    .moves = {MOVE_FURY_SWIPES, MOVE_DISABLE, MOVE_CONFUSION, MOVE_PSYCH_UP}
+    .iv = 255,
+    .evs = RHYPERIOR_EV,
+    .lvl = 82,
+    .species = SPECIES_RHYPERIOR,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .moves = {MOVE_ROCK_WRECKER, MOVE_EARTHQUAKE, MOVE_COUNTER, MOVE_METAL_BURST},
+    .ability = ABILITY_SLOT_2,
+    .nature = NATURE_IMPISH
     },
     {
-    .iv = 40,
-    .lvl = 41,
-    .species = SPECIES_MANECTRIC,
-    .moves = {MOVE_QUICK_ATTACK, MOVE_SPARK, MOVE_ODOR_SLEUTH, MOVE_ROAR}
-    }
+    .iv = 255,
+    .evs = LEAVANNY_EV,
+    .lvl = 83,
+    .species = SPECIES_GOLEM,
+    .heldItem = ITEM_WEAKNESS_POLICY,
+    .moves = {MOVE_STEALTH_ROCK, MOVE_EARTHQUAKE, MOVE_STONE_EDGE, MOVE_SUCKER_PUNCH},
+    .ability = ABILITY_SLOT_2,
+    .nature = NATURE_ADAMANT
+    },
+    {
+    .iv = 255,
+    .evs = MEGA_LUCARIO_EV,
+    .lvl = 83,
+    .species = SPECIES_DUGTRIO_ALOLAN,
+    .heldItem = ITEM_LEFTOVERS,
+    .moves = {MOVE_SUBSTITUTE, MOVE_TOXIC, MOVE_EARTHQUAKE, MOVE_IRON_HEAD},
+    .ability = ABILITY_SLOT_2,
+    .nature = NATURE_JOLLY
+    },
+    {
+    .iv = 255,
+    .evs = LEAVANNY_EV,
+    .lvl = 82,
+    .species = SPECIES_PERSIAN,
+    .heldItem = ITEM_SILK_SCARF,
+    .moves = {MOVE_FAKE_OUT, MOVE_DOUBLE_EDGE, MOVE_KNOCK_OFF, MOVE_U_TURN},
+    .ability = ABILITY_SLOT_2,
+    .nature = NATURE_JOLLY
+    },
+    {
+    .iv = 255,
+    .evs = MEGA_MEWTWO_Y_EV,
+    .lvl = 88,
+    .species = SPECIES_MEWTWO_MEGA_Y,
+    .moves = {MOVE_PSYSTRIKE, MOVE_ICE_BEAM, MOVE_FIRE_BLAST, MOVE_CALM_MIND},
+    .ability = ABILITY_SLOT_1,
+    .nature = NATURE_TIMID
+    },
 };
 
 static const struct TrainerMon sParty_Sidney[] = {

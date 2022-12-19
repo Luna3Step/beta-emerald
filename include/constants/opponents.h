@@ -261,7 +261,7 @@
 #define TRAINER_WALTER_2                    257
 #define TRAINER_WALTER_3                    258
 #define TRAINER_WALTER_4                    259
-#define TRAINER_WALTER_5                    260
+#define TRAINER_GIOVANNI                    260
 #define TRAINER_SIDNEY                      261
 #define TRAINER_PHOEBE                      262
 #define TRAINER_GLACIA                      263
