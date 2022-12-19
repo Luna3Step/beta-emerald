@@ -1,0 +1,80 @@
+mapscripts LilycoveCity_Rocket_B1F_MapScripts {
+}
+
+script LilycoveCity_Rocket_B1F_Janet {
+    trainerbattle_single(TRAINER_JANET, LilycoveCity_Rocket_B1F_Janet_Intro, LilycoveCity_Rocket_B1F_Janet_Outro)
+    end
+}
+
+text LilycoveCity_Rocket_B1F_Janet_Intro {
+    format("How did you get in here?")
+}
+
+text LilycoveCity_Rocket_B1F_Janet_Outro {
+    format("Well my contract says I only have to fight anyone who enters, not actually win.")
+}
+
+script LilycoveCity_Rocket_B1F_Kelli {
+    trainerbattle_single(TRAINER_KELLI, LilycoveCity_Rocket_B1F_Kelli_Intro, LilycoveCity_Rocket_B1F_Kelli_Outro)
+    end
+}
+
+text LilycoveCity_Rocket_B1F_Kelli_Intro {
+    format("You aren't the janitor!")
+}
+
+text LilycoveCity_Rocket_B1F_Kelli_Outro {
+    format("If anyone asks, I thought you were the janitor.")
+}
+
+script LilycoveCity_Rocket_B1F_Verna {
+    trainerbattle_single(TRAINER_VERNA, LilycoveCity_Rocket_B1F_Verna_Intro, LilycoveCity_Rocket_B1F_Verna_Outro)
+    end
+}
+
+text LilycoveCity_Rocket_B1F_Verna_Intro {
+    format("Oh I've been wanting to try my team on someone!")
+}
+
+text LilycoveCity_Rocket_B1F_Verna_Outro {
+    format("You only won because you broke the one pokemon rule.")
+}
+
+script LilycoveCity_Rocket_B1F_Chas {
+    trainerbattle_single(TRAINER_CHAS, LilycoveCity_Rocket_B1F_Chas_Intro, LilycoveCity_Rocket_B1F_Chas_Outro)
+    end
+}
+
+text LilycoveCity_Rocket_B1F_Chas_Intro {
+    format("Hey, you need a hardhat for this area!")
+}
+
+text LilycoveCity_Rocket_B1F_Chas_Outro {
+    format("I guess you can go one without a hardhat.")
+}
+
+script LilycoveCity_Rocket_B1F_Danial {
+    trainerbattle_single(TRAINER_DANIAL, LilycoveCity_Rocket_B1F_Danial_Intro, LilycoveCity_Rocket_B1F_Danial_Outro)
+    end
+}
+
+text LilycoveCity_Rocket_B1F_Danial_Intro {
+    format("Be warned, I have an ultra rare pokemon that will kick your arse!")
+}
+
+text LilycoveCity_Rocket_B1F_Danial_Outro {
+    format("... Well that was a scam.")
+}
+
+script LilycoveCity_Rocket_B1F_Lora {
+    trainerbattle_single(TRAINER_LORA, LilycoveCity_Rocket_B1F_Lora_Intro, LilycoveCity_Rocket_B1F_Lora_Outro)
+    end
+}
+
+text LilycoveCity_Rocket_B1F_Lora_Intro {
+    format("Can we just not do this today?")
+}
+
+text LilycoveCity_Rocket_B1F_Lora_Outro {
+    format("Go on, take my money already.")
+}
