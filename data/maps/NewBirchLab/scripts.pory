@@ -115,35 +115,35 @@ script NewBirchLab_EventScript_Birch{
         message("Would you like to see more?")
         scrollingmultichoice(0, 25, 5, 3, 0)
         closemessage
-        if (var(VAR_RESULT) == 0){
+        if(var(VAR_RESULT) == 0){
             call(StarterFade)
             setvar(VAR_STARTER_GEN, 0)
         }
-        elif (var(VAR_RESULT) == 1){
+        elif(var(VAR_RESULT) == 1){
             call(StarterFade)
             setvar(VAR_STARTER_GEN, 1)
         }
-        elif (var(VAR_RESULT) == 2){
+        elif(var(VAR_RESULT) == 2){
             call(StarterFade)
             setvar(VAR_STARTER_GEN, 2)
         }
-        elif (var(VAR_RESULT) == 3){
+        elif(var(VAR_RESULT) == 3){
             call(StarterFade)
             setvar(VAR_STARTER_GEN, 3)
         }
-        elif (var(VAR_RESULT) == 4){
+        elif(var(VAR_RESULT) == 4){
             call(StarterFade)
             setvar(VAR_STARTER_GEN, 4)
         }
-        elif (var(VAR_RESULT) == 5){
+        elif(var(VAR_RESULT) == 5){
             call(StarterFade)
             setvar(VAR_STARTER_GEN, 5)
         }
-        elif (var(VAR_RESULT) == 6){
+        elif(var(VAR_RESULT) == 6){
             call(StarterFade)
             setvar(VAR_STARTER_GEN, 6)
         }
-        elif (var(VAR_RESULT) == 7){
+        elif(var(VAR_RESULT) == 7){
             call(StarterFade)
             setvar(VAR_STARTER_GEN, 7)
         }

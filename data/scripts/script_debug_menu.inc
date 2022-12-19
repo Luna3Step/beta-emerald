@@ -97,12 +97,7 @@ Debug_GiveAllTMsDoneMsg:
 @@ Put random utility scripts here.
 DebugMenu_UtilityScript::
 	lock
-	givemon SPECIES_LUGIA, 90, ITEM_LEFTOVERS
-	givemon SPECIES_TORTERRA, 90, ITEM_LEFTOVERS
-	givemon SPECIES_LUCARIO, 90, ITEM_LEFTOVERS
-	givemon SPECIES_TYRANITAR, 90, ITEM_LEFTOVERS
-	givemon SPECIES_GARDEVOIR, 90, ITEM_GARDEVOIRITE
-	givemon SPECIES_ETERNATUS, 90, ITEM_LEFTOVERS
+	setflag(FLAG_BEATEN_GIOVANNI)
 	release
 	end
 

@@ -112,3 +112,20 @@ script LilycoveCity_Rocket_B1F_Rocky_Helmet {
         releaseall
 	}
 }
+
+script LilycoveCity_Rocket_B1F_Rare_Candy {
+    lockall
+    msgbox(format("You found a Rare Candy!"))
+    additem(ITEM_RARE_CANDY, 1)
+    if(var(VAR_RESULT) == TRUE){
+		removeobject(9)
+		setflag(FLAG_B1F_RARE_CANDY)
+		waitmessage
+		releaseall
+		end
+	}
+	else{
+        call(Common_EventScript_ShowBagIsFull)
+        releaseall
+	}
+}
