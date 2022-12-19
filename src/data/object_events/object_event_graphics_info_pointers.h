@@ -256,6 +256,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_James;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rocket_M;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rocket_F;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rocket_Balloon;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Giovanni;
 
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
@@ -510,6 +511,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ROCKET_M] =                 &gObjectEventGraphicsInfo_Rocket_M,
     [OBJ_EVENT_GFX_ROCKET_F] =                 &gObjectEventGraphicsInfo_Rocket_F,
     [OBJ_EVENT_GFX_ROCKET_BALLOON] =           &gObjectEventGraphicsInfo_Rocket_Balloon,
+    [OBJ_EVENT_GFX_GIOVANNI] =                 &gObjectEventGraphicsInfo_Giovanni,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

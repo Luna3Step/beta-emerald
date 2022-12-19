@@ -742,3 +742,6 @@ $(OBJEVENTGFXDIR)/people/rocket_f.4bpp: %.4bpp: %.png
 
 $(OBJEVENTGFXDIR)/misc/rocket_balloon.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 8 -mheight 8
+
+$(OBJEVENTGFXDIR)/people/giovanni.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4

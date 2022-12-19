@@ -398,3 +398,5 @@ const u16 gObjectEventPalette_Rocket[] = INCBIN_U16("graphics/object_events/pics
 const u32 gObjectEventPic_Rocket_F[] = INCBIN_U32("graphics/object_events/pics/people/rocket_f.4bpp");
 const u32 gObjectEventPic_Rocket_Balloon[] = INCBIN_U32("graphics/object_events/pics/misc/rocket_balloon.4bpp");
 const u16 gObjectEventPalette_Rocket_Balloon[] = INCBIN_U16("graphics/object_events/pics/misc/rocket_balloon.gbapal");
+const u32 gObjectEventPic_Giovanni[] = INCBIN_U32("graphics/object_events/pics/people/giovanni.4bpp");
+const u16 gObjectEventPalette_Giovanni[] = INCBIN_U16("graphics/object_events/palettes/giovanni.gbapal");
