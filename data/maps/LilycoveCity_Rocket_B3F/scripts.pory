@@ -53,16 +53,16 @@ text LilycoveCity_Rocket_B3F_Luann_Outro {
     format("Can't wait to see the boss get his hands on you.")
 }
 
-script LilycoveCity_Rocket_B3F_Jerome {
-    trainerbattle_single(TRAINER_JEROME, LilycoveCity_Rocket_B3F_Jerome_Intro, LilycoveCity_Rocket_B3F_Jerome_Outro)
+script LilycoveCity_Rocket_B3F_Malcom {
+    trainerbattle_single(TRAINER_MALCOM, LilycoveCity_Rocket_B3F_Malcom_Intro, LilycoveCity_Rocket_B3F_Malcom_Outro)
     end
 }
 
-text LilycoveCity_Rocket_B3F_Jerome_Intro {
+text LilycoveCity_Rocket_B3F_Malcom_Intro {
     format("Nothing to see back here.")
 }
 
-text LilycoveCity_Rocket_B3F_Jerome_Outro {
+text LilycoveCity_Rocket_B3F_Malcom_Outro {
     format("Go on, waste your time.")
 }
 

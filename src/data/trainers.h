@@ -2491,7 +2491,7 @@ const struct Trainer gTrainers[] = {
         .party = {.TrainerMon = sParty_Tony4},
     },
 
-    [TRAINER_ROCKET_LEE] =
+    [TRAINER_LEE] =
     {
         
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET,
@@ -2799,18 +2799,18 @@ const struct Trainer gTrainers[] = {
         .party = {.TrainerMon = sParty_Dalton4},
     },
 
-    [TRAINER_NOLAN] =
+    [TRAINER_DARIO] =
     {
         
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .trainerPic = TRAINER_PIC_ROCKET_M,
-        .trainerName = _("NOLAN"),
+        .trainerName = _("DARIO"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .partySize = ARRAY_COUNT(sParty_Nolan),
-        .party = {.TrainerMon = sParty_Nolan},
+        .partySize = ARRAY_COUNT(sParty_Dario),
+        .party = {.TrainerMon = sParty_Dario},
     },
 
     [TRAINER_COLE] =
@@ -3107,18 +3107,18 @@ const struct Trainer gTrainers[] = {
         .party = {.TrainerMon = sParty_Ethan4},
     },
 
-    [TRAINER_CLAUDE] =
+    [TRAINER_JORDAN] =
     {
         
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .trainerPic = TRAINER_PIC_ROCKET_M,
-        .trainerName = _("CLAUDE"),
+        .trainerName = _("JORDAN"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .partySize = ARRAY_COUNT(sParty_Claude),
-        .party = {.TrainerMon = sParty_Claude},
+        .partySize = ARRAY_COUNT(sParty_Jordan),
+        .party = {.TrainerMon = sParty_Jordan},
     },
 
     [TRAINER_BRENT] =
@@ -11577,18 +11577,18 @@ const struct Trainer gTrainers[] = {
         .party = {.TrainerMon = sParty_Koji4},
     },
 
-    [TRAINER_JEROME] =
+    [TRAINER_MALCOM] =
     {
         
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .trainerPic = TRAINER_PIC_ROCKET_M,
-        .trainerName = _("JEROME"),
+        .trainerName = _("MALCOM"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .partySize = ARRAY_COUNT(sParty_Jerome),
-        .party = {.TrainerMon = sParty_Jerome},
+        .partySize = ARRAY_COUNT(sParty_Malcom),
+        .party = {.TrainerMon = sParty_Malcom},
     },
 
     [TRAINER_CRISTIN_2] =

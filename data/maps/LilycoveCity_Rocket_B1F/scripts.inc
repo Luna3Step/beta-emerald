@@ -32,6 +32,48 @@ LilycoveCity_Rocket_B1F_Lora::
 	end
 
 
+LilycoveCity_Rocket_B1F_Assault_Vest::
+	lockall
+	msgbox LilycoveCity_Rocket_B1F_Assault_Vest_Text_0
+	additem ITEM_ASSAULT_VEST, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq LilycoveCity_Rocket_B1F_Assault_Vest_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+LilycoveCity_Rocket_B1F_Assault_Vest_1:
+	removeobject 7
+	setflag FLAG_B1F_ASSAULT
+	waitmessage
+	releaseall
+	end
+
+
+LilycoveCity_Rocket_B1F_Rocky_Helmet::
+	lockall
+	msgbox LilycoveCity_Rocket_B1F_Rocky_Helmet_Text_0
+	additem ITEM_ROCKY_HELMET, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq LilycoveCity_Rocket_B1F_Rocky_Helmet_1
+	call Common_EventScript_ShowBagIsFull
+	releaseall
+	return
+
+LilycoveCity_Rocket_B1F_Rocky_Helmet_1:
+	removeobject 8
+	setflag FLAG_B1F_ROCKY
+	waitmessage
+	releaseall
+	end
+
+
+LilycoveCity_Rocket_B1F_Assault_Vest_Text_0:
+	.string "You found an Assault Vest!$"
+
+LilycoveCity_Rocket_B1F_Rocky_Helmet_Text_0:
+	.string "You found a Rocky Helmet!$"
+
 LilycoveCity_Rocket_B1F_Janet_Intro::
 	.string "How did you get in here?$"
 

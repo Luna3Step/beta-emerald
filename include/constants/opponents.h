@@ -201,7 +201,7 @@
 #define TRAINER_DALTON_2                    197
 #define TRAINER_DALTON_3                    198
 #define TRAINER_DALTON_4                    199
-#define TRAINER_NOLAN                       200
+#define TRAINER_DARIO                       200
 #define TRAINER_COLE                        201
 #define TRAINER_JEFF                        202
 #define TRAINER_AXLE                        203
@@ -223,7 +223,7 @@
 #define TRAINER_ETHAN_2                     219
 #define TRAINER_ETHAN_3                     220
 #define TRAINER_ETHAN_4                     221
-#define TRAINER_CLAUDE                      222
+#define TRAINER_JORDAN                      222
 #define TRAINER_BRENT                       223
 #define TRAINER_DONALD                      224
 #define TRAINER_TAYLOR                      225
@@ -828,7 +828,7 @@
 #define TRAINER_KOJI_2                      824
 #define TRAINER_KOJI_3                      825
 #define TRAINER_KOJI_4                      826
-#define TRAINER_JEROME                      827
+#define TRAINER_MALCOM                      827
 #define TRAINER_CRISTIN_2                   828
 #define TRAINER_CRISTIN_3                   829
 #define TRAINER_CRISTIN_4                   830

@@ -1316,7 +1316,7 @@ static const struct TrainerMon sParty_Brooke4[] = {
     }
 };
 
-static const struct TrainerMon sParty_Brooke5[] = {
+static const struct TrainerMon sParty_Booker[] = {
     {
     .iv = 140,
     .lvl = 70,
@@ -1846,7 +1846,7 @@ static const struct TrainerMon sParty_Brant[] = {
     {
     .iv = 40,
     .lvl = 73,
-    .species = SPECIES_MANCTRIC,
+    .species = SPECIES_MANECTRIC,
     }
 };
 
@@ -2414,7 +2414,7 @@ static const struct TrainerMon sParty_Dalton4[] = {
     }
 };
 
-static const struct TrainerMon sParty_Nolan[] = {
+static const struct TrainerMon sParty_Dario[] = {
     {
     .iv = 40,
     .lvl = 75,
@@ -2674,7 +2674,7 @@ static const struct TrainerMon sParty_Ethan4[] = {
     }
 };
 
-static const struct TrainerMon sParty_Claude[] = {
+static const struct TrainerMon sParty_Jordan[] = {
     {
     .iv = 40,
     .lvl = 77,
@@ -2835,7 +2835,7 @@ static const struct TrainerMon sParty_Ray[] = {
     {
     .iv = 40,
     .lvl = 76,
-    .species = SPECIES_MUDSCALE,
+    .species = SPECIES_MUDSDALE,
     },
     {
     .iv = 40,
@@ -12975,7 +12975,7 @@ static const struct TrainerMon sParty_Koji4[] = {
     }
 };
 
-static const struct TrainerMon sParty_Jerome[] = {
+static const struct TrainerMon sParty_Malcom[] = {
     {
     .iv = 40,
     .lvl = 73,

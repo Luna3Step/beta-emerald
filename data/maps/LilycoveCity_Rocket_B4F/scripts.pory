@@ -1,16 +1,16 @@
 mapscripts LilycoveCity_Rocket_B4F_MapScripts {
 }
 
-script LilycoveCity_Rocket_B4F_Nolan {
-    trainerbattle_single(TRAINER_NOLAN, LilycoveCity_Rocket_B4F_Nolan_Intro, LilycoveCity_Rocket_B4F_Nolan_Outro)
+script LilycoveCity_Rocket_B4F_Dario {
+    trainerbattle_single(TRAINER_DARIO, LilycoveCity_Rocket_B4F_Dario_Intro, LilycoveCity_Rocket_B4F_Dario_Outro)
     end
 }
 
-text LilycoveCity_Rocket_B4F_Nolan_Intro {
+text LilycoveCity_Rocket_B4F_Dario_Intro {
     format("You've done well to make it this far down.")
 }
 
-text LilycoveCity_Rocket_B4F_Nolan_Outro {
+text LilycoveCity_Rocket_B4F_Dario_Outro {
     format("I wonder how far you will go.")
 }
 
@@ -27,17 +27,17 @@ text LilycoveCity_Rocket_B4F_Eugenia_Outro {
     format("Those bloody idiots couldn't even weaken you up enough?!??")
 }
 
-script LilycoveCity_Rocket_B4F_Claude {
-    trainerbattle_single(TRAINER_CLAUDE, LilycoveCity_Rocket_B4F_Claude_Intro, LilycoveCity_Rocket_B4F_Claude_Outro)
+script LilycoveCity_Rocket_B4F_Jordan {
+    trainerbattle_single(TRAINER_JORDAN, LilycoveCity_Rocket_B4F_Jordan_Intro, LilycoveCity_Rocket_B4F_Jordan_Outro)
     end
 }
 
-text LilycoveCity_Rocket_B4F_Claude_Intro {
+text LilycoveCity_Rocket_B4F_Jordan_Intro {
     format("Guess I'm the last one.")
 }
 
-text LilycoveCity_Rocket_B4F_Claude_Outro {
-    format("If the boss asks, it was Nolan who was posted here.")
+text LilycoveCity_Rocket_B4F_Jordan_Outro {
+    format("If the boss asks, it was Dario who was posted here.")
 }
 
 script LilycoveCity_Rocket_B4F_Ray {
