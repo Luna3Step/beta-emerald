@@ -70,7 +70,7 @@ script LilycoveCity_FinalMeteorCall {
     delay(30)
     msgbox(format("Hey, this is Charlie from the Weather Institute."))
     waitmessage
-    msgbox(format("You should have been told about out call from Steven."))
+    msgbox(format("You should have been told about our call from Steven."))
     waitmessage
     msgbox(format("We finally figured out the last meteors precise location after a bit of work.")) 
     waitmessage
