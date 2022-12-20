@@ -1,7 +1,11 @@
 NewBirchLab_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, NewBirchLab_EventScript_BallDefault
-	.byte 0
+    map_script MAP_SCRIPT_ON_TRANSITION, NewBirchLab_OnTransition
+    .byte 0
 
+NewBirchLab_OnTransition:
+    call_if_eq VAR_LITTLEROOT_STATE, 7, NewBirchLab_SetScientist
+    call_if_lt VAR_LITTLEROOT_STATE, 7, NewBirchLab_HideScientist
+    end
 
 NewBirchLab_EventScript_Pokeball::
 	lockall
@@ -69,11 +73,6 @@ NicknameBoxMon_1:
 NicknameBoxMon_2:
 	call Common_EventScript_NameReceivedBoxMon
 	goto NicknameBoxMon_1
-
-
-NewBirchLab_EventScript_BallDefault::
-	setvar VAR_STARTER_GEN, 2
-	return
 
 
 Start_StarterChoose_Sequence::
@@ -564,6 +563,25 @@ UpgradeNationalDex::
 	return
 
 
+NewBirchLab_SetScientist::
+	clearflag FLAG_NEW_BIRCH_SCIENTIST
+	return
+
+
+NewBirchLab_HideScientist::
+	setflag FLAG_NEW_BIRCH_SCIENTIST
+	return
+
+
+NewBirchLab_Scientist::
+	lockall
+	faceplayer
+	msgbox NewBirchLab_Scientist_Text_0
+	waitmessage
+	releaseall
+	return
+
+
 MeetBirch:
 	walk_up
 	walk_up
@@ -679,6 +697,11 @@ UpgradeNationalDex_Text_0:
 	.string "pokemon in Hoenn however it's so cheap\l"
 	.string "and easy to make that I might as well\l"
 	.string "give it you now.$"
+
+NewBirchLab_Scientist_Text_0:
+	.string "It's so nice to be in this new lab. It's\n"
+	.string "cleaner and the internet is actually\l"
+	.string "useable.$"
 
 BeginAdventureText::
 	.string "Birch: Hello {PLAYER}, my name is Prof Birch\n"

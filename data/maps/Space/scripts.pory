@@ -75,6 +75,7 @@ script Space_EventScript_DeoxysCaught {
 	msgbox(format("You have caught the anomoly, Deoxys."))
 	waitmessage
 	setvar(VAR_SKY_PILLAR_STATE, 5)
+	setvar(VAR_WEATHER_INSTITUTE_STATE, 1)
 	clearflag(FLAG_SKYPILLAROUTSIDE_STEVE)
 	warp(MAP_SKY_PILLAR_OUTSIDE, 14, 6)
 	return
@@ -89,6 +90,7 @@ script Space_EventScript_DeoxysBeaten {
 	msgbox(format("Deoxys retreated into space."))
 	waitmessage
 	setvar(VAR_SKY_PILLAR_STATE, 5)
+	setvar(VAR_WEATHER_INSTITUTE_STATE, 1)
 	clearflag(FLAG_SKYPILLAROUTSIDE_STEVE)
 	warp(MAP_SKY_PILLAR_OUTSIDE, 14, 6)
 	return
@@ -101,5 +103,15 @@ script Space_EventScript_PlayerLost {
 	removeobject(1)
 	fadescreen(FADE_FROM_BLACK)
 	msgbox(format("Deoxys flew back into space"))
+	waitmessage
+	msgbox(format("Do you wish to try again?"), MSGBOX_YESNO)
+	waitmessage
+	if(var(VAR_RESULT) == YES){
+		warp(MAP_SKY_PILLAR_5F, 3, 2)
+	}
+	else{
+		msgbox(format("Too bad! Try again!"))
+		warp(MAP_SKY_PILLAR_5F, 3, 2)
+	}
 	return
 }

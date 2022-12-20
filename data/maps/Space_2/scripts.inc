@@ -99,6 +99,7 @@ Space_2_EventScript_DeoxysCaught::
 	msgbox Space_2_EventScript_DeoxysCaught_Text_0
 	waitmessage
 	setvar VAR_SKY_PILLAR_STATE, 5
+	setvar VAR_WEATHER_INSTITUTE_STATE, 1
 	clearflag FLAG_SKYPILLAROUTSIDE_STEVE
 	warp MAP_SKY_PILLAR_OUTSIDE, 14, 6
 	return
@@ -113,6 +114,7 @@ Space_2_EventScript_DeoxysBeaten::
 	msgbox Space_2_EventScript_DeoxysBeaten_Text_0
 	waitmessage
 	setvar VAR_SKY_PILLAR_STATE, 5
+	setvar VAR_WEATHER_INSTITUTE_STATE, 1
 	clearflag FLAG_SKYPILLAROUTSIDE_STEVE
 	warp MAP_SKY_PILLAR_OUTSIDE, 14, 6
 	return
@@ -124,8 +126,20 @@ Space_2_EventScript_PlayerLost::
 	fadescreen FADE_TO_BLACK
 	removeobject 1
 	fadescreen FADE_FROM_BLACK
-	msgbox Space_2_EventScript_PlayerLost_Text_0, MSGBOX_DEFAULT
+	msgbox Space_2_EventScript_PlayerLost_Text_0
+	waitmessage
+	msgbox Space_2_EventScript_PlayerLost_Text_1, MSGBOX_YESNO
+	waitmessage
+	compare VAR_RESULT, YES
+	goto_if_eq Space_2_EventScript_PlayerLost_2
+	msgbox Space_2_EventScript_PlayerLost_Text_2
+	warp MAP_SKY_PILLAR_5F, 3, 2
+Space_2_EventScript_PlayerLost_1:
 	return
+
+Space_2_EventScript_PlayerLost_2:
+	warp MAP_SKY_PILLAR_5F, 3, 2
+	goto Space_2_EventScript_PlayerLost_1
 
 
 Space_2_EventScript_Warning_Text_0:
@@ -143,3 +157,9 @@ Space_2_EventScript_DeoxysBeaten_Text_0:
 
 Space_2_EventScript_PlayerLost_Text_0:
 	.string "Deoxys flew back into space$"
+
+Space_2_EventScript_PlayerLost_Text_1:
+	.string "Do you wish to try again?$"
+
+Space_2_EventScript_PlayerLost_Text_2:
+	.string "Too bad! Try again!$"

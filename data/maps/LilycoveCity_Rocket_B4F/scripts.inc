@@ -53,14 +53,8 @@ LilycoveCity_Rocket_B4F_PP_MAX_1:
 LilycoveCity_Rocket_B4F_Giovanni::
 	lockall
 	goto_if_set FLAG_BEATEN_GIOVANNI, LilycoveCity_Rocket_B4F_Giovanni_2
-	msgbox LilycoveCity_Rocket_B4F_Giovanni_Text_3
-LilycoveCity_Rocket_B4F_Giovanni_1:
-	releaseall
-	return
-
-LilycoveCity_Rocket_B4F_Giovanni_2:
 	faceplayer
-	msgbox LilycoveCity_Rocket_B4F_Giovanni_Text_0, MSGBOX_YESNO
+	msgbox LilycoveCity_Rocket_B4F_Giovanni_Text_1, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq LilycoveCity_Rocket_B4F_Giovanni_6
 LilycoveCity_Rocket_B4F_Giovanni_5:
@@ -68,14 +62,20 @@ LilycoveCity_Rocket_B4F_Giovanni_5:
 	goto_if_eq LilycoveCity_Rocket_B4F_Giovanni_9
 LilycoveCity_Rocket_B4F_Giovanni_8:
 	trainerbattle_single TRAINER_GIOVANNI, LilycoveCity_Rocket_B4F_Giovanni_Intro, LilycoveCity_Rocket_B4F_Giovanni_Outro, LilycoveCity_Rocket_B4F_Giovanni_Beaten
+LilycoveCity_Rocket_B4F_Giovanni_1:
+	releaseall
+	return
+
+LilycoveCity_Rocket_B4F_Giovanni_2:
+	msgbox LilycoveCity_Rocket_B4F_Giovanni_Text_0
 	goto LilycoveCity_Rocket_B4F_Giovanni_1
 
 LilycoveCity_Rocket_B4F_Giovanni_6:
-	msgbox LilycoveCity_Rocket_B4F_Giovanni_Text_1
+	msgbox LilycoveCity_Rocket_B4F_Giovanni_Text_2
 	goto LilycoveCity_Rocket_B4F_Giovanni_5
 
 LilycoveCity_Rocket_B4F_Giovanni_9:
-	msgbox LilycoveCity_Rocket_B4F_Giovanni_Text_2
+	msgbox LilycoveCity_Rocket_B4F_Giovanni_Text_3
 	goto LilycoveCity_Rocket_B4F_Giovanni_8
 
 
@@ -105,6 +105,7 @@ LilycoveCity_Rocket_B4F_Giovanni_Beaten::
 	msgbox LilycoveCity_Rocket_B4F_Giovanni_Beaten_Text_9
 	waitmessage
 	setflag FLAG_BEATEN_GIOVANNI
+	setvar VAR_FINAL_METEOR, 1
 	releaseall
 	return
 
@@ -135,17 +136,17 @@ LilycoveCity_Rocket_B4F_PP_MAX_Text_0:
 	.string "You found a PP Max!$"
 
 LilycoveCity_Rocket_B4F_Giovanni_Text_0:
-	.string "I guess you're our uninvited guest?$"
+	.string "Time to see which fools let you through.$"
 
 LilycoveCity_Rocket_B4F_Giovanni_Text_1:
+	.string "I guess you're our uninvited guest?$"
+
+LilycoveCity_Rocket_B4F_Giovanni_Text_2:
 	.string "How naive of you to answer my question\n"
 	.string "like that.$"
 
-LilycoveCity_Rocket_B4F_Giovanni_Text_2:
-	.string "A liar as well.$"
-
 LilycoveCity_Rocket_B4F_Giovanni_Text_3:
-	.string "Time to see which fools let you through.$"
+	.string "A liar as well.$"
 
 LilycoveCity_Rocket_B4F_Giovanni_Beaten_Text_0:
 	.string "What is it with children and ruining my\n"
@@ -171,7 +172,7 @@ LilycoveCity_Rocket_B4F_Giovanni_Beaten_Text_5:
 	.string "Team Rocket.$"
 
 LilycoveCity_Rocket_B4F_Giovanni_Beaten_Text_6:
-	.string "So I can assume it was you.$"
+	.string "So I can only assume it was you.$"
 
 LilycoveCity_Rocket_B4F_Giovanni_Beaten_Text_7:
 	.string "You can take the meteor, the scientists\n"
@@ -180,8 +181,8 @@ LilycoveCity_Rocket_B4F_Giovanni_Beaten_Text_7:
 	.string "meteors like it used to be.$"
 
 LilycoveCity_Rocket_B4F_Giovanni_Beaten_Text_8:
-	.string "It's more effort to keep them than to\n"
-	.string "throw them out.$"
+	.string "It's more effort to keep it than to\n"
+	.string "throw it out.$"
 
 LilycoveCity_Rocket_B4F_Giovanni_Beaten_Text_9:
 	.string "Just be warned that the next time we\n"

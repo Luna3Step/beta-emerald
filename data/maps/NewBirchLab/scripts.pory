@@ -1,6 +1,14 @@
-mapscripts NewBirchLab_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION: NewBirchLab_EventScript_BallDefault
-}
+raw`
+
+NewBirchLab_MapScripts::
+    map_script MAP_SCRIPT_ON_TRANSITION, NewBirchLab_OnTransition
+    .byte 0
+
+NewBirchLab_OnTransition:
+    call_if_eq VAR_LITTLEROOT_STATE, 7, NewBirchLab_SetScientist
+    call_if_lt VAR_LITTLEROOT_STATE, 7, NewBirchLab_HideScientist
+    end
+`
 
 script NewBirchLab_EventScript_Pokeball{
     lockall
@@ -61,9 +69,6 @@ script NicknameBoxMon {
 }
 
 
-script NewBirchLab_EventScript_BallDefault{
-    setvar(VAR_STARTER_GEN, 2)
-}
 
 script Start_StarterChoose_Sequence{
     lock
@@ -442,6 +447,22 @@ script UpgradeNationalDex{
     closemessage
     release
     return
+}
+
+script NewBirchLab_SetScientist {
+    clearflag(FLAG_NEW_BIRCH_SCIENTIST)
+}
+
+script NewBirchLab_HideScientist {
+    setflag(FLAG_NEW_BIRCH_SCIENTIST)
+}
+
+script NewBirchLab_Scientist {
+    lockall
+    faceplayer
+    msgbox(format("It's so nice to be in this new lab. It's cleaner and the internet is actually useable."))
+    waitmessage
+    releaseall
 }
 
 movement MeetBirch{

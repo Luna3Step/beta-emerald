@@ -33,6 +33,7 @@ LittlerootTown_ProfessorBirchsLab_OnTransition:
 	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 4, LittlerootTown_ProfessorBirchsLab_EventScript_SetJohtoStarterLayout
 	goto_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 3, LittlerootTown_ProfessorBirchsLab_EventScript_CheckReadyForJohtoStarter
 	call_if_eq VAR_LITTLEROOT_STATE, 6, LittlerootTown_ProfessorBirchsLab_MeteorSetup
+	call_if_ne VAR_LITTLEROOT_STATE, 6, LittlerootTown_ProfessorBirchsLab_HideMeteorStuff
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_CheckReadyForJohtoStarter::
@@ -1002,4 +1003,58 @@ script LittlerootTown_ProfessorBirchsLab_MeteorSetup {
 	setflag(FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_CHIKORITA)
 	setflag(FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_TOTODILE)
 	setflag(FLAG_BIRCH_SCIENTIST)
+	clearflag(FLAG_BIRCH_METEOR)
+}
+
+script LittlerootTown_ProfessorBirchsLab_HideMeteorStuff {
+	setflag(FLAG_BIRCH_METEOR)
+}
+
+script LittlerootTown_ProfessorBirchsLab_Scientist_Meteor {
+	lockall
+	faceplayer
+	msgbox(format("It was a good thing I was helping move the boxes to the new lab when this hit the lab."))
+	waitmessage
+	releaseall
+}
+
+script LittlerootTown_ProfessorBirchsLab_Birch_Meteor {
+	lockall
+	msgbox(format("Well this a surprise. It's a good thing we were already planning on shutting the lab down."))
+	faceplayer
+	delay(5)
+	applymovement(8, Common_Movement_QuestionMark)
+	waitmovement(0)
+	msgbox(format("Ah {PLAYER}!"))
+	waitmessage
+	msgbox(format("Perfect timing, I was about to call you."))
+	waitmessage
+	msgbox(format("I came back to the lab just moments ago to grab some stuff and found a hole in the roof and this meteor."))
+	waitmessage
+	msgbox(format("I remember hearing from someone from the Weather Institute that you were on the lookout for meteors."))
+	waitmessage
+	msgbox(format("What luck for it to end up here of all places."))
+	waitmessage
+	msgbox(format("Feel free to take it!"))
+	setflag(FLAG_BIRCH_METEOR)
+	waitmessage
+	releaseall
+}
+
+script LittlerootTown_ProfessorBirchsLab_Meteor {
+	lockall
+	if(flag(FLAG_BIRCH_METEOR)){
+		fadescreen(FADE_TO_BLACK)
+		removeobject(7)
+		fadescreen(FADE_FROM_BLACK)
+		msgbox(format("You took the Meteor!"))
+		waitmessage
+		setvar(VAR_LITTLEROOT_STATE, 7)
+		setvar(VAR_WEATHER_INSTITUTE_STATE, 3)
+	}
+	else{
+		msgbox(format("You should talk to Prof. Birch first."))
+		waitmessage
+	}
+	releaseall
 }

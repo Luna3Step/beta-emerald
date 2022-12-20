@@ -13,6 +13,7 @@ Route119_WeatherInstitute_2F_OnTransition:
 	call_if_eq VAR_WEATHER_INSTITUTE_STATE, 0, Route119_WeatherInstitute_2F_EventScript_SetScientistPosAquaHere
 	call_if_eq VAR_WEATHER_INSTITUTE_STATE, 1, Route119_WeatherInstitute_2F_EventScript_SetScientistPosAquaGone
 	call_if_eq VAR_WEATHER_INSTITUTE_STATE, 2, Route119_WeatherInstitute_2F_EventScript_DeoxysSetup
+	call_if_eq VAR_WEATHER_INSTITUTE_STATE, 3, Route119_WeatherInstitute_2F_Setup_Final_Steven
 	call_if_set FLAG_SYS_GAME_CLEAR, Route119_WeatherInstitute_2F_EventScript_SetScientistPosGameClear
 	end
 
@@ -31,6 +32,7 @@ Route119_WeatherInstitute_2F_EventScript_SetScientistPosAquaGone::
 Route119_WeatherInstitute_2F_EventScript_SetScientistPosGameClear::
 	setobjectxyperm LOCALID_SCIENTIST, 2, 2
 	setobjectmovementtype LOCALID_SCIENTIST, MOVEMENT_TYPE_FACE_UP
+	clearflag FLAG_HIDE_WEATHER_INSTITUTE_2F_WORKERS
     setflag FLAG_WEATHER_INSTITUTE_2F_DEOXYSNPCS
 	return
 
@@ -341,6 +343,8 @@ Route119_WeatherInstitute_2F_EventScript_DeoxysSetup::
 	setflag FLAG_HIDE_WEATHER_INSTITUTE_2F_AQUA_GRUNT_M
 	setflag FLAG_WEATHER_INSTITUTE_2F_SCIENTIST
 	clearflag FLAG_WEATHER_INSTITUTE_2F_DEOXYSNPCS
+	setflag FLAG_FINAL_STEVEN_DEOXYS
+	clearflag FLAG_FIRST_WEATHER_STEVEN
 	return
 
 
@@ -436,6 +440,84 @@ Route119_WeatherInstitute_1F_EventScript_Normal::
 	setflag FLAG_WEATHER_INSTITUTE_2F_DEOXYSNPCS
 	setflag FLAG_WEATHER_INSTITUTE_2F_DEOXYSFINISH
 	clearflag FLAG_HIDE_WEATHER_INSTITUTE_1F_WORKERS
+	setflag FLAG_FINAL_STEVEN_DEOXYS
+	setflag FLAG_FIRST_WEATHER_STEVEN
+	return
+
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final::
+	lockall
+	faceplayer
+	msgbox Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_0
+	waitmessage
+	msgbox Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_1
+	waitmessage
+	msgbox Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_2
+	waitmessage
+	msgbox Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_3
+	waitmessage
+	msgbox Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_4
+	waitmessage
+	msgbox Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_5
+	waitmessage
+	msgbox Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_6
+	waitmessage
+	msgbox Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_7
+	waitmessage
+	msgbox Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_8
+	waitmessage
+	msgbox Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_9
+	waitmessage
+	msgbox Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_10
+	waitmessage
+	msgbox Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_11
+	waitmessage
+	msgbox Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_12
+	waitmessage
+	msgbox Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_13
+	waitmessage
+	msgbox Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_14
+	waitmessage
+	msgbox Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_15, MSGBOX_YESNO
+	waitmessage
+	compare VAR_RESULT, YES
+	goto_if_eq Route119_WeatherInstitute_2F_Deoxys_Steven_Final_1
+	return
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final_1:
+	msgbox Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_16
+	waitmessage
+	msgbox Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_17
+	waitmessage
+	msgbox Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_18
+	applymovement OBJ_EVENT_ID_PLAYER, Route119_WeatherInstitute_2F_Movement_PlayerExit_Final
+	delay 45
+	applymovement 15, Route119_WeatherInstitute_2F_Movement_StevenExit_Final
+	waitmovement 0
+	removeobject 14
+	setvar VAR_SKY_PILLAR_STATE, 4
+	setvar VAR_DEOXYS_STATE, 1
+	call Route119_WeatherInstitute_1F_EventScript_Normal
+	msgbox Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_19, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Route119_WeatherInstitute_2F_Deoxys_Steven_Final_3
+	msgbox Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_20
+	setvar VAR_SKY_PILLAR_STATE, 4
+	setvar VAR_DEOXYS_STATE, 1
+	call Route119_WeatherInstitute_1F_EventScript_Normal
+	releaseall
+	return
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final_3:
+	warp MAP_SKY_PILLAR_5F, 3, 2
+	releaseall
+	return
+
+
+Route119_WeatherInstitute_2F_Setup_Final_Steven::
+	setflag FLAG_FIRST_WEATHER_STEVEN
+	clearflag FLAG_FINAL_STEVEN_DEOXYS
+	clearflag FLAG_WEATHER_INSTITUTE_2F_DEOXYSNPCS
 	return
 
 
@@ -459,6 +541,23 @@ Route119_WeatherInstitute_2F_Movement_PlayerExit:
 Route119_WeatherInstitute_2F_Movement_StevenExit:
 	walk_down
 	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Route119_WeatherInstitute_2F_Movement_PlayerExit_Final:
+	walk_down
+	step_end
+
+Route119_WeatherInstitute_2F_Movement_StevenExit_Final:
 	walk_down
 	walk_right
 	walk_right
@@ -505,8 +604,8 @@ Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_2:
 	.string "scientists are freaking out.$"
 
 Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_3:
-	.string "But if you look at this data, it's pretty\n"
-	.string "much the same.$"
+	.string "But if you look at this data over here,\n"
+	.string "it's pretty much the same.$"
 
 Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_4:
 	.string "This data is from the moment Rayquaza\n"
@@ -531,3 +630,90 @@ Route119_WeatherInstitute_2F_EventScript_StevenNPC_Text_8:
 	.string "You are probably going to need\n"
 	.string "Rayquaza for this, please talk to me\l"
 	.string "when you have them.$"
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_0:
+	.string "Ah, I see you are back!$"
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_1:
+	.string "And you have all the meteors!$"
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_2:
+	.string "Perfect timing really, the scientists\n"
+	.string "have figured what's going on with\l"
+	.string "these meteors.$"
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_3:
+	.string "They were able to find some cells on\n"
+	.string "each meteor and they weren't from\l"
+	.string "Earth as far as they could tell.$"
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_4:
+	.string "When the cells were put in close\n"
+	.string "proximity with each meteor, their\l"
+	.string "structure completely changed.$"
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_5:
+	.string "We had to get a biologist in from this\n"
+	.string "point onwards.$"
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_6:
+	.string "From what they could tell us, the\n"
+	.string "change in structure led to either\l"
+	.string "increased consumption of energy, a\l"
+	.string "stronger membrane to protect itself or\l"
+	.string "stronger output of energy.$"
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_7:
+	.string "There was also a fourth change in\n"
+	.string "structure but it didn't really seem to\l"
+	.string "improve or decrease any function that\l"
+	.string "much.$"
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_8:
+	.string "With all that, we found the final\n"
+	.string "meteor!$"
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_9:
+	.string "It never actually made it to earth's\n"
+	.string "surface and is currently in orbit.$"
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_10:
+	.string "However we did notice that it had a\n"
+	.string "rather erratic path.$"
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_11:
+	.string "And that leads me to my next point, we\n"
+	.string "need to send someone up there.$"
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_12:
+	.string "But our current spacecraft wouldn't be\n"
+	.string "able to keep with it's random changes\l"
+	.string "in direction.$"
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_13:
+	.string "We would risk a pilot losing there life in\n"
+	.string "a crash.$"
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_14:
+	.string "Which is why I have to ask you this\n"
+	.string "question.$"
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_15:
+	.string "Do you want to go to space?$"
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_16:
+	.string "Alright, brilliant!$"
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_17:
+	.string "Meet me up at the top of Sky Pillar!$"
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_18:
+	.string "Make sure to bring Rayquaza!$"
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_19:
+	.string "Do you wish to fast travel to Sky Pillar\n"
+	.string "5F?$"
+
+Route119_WeatherInstitute_2F_Deoxys_Steven_Final_Text_20:
+	.string "If you change your mind, meet me at Sky\n"
+	.string "Pillar.$"

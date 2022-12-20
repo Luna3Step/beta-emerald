@@ -774,7 +774,7 @@ LilycoveCity_FinalMeteorCall::
 	msgbox LilycoveCity_FinalMeteorCall_Text_4
 	playse SE_POKENAV_HANG_UP
 	delay 15
-	setvar VAR_FINAL_METEOR, 1
+	setvar VAR_FINAL_METEOR, 2
 	setvar VAR_LITTLEROOT_STATE, 6
 	releaseall
 	return

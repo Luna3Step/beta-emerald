@@ -32,6 +32,8 @@ LittlerootTown_ProfessorBirchsLab_OnTransition:
 	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6, LittlerootTown_ProfessorBirchsLab_EventScript_SetAfterJohtoStarterLayout
 	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 4, LittlerootTown_ProfessorBirchsLab_EventScript_SetJohtoStarterLayout
 	goto_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 3, LittlerootTown_ProfessorBirchsLab_EventScript_CheckReadyForJohtoStarter
+	call_if_eq VAR_LITTLEROOT_STATE, 6, LittlerootTown_ProfessorBirchsLab_MeteorSetup
+	call_if_ne VAR_LITTLEROOT_STATE, 6, LittlerootTown_ProfessorBirchsLab_HideMeteorStuff
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_CheckReadyForJohtoStarter::
@@ -993,3 +995,111 @@ LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall:
 	.string "we meet. I'll be waiting!\p"
 	.string "… … … … … …\n"
 	.string "… … … … … Click!$"
+
+LittlerootTown_ProfessorBirchsLab_MeteorSetup::
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_RIVAL
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_CYNDAQUIL
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_CHIKORITA
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_TOTODILE
+	setflag FLAG_BIRCH_SCIENTIST
+	clearflag FLAG_BIRCH_METEOR
+	return
+
+
+LittlerootTown_ProfessorBirchsLab_HideMeteorStuff::
+	setflag FLAG_BIRCH_METEOR
+	return
+
+
+LittlerootTown_ProfessorBirchsLab_Scientist_Meteor::
+	lockall
+	faceplayer
+	msgbox LittlerootTown_ProfessorBirchsLab_Scientist_Meteor_Text_0
+	waitmessage
+	releaseall
+	return
+
+
+LittlerootTown_ProfessorBirchsLab_Birch_Meteor::
+	lockall
+	msgbox LittlerootTown_ProfessorBirchsLab_Birch_Meteor_Text_0
+	faceplayer
+	delay 5
+	applymovement 8, Common_Movement_QuestionMark
+	waitmovement 0
+	msgbox LittlerootTown_ProfessorBirchsLab_Birch_Meteor_Text_1
+	waitmessage
+	msgbox LittlerootTown_ProfessorBirchsLab_Birch_Meteor_Text_2
+	waitmessage
+	msgbox LittlerootTown_ProfessorBirchsLab_Birch_Meteor_Text_3
+	waitmessage
+	msgbox LittlerootTown_ProfessorBirchsLab_Birch_Meteor_Text_4
+	waitmessage
+	msgbox LittlerootTown_ProfessorBirchsLab_Birch_Meteor_Text_5
+	waitmessage
+	msgbox LittlerootTown_ProfessorBirchsLab_Birch_Meteor_Text_6
+	setflag FLAG_BIRCH_METEOR
+	waitmessage
+	releaseall
+	return
+
+
+LittlerootTown_ProfessorBirchsLab_Meteor::
+	lockall
+	goto_if_set FLAG_BIRCH_METEOR, LittlerootTown_ProfessorBirchsLab_Meteor_2
+	msgbox LittlerootTown_ProfessorBirchsLab_Meteor_Text_1
+	waitmessage
+LittlerootTown_ProfessorBirchsLab_Meteor_1:
+	releaseall
+	return
+
+LittlerootTown_ProfessorBirchsLab_Meteor_2:
+	fadescreen FADE_TO_BLACK
+	removeobject 7
+	fadescreen FADE_FROM_BLACK
+	msgbox LittlerootTown_ProfessorBirchsLab_Meteor_Text_0
+	waitmessage
+	setvar VAR_LITTLEROOT_STATE, 7
+	setvar VAR_WEATHER_INSTITUTE_STATE, 3
+	goto LittlerootTown_ProfessorBirchsLab_Meteor_1
+
+
+LittlerootTown_ProfessorBirchsLab_Scientist_Meteor_Text_0:
+	.string "It was a good thing I was helping move\n"
+	.string "the boxes to the new lab when this hit\l"
+	.string "the lab.$"
+
+LittlerootTown_ProfessorBirchsLab_Birch_Meteor_Text_0:
+	.string "Well this a surprise. It's a good thing\n"
+	.string "we were already planning on shutting\l"
+	.string "the lab down.$"
+
+LittlerootTown_ProfessorBirchsLab_Birch_Meteor_Text_1:
+	.string "Ah {PLAYER}!$"
+
+LittlerootTown_ProfessorBirchsLab_Birch_Meteor_Text_2:
+	.string "Perfect timing, I was about to call you.$"
+
+LittlerootTown_ProfessorBirchsLab_Birch_Meteor_Text_3:
+	.string "I came back to the lab just moments ago\n"
+	.string "to grab some stuff and found a hole in\l"
+	.string "the roof and this meteor.$"
+
+LittlerootTown_ProfessorBirchsLab_Birch_Meteor_Text_4:
+	.string "I remember hearing from someone from\n"
+	.string "the Weather Institute that you were\l"
+	.string "on the lookout for meteors.$"
+
+LittlerootTown_ProfessorBirchsLab_Birch_Meteor_Text_5:
+	.string "What luck for it to end up here of all\n"
+	.string "places.$"
+
+LittlerootTown_ProfessorBirchsLab_Birch_Meteor_Text_6:
+	.string "Feel free to take it!$"
+
+LittlerootTown_ProfessorBirchsLab_Meteor_Text_0:
+	.string "You took the Meteor!$"
+
+LittlerootTown_ProfessorBirchsLab_Meteor_Text_1:
+	.string "You should talk to Prof. Birch first.$"

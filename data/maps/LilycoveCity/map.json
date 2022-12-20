@@ -415,11 +415,29 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 27,
+      "x": 26,
       "y": 7,
       "elevation": 0,
       "var": "VAR_FINAL_METEOR",
-      "var_value": "0",
+      "var_value": "1",
+      "script": "LilycoveCity_FinalMeteorCall"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_FINAL_METEOR",
+      "var_value": "1",
+      "script": "LilycoveCity_FinalMeteorCall"
+    },
+    {
+      "type": "trigger",
+      "x": 28,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_FINAL_METEOR",
+      "var_value": "1",
       "script": "LilycoveCity_FinalMeteorCall"
     }
   ],
