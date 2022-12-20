@@ -602,13 +602,13 @@ static bool8 HandleStartMenuInput(void)
         return FALSE;
     }
 
-    if (JOY_NEW(SELECT_BUTTON))
-    {
-        HideStartMenu();
-        ScriptContext2_Enable();
-        ScriptContext1_SetupScript(DebugMenuScript);
-        return TRUE;
-    }
+    // if (JOY_NEW(SELECT_BUTTON))
+    // {
+    //     HideStartMenu();
+    //     ScriptContext2_Enable();
+    //     ScriptContext1_SetupScript(DebugMenuScript);
+    //     return TRUE;
+    // }
 
 
     if (JOY_NEW(START_BUTTON | B_BUTTON))
