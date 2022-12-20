@@ -96,10 +96,30 @@ Debug_GiveAllTMsDoneMsg:
 
 @@ Put random utility scripts here.
 DebugMenu_UtilityScript::
-	lock
-	setflag(FLAG_BEATEN_GIOVANNI)
-	release
-	end
+	lockall
+	msgbox DebugMenu_UtilityScript_Text_0, MSGBOX_YESNO
+	waitmessage
+	compare VAR_RESULT, YES
+	goto_if_eq DebugMenu_UtilityScript_2
+DebugMenu_UtilityScript_1:
+	compare VAR_RESULT, NO
+	goto_if_eq DebugMenu_UtilityScript_5
+DebugMenu_UtilityScript_4:
+	releaseall
+	return
+
+DebugMenu_UtilityScript_2:
+	setvar VAR_LITTLEROOT_STATE, 5
+	goto DebugMenu_UtilityScript_1
+
+DebugMenu_UtilityScript_5:
+	setvar VAR_LITTLEROOT_STATE, 6
+	goto DebugMenu_UtilityScript_4
+
+
+DebugMenu_UtilityScript_Text_0:
+	.string "5 (YES) 6 (No).$"
+
 
 @@teleport menu
 DebugMenu_Teleportation::

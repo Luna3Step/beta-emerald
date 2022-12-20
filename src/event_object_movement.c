@@ -445,6 +445,7 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_ROCKET                      0x112C
 #define OBJ_EVENT_PAL_ROCKET_BALLOON              0x112E
 #define OBJ_EVENT_PAL_GIOVANNI                    0x112F
+#define OBJ_EVENT_PAL_HOLE                        0x1130
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
 
@@ -507,6 +508,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Rocket,            OBJ_EVENT_PAL_ROCKET},
     {gObjectEventPalette_Rocket_Balloon,    OBJ_EVENT_PAL_ROCKET_BALLOON},
     {gObjectEventPalette_Giovanni,          OBJ_EVENT_PAL_GIOVANNI},
+    {gObjectEventPalette_Hole,              OBJ_EVENT_PAL_HOLE},
     {},
 };
 

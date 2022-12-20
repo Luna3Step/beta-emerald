@@ -53,6 +53,8 @@ LittlerootTown_OnTransition:
 	call_if_eq VAR_LITTLEROOT_RIVAL_STATE, 3, LittlerootTown_EventScript_SetRivalLeftForRoute103
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 7, LittlerootTown_EventScript_HideMapNamePopup
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 7, LittlerootTown_EventScript_LeftLabAfterDexUpgrade
+	call_if_ne VAR_LITTLEROOT_STATE, 6, LittlerootTown_EventScript_LabHoleHide
+	call_if_eq VAR_LITTLEROOT_STATE, 6, LittlerootTown_EventScript_LabHoleShow
 	call_if_unset FLAG_RIVAL_BATTLE_LITTLEROOT, LittlerootTown_EventScript_SetupRivalBattle
 	end
 
@@ -1217,6 +1219,16 @@ LittlerootTown_EventScript_Gym::
 	msgbox LittlerootTown_EventScript_Gym_Text_0
 	waitmessage
 	releaseall
+	return
+
+
+LittlerootTown_EventScript_LabHoleHide::
+	setflag FLAG_METEOR_HOLE
+	return
+
+
+LittlerootTown_EventScript_LabHoleShow::
+	clearflag FLAG_METEOR_HOLE
 	return
 
 

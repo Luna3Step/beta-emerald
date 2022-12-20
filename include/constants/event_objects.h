@@ -253,8 +253,12 @@
 #define OBJ_EVENT_GFX_ROCKET_F                   249
 #define OBJ_EVENT_GFX_ROCKET_BALLOON             250
 #define OBJ_EVENT_GFX_GIOVANNI                   251
+#define OBJ_EVENT_GFX_HOLE1                      252
+#define OBJ_EVENT_GFX_HOLE2                      253
+#define OBJ_EVENT_GFX_HOLE3                      254
+#define OBJ_EVENT_GFX_HOLE4                      255
 
-#define NUM_OBJ_EVENT_GFX                        252
+#define NUM_OBJ_EVENT_GFX                        256
 #define NUM_REGULAR_OBJ_EVENT_GFX                252
 
 #define species_gfx(species) ((species + (NUM_REGULAR_OBJ_EVENT_GFX - 1)))

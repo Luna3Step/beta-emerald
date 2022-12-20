@@ -2272,3 +2272,19 @@ static const struct SpriteFrameImage sPicTable_Giovanni[] = {
     overworld_frame(gObjectEventPic_Giovanni, 2, 4, 7),
     overworld_frame(gObjectEventPic_Giovanni, 2, 4, 8),
 };
+
+static const struct SpriteFrameImage sPicTable_Hole1[] = {
+    overworld_frame(gObjectEventPic_Hole1, 2, 2, 0),
+};
+
+static const struct SpriteFrameImage sPicTable_Hole2[] = {
+    overworld_frame(gObjectEventPic_Hole2, 2, 2, 0),
+};
+
+static const struct SpriteFrameImage sPicTable_Hole3[] = {
+    overworld_frame(gObjectEventPic_Hole3, 2, 2, 0),
+};
+
+static const struct SpriteFrameImage sPicTable_Hole4[] = {
+    overworld_frame(gObjectEventPic_Hole4, 2, 2, 0),
+};

@@ -759,3 +759,44 @@ LilycoveCity_Text_HoneymoonVowToSeeRarePokemon:
 	.string "POKéMON as soon as we arrived.\p"
 	.string "I mean, we are totally happy!$"
 
+LilycoveCity_FinalMeteorCall::
+	lockall
+	playse SE_POKENAV_CALL
+	delay 30
+	msgbox LilycoveCity_FinalMeteorCall_Text_0
+	waitmessage
+	msgbox LilycoveCity_FinalMeteorCall_Text_1
+	waitmessage
+	msgbox LilycoveCity_FinalMeteorCall_Text_2
+	waitmessage
+	msgbox LilycoveCity_FinalMeteorCall_Text_3
+	waitmessage
+	msgbox LilycoveCity_FinalMeteorCall_Text_4
+	playse SE_POKENAV_HANG_UP
+	delay 15
+	setvar VAR_FINAL_METEOR, 1
+	setvar VAR_LITTLEROOT_STATE, 6
+	releaseall
+	return
+
+
+LilycoveCity_FinalMeteorCall_Text_0:
+	.string "Hey, this is Charlie from the Weather\n"
+	.string "Institute.$"
+
+LilycoveCity_FinalMeteorCall_Text_1:
+	.string "You should have been told about our\n"
+	.string "call from Steven.$"
+
+LilycoveCity_FinalMeteorCall_Text_2:
+	.string "We finally figured out the last meteors\n"
+	.string "precise location after a bit of work.$"
+
+LilycoveCity_FinalMeteorCall_Text_3:
+	.string "It's ended up crashing in a slightly\n"
+	.string "niche location called Littleroot town,\l"
+	.string "it's southeast of Petalburg city.$"
+
+LilycoveCity_FinalMeteorCall_Text_4:
+	.string "Once you've found the last meteor, come\n"
+	.string "visit us.$"

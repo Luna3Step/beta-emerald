@@ -512,6 +512,10 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ROCKET_F] =                 &gObjectEventGraphicsInfo_Rocket_F,
     [OBJ_EVENT_GFX_ROCKET_BALLOON] =           &gObjectEventGraphicsInfo_Rocket_Balloon,
     [OBJ_EVENT_GFX_GIOVANNI] =                 &gObjectEventGraphicsInfo_Giovanni,
+    [OBJ_EVENT_GFX_HOLE1] =                    &gObjectEventGraphicsInfo_Hole1,
+    [OBJ_EVENT_GFX_HOLE2] =                    &gObjectEventGraphicsInfo_Hole2,
+    [OBJ_EVENT_GFX_HOLE3] =                    &gObjectEventGraphicsInfo_Hole3,
+    [OBJ_EVENT_GFX_HOLE4] =                    &gObjectEventGraphicsInfo_Hole4,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {
