@@ -4,7 +4,6 @@ ChangeDeoxysForm::
 	compare VAR_RESULT, YES
 	goto_if_eq ChangeDeoxysForm_Start
 ChangeDeoxysForm_End:
-	msgbox ChangeDeoxysForm_Text_End, MSGBOX_DEFAULT
 	releaseall
 	end
 
@@ -29,11 +28,8 @@ ChangeDeoxysForm_Success:
 ChangeDeoxysForm_Text_Beginning:
 	.string "Do you wish to inspect the meteor's closely?$"
 
-ChangeDeoxysForm_Text_End:
-	.string "Come back anytime.$"
-
 ChangeDeoxysForm_Text_Select:
-	.string "Please select a DEOXYS.$"
+	.string "Please select a Pokemon.$"
 
 ChangeDeoxysForm_Text_Success:
 	.string "Congratulations!\nYour DEOXYS has transformed!$"

@@ -8,6 +8,8 @@ RustboroCity_DevonCorp_3F_MapScripts::
 
 RustboroCity_DevonCorp_3F_OnTransition:
 	call_if_eq VAR_DEVON_CORP_3F_STATE, 0, RustboroCity_DevonCorp_3F_EventScript_SetEmployeePos
+	call_if_eq VAR_METEORS_STATE, 0, RustboroCity_DevonCorp_3F_Hide_Meteors
+	call_if_eq VAR_METEORS_STATE, 1, RustboroCity_DevonCorp_3F_Show_Meteors
 	end
 
 RustboroCity_DevonCorp_3F_EventScript_SetEmployeePos::
@@ -305,6 +307,23 @@ RustboroCity_DevonCorp_3F_Text_RepeatAndTimerHugelyPopular:
 RustboroCity_DevonCorp_3F_Text_RareRocksDisplay:
 	.string "It's a collection of rare rocks and\n"
 	.string "stones assembled by the PRESIDENT.$"
+
+RustboroCity_DevonCorp_3F_Hide_Meteors::
+	setflag FLAG_DEOXYS_METEORS
+	return
+
+
+RustboroCity_DevonCorp_3F_Show_Meteors::
+	clearflag FLAG_DEOXYS_METEORS
+	return
+
+
+RustboroCity_DevonCorp_3F_Deoxys_Meteor::
+	lockall
+	call ChangeDeoxysForm
+	releaseall
+	return
+
 
 RustboroCity_DevonCorp_3F_Text_Salamancite::
 	.string "Here take this, it won't be of much use\n"

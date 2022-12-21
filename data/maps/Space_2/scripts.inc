@@ -54,7 +54,7 @@ Space_2_Trigger_DeoxysInitiate::
 	delay 40
 	waitmoncry
 	call Space_Trigger_Screenshake
-	setwildbattle SPECIES_DEOXYS, 70, ITEM_NONE
+	setwildbattle SPECIES_DEOXYS, 95, ITEM_NONE
 	special BattleSetup_StartLegendaryBattle
 	dowildbattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -101,6 +101,9 @@ Space_2_EventScript_DeoxysCaught::
 	setvar VAR_SKY_PILLAR_STATE, 5
 	setvar VAR_WEATHER_INSTITUTE_STATE, 1
 	clearflag FLAG_SKYPILLAROUTSIDE_STEVE
+	setflag FLAG_HIDE_METEORS
+	setvar VAR_METEORS_STATE, 1
+	clearflag FLAG_DEOXYS_METEORS
 	warp MAP_SKY_PILLAR_OUTSIDE, 14, 6
 	return
 
@@ -115,7 +118,10 @@ Space_2_EventScript_DeoxysBeaten::
 	waitmessage
 	setvar VAR_SKY_PILLAR_STATE, 5
 	setvar VAR_WEATHER_INSTITUTE_STATE, 1
+	setvar VAR_METEORS_STATE, 1
 	clearflag FLAG_SKYPILLAROUTSIDE_STEVE
+	setflag FLAG_HIDE_METEORS
+	clearflag FLAG_DEOXYS_METEORS
 	warp MAP_SKY_PILLAR_OUTSIDE, 14, 6
 	return
 

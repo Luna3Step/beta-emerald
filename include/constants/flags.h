@@ -685,8 +685,8 @@
 #define FLAG_ROCKET_BALLOON  0x283 // Unused Flag
 #define FLAG_ROCKET_LADY_BLOCK  0x284 // Unused Flag
 #define FLAG_ROCKET_LADY_UNBLOCK  0x285 // Unused Flag
-#define FLAG_UNUSED_0x286  0x286 // Unused Flag
-#define FLAG_UNUSED_0x287  0x287 // Unused Flag
+#define FLAG_DEOXYS_METEORS  0x286 // Unused Flag
+#define FLAG_HIDE_METEORS 0x287 // Unused Flag
 #define FLAG_UNUSED_0x288  0x288 // Unused Flag
 #define FLAG_UNUSED_0x289  0x289 // Unused Flag
 #define FLAG_UNUSED_0x28A  0x28A // Unused Flag
