@@ -26,7 +26,7 @@ ChangeDeoxysForm_Success:
 	goto ChangeDeoxysForm_End
 
 ChangeDeoxysForm_Text_Beginning:
-	.string "Do you wish to inspect the meteor's closely?$"
+	.string "Do you wish to inspect the meteor?$"
 
 ChangeDeoxysForm_Text_Select:
 	.string "Please select a Pokemon.$"
