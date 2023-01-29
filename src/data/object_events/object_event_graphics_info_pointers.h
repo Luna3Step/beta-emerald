@@ -516,6 +516,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_HOLE2] =                    &gObjectEventGraphicsInfo_Hole2,
     [OBJ_EVENT_GFX_HOLE3] =                    &gObjectEventGraphicsInfo_Hole3,
     [OBJ_EVENT_GFX_HOLE4] =                    &gObjectEventGraphicsInfo_Hole4,
+    [OBJ_EVENT_GFX_SNORLAX_STATUE] =           &gObjectEventGraphicsInfo_SnorlaxStatue,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

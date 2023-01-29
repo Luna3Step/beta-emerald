@@ -47,9 +47,7 @@ MtPyre_Summit_EventScript_TeamAquaExits::
 	applymovement LOCALID_ARCHIE, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
 	delay 50
-	call_if_eq VAR_0x8008, 0, MtPyre_Summit_EventScript_ArchieFacePlayer0
 	call_if_eq VAR_0x8008, 1, MtPyre_Summit_EventScript_ArchieFacePlayer1
-	call_if_eq VAR_0x8008, 2, MtPyre_Summit_EventScript_ArchieFacePlayer2
 	msgbox MtPyre_Summit_Text_ArchieWeGotTheOrbLetsGo, MSGBOX_DEFAULT
 	closemessage
 	fadescreen FADE_TO_BLACK
@@ -58,15 +56,17 @@ MtPyre_Summit_EventScript_TeamAquaExits::
 	removeobject LOCALID_GRUNT_2
 	removeobject LOCALID_GRUNT_3
 	removeobject LOCALID_GRUNT_4
+	removeobject 18
+	removeobject 19
+	removeobject 20
+	removeobject 21
 	setflag FLAG_HIDE_MT_PYRE_SUMMIT_ARCHIE
 	setflag FLAG_HIDE_MT_PYRE_SUMMIT_TEAM_AQUA
 	fadedefaultbgm
 	fadescreen FADE_FROM_BLACK
 	delay 20
 	setvar VAR_MT_PYRE_STATE, 1
-	call_if_eq VAR_0x8008, 0, MtPyre_Summit_EventScript_OldLadyApproachPlayer0
 	call_if_eq VAR_0x8008, 1, MtPyre_Summit_EventScript_OldLadyApproachPlayer1
-	call_if_eq VAR_0x8008, 2, MtPyre_Summit_EventScript_OldLadyApproachPlayer2
 	msgbox MtPyre_Summit_Text_BothOrbsTakenMagmaLeftThis, MSGBOX_DEFAULT
 	giveitem ITEM_MAGMA_EMBLEM
 	setflag FLAG_RECEIVED_RED_OR_BLUE_ORB
@@ -819,6 +819,42 @@ Movement_ScientistTakePositionPlease:
 	walk_down
 	step_end
 
+MtPyre_Summit_LeftGrunt::
+	lockall
+	faceplayer
+	msgbox MtPyre_Summit_LeftGrunt_Text_0
+	waitmessage
+	releaseall
+	return
+
+
+MtPyre_Summit_RightGrunt::
+	lockall
+	faceplayer
+	msgbox MtPyre_Summit_RightGrunt_Text_0
+	waitmessage
+	releaseall
+	return
+
+
+MtPyre_Summit_LefterGrunt::
+	lockall
+	faceplayer
+	msgbox MtPyre_Summit_LefterGrunt_Text_0
+	waitmessage
+	releaseall
+	return
+
+
+MtPyre_Summit_RighterGrunt::
+	lockall
+	faceplayer
+	msgbox MtPyre_Summit_RighterGrunt_Text_0
+	waitmessage
+	releaseall
+	return
+
+
 MtPyre_Summit_Sablenite_Text_0:
 	.string "You found a Sablenite!$"
 
@@ -916,6 +952,20 @@ MtPyre_Summit_EventScript_ScientistMeteor_Text_5:
 	.string "They'll double check the math's on the\l"
 	.string "final meteor and then send you the\l"
 	.string "location for it.$"
+
+MtPyre_Summit_LeftGrunt_Text_0:
+	.string "You should talk to our boss.$"
+
+MtPyre_Summit_RightGrunt_Text_0:
+	.string "We are so close to our goals.$"
+
+MtPyre_Summit_LefterGrunt_Text_0:
+	.string "We will finally stomp those Magma runts\n"
+	.string "with this conquest!$"
+
+MtPyre_Summit_RighterGrunt_Text_0:
+	.string "Why is that maggots seem to be buzz\n"
+	.string "around our boss so often?$"
 
 MtPyre_Summit_Text_BillIntro::
 	.string "You'll be sorry for interrupting!$"

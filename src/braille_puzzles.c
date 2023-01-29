@@ -108,7 +108,7 @@ bool8 CheckMewtwoParty(void)
     if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES2, 0) == SPECIES_CHARIZARD)
     {
         CalculatePlayerPartyCount();
-        if (GetMonData(&gPlayerParty[1], MON_DATA_SPECIES2, 0) == SPECIES_BLASTOISE && GetMonData(&gPlayerParty[2], MON_DATA_SPECIES2, 0) == SPECIES_VENUSAUR && GetMonData(&gPlayerParty[3], MON_DATA_SPECIES2, 0) == SPECIES_RHYDON && GetMonData(&gPlayerParty[4], MON_DATA_SPECIES2, 0) == SPECIES_SNORLAX && GetMonData(&gPlayerParty[5], MON_DATA_SPECIES2, 0) == SPECIES_MEW)
+        if (GetMonData(&gPlayerParty[1], MON_DATA_SPECIES2, 0) == SPECIES_BLASTOISE && GetMonData(&gPlayerParty[2], MON_DATA_SPECIES2, 0) == SPECIES_VENUSAUR && GetMonData(&gPlayerParty[3], MON_DATA_SPECIES2, 0) == SPECIES_PIKACHU && GetMonData(&gPlayerParty[4], MON_DATA_SPECIES2, 0) == SPECIES_SNORLAX && GetMonData(&gPlayerParty[5], MON_DATA_SPECIES2, 0) == SPECIES_MEW)
             return TRUE;
     }
     return FALSE;

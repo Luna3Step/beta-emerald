@@ -257,9 +257,10 @@
 #define OBJ_EVENT_GFX_HOLE2                      253
 #define OBJ_EVENT_GFX_HOLE3                      254
 #define OBJ_EVENT_GFX_HOLE4                      255
+#define OBJ_EVENT_GFX_SNORLAX_STATUE             256
 
-#define NUM_OBJ_EVENT_GFX                        256
-#define NUM_REGULAR_OBJ_EVENT_GFX                252
+#define NUM_OBJ_EVENT_GFX                        257
+#define NUM_REGULAR_OBJ_EVENT_GFX                257
 
 #define species_gfx(species) ((species + (NUM_REGULAR_OBJ_EVENT_GFX - 1)))
 

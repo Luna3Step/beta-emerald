@@ -2288,3 +2288,7 @@ static const struct SpriteFrameImage sPicTable_Hole3[] = {
 static const struct SpriteFrameImage sPicTable_Hole4[] = {
     overworld_frame(gObjectEventPic_Hole4, 2, 2, 0),
 };
+
+static const struct SpriteFrameImage sPicTable_SnorlaxStatue[] = {
+    overworld_frame(gObjectEventPic_SnorlaxStatue, 4, 4, 0),
+};

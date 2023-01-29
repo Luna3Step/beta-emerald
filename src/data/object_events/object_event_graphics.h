@@ -405,3 +405,4 @@ const u32 gObjectEventPic_Hole2[] = INCBIN_U32("graphics/object_events/pics/misc
 const u32 gObjectEventPic_Hole3[] = INCBIN_U32("graphics/object_events/pics/misc/hole3.4bpp");
 const u32 gObjectEventPic_Hole4[] = INCBIN_U32("graphics/object_events/pics/misc/hole4.4bpp");
 const u16 gObjectEventPalette_Hole[] = INCBIN_U16("graphics/object_events/pics/misc/hole.gbapal");
+const u32 gObjectEventPic_SnorlaxStatue[] = INCBIN_U32("graphics/object_events/pics/dolls/snorlax_statue.4bpp");

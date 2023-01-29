@@ -37,7 +37,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0x0",
+      "script": "MtPyre_Summit_EventScript_TeamAquaExits",
       "flag": "FLAG_HIDE_MT_PYRE_SUMMIT_ARCHIE"
     },
     {
@@ -234,6 +234,58 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MtPyre_Summit_EventScript_ScientistMeteor",
       "flag": "FLAG_SUMMIT_SCIENTIST_METEOR"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
+      "x": 24,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MtPyre_Summit_RightGrunt",
+      "flag": "FLAG_HIDE_MT_PYRE_SUMMIT_TEAM_AQUA"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+      "x": 22,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MtPyre_Summit_LeftGrunt",
+      "flag": "FLAG_HIDE_MT_PYRE_SUMMIT_TEAM_AQUA"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
+      "x": 21,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MtPyre_Summit_LefterGrunt",
+      "flag": "FLAG_HIDE_MT_PYRE_SUMMIT_TEAM_AQUA"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+      "x": 25,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MtPyre_Summit_RighterGrunt",
+      "flag": "FLAG_HIDE_MT_PYRE_SUMMIT_TEAM_AQUA"
     }
   ],
   "warp_events": [

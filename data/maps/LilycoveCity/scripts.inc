@@ -800,3 +800,40 @@ LilycoveCity_FinalMeteorCall_Text_3:
 LilycoveCity_FinalMeteorCall_Text_4:
 	.string "Once you've found the last meteor, come\n"
 	.string "visit us.$"
+
+LilycoveCity_FixFlags::
+	lockall
+	faceplayer
+	goto_if_set FLAG_EON_TICKET, LilycoveCity_FixFlags_2
+LilycoveCity_FixFlags_1:
+	goto_if_set FLAG_MYSTIC_TICKET, LilycoveCity_FixFlags_5
+LilycoveCity_FixFlags_4:
+	msgbox LilycoveCity_FixFlags_Text_2
+	waitmessage
+	releaseall
+	return
+
+LilycoveCity_FixFlags_2:
+	msgbox LilycoveCity_FixFlags_Text_0
+	setflag FLAG_ENABLE_SHIP_SOUTHERN_ISLAND
+	waitmessage
+	goto LilycoveCity_FixFlags_1
+
+LilycoveCity_FixFlags_5:
+	msgbox LilycoveCity_FixFlags_Text_1
+	setflag FLAG_ENABLE_SHIP_NAVEL_ROCK
+	waitmessage
+	releaseall
+	goto LilycoveCity_FixFlags_4
+
+
+LilycoveCity_FixFlags_Text_0:
+	.string "Hi, your ticket look to be slightly\n"
+	.string "flawed. Let me fix that for you$"
+
+LilycoveCity_FixFlags_Text_1:
+	.string "Your other ticket looks to be also\n"
+	.string "flawed. Let me fix that for you$"
+
+LilycoveCity_FixFlags_Text_2:
+	.string "I help sailors with their paperwork$"

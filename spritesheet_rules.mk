@@ -757,3 +757,6 @@ $(OBJEVENTGFXDIR)/misc/hole3.4bpp: %.4bpp: %.png
 
 $(OBJEVENTGFXDIR)/misc/hole4.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 2
+
+$(OBJEVENTGFXDIR)/dolls/snorlax_statue.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
